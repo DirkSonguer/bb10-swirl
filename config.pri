@@ -35,7 +35,12 @@ simulator {
 }
 
 config_pri_assets {
-    OTHER_FILES += $$quote($$BASEDIR/assets/main.qml)
+    OTHER_FILES += \
+        $$quote($$BASEDIR/assets/global/copytext.js) \
+        $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
+        $$quote($$BASEDIR/assets/global/globals.js) \
+        $$quote($$BASEDIR/assets/instagramkeys.textClipping) \
+        $$quote($$BASEDIR/assets/main.qml)
 }
 
 config_pri_source_group1 {
@@ -45,6 +50,8 @@ config_pri_source_group1 {
 
     HEADERS += $$quote($$BASEDIR/src/applicationui.hpp)
 }
+
+INCLUDEPATH += $$quote($$BASEDIR/src)
 
 CONFIG += precompile_header
 
@@ -59,7 +66,31 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../src/*.cxx) \
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
-        $$quote($$BASEDIR/../assets/*.qs)
+        $$quote($$BASEDIR/../assets/*.qs) \
+        $$quote($$BASEDIR/../assets/4sqapi/*.qml) \
+        $$quote($$BASEDIR/../assets/4sqapi/*.js) \
+        $$quote($$BASEDIR/../assets/4sqapi/*.qs) \
+        $$quote($$BASEDIR/../assets/classes/*.qml) \
+        $$quote($$BASEDIR/../assets/classes/*.js) \
+        $$quote($$BASEDIR/../assets/classes/*.qs) \
+        $$quote($$BASEDIR/../assets/components/*.qml) \
+        $$quote($$BASEDIR/../assets/components/*.js) \
+        $$quote($$BASEDIR/../assets/components/*.qs) \
+        $$quote($$BASEDIR/../assets/global/*.qml) \
+        $$quote($$BASEDIR/../assets/global/*.js) \
+        $$quote($$BASEDIR/../assets/global/*.qs) \
+        $$quote($$BASEDIR/../assets/images/*.qml) \
+        $$quote($$BASEDIR/../assets/images/*.js) \
+        $$quote($$BASEDIR/../assets/images/*.qs) \
+        $$quote($$BASEDIR/../assets/pages/*.qml) \
+        $$quote($$BASEDIR/../assets/pages/*.js) \
+        $$quote($$BASEDIR/../assets/pages/*.qs) \
+        $$quote($$BASEDIR/../assets/sheets/*.qml) \
+        $$quote($$BASEDIR/../assets/sheets/*.js) \
+        $$quote($$BASEDIR/../assets/sheets/*.qs) \
+        $$quote($$BASEDIR/../assets/structures/*.qml) \
+        $$quote($$BASEDIR/../assets/structures/*.js) \
+        $$quote($$BASEDIR/../assets/structures/*.qs)
 
     HEADERS += \
         $$quote($$BASEDIR/../src/*.h) \
