@@ -1,5 +1,5 @@
 1
-12
+19
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/loginuihandler.js
@@ -9,6 +9,13 @@ components/LoadingIndicator.qml
 global/copytext.js
 global/foursquarekeys.js
 global/globals.js
+images/icons/icon_about.png
+images/icons/icon_bbworld.png
+images/icons/icon_close.png
+images/icons/icon_home.png
+images/icons/icon_reload.png
+images/icons/icon_search.png
 instagramkeys.textClipping
 main.qml
 pages/PersonalFeed.qml
+sheets/About.qml

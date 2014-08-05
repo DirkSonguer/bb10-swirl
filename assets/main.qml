@@ -125,4 +125,66 @@ TabbedPane {
 //            Configuration.conf.setConfiguration("introduction", "1");
         }
     }
+    
+    // application menu (top menu)
+    Menu.definition: MenuDefinition {
+        id: mainMenu
+        
+        // application menu items
+        actions: [
+            // action for ratinig the app
+            ActionItem {
+                id: mainMenuAbout
+                title: "About"
+                imageSource: "asset:///images/icons/icon_about.png"
+                onTriggered: {
+                    // create logout sheet
+                    var aboutSheetPage = aboutComponent.createObject();
+                    aboutSheet.setContent(aboutSheetPage);
+                    aboutSheet.open();
+                }
+            },
+            // action for rate sheet
+            ActionItem {
+                id: mainMenuRate
+                title: "Update & Rate"
+                imageSource: "asset:///images/icons/icon_bbworld.png"
+                onTriggered: {
+                    rateAppLink.trigger("bb.action.OPEN");
+                }
+            }
+        ]
+    }
+    
+    // attached objects
+    // this contains the sheets which are used for general page based popupos
+    attachedObjects: [
+        // sheet for about page
+        // this is used by the main menu about item
+        Sheet {
+            id: aboutSheet
+            
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: aboutComponent
+                    source: "sheets/About.qml"
+                }
+            ]
+        },
+        // invocation for bb world
+        // used by the action menu to switch to bb world
+        Invocation {
+            id: rateAppLink
+            query {
+                mimeType: "application/x-bb-appworld"
+                uri: "appworld://content/24485875"
+            }
+        },
+        // system toast used globally by all pages and components
+        SystemToast {
+            id: swirlCenterToast
+            position: SystemUiPosition.MiddleCenter
+        }
+    ]    
 }

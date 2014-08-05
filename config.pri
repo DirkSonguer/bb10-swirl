@@ -45,9 +45,16 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
+        $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/instagramkeys.textClipping) \
         $$quote($$BASEDIR/assets/main.qml) \
-        $$quote($$BASEDIR/assets/pages/PersonalFeed.qml)
+        $$quote($$BASEDIR/assets/pages/PersonalFeed.qml) \
+        $$quote($$BASEDIR/assets/sheets/About.qml)
 }
 
 config_pri_source_group1 {
@@ -87,6 +94,12 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
         $$quote($$BASEDIR/../assets/images/*.qs) \
+        $$quote($$BASEDIR/../assets/images/icons/*.qml) \
+        $$quote($$BASEDIR/../assets/images/icons/*.js) \
+        $$quote($$BASEDIR/../assets/images/icons/*.qs) \
+        $$quote($$BASEDIR/../assets/images/splashscreens/*.qml) \
+        $$quote($$BASEDIR/../assets/images/splashscreens/*.js) \
+        $$quote($$BASEDIR/../assets/images/splashscreens/*.qs) \
         $$quote($$BASEDIR/../assets/pages/*.qml) \
         $$quote($$BASEDIR/../assets/pages/*.js) \
         $$quote($$BASEDIR/../assets/pages/*.qs) \

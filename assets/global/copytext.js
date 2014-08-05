@@ -9,7 +9,7 @@
 // License: All rights reserved
 // *************************************************** //
 
-var swirlAboutHeadline = "Instago";
-var swirlAboutBody = "<html>Instago is an Instagram viewer for BlackBerry. Browse popular photos, find interesting people and follow your friends on Instagram.<br /><br />Code &amp; UI: Dirk Songuer (dirk@songuer.de).</html>";
+var swirlAboutHeadline = "Swirl";
+var swirlAboutBody = "<html>Swirl is a foursquare app for BlackBerry 10 that embraces the new changes in the foursquare platform. In this regard it acts much like Swarm to allow you to meet your friends and check in with them - all native for your BB10 device.<br /><br />Code &amp; UI: Dirk Songuer (dirk@songuer.de).</html>";
 
 var swirlWorking = "Working..";
