@@ -16,16 +16,36 @@
 
 #include "applicationui.hpp"
 
+// standard includes
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
 
+// individual includes
+#include <bb/cascades/SceneCover>
+#include <bb/device/DisplayInfo>
+#include "WebImageView.h"
+
+// use blackberry namespaces
+using namespace bb::device;
 using namespace bb::cascades;
 
 ApplicationUI::ApplicationUI() :
         QObject()
 {
+    qmlRegisterType<WebImageView>("WebImageView", 1, 0, "WebImageView");
+    qmlRegisterType<QTimer>("QtTimer", 1, 0, "Timer");
+
+    // The SceneCover is registered so that it can be used in QML
+    qmlRegisterType<SceneCover>("bb.cascades", 1, 0, "SceneCover");
+
+    // Since it is not possible to create an instance of the AbstractCover
+    // it is registered as an uncreatable type (necessary for accessing
+    // Application.cover).
+    qmlRegisterUncreatableType<AbstractCover>("bb.cascades", 1, 0,
+            "AbstractCover", "An AbstractCover cannot be created.");
+
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);
@@ -43,6 +63,28 @@ ApplicationUI::ApplicationUI() :
     // Create scene document from main.qml asset, the parent is set
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
+
+    // Retrieve the path to the app's working directory
+    QString workingDir = QDir::currentPath();
+
+    // Build the path, add it as a context property, and expose
+    // it to QML
+    QDeclarativePropertyMap* dirPaths = new QDeclarativePropertyMap;
+    dirPaths->insert("currentPath", QVariant(QString(
+            "file://" + workingDir)));
+    dirPaths->insert("assetPath", QVariant(QString(
+            "file://" + workingDir + "/app/native/assets/")));
+    qml->setContextProperty("dirPaths", dirPaths);
+
+    DisplayInfo display;
+    int width = display.pixelSize().width();
+    int height = display.pixelSize().height();
+
+    QDeclarativePropertyMap* displayProperties = new QDeclarativePropertyMap;
+    displayProperties->insert("width", QVariant(width));
+    displayProperties->insert("height", QVariant(height));
+
+    qml->setContextProperty("DisplayInfo", displayProperties);
 
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();

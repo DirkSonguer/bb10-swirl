@@ -97,7 +97,7 @@ TabbedPane {
         // also: set active tabs
         if (! Authentication.auth.isAuthenticated()) {
             // remove tabs and menu items that are authenticated only
-//            LoginUIHandler.loginUIHandler.setLoggedOutState();
+            // LoginUIHandler.loginUIHandler.setLoggedOutState();
             
             // reset tab content by resetting the page
 //            profileTab.triggered();
@@ -105,7 +105,7 @@ TabbedPane {
 //            mainTabbedPane.activeTab = popularMediaTab;
         } else {
             // activate tabs that are authenticated only
-//            LoginUIHandler.loginUIHandler.setLoggedInState();
+            // LoginUIHandler.loginUIHandler.setLoggedInState();
             
             // this is a workaround as the initial tab does not recognize taps
             // and does not have the correct height / positioning

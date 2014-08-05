@@ -1,5 +1,5 @@
 1
-19
+18
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/loginuihandler.js
@@ -15,7 +15,6 @@ images/icons/icon_close.png
 images/icons/icon_home.png
 images/icons/icon_reload.png
 images/icons/icon_search.png
-instagramkeys.textClipping
 main.qml
 pages/PersonalFeed.qml
 sheets/About.qml
