@@ -51,7 +51,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
-        $$quote($$BASEDIR/assets/instagramkeys.textClipping) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/PersonalFeed.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml)

@@ -177,6 +177,8 @@ TabbedPane {
         Invocation {
             id: rateAppLink
             query {
+                // TODO: Update appworld link
+                // TODO: Add appworld link in 4sq app page
                 mimeType: "application/x-bb-appworld"
                 uri: "appworld://content/24485875"
             }
