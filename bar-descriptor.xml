@@ -78,7 +78,7 @@
 
     <initialWindow>
         <autoOrients>false</autoOrients>
-        <aspectRatio>landscape</aspectRatio>
+        <aspectRatio>portrait</aspectRatio>
         <systemChrome>none</systemChrome>
     </initialWindow>
 

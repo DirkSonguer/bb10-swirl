@@ -36,6 +36,9 @@ simulator {
 
 config_pri_assets {
     OTHER_FILES += \
+        $$quote($$BASEDIR/assets/classes/authenticationhandler.js) \
+        $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
+        $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
@@ -51,8 +54,6 @@ config_pri_source_group1 {
     HEADERS += $$quote($$BASEDIR/src/applicationui.hpp)
 }
 
-INCLUDEPATH += $$quote($$BASEDIR/src)
-
 CONFIG += precompile_header
 
 PRECOMPILED_HEADER = $$quote($$BASEDIR/precompiled.h)
@@ -67,15 +68,15 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \
-        $$quote($$BASEDIR/../assets/4sqapi/*.qml) \
-        $$quote($$BASEDIR/../assets/4sqapi/*.js) \
-        $$quote($$BASEDIR/../assets/4sqapi/*.qs) \
         $$quote($$BASEDIR/../assets/classes/*.qml) \
         $$quote($$BASEDIR/../assets/classes/*.js) \
         $$quote($$BASEDIR/../assets/classes/*.qs) \
         $$quote($$BASEDIR/../assets/components/*.qml) \
         $$quote($$BASEDIR/../assets/components/*.js) \
         $$quote($$BASEDIR/../assets/components/*.qs) \
+        $$quote($$BASEDIR/../assets/foursquareapi/*.qml) \
+        $$quote($$BASEDIR/../assets/foursquareapi/*.js) \
+        $$quote($$BASEDIR/../assets/foursquareapi/*.qs) \
         $$quote($$BASEDIR/../assets/global/*.qml) \
         $$quote($$BASEDIR/../assets/global/*.js) \
         $$quote($$BASEDIR/../assets/global/*.qs) \
