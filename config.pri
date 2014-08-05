@@ -38,12 +38,16 @@ config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/classes/authenticationhandler.js) \
         $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
+        $$quote($$BASEDIR/assets/classes/loginuihandler.js) \
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
+        $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
+        $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
         $$quote($$BASEDIR/assets/instagramkeys.textClipping) \
-        $$quote($$BASEDIR/assets/main.qml)
+        $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/PersonalFeed.qml)
 }
 
 config_pri_source_group1 {
