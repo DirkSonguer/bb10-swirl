@@ -1,11 +1,13 @@
 1
-19
+21
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/loginuihandler.js
 classes/networkhandler.js
 components/InfoMessage.qml
 components/LoadingIndicator.qml
+components/UserShortProfile.qml
+components/UserShortProfileList.qml
 global/copytext.js
 global/foursquarekeys.js
 global/globals.js

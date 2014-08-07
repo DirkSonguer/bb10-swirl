@@ -42,7 +42,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
-        $$quote($$BASEDIR/assets/components/UserItem.qml) \
+        $$quote($$BASEDIR/assets/components/UserShortProfile.qml) \
+        $$quote($$BASEDIR/assets/components/UserShortProfileList.qml) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \

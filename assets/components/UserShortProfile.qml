@@ -1,9 +1,10 @@
 // *************************************************** //
-// User Item Component
+// User Short Profile Component
 //
-// This component shows a user item, consisting of user
-// image, name and other metadata as ell as handle
-// interaction with the individual elements
+// This component shows a short user profile, consisting
+// of user image, name and other metadata.
+// The component also handles the interaction with the
+// individual elements.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -20,22 +21,25 @@ import "../global/copytext.js" as Copytext
 import WebImageView 1.0
 
 Container {
-    id: userItemComponent
+    id: userShortProfileComponent
 
     // signal that user profile image has been clicked
-    signal userProfileImageClicked()
+    signal profileImageClicked()
 
     // signal that user name has been clicked
-    signal userNameClicked()
+    signal usernameClicked()
     
     // property for the user profile image given as url
-    property alias profileimage: userItemProfileImage.url
+    property alias profileimage: userShortProfileImage.url
 
     // property for the user name
-    property alias username: userItemUsername.text
+    property alias username: userShortProfileUsername.text
     
     // property for the user name
-    property alias homecity: userItemHomeCity.text
+    property alias homecity: userShortProfileHomeCity.text
+    
+    // property for the current location
+    property alias currentlocation: userShortProfileCurrentLocation.text
 
     // layout orientation
     layout: StackLayout {
@@ -60,7 +64,7 @@ Container {
         // profile image
         // this is a web image view provided by WebViewImage
         WebImageView {
-            id: userItemProfileImage
+            id: userShortProfileImage
 
             // align the image in the center
             verticalAlignment: VerticalAlignment.Center
@@ -78,7 +82,7 @@ Container {
             TapHandler {
                 onTapped: {
                     // console.log("# User profile clicked");
-                    userItemComponent.userProfileImageClicked();
+                    userShortProfileComponent.profileImageClicked();
                 }
             }
         ]
@@ -96,19 +100,42 @@ Container {
 
         // user name label
         Label {
-            id: userItemUsername
+            id: userShortProfileUsername
 
             // layout definition
+            bottomMargin: 0
             textStyle.base: SystemDefaults.TextStyles.TitleText
-            textStyle.fontWeight: FontWeight.W500
+            textStyle.fontWeight: FontWeight.W100
             textStyle.textAlign: TextAlign.Left
         }
 
+        
+        // current location label
+        Label {
+            id: userShortProfileCurrentLocation
+            
+            // set initial visibility to false
+            // will be set true as content is entered
+            visible: false
+            
+            // layout definition
+            topMargin: 0
+            bottomMargin: 0
+            textStyle.base: SystemDefaults.TextStyles.BodyText
+            textStyle.fontWeight: FontWeight.W100
+            textStyle.textAlign: TextAlign.Left
+            
+            onTextChanged: {
+                visible = true
+            }
+        }
+        
         // image caption label
         Label {
-            id: userItemHomeCity
+            id: userShortProfileHomeCity
 
             // layout definition
+            topMargin: 0
             textStyle.base: SystemDefaults.TextStyles.BodyText
             textStyle.fontWeight: FontWeight.W100
             textStyle.textAlign: TextAlign.Left
@@ -119,7 +146,7 @@ Container {
             TapHandler {
                 onTapped: {
                     // console.log("# Container clicked");
-                    userItemComponent.userNameClicked();
+                    userShortProfileComponent.userNameClicked();
                 }
             }
         ]

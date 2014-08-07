@@ -49,6 +49,15 @@ NavigationPane {
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
+            
+            UserShortProfile {
+                id: userShortProfile
+                
+                username: "Hello"
+                profileimage: "https://irs3.4sqi.net/img/user/100x100/PMPNSU2VFVTJ1YBG.jpg"
+                homecity: "Frankfurt am Main, Germany"
+                currentlocation: "Hambuerger See"
+            }
         }
 
         // page creation is finished
@@ -57,7 +66,7 @@ NavigationPane {
             // console.log("# Creation of personal feed page finished");
 
             // show loader
-            loadingIndicator.showLoader("Loading your feed");
+            // loadingIndicator.showLoader("Loading your feed");
         }
     }
 
