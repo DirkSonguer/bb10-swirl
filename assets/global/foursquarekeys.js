@@ -33,4 +33,7 @@ function FoursquareKeys()
 
 	// Foursquare redirect URL
 	this.foursquareRedirectUrl = "http://apps.songuer.de/swirl/redirect";
+	
+	// Foursquare API versioning date
+	this.foursquareAPIVersion = "20140806";
 }

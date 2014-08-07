@@ -42,6 +42,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
+        $$quote($$BASEDIR/assets/components/UserItem.qml) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
@@ -53,7 +54,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/PersonalFeed.qml) \
-        $$quote($$BASEDIR/assets/sheets/About.qml)
+        $$quote($$BASEDIR/assets/sheets/About.qml) \
+        $$quote($$BASEDIR/assets/sheets/UserLogin.qml)
 }
 
 config_pri_source_group1 {

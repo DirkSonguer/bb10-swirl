@@ -96,6 +96,7 @@ TabbedPane {
         // actually this removes all features that require a login
         // also: set active tabs
         if (! Authentication.auth.isAuthenticated()) {
+            console.log("# Info: User is not authenticated");
             // remove tabs and menu items that are authenticated only
             // LoginUIHandler.loginUIHandler.setLoggedOutState();
             
@@ -104,6 +105,7 @@ TabbedPane {
 //            mainTabbedPane.activeTab = profileTab;
 //            mainTabbedPane.activeTab = popularMediaTab;
         } else {
+            console.log("# Info: User is authenticated");
             // activate tabs that are authenticated only
             // LoginUIHandler.loginUIHandler.setLoggedInState();
             
@@ -132,6 +134,18 @@ TabbedPane {
         
         // application menu items
         actions: [
+            // action for ratinig the app
+            ActionItem {
+                id: mainMenuLogin
+                title: "Login"
+                imageSource: "asset:///images/icons/icon_about.png"
+                onTriggered: {
+                    // create logout sheet
+                    var loginSheetPage = loginComponent.createObject();
+                    loginSheet.setContent(loginSheetPage);
+                    loginSheet.open();
+                }
+            },
             // action for ratinig the app
             ActionItem {
                 id: mainMenuAbout
@@ -172,6 +186,19 @@ TabbedPane {
                 }
             ]
         },
+        // sheet for about page
+        // this is used by the main menu about item
+        Sheet {
+            id: loginSheet
+            
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: loginComponent
+                    source: "sheets/UserLogin.qml"
+                }
+            ]
+        },        
         // invocation for bb world
         // used by the action menu to switch to bb world
         Invocation {

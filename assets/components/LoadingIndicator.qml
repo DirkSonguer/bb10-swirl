@@ -9,7 +9,7 @@
 // *************************************************** //
 
 // import blackberry components
-import bb.cascades 1.2
+import bb.cascades 1.3
 
 // shared js files
 import "../global/globals.js" as Globals
