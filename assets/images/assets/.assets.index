@@ -1,16 +1,19 @@
 1
-21
+25
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/loginuihandler.js
 classes/networkhandler.js
+components/CheckinItem.qml
+components/CheckinList.qml
 components/InfoMessage.qml
 components/LoadingIndicator.qml
-components/UserCheckinItem.qml
-components/UserShortProfileList.qml
+foursquareapi/checkins.js
 global/copytext.js
 global/foursquarekeys.js
 global/globals.js
+images/assets/mask_test.png
+images/assets/rpxYT.jpg
 images/icons/icon_about.png
 images/icons/icon_bbworld.png
 images/icons/icon_close.png
@@ -21,3 +24,4 @@ main.qml
 pages/PersonalFeed.qml
 sheets/About.qml
 sheets/UserLogin.qml
+structures/checkin.js

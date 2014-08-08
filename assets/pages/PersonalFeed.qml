@@ -50,13 +50,11 @@ NavigationPane {
                 horizontalAlignment: HorizontalAlignment.Center
             }
             
-            UserShortProfile {
-                id: userShortProfile
-                
-                username: "Hello"
-                profileimage: "https://irs3.4sqi.net/img/user/100x100/PMPNSU2VFVTJ1YBG.jpg"
-                homecity: "Frankfurt am Main, Germany"
-                currentlocation: "Hambuerger See"
+            CheckinItem {
+                username: "Dirk Songuer"
+                profileImage: "https://irs3.4sqi.net/img/user/100x100/PMPNSU2VFVTJ1YBG.jpg"
+                locationName: "Razorfish"
+                locationCity: "Frankfurt am Main, Germany"                
             }
         }
 

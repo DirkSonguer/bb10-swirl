@@ -40,13 +40,16 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
         $$quote($$BASEDIR/assets/classes/loginuihandler.js) \
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
+        $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
-        $$quote($$BASEDIR/assets/components/UserShortProfile.qml) \
-        $$quote($$BASEDIR/assets/components/UserShortProfileList.qml) \
+        $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
+        $$quote($$BASEDIR/assets/images/assets/mask_test.png) \
+        $$quote($$BASEDIR/assets/images/assets/rpxYT.jpg) \
         $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
@@ -56,7 +59,10 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/PersonalFeed.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
-        $$quote($$BASEDIR/assets/sheets/UserLogin.qml)
+        $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
+        $$quote($$BASEDIR/assets/structures/checkin.js) \
+        $$quote($$BASEDIR/assets/structures/user.js) \
+        $$quote($$BASEDIR/assets/structures/venue.js)
 }
 
 config_pri_source_group1 {
@@ -99,6 +105,9 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
         $$quote($$BASEDIR/../assets/images/*.qs) \
+        $$quote($$BASEDIR/../assets/images/assets/*.qml) \
+        $$quote($$BASEDIR/../assets/images/assets/*.js) \
+        $$quote($$BASEDIR/../assets/images/assets/*.qs) \
         $$quote($$BASEDIR/../assets/images/icons/*.qml) \
         $$quote($$BASEDIR/../assets/images/icons/*.js) \
         $$quote($$BASEDIR/../assets/images/icons/*.qs) \
