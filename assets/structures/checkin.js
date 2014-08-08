@@ -15,5 +15,6 @@ function FoursquareCheckinData()
 	// this is filled by a FoursquareUserData object
 	this.userData = "";
 	
-
+	// this is filled by a FoursquareVenueData object
+	this.venueData = "";
 }

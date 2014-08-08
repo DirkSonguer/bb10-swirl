@@ -11,9 +11,12 @@
 // data structure for Foursquare user
 function FoursquareUserData()
 {
-	this.checkinID = "";
+	this.userID = "";
 
-	this.user = "";
-	
+	this.firstName = "";
+	this.lastName = "";
+	this.gender = "";
+	this.relationship = "";
 
+	this.profileImage = "";
 }
