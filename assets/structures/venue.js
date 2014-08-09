@@ -22,7 +22,6 @@ function FoursquareVenueData()
 	// atomic address data
 	this.address = "";
 	this.city = "";
-	this.address = "";
 	this.postalCode = "";
 	this.country = "";
 

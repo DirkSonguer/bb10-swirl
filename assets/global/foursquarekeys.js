@@ -22,14 +22,13 @@ function FoursquareKeys()
 	this.foursquareSecretId = "OXVZVCNTS1KYJ3QTGELND04HGXXWQVO5JYG5SBHVV4M0Y0UW";
 
 	// Foursquare API URL
-	this.foursquareAPIUrl = "https://foursquare.com";
-	// this.instagramAPIUrl = "http://192.168.248.1";
+	this.foursquareAPIUrl = "https://api.foursquare.com";
 	
 	// Foursquare URL the user authenticates against
-	this.foursquareAuthorizeUrl = this.foursquareAPIUrl + "/oauth2/authenticate";
+	this.foursquareAuthorizeUrl = "https://foursquare.com/oauth2/authenticate";
 
 	// Foursquare URL to request a permanent token
-	this.foursquareTokenRequestUrl = this.foursquareAPIUrl + "/oauth2/access_token";
+	this.foursquareTokenRequestUrl = "https://foursquare.com/oauth2/access_token";
 
 	// Foursquare redirect URL
 	this.foursquareRedirectUrl = "http://apps.songuer.de/swirl/redirect";

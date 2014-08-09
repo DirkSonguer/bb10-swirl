@@ -1,5 +1,5 @@
 1
-25
+31
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/loginuihandler.js
@@ -9,6 +9,9 @@ components/CheckinList.qml
 components/InfoMessage.qml
 components/LoadingIndicator.qml
 foursquareapi/checkins.js
+foursquareapi/checkintransformator.js
+foursquareapi/usertransformator.js
+foursquareapi/venuetransformator.js
 global/copytext.js
 global/foursquarekeys.js
 global/globals.js
@@ -25,3 +28,6 @@ pages/PersonalFeed.qml
 sheets/About.qml
 sheets/UserLogin.qml
 structures/checkin.js
+structures/errordata.js
+structures/user.js
+structures/venue.js

@@ -17,6 +17,7 @@ import "../components"
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
+import "../foursquareapi/checkins.js" as CheckinsRepository
 
 // this is a page that is available from the main tab, thus it has to be a navigation pane
 // note that the id is always "navigationPane"
@@ -26,11 +27,11 @@ NavigationPane {
     Page {
         id: personalFeedPage
 
-        // signal if personal feed data loading is complete
-        signal personalFeedLoaded(variant mediaDataArray, string paginationId)
-
-        // signal if personal feed data loading went wrong
-        signal personalFeedError(variant errorData)
+        // signal if popular media data loading is complete
+        signal recentCheckinDataLoaded(variant recentCheckinData)
+        
+        // signal if popular media data loading encountered an error
+        signal recentCheckinDataError(variant errorData)
 
         // main content container
         Container {
@@ -49,23 +50,47 @@ NavigationPane {
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
-            
+            /*
             CheckinItem {
                 username: "Dirk Songuer"
                 profileImage: "https://irs3.4sqi.net/img/user/100x100/PMPNSU2VFVTJ1YBG.jpg"
                 locationName: "Razorfish"
                 locationCity: "Frankfurt am Main, Germany"                
             }
+            */
+            
+            CheckinList {
+                id: checkinList
+            }
         }
 
         // page creation is finished
         // load the gallery content as soon as the page is ready
         onCreationCompleted: {
-            // console.log("# Creation of personal feed page finished");
-
+            // console.log("# Creation of popular media page finished");
+            
             // show loader
-            // loadingIndicator.showLoader("Loading your feed");
+            loadingIndicator.showLoader("Loading recent checkins");
+            
+            // load popular media stream
+            CheckinsRepository.getRecentCheckins(personalFeedPage);
         }
+        
+        // popular media data loaded and transformed
+        // data is stored in "mediaDataArray" variant as array of type InstagramMediaData
+        onRecentCheckinDataLoaded: {
+            console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
+            
+            checkinList.clearList();
+            
+            // iterate through data objects
+            for (var index in recentCheckinData) {
+                checkinList.addToList(recentCheckinData[index]);
+            }
+            
+            // hide loader
+            loadingIndicator.hideLoader();
+        }        
     }
 
     // destroy pages after use

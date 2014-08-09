@@ -10,3 +10,5 @@
 // *************************************************** //
 
 var currentApplicationVersion = "1.0.0";
+
+var foursquareProfileImageSmall = "100x100";

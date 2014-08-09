@@ -15,6 +15,7 @@ function FoursquareUserData()
 
 	this.firstName = "";
 	this.lastName = "";
+	this.fullName = "";
 	this.gender = "";
 	this.relationship = "";
 

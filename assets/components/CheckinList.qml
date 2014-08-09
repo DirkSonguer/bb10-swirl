@@ -52,7 +52,7 @@ Container {
         userCheckinListComponent.currentItemIndex += 1;
         userCheckinListDataModel.insert({
                 "checkinData": item,
-                "timestamp": item.createdTime,
+                "timestamp": item.createdAt,
                 "currentIndex": userCheckinListComponent.currentItemIndex
             });
     }
@@ -101,15 +101,15 @@ Container {
                     // layout definition
                     topMargin: 1
 
-                    UserCheckinItem {
+                    CheckinItem {
                         // layout definition
                         preferredWidth: Qt.fullDisplaySize
                         minWidth: Qt.fullDisplaySize
 
-                        username: "Dirk Songuer"
-                        profileImage: "https://irs3.4sqi.net/img/user/100x100/PMPNSU2VFVTJ1YBG.jpg"
-                        locationName: "Razorfish"
-                        locationCity: "Frankfurt am Main, Germany"
+                        username: ListItemData.checkinData.userData.fullName
+                        profileImage: ListItemData.checkinData.userData.profileImage
+                        locationName: ListItemData.checkinData.venueData.name
+                        locationCity: ListItemData.checkinData.venueData.city + ", " + ListItemData.checkinData.venueData.country
                         
                         onUserClicked: {
                             // send user clicked event

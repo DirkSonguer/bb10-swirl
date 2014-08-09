@@ -11,6 +11,9 @@
 function FoursquareCheckinData()
 {
 	this.checkinID = "";
+	
+	// timestamp
+	this.createdAt = "";
 
 	// this is filled by a FoursquareUserData object
 	this.userData = "";

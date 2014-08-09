@@ -45,6 +45,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/venuetransformator.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
@@ -61,6 +64,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
+        $$quote($$BASEDIR/assets/structures/errordata.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)
 }
