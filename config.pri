@@ -51,7 +51,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
-        $$quote($$BASEDIR/assets/images/assets/mask_test.png) \
+        $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/rpxYT.jpg) \
         $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \

@@ -12,3 +12,5 @@
 var currentApplicationVersion = "1.0.0";
 
 var foursquareProfileImageSmall = "100x100";
+
+var blackberryStandardBlue = "#0391cc";

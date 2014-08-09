@@ -69,6 +69,9 @@
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
+    <icon>
+       <image>icon.png</image>
+    </icon>
     <category>core.media</category>
     <authorId>gYAAgBdeWwop_OlO2UhxazMyvtM</authorId>
     <author>Dirk Songuer</author>
@@ -83,9 +86,6 @@
     </initialWindow>
 
     <!--  The icon for the application, which should be 114x114. -->
-    <icon>
-        <image>icon.png</image>
-    </icon>
 
     <asset path="icon.png">icon.png</asset>
     <asset path="assets">assets</asset>

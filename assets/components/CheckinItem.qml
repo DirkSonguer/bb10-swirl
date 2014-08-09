@@ -92,7 +92,7 @@ Container {
             minHeight: 150
             minWidth: 150
             
-            imageSource: "asset:///images/assets/mask_test.png"
+            imageSource: "asset:///images/assets/mask_squircle.png"
         }        
 
         // handle tap on profile picture
@@ -109,6 +109,7 @@ Container {
     // checkin meta data container
     Container {
         // layout definition
+        topPadding: 10
         leftMargin: 20
 
         // layout orientation
@@ -124,28 +125,22 @@ Container {
             bottomMargin: 0
             textStyle.base: SystemDefaults.TextStyles.SmallText
             textStyle.fontWeight: FontWeight.Bold
+            textStyle.fontSize: FontSize.XSmall
             textStyle.textAlign: TextAlign.Left
         }
 
-        
         // current location name label
         Label {
             id: checkinLocationName
-            
-            // set initial visibility to false
-            // will be set true as content is entered
-            visible: false
             
             // layout definition
             topMargin: 0
             bottomMargin: 0
             textStyle.base: SystemDefaults.TextStyles.TitleText
             textStyle.fontWeight: FontWeight.W100
+            textStyle.fontSize: FontSize.Large
             textStyle.textAlign: TextAlign.Left
-            
-            onTextChanged: {
-                visible = true
-            }
+            textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
         
         // current location city label
@@ -156,6 +151,7 @@ Container {
             topMargin: 0
             textStyle.base: SystemDefaults.TextStyles.SubtitleText
             textStyle.fontWeight: FontWeight.W100
+            textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Left
         }
 
