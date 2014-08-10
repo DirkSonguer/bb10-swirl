@@ -41,6 +41,14 @@ Container {
     
     // property for the checkin city, given as string
     property alias locationCity: checkinLocationCity.text
+
+    // property for the elapsed time since checkin, given as string
+    property alias elapsedTime: checkinElapsedTime.text
+    
+    // hand over preferred width to subcontainers
+    onPreferredWidthChanged: {
+        usernameAndElapsedTimeContainer.preferredWidth = (preferredWidth - 150);
+    }
     
     // layout orientation
     layout: StackLayout {
@@ -52,9 +60,6 @@ Container {
     bottomPadding: 20
     leftPadding: 10
     rightPadding: 10
-
-    // standard width is full display width
-    preferredWidth: DisplayInfo.width
 
     // profile image container
     Container {
@@ -110,23 +115,53 @@ Container {
     Container {
         // layout definition
         topPadding: 10
-        leftMargin: 20
+        leftMargin: 10
 
         // layout orientation
         layout: StackLayout {
             orientation: LayoutOrientation.TopToBottom
         }
-
-        // user name label
-        Label {
-            id: checkinUsername
-
+        
+        Container {
+            id: usernameAndElapsedTimeContainer
+            
+            // layout orientation
+            layout: GridLayout {
+                columnCount: 2
+            }
+            
             // layout definition
-            bottomMargin: 0
-            textStyle.base: SystemDefaults.TextStyles.SmallText
-            textStyle.fontWeight: FontWeight.Bold
-            textStyle.fontSize: FontSize.XSmall
-            textStyle.textAlign: TextAlign.Left
+            horizontalAlignment: HorizontalAlignment.Fill
+            rightPadding: 10
+            
+            // user name label
+            Label {
+                id: checkinUsername
+                
+                horizontalAlignment: HorizontalAlignment.Left
+    
+                // layout definition
+                bottomMargin: 0
+                textStyle.base: SystemDefaults.TextStyles.SmallText
+                textStyle.fontWeight: FontWeight.Bold
+                textStyle.fontSize: FontSize.XSmall
+                textStyle.textAlign: TextAlign.Left
+            }
+
+            // user name label
+            Label {
+                id: checkinElapsedTime
+
+                horizontalAlignment: HorizontalAlignment.Right
+                
+                // layout definition
+                bottomMargin: 0
+                preferredWidth: 100
+                textStyle.base: SystemDefaults.TextStyles.SmallText
+                textStyle.fontWeight: FontWeight.W100
+                textStyle.fontSize: FontSize.XSmall
+                textStyle.textAlign: TextAlign.Right
+            }
         }
 
         // current location name label

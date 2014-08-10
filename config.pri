@@ -53,14 +53,24 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/global/globals.js) \
         $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/rpxYT.jpg) \
+        $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_193.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_194.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_195.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_196.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_197.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_198.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_recent.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/PersonalFeed.qml) \
+        $$quote($$BASEDIR/assets/pages/RecentCheckins.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \

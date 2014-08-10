@@ -28,7 +28,7 @@ TabbedPane {
     
     // pane definition
     showTabsOnActionBar: true
-    activeTab: personalNotificationTab
+    activeTab: recentCheckinTab
 
     // tab for the personal user feed
     // tab is only visible if user is logged in
@@ -58,28 +58,28 @@ TabbedPane {
     // tab for popular media page
     // tab is always visible regardless of login state
     Tab {
-        id: personalNotificationTab
-        title: "Notifications"
-//        imageSource: "asset:///images/icons/icon_popular.png"
+        id: recentCheckinTab
+        title: "Recent Checkins"
+        imageSource: "asset:///images/icons/icon_recent.png"
         
         // note that the page is bound to the component every time it loads
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            personalNotificationComponent.source = "pages/PersonalFeed.qml";
-            var personalNotificationPage = personalNotificationComponent.createObject();
-            personalNotificationTab.setContent(personalNotificationPage);
+            recentCheckinsComponent.source = "pages/RecentCheckins.qml";
+            var recentCheckinsPage = recentCheckinsComponent.createObject();
+            recentCheckinTab.setContent(recentCheckinsPage);
             
             // reset tab content by resetting the page
             mainTabbedPane.activeTab = personalFeedTab;
-            mainTabbedPane.activeTab = personalNotificationTab;
+            mainTabbedPane.activeTab = recentCheckinTab;
         }
         
-        // attach a component for the popular media page
+        // attach a component for the recent checkin page
         // this is bound to the content property later on onCreationCompleted()
         attachedObjects: [
             ComponentDefinition {
-                id: personalNotificationComponent
+                id: recentCheckinsComponent
             }
         ]
     }
@@ -88,9 +88,9 @@ TabbedPane {
     // main logic on startup
     onCreationCompleted: {
         // load initial tab and fill it with content
-        personalNotificationComponent.source = "pages/PersonalFeed.qml";
-        var personalNotificationPage = personalNotificationComponent.createObject();
-        personalNotificationTab.setContent(personalNotificationPage);
+        recentCheckinsComponent.source = "pages/RecentCheckins.qml";
+        var recentCheckinsPage = recentCheckinsComponent.createObject();
+        recentCheckinTab.setContent(recentCheckinsPage);
 
         // show content according to the login status of the user
         // actually this removes all features that require a login
@@ -119,7 +119,7 @@ TabbedPane {
         // check on startup for introduction sheet
         var configurationData = Configuration.conf.getConfiguration("introduction");   
         if (configurationData.length < 1) {
-            // console.log("# Introduction not shown yet. Open intro sheet");
+            console.log("# Introduction not shown yet. Open intro sheet");
 //            var introductionPage = introductionComponent.createObject();
 //            introductionSheet.setContent(introductionPage);
 //            introductionSheet.open();

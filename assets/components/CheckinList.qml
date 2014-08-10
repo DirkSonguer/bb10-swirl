@@ -110,6 +110,7 @@ Container {
                         profileImage: ListItemData.checkinData.userData.profileImage
                         locationName: ListItemData.checkinData.venueData.name
                         locationCity: ListItemData.checkinData.venueData.city + ", " + ListItemData.checkinData.venueData.country
+                        elapsedTime: ListItemData.checkinData.elapsedTime
                         
                         onUserClicked: {
                             // send user clicked event
