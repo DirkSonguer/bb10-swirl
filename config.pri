@@ -38,14 +38,19 @@ config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/classes/authenticationhandler.js) \
         $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
+        $$quote($$BASEDIR/assets/classes/helpermethods.js) \
         $$quote($$BASEDIR/assets/classes/loginuihandler.js) \
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
+        $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
+        $$quote($$BASEDIR/assets/components/NotificationList.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/notificationtransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
         $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/venuetransformator.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
@@ -56,25 +61,29 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_193.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_194.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_195.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_196.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_197.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_198.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_aroundyou.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_recent.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/main.qml) \
-        $$quote($$BASEDIR/assets/pages/PersonalFeed.qml) \
+        $$quote($$BASEDIR/assets/pages/AroundYou.qml) \
+        $$quote($$BASEDIR/assets/pages/Notifications.qml) \
         $$quote($$BASEDIR/assets/pages/RecentCheckins.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
         $$quote($$BASEDIR/assets/structures/errordata.js) \
+        $$quote($$BASEDIR/assets/structures/geolocation.js) \
+        $$quote($$BASEDIR/assets/structures/notification.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)
 }

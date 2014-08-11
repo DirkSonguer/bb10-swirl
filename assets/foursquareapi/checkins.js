@@ -19,10 +19,12 @@ if (typeof dirPaths !== "undefined") {
 }
 
 // Load the recent checkin data for the currently logged in user
-// First parameter is the id of the calling page, which will receive the
+// First parameter is the current geolocation, given as GeolocationData
+// or 0
+// Second parameter is the id of the calling page, which will receive the
 // recentCheckinDataLoaded() signal
-function getRecentCheckins(callingPage) {
-	console.log("# Loading recent checkins");
+function getRecentCheckins(currentGeoLocation, callingPage) {
+	console.log("# Loading recent checkins: ");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -68,11 +70,15 @@ function getRecentCheckins(callingPage) {
 	var foursquareUserdata = auth.getStoredFoursquareData();
 	// https://api.foursquare.com/v2/checkins/recent?oauth_token=GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK&v=20140806&m=swarm
 	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/recent";
-	// url += "?oauth_token=" + foursquareUserdata["access_token"];
-	url += "?oauth_token=GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
-
+	
+/*	
+	if (typeof currentGeoLocation != 'undefined') {
+		url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
+	}
+*/
 	console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();

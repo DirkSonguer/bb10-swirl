@@ -50,14 +50,6 @@ NavigationPane {
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
-            /*
-            CheckinItem {
-                username: "Dirk Songuer"
-                profileImage: "https://irs3.4sqi.net/img/user/100x100/PMPNSU2VFVTJ1YBG.jpg"
-                locationName: "Razorfish"
-                locationCity: "Frankfurt am Main, Germany"                
-            }
-            */
             
             CheckinList {
                 id: checkinList
@@ -73,7 +65,7 @@ NavigationPane {
             loadingIndicator.showLoader("Loading recent checkins");
             
             // load popular media stream
-            CheckinsRepository.getRecentCheckins(personalFeedPage);
+            CheckinsRepository.getRecentCheckins("memo", personalFeedPage);
         }
         
         // popular media data loaded and transformed

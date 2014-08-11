@@ -26,6 +26,9 @@ Page {
 
     // property flag to check if authentication process has been done
     property bool authenticationDone: false
+    
+    // property that holds the ID of the page that opens the sheet
+    property variant tabToReload
 
     Container {
         // layout orientation
@@ -101,11 +104,10 @@ Page {
                         // show confirmation
                         loginFoursquareWebView.visible = false
                         loadingIndicator.hideLoader();
-                        infoMessage.showMessage(Copytext.instagoLoginSuccessMessage, Copytext.instagoLoginSuccessTitle);
                         authenticationDone = true;
-
-                        // activate tabs that are authenticated only
-                        LoginUIHandler.loginUIHandler.setLoggedInState();
+                        
+                        userLoginSheet.tabToReload.triggered();
+                        loginSheet.close();
                     }
                 }
             }
@@ -127,28 +129,4 @@ Page {
     onCreationCompleted: {
         loadingIndicator.showLoader("Loading login process");
     }
-
-    // close action for the sheet
-    actions: [
-        ActionItem {
-            title: "Close"
-            ActionBar.placement: ActionBarPlacement.OnBar
-            imageSource: "asset:///images/icons/icon_close.png"
-
-            // close sheet when pressed
-            // note that the sheet is defined in the main.qml
-            onTriggered: {
-                loginSheet.close();
-
-                if (authenticationDone) {
-                    /*
-                    // reload profile page to login notification
-                    profileComponent.source = "../pages/UserProfile.qml"
-                    var profilePage = profileComponent.createObject();
-                    profileTab.setContent(profilePage);
-                    */
-                }
-            }
-        }
-    ]
 }

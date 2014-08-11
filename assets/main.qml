@@ -21,47 +21,79 @@ import "pages"
 // shared js files
 import "classes/authenticationhandler.js" as Authentication
 import "classes/configurationhandler.js" as Configuration
-
+import "foursquareapi/updates.js" as UpdatesRepository
 
 TabbedPane {
     id: mainTabbedPane
-    
+
+    // signal if notification count data loading is complete
+    signal notificationCountDataLoaded(variant notificationCount)
+
+    // signal if notification count data loading encountered an error
+    signal notificationCountDataError(variant errorData)
+
     // pane definition
     showTabsOnActionBar: true
     activeTab: recentCheckinTab
 
-    // tab for the personal user feed
-    // tab is only visible if user is logged in
+    // tab for the user notification feed
     Tab {
-        id: personalFeedTab
-        title: "Your Feed"
-//        imageSource: "asset:///images/icons/icon_home.png"
-        
+        id: notificationsTab
+        title: "Notifications"
+        imageSource: "asset:///images/icons/icon_notification.png"
+
         // note that the page is bound to the component every time it loads
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            personalFeedComponent.source = "pages/PersonalFeed.qml";
-            var personalFeedPage = personalFeedComponent.createObject();
-            personalFeedTab.setContent(personalFeedPage);
+            notificationsComponent.source = "pages/Notifications.qml";
+            var notificationsPage = notificationsComponent.createObject();
+            notificationsTab.setContent(notificationsPage);
+
+            // flag if new content is available
+            // will be set true by onNotificationCountDataLoaded
+            newContentAvailable = false;
         }
-        
+
         // attach a component for the user feed page
         // this is bound to the content property later on onCreationCompleted()
         attachedObjects: [
             ComponentDefinition {
-                id: personalFeedComponent
+                id: notificationsComponent
             }
         ]
     }
-    
-    // tab for popular media page
-    // tab is always visible regardless of login state
+
+    // tab for the around you overview
+    Tab {
+        id: aroundYouTab
+        title: "Around You"
+        imageSource: "asset:///images/icons/icon_aroundyou.png"
+
+        // note that the page is bound to the component every time it loads
+        // this is because the page needs to be created as tapped
+        // if created on startup it does not work immediately after login
+        onTriggered: {
+            aroundYouComponent.source = "pages/AroundYou.qml";
+            var aroundYouPage = aroundYouComponent.createObject();
+            aroundYouTab.setContent(aroundYouPage);
+        }
+
+        // attach a component for the user feed page
+        // this is bound to the content property later on onCreationCompleted()
+        attachedObjects: [
+            ComponentDefinition {
+                id: aroundYouComponent
+            }
+        ]
+    }
+
+    // tab for recent checkins feed
     Tab {
         id: recentCheckinTab
         title: "Recent Checkins"
         imageSource: "asset:///images/icons/icon_recent.png"
-        
+
         // note that the page is bound to the component every time it loads
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
@@ -69,12 +101,12 @@ TabbedPane {
             recentCheckinsComponent.source = "pages/RecentCheckins.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
-            
+
             // reset tab content by resetting the page
-            mainTabbedPane.activeTab = personalFeedTab;
+            mainTabbedPane.activeTab = notificationsTab;
             mainTabbedPane.activeTab = recentCheckinTab;
         }
-        
+
         // attach a component for the recent checkin page
         // this is bound to the content property later on onCreationCompleted()
         attachedObjects: [
@@ -83,69 +115,50 @@ TabbedPane {
             }
         ]
     }
-    
-    
+
     // main logic on startup
     onCreationCompleted: {
-        // load initial tab and fill it with content
-        recentCheckinsComponent.source = "pages/RecentCheckins.qml";
-        var recentCheckinsPage = recentCheckinsComponent.createObject();
-        recentCheckinTab.setContent(recentCheckinsPage);
+        // enter debug user
+        // TODO: Remove for live app
+        Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
-        // show content according to the login status of the user
-        // actually this removes all features that require a login
-        // also: set active tabs
-        if (! Authentication.auth.isAuthenticated()) {
-            console.log("# Info: User is not authenticated");
-            // remove tabs and menu items that are authenticated only
-            // LoginUIHandler.loginUIHandler.setLoggedOutState();
-            
-            // reset tab content by resetting the page
-//            profileTab.triggered();
-//            mainTabbedPane.activeTab = profileTab;
-//            mainTabbedPane.activeTab = popularMediaTab;
-        } else {
+        // check if user is already logged in
+        // if yes, continue with the application
+        // if not, then show login sheet first
+        if (Authentication.auth.isAuthenticated()) {
             console.log("# Info: User is authenticated");
-            // activate tabs that are authenticated only
-            // LoginUIHandler.loginUIHandler.setLoggedInState();
-            
-            // this is a workaround as the initial tab does not recognize taps
-            // and does not have the correct height / positioning
-//            personalFeedTab.triggered();
-//            mainTabbedPane.activeTab = profileTab;
-//            mainTabbedPane.activeTab = personalFeedTab;
-        }
-        
-        // check on startup for introduction sheet
-        var configurationData = Configuration.conf.getConfiguration("introduction");   
-        if (configurationData.length < 1) {
-            console.log("# Introduction not shown yet. Open intro sheet");
-//            var introductionPage = introductionComponent.createObject();
-//            introductionSheet.setContent(introductionPage);
-//            introductionSheet.open();
-            
-//            Configuration.conf.setConfiguration("introduction", "1");
+
+            // load initial tab and fill it with content
+            recentCheckinsComponent.source = "pages/RecentCheckins.qml";
+            var recentCheckinsPage = recentCheckinsComponent.createObject();
+            recentCheckinTab.setContent(recentCheckinsPage);
+
+            // check for new notifications
+            UpdatesRepository.checkForNewNotifications(mainTabbedPane);
+        } else {
+            console.log("# Info: User is not authenticated");
+
+            // create and open login sheet
+            var loginSheetPage = loginComponent.createObject();
+            loginSheetPage.tabToReload = recentCheckinTab;
+            loginSheet.setContent(loginSheetPage);
+            loginSheet.open();
         }
     }
-    
+
+    // check if new notifications have been found or not
+    onNotificationCountDataLoaded: {
+        if (notificationCount > 0) {
+            notificationsTab.newContentAvailable = true;
+        }
+    }
+
     // application menu (top menu)
     Menu.definition: MenuDefinition {
         id: mainMenu
-        
+
         // application menu items
         actions: [
-            // action for ratinig the app
-            ActionItem {
-                id: mainMenuLogin
-                title: "Login"
-                imageSource: "asset:///images/icons/icon_about.png"
-                onTriggered: {
-                    // create logout sheet
-                    var loginSheetPage = loginComponent.createObject();
-                    loginSheet.setContent(loginSheetPage);
-                    loginSheet.open();
-                }
-            },
             // action for ratinig the app
             ActionItem {
                 id: mainMenuAbout
@@ -169,7 +182,7 @@ TabbedPane {
             }
         ]
     }
-    
+
     // attached objects
     // this contains the sheets which are used for general page based popupos
     attachedObjects: [
@@ -177,7 +190,7 @@ TabbedPane {
         // this is used by the main menu about item
         Sheet {
             id: aboutSheet
-            
+
             // attach a component for the about page
             attachedObjects: [
                 ComponentDefinition {
@@ -189,8 +202,9 @@ TabbedPane {
         // sheet for about page
         // this is used by the main menu about item
         Sheet {
+            // TODO: Remove sheet
             id: loginSheet
-            
+
             // attach a component for the about page
             attachedObjects: [
                 ComponentDefinition {
@@ -198,7 +212,7 @@ TabbedPane {
                     source: "sheets/UserLogin.qml"
                 }
             ]
-        },        
+        },
         // invocation for bb world
         // used by the action menu to switch to bb world
         Invocation {
@@ -215,5 +229,5 @@ TabbedPane {
             id: swirlCenterToast
             position: SystemUiPosition.MiddleCenter
         }
-    ]    
+    ]
 }

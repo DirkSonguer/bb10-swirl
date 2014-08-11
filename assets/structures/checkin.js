@@ -16,6 +16,17 @@ function FoursquareCheckinData()
 	this.createdAt = "";
 	this.elapsedTime = "";
 
+	// distances
+	this.distance = "";
+	this.categorisedDistance = "";
+
+	// liked state
+	this.userHasLiked = "";
+	
+	// likes and comments
+	this.numberOfLikes = "";
+	this.numberOfComments = "";
+
 	// this is filled by a FoursquareUserData object
 	this.userData = "";
 	
