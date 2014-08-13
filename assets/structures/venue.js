@@ -11,6 +11,7 @@
 // data structure for Foursquare venue
 function FoursquareVenueData()
 {
+	// id
 	this.venueID = "";
 
 	// name of the venue

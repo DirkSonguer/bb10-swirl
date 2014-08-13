@@ -10,6 +10,7 @@
 // data structure for Foursquare checkin
 function FoursquareCheckinData()
 {
+	// id
 	this.checkinID = "";
 	
 	// timestamps

@@ -74,6 +74,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_recent.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
+        $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x1280.png) \
+        $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
+        $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_768x1280.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYou.qml) \
         $$quote($$BASEDIR/assets/pages/Notifications.qml) \

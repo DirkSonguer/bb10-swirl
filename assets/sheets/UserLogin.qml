@@ -9,7 +9,7 @@
 // *************************************************** //
 
 // import blackberry components
-import bb.cascades 1.2
+import bb.cascades 1.3
 
 // set import directory for components
 import "../components"
@@ -26,8 +26,9 @@ Page {
 
     // property flag to check if authentication process has been done
     property bool authenticationDone: false
-    
-    // property that holds the ID of the page that opens the sheet
+
+    // property that holds the ID of the tab to reload once the
+    // login process is done
     property variant tabToReload
 
     Container {
@@ -49,7 +50,7 @@ Page {
             WebView {
                 id: loginFoursquareWebView
 
-                // url is the entry point for the Foursquare login process
+                // the initial url is the entry point for the Foursquare login process
                 // has to be called with the public Foursquare app key and a valid callback URL
                 // requested rights are likes, comments, relationships
                 url: FoursquareKeys.foursquarekeys.foursquareAuthorizeUrl + "/?client_id=" + FoursquareKeys.foursquarekeys.foursquareClientId + "&redirect_uri=" + FoursquareKeys.foursquarekeys.foursquareRedirectUrl + "&response_type=token"
@@ -61,6 +62,7 @@ Page {
                 // set initial visibility to false
                 visible: false
 
+                // if loading progress has changed, check to show loading indicator
                 onLoadProgressChanged: {
                     if ((loadProgress < 100) && (! loadingIndicator.loaderActive)) {
                         // console.log("# Loading process started");
@@ -93,7 +95,7 @@ Page {
 
                         loginFoursquareWebView.visible = false
                         var errorMessage = loginErrorText.text += "Foursquare says: " + foursquareResponse["error_description"] + "(" + foursquareResponse["status"] + ")";
-                        infoMessage.showMessage(errorMessage, Copytext.insagoLoginErrorTitle);
+                        infoMessage.showMessage(Copytext.swirlLoginErrorMessage, Copytext.swirlLoginErrorTitle);
                         authenticationDone = false;
                     }
 
@@ -105,7 +107,8 @@ Page {
                         loginFoursquareWebView.visible = false
                         loadingIndicator.hideLoader();
                         authenticationDone = true;
-                        
+
+                        // close sheet and reload calling tab with new user credentialsÏ
                         userLoginSheet.tabToReload.triggered();
                         loginSheet.close();
                     }

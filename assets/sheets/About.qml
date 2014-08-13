@@ -19,41 +19,55 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 
 Page {
-    /*
-     * ScrollView {
-     * // only vertical scrolling is needed
-     * scrollViewProperties {
-     * scrollMode: ScrollMode.Vertical
-     * pinchToZoomEnabled: false
-     * }
-     */
-    Container {
-        // layout orientation
-        layout: DockLayout {
+
+    ScrollView {
+        // only vertical scrolling is needed
+        scrollViewProperties {
+            scrollMode: ScrollMode.Vertical
+            pinchToZoomEnabled: false
         }
 
         Container {
             // layout orientation
-            layout: StackLayout {
-                orientation: LayoutOrientation.TopToBottom
+            layout: DockLayout {
             }
 
-            // layout definiton
-            // layout definition
-            verticalAlignment: VerticalAlignment.Center
-            horizontalAlignment: HorizontalAlignment.Center
-            leftPadding: 10
-            rightPadding: 10
+            Container {
+                // layout orientation
+                layout: StackLayout {
+                    orientation: LayoutOrientation.TopToBottom
+                }
 
-            InfoMessage {
-                id: infoMessage
+                // layout definiton
+                // layout definition
+                verticalAlignment: VerticalAlignment.Center
+                horizontalAlignment: HorizontalAlignment.Center
+                leftPadding: 10
+                rightPadding: 10
 
-                leftPadding: 0
-                rightPadding: 0
+                InfoMessage {
+                    id: infoMessage
+
+                    leftPadding: 0
+                    rightPadding: 0
+                }
+
+                // contact invocation trigger
+                Button {
+                    text: "Contact developer"
+
+                    // layout definition
+                    preferredWidth: DisplayInfo.width - 20
+                    topMargin: 60
+
+                    // trigger email invocation
+                    onClicked: {
+                        emailInvocation.trigger(emailInvocation.query.invokeActionId);
+                    }
+                }
             }
         }
     }
-    //    }
 
     onCreationCompleted: {
         infoMessage.showMessage(Copytext.swirlAboutBody, Copytext.swirlAboutHeadline);
