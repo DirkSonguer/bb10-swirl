@@ -15,7 +15,6 @@ Qt.include(dirPaths.assetPath + "foursquareapi/usertransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 Qt.include(dirPaths.assetPath + "structures/checkin.js");
 
-
 // Class function that gets the prototype methods
 function CheckinTransformator() {
 }
@@ -35,13 +34,27 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	checkinData.createdAt = checkinObject.createdAt;
 	var helperMethods = new HelperMethods();
 	checkinData.elapsedTime = helperMethods.calculateElapsedTime(checkinObject.createdAt);
-	
+
 	// get checkin distance from user
-	if (checkinObject.distance !== null) checkinData.distance = checkinObject.distance;
-		
+	if (checkinObject.distance !== null) {
+		checkinData.distance = checkinObject.distance;
+
+		// define distance category according to absolute distance
+		if (checkinData.distance <= 5000)
+			checkinData.categorisedDistance = 0;
+		if ((checkinData.distance > 5000) && (checkinData.distance <= 10000))
+			checkinData.categorisedDistance = 1;
+		if ((checkinData.distance > 10000) && (checkinData.distance <= 30000))
+			checkinData.categorisedDistance = 2;
+		if (checkinData.distance > 30000)
+			checkinData.categorisedDistance = 3;
+	}
+	
+	console.log("# Found distance " + checkinData.distance + " so it's in category " + checkinData.categorisedDistance);
+
 	// liked state
 	checkinData.userHasLiked = checkinObject.like;
-	
+
 	// likes and comments
 	checkinData.numberOfLikes = checkinObject.likes.count;
 	checkinData.numberOfComments = checkinObject.comments.count;
@@ -55,7 +68,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// this is stored as FoursquareVenueData()
 	var venueTransformator = new VenueTransformator();
 	checkinData.venueData = venueTransformator.getVenueDataFromObject(checkinObject.venue);
-	
+
 	// console.log("# Done transforming checkin item");
 	return checkinData;
 };

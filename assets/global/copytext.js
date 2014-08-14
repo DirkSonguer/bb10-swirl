@@ -9,14 +9,18 @@
 // License: All rights reserved
 // *************************************************** //
 
+// general
+var swirlWorking = "Working..";
+
+// about
 var swirlAboutHeadline = "Swirl";
 var swirlAboutBody = "<html>Swirl is a foursquare app for BlackBerry 10 that embraces the new changes in the Foursquare platform. In this regard it acts much like Swarm to allow you to meet your friends and check in with them - all natively for your BB10 device.<br /><br />Code &amp; UI: Dirk Songuer (dirk@songuer.de).</html>";
 
-var swirlWorking = "Working..";
-
-//var swirlLoginNotification = "Please log in";
+// login related
 var swirlLoginSuccessTitle = "Thank you for authenticating";
 var swirlLoginSuccessMessage = "You are authenticated with Foursquare and you can now use all Instago features. Have fun!";
 var swirlLoginErrorTitle = "Authentication went wrong";
 var swirlLoginErrorMessage = "You could not be logged into Foursquare. This has nothing to do with your credentials, it seems like the Foursquare server messed something up. Sorry!";
 
+// list labels
+var swirlAroundYouDistances =  new Array("Around you", "Around the block", "Somewhat near", "Somewhere else");

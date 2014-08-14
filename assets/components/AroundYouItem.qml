@@ -1,8 +1,8 @@
 // *************************************************** //
-// Checkin Item Component
+// Around You Item Component
 //
-// This component shows data for a user checkin, consisting
-// of user image, user name and current location / checkin
+// This component shows data for a user aroundYou, consisting
+// of user image, user name and current location / aroundYou
 // data.
 // The component also handles the interaction with the
 // individual elements.
@@ -22,37 +22,34 @@ import "../global/copytext.js" as Copytext
 import WebImageView 1.0
 
 Container {
-    id: checkinItemComponent
+    id: aroundYouItemComponent
 
     // signal that user data has been clicked
     signal userClicked()
 
     // signal that location data has been clicked
     signal locationClicked()
-    
+
     // property for the user profile image, given as url
-    property alias profileImage: checkinUserProfileImage.url
+    property alias profileImage: aroundYouUserProfileImage.url
 
     // property for the user name, given as string
-    property alias username: checkinUsername.text
-    
-    // property for the checkin location, given as string
-    property alias locationName: checkinLocationName.text
-    
-    // property for the checkin city, given as string
-    property alias locationCity: checkinLocationCity.text
+    property alias username: aroundYouUsername.text
 
-    // property for the elapsed time since checkin, given as string
-    property alias elapsedTime: checkinElapsedTime.text
-    
+    // property for the aroundYou location, given as string
+    property alias locationName: aroundYouLocationName.text
+
+    // property for the aroundYou city, given as string
+    property alias locationCity: aroundYouLocationCity.text
+
     // hand over preferred width to subcontainers
     onPreferredWidthChanged: {
-        usernameAndElapsedTimeContainer.preferredWidth = (preferredWidth - 150);
+        usernameAndElapsedTimeContainer.preferredWidth = (preferredWidth - ui.sdu(15));
     }
-    
+
     // layout orientation
     layout: StackLayout {
-        orientation: LayoutOrientation.LeftToRight
+        orientation: LayoutOrientation.TopToBottom
     }
 
     // layout definition
@@ -70,7 +67,7 @@ Container {
         // profile image
         // this is a web image view provided by WebViewImage
         WebImageView {
-            id: checkinUserProfileImage
+            id: aroundYouUserProfileImage
 
             // align the image in the center
             verticalAlignment: VerticalAlignment.Center
@@ -85,89 +82,65 @@ Container {
 
         // mask the profile image to make it round
         ImageView {
-            id: checkinUserProfileImageMask
-            
+            id: aroundYouUserProfileImageMask
+
             // position and layout properties
             verticalAlignment: VerticalAlignment.Center
             horizontalAlignment: HorizontalAlignment.Left
-            
+
             // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(15)
-            preferredWidth: ui.sdu(15)
-            minHeight: ui.sdu(15)
-            minWidth: ui.sdu(15)
-            
+            preferredHeight: 150
+            preferredWidth: 150
+            minHeight: 150
+            minWidth: 150
+
             imageSource: "asset:///images/assets/mask_squircle.png"
-        }        
+        }
 
         // handle tap on profile picture
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    // console.log("# Checkin user profile image clicked");
-                    checkinItemComponent.userClicked();
+                    // console.log("# aroundYou user profile image clicked");
+                    aroundYouItemComponent.userClicked();
                 }
             }
         ]
     }
 
-    // checkin meta data container
+    // aroundYou meta data container
     Container {
         // layout definition
-        topPadding: ui.sdu(1)
-        leftMargin: ui.sdu(1)
+        topPadding: 10
+        leftMargin: 10
 
         // layout orientation
         layout: StackLayout {
             orientation: LayoutOrientation.TopToBottom
         }
-        
-        Container {
-            id: usernameAndElapsedTimeContainer
-            
-            // layout orientation
-            layout: GridLayout {
-                columnCount: 2
-            }
-            
+
+        // layout definition
+        horizontalAlignment: HorizontalAlignment.Fill
+        rightPadding: 10
+
+        // user name label
+        Label {
+            id: aroundYouUsername
+
+            horizontalAlignment: HorizontalAlignment.Left
+
             // layout definition
-            horizontalAlignment: HorizontalAlignment.Fill
-            rightPadding: ui.sdu(1)
-            
-            // user name label
-            Label {
-                id: checkinUsername
-                
-                horizontalAlignment: HorizontalAlignment.Left
-    
-                // layout definition
-                bottomMargin: 0
-                textStyle.base: SystemDefaults.TextStyles.SmallText
-                textStyle.fontWeight: FontWeight.Bold
-                textStyle.fontSize: FontSize.XSmall
-                textStyle.textAlign: TextAlign.Left
-            }
-
-            // user name label
-            Label {
-                id: checkinElapsedTime
-
-                horizontalAlignment: HorizontalAlignment.Right
-                
-                // layout definition
-                bottomMargin: 0
-                preferredWidth: ui.sdu(10)
-                textStyle.base: SystemDefaults.TextStyles.SmallText
-                textStyle.fontWeight: FontWeight.W100
-                textStyle.fontSize: FontSize.XSmall
-                textStyle.textAlign: TextAlign.Right
-            }
+            bottomMargin: 0
+            textStyle.base: SystemDefaults.TextStyles.SmallText
+            textStyle.fontWeight: FontWeight.Bold
+            textStyle.fontSize: FontSize.XSmall
+            textStyle.textAlign: TextAlign.Left
         }
-
+        
         // current location name label
         Label {
-            id: checkinLocationName
-            
+            id: aroundYouLocationName
+
             // layout definition
             topMargin: 0
             bottomMargin: 0
@@ -177,10 +150,10 @@ Container {
             textStyle.textAlign: TextAlign.Left
             textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
-        
+
         // current location city label
         Label {
-            id: checkinLocationCity
+            id: aroundYouLocationCity
 
             // layout definition
             topMargin: 0
@@ -194,8 +167,8 @@ Container {
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    // console.log("# Checkin location name clicked");
-                    checkinItemComponent.locationClicked();
+                    // console.log("# aroundYou location name clicked");
+                    aroundYouItemComponent.locationClicked();
                 }
             }
         ]

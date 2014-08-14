@@ -24,7 +24,7 @@ if (typeof dirPaths !== "undefined") {
 // Second parameter is the id of the calling page, which will receive the
 // recentCheckinDataLoaded() signal
 function getRecentCheckins(currentGeoLocation, callingPage) {
-	console.log("# Loading recent checkins: ");
+	// console.log("# Loading recent checkins: ");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -44,7 +44,7 @@ function getRecentCheckins(currentGeoLocation, callingPage) {
 				var checkinDataItem = new FoursquareCheckinData();
 				checkinDataItem = checkinTransformator.getCheckinDataFromObject(jsonObject.response.recent[index]);
 				checkinDataArray[index] = checkinDataItem;
-			}			 
+			}
 
 			console.log("# Done loading recent checkins");
 			callingPage.recentCheckinDataLoaded(checkinDataArray);
@@ -62,23 +62,23 @@ function getRecentCheckins(currentGeoLocation, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		console.log("# User not logged in. Aborted loading recent checkins");
-		//return false;
+		// console.log("# User not logged in. Aborted loading recent checkins");
+		return false;
 	}
 
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
-	// https://api.foursquare.com/v2/checkins/recent?oauth_token=GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK&v=20140806&m=swarm
 	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/recent";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
-	
-/*	
-	if (typeof currentGeoLocation != 'undefined') {
+
+	// check if currentGeoLocation is set
+	// we assume that if the system was able to define the latitude, it also defined the longitude
+	if ((typeof currentGeoLocation != 'undefined') && (typeof currentGeoLocation.latitude != 'undefined')) {
 		url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	}
-*/
+
 	console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();

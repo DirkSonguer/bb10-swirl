@@ -22,7 +22,7 @@ if (typeof dirPaths !== "undefined") {
 // First parameter is the id of the calling page, which will receive the
 // notificationDataLoaded() signal
 function getNotifications(callingPage) {
-	console.log("# Loading notifications");
+	// console.log("# Loading notifications");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -43,7 +43,7 @@ function getNotifications(callingPage) {
 				var notificationDataItem = new FoursquareNotificationData();
 				notificationDataItem = notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications.items[index]);
 				notificationDataArray[index] = notificationDataItem;
-			}			 
+			}
 
 			console.log("# Done loading notifications");
 			callingPage.notificationDataLoaded(notificationDataArray);
@@ -61,8 +61,8 @@ function getNotifications(callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		console.log("# User not logged in. Aborted loading notifications");
-		//return false;
+		// console.log("# User not logged in. Aborted loading notifications");
+		return false;
 	}
 
 	var url = "";
@@ -82,7 +82,7 @@ function getNotifications(callingPage) {
 // First parameter is the id of the calling page, which will receive the
 // notificationUpdateDataLoaded() signal
 function checkForNewNotifications(callingPage) {
-	console.log("# Loading new notification count");
+	// console.log("# Loading new notification count");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -92,7 +92,7 @@ function checkForNewNotifications(callingPage) {
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
 			console.log("# Notifications object received. Checking for new updates");
-			
+
 			var notificationCount = jsonObject.notifications[0].item.unreadCount;
 
 			console.log("# Done loading new notification count");
@@ -111,8 +111,8 @@ function checkForNewNotifications(callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		console.log("# User not logged in. Aborted loading notifications");
-		//return false;
+		// console.log("# User not logged in. Aborted loading notification count");
+		return false;
 	}
 
 	var url = "";

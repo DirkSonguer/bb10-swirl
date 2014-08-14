@@ -38,7 +38,7 @@ Container {
 
         // layout definition
         horizontalAlignment: HorizontalAlignment.Center
-        minWidth: 200
+        minWidth: ui.sdu(20)
         
         // hide loader components initially
         visible: false

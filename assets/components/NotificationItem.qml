@@ -47,10 +47,10 @@ Container {
     }
 
     // layout definition
-    topPadding: 20
-    bottomPadding: 20
-    leftPadding: 10
-    rightPadding: 10
+    topPadding: ui.sdu(2)
+    bottomPadding: ui.sdu(2)
+    leftPadding: ui.sdu(1)
+    rightPadding: ui.sdu(1)
 
     // profile image container
     Container {
@@ -68,10 +68,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to maximum profile picture size
-            preferredHeight: 150
-            preferredWidth: 150
-            minHeight: 150
-            minWidth: 150
+            preferredHeight: ui.sdu(15)
+            preferredWidth: ui.sdu(15)
+            minHeight: ui.sdu(15)
+            minWidth: ui.sdu(15)
         }
 
         // mask the profile image to make it round
@@ -83,10 +83,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
             
             // set image size to maximum profile picture size
-            preferredHeight: 150
-            preferredWidth: 150
-            minHeight: 150
-            minWidth: 150
+            preferredHeight: ui.sdu(15)
+            preferredWidth: ui.sdu(15)
+            minHeight: ui.sdu(15)
+            minWidth: ui.sdu(15)
             
             imageSource: "asset:///images/assets/mask_squircle.png"
         }       
@@ -121,9 +121,9 @@ Container {
     // notification meta data container
     Container {
         // layout definition
-        topPadding: 10
-        leftMargin: 10
-        rightPadding: 10
+        topPadding: ui.sdu(1)
+        leftMargin: ui.sdu(1)
+        rightPadding: ui.sdu(1)
 
         // layout orientation
         layout: StackLayout {

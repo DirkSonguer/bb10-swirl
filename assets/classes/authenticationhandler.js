@@ -31,7 +31,7 @@ function AuthenticationHandler() {
 // It can either be a token if the authentication was successful
 // or it can contain an error with respective message
 AuthenticationHandler.prototype.checkFoursquareAuthenticationUrl = function(url) {
-	console.log("# Checking Foursquare URL for authentication information: " + url.toString());
+	// console.log("# Checking Foursquare URL for authentication information: " + url.toString());
 
 	var currentURL = url.toString();
 	var returnStatus = new Array();
@@ -49,7 +49,7 @@ AuthenticationHandler.prototype.checkFoursquareAuthenticationUrl = function(url)
 
 		// if there is an Foursquare token, store it and set the return status
 		if (foursquareTokenCode.length > 0) {
-			console.log("# Found Foursquare access token code: " + foursquareTokenCode);
+			// console.log("# Found Foursquare access token code: " + foursquareTokenCode);
 			this.validateAccessToken(foursquareTokenCode);
 			returnStatus["status"] = "AUTH_SUCCESS";
 		}
@@ -88,13 +88,13 @@ AuthenticationHandler.prototype.checkFoursquareAuthenticationUrl = function(url)
 // This also extracts the user id of the user that is logged in, which is stored
 // in the database along with the token
 AuthenticationHandler.prototype.validateAccessToken = function(accessToken) {
-	console.log("# Validating access token");
+	// console.log("# Validating access token");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
 		if (req.readyState === XMLHttpRequest.DONE) {
 			if (req.status != 200) {
-				console.log("# Error happened while validating access token, got HTTP status " + req.status);
+				// console.log("# Error happened while validating access token, got HTTP status " + req.status);
 				return;
 			}
 
@@ -104,13 +104,13 @@ AuthenticationHandler.prototype.validateAccessToken = function(accessToken) {
 			if ((jsonObject.error == null) && (jsonObject["response"]["user"].id != null)) {
 				var userid = jsonObject["response"]["user"].id;
 				auth.storeFoursquareData(userid, accessToken);
-				console.log("# Done validating access token for user " + userid);
+				// console.log("# Done validating access token for user " + userid);
 			}
 		}
 	};
 
 	var url = "https://api.foursquare.com/v2/users/self?oauth_token=" + accessToken + "&v=" + foursquarekeys.foursquareAPIVersion;
-	console.log("# Checking URL: " + url);
+	// console.log("# Checking URL: " + url);
 
 	req.open("GET", url, true);
 	req.send();
@@ -120,11 +120,11 @@ AuthenticationHandler.prototype.validateAccessToken = function(accessToken) {
 // Note that only one Foursquare token can exist in the database at any given
 // time
 AuthenticationHandler.prototype.storeFoursquareData = function(userId, accessToken) {
-	console.log("# Storing userdata into database for user: " + userId + " with token: " + accessToken);
+	// console.log("# Storing userdata into database for user: " + userId + " with token: " + accessToken);
 
 	// check if there is already user data in the database
 	if (auth.isAuthenticated()) {
-		console.log("# User already has a stored access token");
+		// console.log("# User already has a stored access token");
 		return;
 	}
 
@@ -140,14 +140,14 @@ AuthenticationHandler.prototype.storeFoursquareData = function(userId, accessTok
 		tx.executeSql(dataStr, data);
 	});
 
-	console.log("# Done storing userdata into database");
+	// console.log("# Done storing userdata into database");
 };
 
 // Get the stored access token for the user
 // Note that only one Foursquare token can exist in the database at any given
 // time
 AuthenticationHandler.prototype.getStoredFoursquareData = function() {
-	console.log("# Getting stored userdata from database for user");
+	// console.log("# Getting stored userdata from database for user");
 
 	var foursquareUserdata = new Array();
 	var db = openDatabaseSync("Swirl", "1.0", "Swirl persistent data storage", 1);
@@ -163,7 +163,7 @@ AuthenticationHandler.prototype.getStoredFoursquareData = function() {
 		}
 	});
 
-	console.log("# Done getting stored userdata from database for user");
+	// console.log("# Done getting stored userdata from database for user");
 	return foursquareUserdata;
 };
 
@@ -173,7 +173,7 @@ AuthenticationHandler.prototype.getStoredFoursquareData = function() {
 // Note that the token might be invalid / rejected by Foursquare but this is
 // handled by the errorhandler (which also deletes an invalid token)
 AuthenticationHandler.prototype.isAuthenticated = function() {
-	console.log("# Checking if user is authenticated");
+	// console.log("# Checking if user is authenticated");
 	var userdata = new Array();
 
 	// get the userdata from the persistent database
@@ -182,12 +182,12 @@ AuthenticationHandler.prototype.isAuthenticated = function() {
 
 	if (userdata["id"] != null) {
 		// user already has a token
-		console.log("# User is authenticated with id " + userdata["id"] + " and token " + userdata["access_token"] + ". Returning true");
+		// console.log("# User is authenticated with id " + userdata["id"] + " and token " + userdata["access_token"] + ". Returning true");
 		return true;
 	}
 
 	// user does not have a token
-	console.log("# User is not authenticated. Returning false");
+	// console.log("# User is not authenticated. Returning false");
 	return false;
 };
 

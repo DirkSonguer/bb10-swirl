@@ -9,8 +9,11 @@
 // License: All rights reserved
 // *************************************************** //
 
+// application version
 var currentApplicationVersion = "1.0.0";
 
+// image sizes
 var foursquareProfileImageSmall = "100x100";
 
+// color definitions
 var blackberryStandardBlue = "#0391cc";

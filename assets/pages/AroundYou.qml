@@ -58,8 +58,8 @@ NavigationPane {
                 horizontalAlignment: HorizontalAlignment.Center
             }
 
-            CheckinList {
-                id: checkinList
+            AroundYouList {
+                id: aroundYouList
             }
         }
 
@@ -80,11 +80,11 @@ NavigationPane {
         onRecentCheckinDataLoaded: {
             console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
 
-            checkinList.clearList();
+            aroundYouList.clearList();
 
             // iterate through data objects
             for (var index in recentCheckinData) {
-                checkinList.addToList(recentCheckinData[index]);
+                aroundYouList.addToList(recentCheckinData[index]);
             }
 
             // hide loader

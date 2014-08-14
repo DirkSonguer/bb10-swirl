@@ -34,8 +34,8 @@ Container {
     }
     
     // layout definition
-    leftPadding: 10
-    rightPadding: 10
+    leftPadding: ui.sdu(1)
+    rightPadding: ui.sdu(1)
 
     // the actual title text
     Label {

@@ -126,7 +126,7 @@ TabbedPane {
         // if yes, continue with the application
         // if not, then show login sheet first
         if (Authentication.auth.isAuthenticated()) {
-            console.log("# Info: User is authenticated");
+            // console.log("# Info: User is authenticated");
 
             // load initial tab and fill it with content
             recentCheckinsComponent.source = "pages/RecentCheckins.qml";
@@ -136,7 +136,7 @@ TabbedPane {
             // check for new notifications
             UpdatesRepository.checkForNewNotifications(mainTabbedPane);
         } else {
-            console.log("# Info: User is not authenticated");
+            // console.log("# Info: User is not authenticated");
 
             // create and open login sheet
             var loginSheetPage = loginComponent.createObject();

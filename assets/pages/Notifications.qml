@@ -1,8 +1,8 @@
 // *************************************************** //
 // Notification Page
 //
-// The personal feed page shows the media feed for the
-// currently logged in user.
+// The notification page shows the notification feed
+// for the currently logged in user.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -27,10 +27,10 @@ NavigationPane {
     Page {
         id: notificationsPage
 
-        // signal if popular media data loading is complete
+        // signal if notification data loading is complete
         signal notificationDataLoaded(variant notificationData)
-        
-        // signal if popular media data loading encountered an error
+
+        // signal if notification data loading encountered an error
         signal notificationDataError(variant errorData)
 
         // main content container
@@ -38,51 +38,57 @@ NavigationPane {
             // layout orientation
             layout: DockLayout {
             }
-            
+
+            // standard loading indicator
             LoadingIndicator {
                 id: loadingIndicator
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
 
+            // standard info message
             InfoMessage {
                 id: infoMessage
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
-            
+
+            // notification list
+            // this will contain all the components and actions
+            // for the notification list
             NotificationList {
                 id: notificationList
             }
         }
 
         // page creation is finished
-        // load the gallery content as soon as the page is ready
+        // load the notification content as soon as the page is ready
         onCreationCompleted: {
-            // console.log("# Creation of popular media page finished");
-            
+            // console.log("# Creation of notification page finished");
+
             // show loader
-            loadingIndicator.showLoader("Loading recent checkins");
-            
-            // load popular media stream
+            loadingIndicator.showLoader("Loading your notifications");
+
+            // load notification stream
             UpdatesRepository.getNotifications(notificationsPage);
         }
-        
-        // popular media data loaded and transformed
-        // data is stored in "mediaDataArray" variant as array of type InstagramMediaData
+
+        // notification data loaded and transformed
+        // data is stored in "notificationData" variant as array of type FoursquareNotificationData
         onNotificationDataLoaded: {
-            console.log("# Notification data loaded. Found " + notificationData.length + " items");
-            
+            // console.log("# Notification data loaded. Found " + notificationData.length + " items");
+
+            // initially clear list
             notificationList.clearList();
-            
-            // iterate through data objects
+
+            // iterate through data objects and fill list
             for (var index in notificationData) {
                 notificationList.addToList(notificationData[index]);
             }
-            
+
             // hide loader
             loadingIndicator.hideLoader();
-        }        
+        }
     }
 
     // destroy pages after use

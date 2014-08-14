@@ -1,10 +1,12 @@
 1
-53
+55
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
 classes/loginuihandler.js
 classes/networkhandler.js
+components/AroundYouItem.qml
+components/AroundYouList.qml
 components/CheckinItem.qml
 components/CheckinList.qml
 components/InfoMessage.qml

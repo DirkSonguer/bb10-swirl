@@ -1,8 +1,8 @@
 // *************************************************** //
-// Personal Feed Page
+// Recent Checkins Page
 //
-// The personal feed page shows the media feed for the
-// currently logged in user.
+// The recent checkins page shows the venue feed for the
+// last checkins by the users friends.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -25,11 +25,11 @@ NavigationPane {
     id: navigationPane
 
     Page {
-        id: personalFeedPage
+        id: recentCheckinsPage
 
         // signal if popular media data loading is complete
         signal recentCheckinDataLoaded(variant recentCheckinData)
-        
+
         // signal if popular media data loading encountered an error
         signal recentCheckinDataError(variant errorData)
 
@@ -38,19 +38,24 @@ NavigationPane {
             // layout orientation
             layout: DockLayout {
             }
-            
+
+            // standard loading indicator
             LoadingIndicator {
                 id: loadingIndicator
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
 
+            // standard info message
             InfoMessage {
                 id: infoMessage
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
-            
+
+            // ckeckin list
+            // this will contain all the components and actions
+            // for the venue list
             CheckinList {
                 id: checkinList
             }
@@ -59,30 +64,31 @@ NavigationPane {
         // page creation is finished
         // load the gallery content as soon as the page is ready
         onCreationCompleted: {
-            // console.log("# Creation of popular media page finished");
-            
+            // console.log("# Creation of recent checkin page finished");
+
             // show loader
             loadingIndicator.showLoader("Loading recent checkins");
-            
-            // load popular media stream
-            CheckinsRepository.getRecentCheckins("memo", personalFeedPage);
+
+            // load precent checkin stream
+            CheckinsRepository.getRecentCheckins(0, recentCheckinsPage);
         }
-        
-        // popular media data loaded and transformed
-        // data is stored in "mediaDataArray" variant as array of type InstagramMediaData
+
+        // recent checkin data loaded and transformed
+        // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
-            console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
-            
+            // console.log("# Recent checkin data loaded. Found " + recentCheckinData.length + " items");
+
+            // initially clear list
             checkinList.clearList();
-            
+
             // iterate through data objects
             for (var index in recentCheckinData) {
                 checkinList.addToList(recentCheckinData[index]);
             }
-            
+
             // hide loader
             loadingIndicator.hideLoader();
-        }        
+        }
     }
 
     // destroy pages after use

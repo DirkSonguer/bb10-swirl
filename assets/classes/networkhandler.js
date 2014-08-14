@@ -46,7 +46,8 @@ NetworkHandler.prototype.handleHttpResult = function(XMLHttpRequestObject) {
 
 	// check if the server response is actually finished
 	if (XMLHttpRequestObject.readyState === XMLHttpRequest.DONE) {
-		// console.debug("# Request is done (state " + XMLHttpRequestObject.status + ")");
+		// console.debug("# Request is done (state " +
+		// XMLHttpRequestObject.status + ")");
 		this.requestIsFinished = true;
 
 		// check if the status is not 200 (= an error has occured)
@@ -95,7 +96,6 @@ NetworkHandler.prototype.handleHttpResult = function(XMLHttpRequestObject) {
 
 // This script analyses the traffic from Foursquare for possible errors
 // Note that this scripts does the analysing but does not act upon found errors
-// TODO: Adapt this to foursquare error type
 NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 	// console.log("Check HTTP response for errors");
 
@@ -116,8 +116,7 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 	// thus if the response does not contain the status code 200 it's an error
 	// (may be a different error code or empty)
 	if ((httpResponseText.indexOf('"code":200') === -1) && (httpResponseText.indexOf('"code":') > 1)) {
-		// console.log("# Response does not have response 200 verification by
-		// Foursquare");
+		// console.log("# Response does not have response 200 verification by Foursquare");
 
 		// eval the response text to check the content
 		var jsonObject = eval('(' + httpResponseText + ')');
@@ -126,9 +125,9 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 
 			// the error was handled and described by Foursquare
 			// fill the error data object with the Foursquare error description
-			this.errorData.errorType = jsonObject.meta.error_type;
+			this.errorData.errorType = jsonObject.meta.errorType;
 			this.errorData.errorCode = jsonObject.meta.code;
-			this.errorData.errorMessage = jsonObject.meta.error_message;
+			this.errorData.errorMessage = jsonObject.meta.errorDetail;
 
 			if (this.errorData.errorType === "OAuthAccessTokenException") {
 				// TODO: Add ForcedLogoutPage
@@ -136,8 +135,7 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 				return;
 			}
 		} else {
-			// console.log("# JSON evaluation not successful, adding generic
-			// error");
+			// console.log("# JSON evaluation not successful, adding generic error");
 
 			// the error was not handled by Foursquare
 			// fill the error data object with a generic error description
