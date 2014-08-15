@@ -33,7 +33,7 @@ function getRecentCheckins(currentGeoLocation, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			console.log("# Recent checkins object received. Transforming.");
+			// console.log("# Recent checkins object received. Transforming.");
 			// prepare transformator and return object
 			var checkinTransformator = new CheckinTransformator();
 			var checkinDataArray = new Array();
@@ -46,14 +46,14 @@ function getRecentCheckins(currentGeoLocation, callingPage) {
 				checkinDataArray[index] = checkinDataItem;
 			}
 
-			console.log("# Done loading recent checkins");
+			// console.log("# Done loading recent checkins");
 			callingPage.recentCheckinDataLoaded(checkinDataArray);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
 				callingPage.recentCheckinDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -79,7 +79,7 @@ function getRecentCheckins(currentGeoLocation, callingPage) {
 		url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	}
 
-	console.log("# Loading recent checkins with url: " + url);
+	// console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

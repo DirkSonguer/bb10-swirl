@@ -10,6 +10,7 @@
 
 // include other scripts used here
 Qt.include(dirPaths.assetPath + "global/globals.js");
+Qt.include(dirPaths.assetPath + "global/copytext.js");
 Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/usertransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
@@ -36,22 +37,22 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	checkinData.elapsedTime = helperMethods.calculateElapsedTime(checkinObject.createdAt);
 
 	// get checkin distance from user
-	if (checkinObject.distance !== null) {
+	if (typeof checkinObject.distance !== "undefined") {
 		checkinData.distance = checkinObject.distance;
 
 		// define distance category according to absolute distance
 		if (checkinData.distance <= 5000)
-			checkinData.categorisedDistance = 0;
+			checkinData.categorisedDistance = swirlAroundYouDistances[0];
 		if ((checkinData.distance > 5000) && (checkinData.distance <= 10000))
-			checkinData.categorisedDistance = 1;
+			checkinData.categorisedDistance = swirlAroundYouDistances[1];
 		if ((checkinData.distance > 10000) && (checkinData.distance <= 30000))
-			checkinData.categorisedDistance = 2;
+			checkinData.categorisedDistance = swirlAroundYouDistances[2];
 		if (checkinData.distance > 30000)
-			checkinData.categorisedDistance = 3;
+			checkinData.categorisedDistance = swirlAroundYouDistances[3];
+
+		console.log("# Found distance " + checkinData.distance + " so it's in category " + checkinData.categorisedDistance);
 	}
 	
-	console.log("# Found distance " + checkinData.distance + " so it's in category " + checkinData.categorisedDistance);
-
 	// liked state
 	checkinData.userHasLiked = checkinObject.like;
 

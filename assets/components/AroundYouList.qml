@@ -24,7 +24,7 @@ Container {
 
     // signal if item was clicked
     signal itemClicked(variant commentData)
-    
+
     // signal if user was clicked
     signal profileClicked(variant userData)
 
@@ -73,24 +73,52 @@ Container {
 
         // associate the data model for the list view
         dataModel: aroundYouListDataModel
-        
-/*
- * 
-         // layout orientation
-        layout: StackListLayout {
-            orientation: LayoutOrientation.TopToBottom
-        }
-   */     
 
-layout: GridListLayout {
-        columnCount: 3
-}
+        layout: GridListLayout {
+            headerMode: ListHeaderMode.Sticky
+            columnCount: 3
+            cellAspectRatio: 0.75
+        }
 
         // define component which will represent list item GUI appearence
         listItemComponents: [
             ListItemComponent {
-                type: "item"
+                type: "header"
 
+                Container {
+                    // layout definition
+                    topMargin: 30
+                    leftPadding: 15
+
+                    // date label
+                    Label {
+                        // content is handed over in ListItemData
+                        text: ListItemData
+
+                        // layout definition
+                        bottomMargin: 0
+                        textStyle.fontSize: FontSize.Medium
+                        textStyle.fontWeight: FontWeight.W100
+                        textStyle.color: Color.create(Globals.blackberryStandardBlue)
+
+                        onCreationCompleted: {
+                            var textSplit = text.split("#");
+                            text = textSplit[1];
+                        }
+                    }
+
+                    // divider component
+                    Divider {
+                        topMargin: 0
+
+                        // accessibility
+                        accessibility.name: ""
+                    }
+                }
+            },
+            ListItemComponent {
+                type: "item"
+                
                 // define gallery view component as view for each list item
                 Container {
                     id: aroundYouItem
@@ -101,25 +129,20 @@ layout: GridListLayout {
 
                     // item positioning
                     verticalAlignment: VerticalAlignment.Fill
-                    horizontalAlignment: HorizontalAlignment.Fill
+                    horizontalAlignment: HorizontalAlignment.Center
 
                     // layout definition
                     topMargin: 1
 
                     AroundYouItem {
-                        // layout definition
-                        preferredWidth: Qt.fullDisplaySize
-                        minWidth: Qt.fullDisplaySize
-
-                        username: ListItemData.checkinData.userData.fullName
+                        username: ListItemData.checkinData.userData.firstName
                         profileImage: ListItemData.checkinData.userData.profileImage
                         locationName: ListItemData.checkinData.venueData.name
-                        locationCity: ListItemData.checkinData.venueData.city + ", " + ListItemData.checkinData.venueData.country
-                        
+
                         onUserClicked: {
                             // send user clicked event
                         }
-                        
+
                         onLocationClicked: {
                             // send item clicked event
                         }
@@ -161,10 +184,10 @@ layout: GridListLayout {
             id: aroundYouListDataModel
             sortedAscending: true
             sortingKeys: [ "distanceCategory", "distance" ]
-            
+
             // items are grouped by the view and transformators
             // no need to set a behaviour by the data model
-            grouping: ItemGrouping.ByFullValue            
+            grouping: ItemGrouping.ByFullValue
         }
     ]
 }

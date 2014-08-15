@@ -40,12 +40,7 @@ Container {
     property alias locationName: aroundYouLocationName.text
 
     // property for the aroundYou city, given as string
-    property alias locationCity: aroundYouLocationCity.text
-
-    // hand over preferred width to subcontainers
-    onPreferredWidthChanged: {
-        usernameAndElapsedTimeContainer.preferredWidth = (preferredWidth - ui.sdu(15));
-    }
+    // property alias locationCity: aroundYouLocationCity.text
 
     // layout orientation
     layout: StackLayout {
@@ -74,10 +69,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(15)
-            preferredWidth: ui.sdu(15)
-            minHeight: ui.sdu(15)
-            minWidth: ui.sdu(15)
+            preferredHeight: ui.sdu(18)
+            preferredWidth: ui.sdu(18)
+            minHeight: ui.sdu(18)
+            minWidth: ui.sdu(18)
         }
 
         // mask the profile image to make it round
@@ -89,10 +84,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to maximum profile picture size
-            preferredHeight: 150
-            preferredWidth: 150
-            minHeight: 150
-            minWidth: 150
+            preferredHeight: ui.sdu(18)
+            preferredWidth: ui.sdu(18)
+            minHeight: ui.sdu(18)
+            minWidth: ui.sdu(18)
 
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
@@ -112,55 +107,32 @@ Container {
     Container {
         // layout definition
         topPadding: 10
-        leftMargin: 10
-
-        // layout orientation
-        layout: StackLayout {
-            orientation: LayoutOrientation.TopToBottom
-        }
-
-        // layout definition
-        horizontalAlignment: HorizontalAlignment.Fill
-        rightPadding: 10
+        horizontalAlignment: HorizontalAlignment.Center
 
         // user name label
         Label {
             id: aroundYouUsername
 
-            horizontalAlignment: HorizontalAlignment.Left
-
             // layout definition
             bottomMargin: 0
             textStyle.base: SystemDefaults.TextStyles.SmallText
-            textStyle.fontWeight: FontWeight.Bold
-            textStyle.fontSize: FontSize.XSmall
-            textStyle.textAlign: TextAlign.Left
+            textStyle.fontWeight: FontWeight.W100
+            textStyle.fontSize: FontSize.Small
+            textStyle.textAlign: TextAlign.Center
+            textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
-        
+
         // current location name label
         Label {
             id: aroundYouLocationName
 
             // layout definition
             topMargin: 0
-            bottomMargin: 0
             textStyle.base: SystemDefaults.TextStyles.TitleText
             textStyle.fontWeight: FontWeight.W100
-            textStyle.fontSize: FontSize.Large
-            textStyle.textAlign: TextAlign.Left
-            textStyle.color: Color.create(Globals.blackberryStandardBlue)
-        }
-
-        // current location city label
-        Label {
-            id: aroundYouLocationCity
-
-            // layout definition
-            topMargin: 0
-            textStyle.base: SystemDefaults.TextStyles.SubtitleText
-            textStyle.fontWeight: FontWeight.W100
-            textStyle.fontSize: FontSize.Small
-            textStyle.textAlign: TextAlign.Left
+            textStyle.fontSize: FontSize.XSmall
+            textStyle.textAlign: TextAlign.Center
+            multiline: true
         }
 
         // handle tap on custom button
