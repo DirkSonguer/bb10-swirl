@@ -124,12 +124,13 @@ Container {
                     id: aroundYouItem
 
                     // layout orientation
-                    layout: DockLayout {
+                    layout: StackLayout {
+                        orientation: LayoutOrientation.TopToBottom
                     }
 
                     // item positioning
                     verticalAlignment: VerticalAlignment.Fill
-                    horizontalAlignment: HorizontalAlignment.Center
+                    horizontalAlignment: HorizontalAlignment.Fill
 
                     // layout definition
                     topMargin: 1
@@ -138,6 +139,8 @@ Container {
                         username: ListItemData.checkinData.userData.firstName
                         profileImage: ListItemData.checkinData.userData.profileImage
                         locationName: ListItemData.checkinData.venueData.name
+                        
+                        horizontalAlignment: HorizontalAlignment.Center
 
                         onUserClicked: {
                             // send user clicked event

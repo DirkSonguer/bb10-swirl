@@ -47,6 +47,8 @@ Container {
         orientation: LayoutOrientation.TopToBottom
     }
 
+    horizontalAlignment: HorizontalAlignment.Center
+
     // layout definition
     topPadding: ui.sdu(2)
     bottomPadding: ui.sdu(2)
@@ -58,6 +60,8 @@ Container {
         // layout orientation
         layout: DockLayout {
         }
+
+        horizontalAlignment: HorizontalAlignment.Center
 
         // profile image
         // this is a web image view provided by WebViewImage
@@ -115,6 +119,9 @@ Container {
 
             // layout definition
             bottomMargin: 0
+            horizontalAlignment: HorizontalAlignment.Center
+
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.SmallText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Small
@@ -128,6 +135,9 @@ Container {
 
             // layout definition
             topMargin: 0
+            horizontalAlignment: HorizontalAlignment.Center
+
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.TitleText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.XSmall
