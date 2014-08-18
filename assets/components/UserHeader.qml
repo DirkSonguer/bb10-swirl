@@ -41,7 +41,7 @@ Container {
     // layout definition
     background: Color.create(Globals.blackberryStandardBlue)
     preferredWidth: DisplayInfo.width
-    topPadding: ui.sdu(8)
+    topPadding: ui.sdu(5)
     bottomPadding: ui.sdu(2)
 
     // profile image container
@@ -111,16 +111,26 @@ Container {
         // user bio label
         Label {
             id: userHeaderBio
-
-            horizontalAlignment: HorizontalAlignment.Center
-
+            
             // layout definition
             topMargin: 0
+            horizontalAlignment: HorizontalAlignment.Center
             textStyle.base: SystemDefaults.TextStyles.BodyText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Center
             textStyle.color: Color.White
+            
+            // allow multiline content
+            multiline: true
+            
+            // set initial visibility to false
+            visible: false
+            
+            // when text is added, show component
+            onTextChanged: {
+                visible = true;
+            }
         }
 
         // last user checkin label
@@ -132,8 +142,8 @@ Container {
             // layout definition
             topMargin: 0
             bottomMargin: 0
-            textStyle.base: SystemDefaults.TextStyles.BodyText
-            textStyle.fontWeight: FontWeight.W200
+            textStyle.base: SystemDefaults.TextStyles.SmallText
+            textStyle.fontWeight: FontWeight.Bold
             textStyle.fontSize: FontSize.XSmall
             textStyle.textAlign: TextAlign.Center
             textStyle.color: Color.White

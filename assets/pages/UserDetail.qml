@@ -48,11 +48,6 @@ Page {
         UserHeader {
             id: userDetailHeader
 
-            username: "Dirk Songuer"
-            bio: "Blogger, Gamer, Giant"
-            lastCheckin: "Last seen at Frankfurt Hauptbahnhof"
-            //profileImage: ""
-            
             // handle tap on header component
             gestureHandlers: [
                 TapHandler {
@@ -60,7 +55,7 @@ Page {
                         userDetailPage.loadRecentCheckins()
                     }
                 }
-            ]            
+            ]
         }
 
         Container {
@@ -76,7 +71,6 @@ Page {
             // loads the list on tap
             Button {
                 id: userDetailFriendsButton
-                text: "123 Friends"
 
                 // friend list event triggered
                 onClicked: {
@@ -89,7 +83,6 @@ Page {
             // loads the gallry on tap
             Button {
                 id: userDetailPhotosButton
-                text: "121 Photos"
 
                 // photo event triggered
                 onClicked: {
@@ -122,7 +115,6 @@ Page {
         // fill header data based on simple user object
         userDetailHeader.username = userData.fullName;
         userDetailHeader.profileImage = userData.profileImageLarge;
-        userDetailHeader.bio = userData.bio;
 
         // load full user object
         UsersRepository.getUserData(userData.userId, userDetailPage);
@@ -153,8 +145,12 @@ Page {
         console.log("# User detail data loaded for user " + userData.userId);
 
         // refill header data based on full user object
-        userDetailHeader.username = userData.fullName;
         userDetailHeader.profileImage = userData.profileImageLarge;
+        userDetailHeader.username = userData.fullName;
         userDetailHeader.bio = userData.bio;
+        userDetailHeader.lastCheckin = userData.lastCheckinVenue.name;
+
+        userDetailFriendsButton.text = userData.friendCount + " Friends";
+        userDetailPhotosButton.text = userData.photoCount + " Photos";
     }
 }

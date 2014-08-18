@@ -23,28 +23,30 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 
 	var venueData = new FoursquareVenueData();
 
-	// user id
+	// venue id
 	venueData.venueId = venueObject.id;
 
 	// name of the venue
 	venueData.name = venueObject.name;
-	
+
 	// url associated with the venue
 	if (venueObject.url !== null) venueData.url = venueObject.url;
-	
-	// atomic address data
-	if (venueObject.location.address !== null) venueData.address = venueObject.location.address;
-	if (venueObject.location.city !== null) venueData.city = venueObject.location.city;
-	if (venueObject.location.postalCode !== null) venueData.postalCode = venueObject.location.postalCode;
-	if (venueObject.location.country !== null) venueData.country = venueObject.location.country;
 
-	// formatted address data
-	if (venueObject.location.formattedAddress !== null) venueData.formattedAddress = venueObject.location.formattedAddress;
-	
-	// lat / lng coordinates
-	venueData.lat = venueObject.location.lat;
-	venueData.lng = venueObject.location.lng;
-	
+	// atomic address data
+	if (typeof venueObject.location !== "undefined") {
+		if (typeof venueObject.location.address !== "undefined") venueData.address = venueObject.location.address;
+		if (typeof venueObject.location.city !== "undefined") venueData.city = venueObject.location.city;
+		if (typeof venueObject.location.postalCode !== "undefined") venueData.postalCode = venueObject.location.postalCode;
+		if (typeof venueObject.location.country !== "undefined") venueData.country = venueObject.location.country;
+
+		// formatted address data
+		if (typeof venueObject.location.formattedAddress !== "undefined") venueData.formattedAddress = venueObject.location.formattedAddress;
+
+		// lat / lng coordinates
+		venueData.lat = venueObject.location.lat;
+		venueData.lng = venueObject.location.lng;
+	}
+
 	// console.log("# Done transforming venue item");
 	return venueData;
 };

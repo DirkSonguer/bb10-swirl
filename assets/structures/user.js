@@ -44,6 +44,11 @@ function FoursquareUserData() {
 
 	// current interaction counts
 	this.checkinCount = "";
+	this.friendCount = "";
 	this.photoCount = "";
 	this.tipsCount = "";
+	
+	// the venue the user last checked in
+	// this is filled by a FoursquareVenueData object
+	this.lastCheckinVenue = "";	
 }

@@ -11,6 +11,7 @@
 // include other scripts used here
 Qt.include(dirPaths.assetPath + "global/globals.js");
 Qt.include(dirPaths.assetPath + "structures/user.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 
 // Class function that gets the prototype methods
 function UserTransformator() {
@@ -34,7 +35,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// user gender
 	userData.gender = userObject.gender;
-	
+
 	// user relationship to the currently active user
 	userData.relationship = userObject.relationship;
 
@@ -42,7 +43,23 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	userData.profileImageSmall = userObject.photo.prefix + foursquareProfileImageSmall + userObject.photo.suffix;
 	userData.profileImageMedium = userObject.photo.prefix + foursquareProfileImageMedium + userObject.photo.suffix;
 	userData.profileImageLarge = userObject.photo.prefix + foursquareProfileImageLarge + userObject.photo.suffix;
-	
+
+	// user bio
+	if (typeof userObject.bio !== "undefined") userData.bio = userObject.bio;
+
+	// current interaction counts
+	if (typeof userObject.checkins !== "undefined") userData.checkinCount = userObject.checkins.count;
+	if (typeof userObject.photos !== "undefined") userData.photoCount = userObject.photos.count;
+	if (typeof userObject.friends !== "undefined") userData.friendCount = userObject.friends.count;
+	if (typeof userObject.tips !== "undefined") userData.tipsCount = userObject.tips.count;
+
+	// general venue information
+	// this is stored as FoursquareVenueData()
+	if (typeof userObject.checkins !== "undefined") {
+		var venueTransformator = new VenueTransformator();
+		userData.lastCheckinVenue = venueTransformator.getVenueDataFromObject(userObject.checkins.items[0].venue);
+	}
+
 	// console.log("# Done transforming user item");
 	return userData;
 };

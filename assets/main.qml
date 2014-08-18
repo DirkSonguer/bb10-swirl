@@ -129,8 +129,7 @@ TabbedPane {
             // console.log("# Info: User is authenticated");
 
             // load initial tab and fill it with content
-//            recentCheckinsComponent.source = "pages/RecentCheckins.qml";
-            recentCheckinsComponent.source = "pages/UserDetail.qml";
+            recentCheckinsComponent.source = "pages/RecentCheckins.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
 
