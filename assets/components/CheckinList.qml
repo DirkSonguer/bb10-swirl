@@ -107,13 +107,14 @@ Container {
                         minWidth: Qt.fullDisplaySize
 
                         username: ListItemData.checkinData.userData.fullName
-                        profileImage: ListItemData.checkinData.userData.profileImage
+                        profileImage: ListItemData.checkinData.userData.profileImageMedium
                         locationName: ListItemData.checkinData.venueData.name
                         locationCity: ListItemData.checkinData.venueData.city + ", " + ListItemData.checkinData.venueData.country
                         elapsedTime: ListItemData.checkinData.elapsedTime
                         
                         onUserClicked: {
                             // send user clicked event
+                            Qt.profileClicked(ListItemData.checkinData.userData);
                         }
                         
                         onLocationClicked: {
@@ -122,7 +123,7 @@ Container {
                     }
                 }
             }
-        ]
+        ]    
 
         // add action for loading additional data after scrolling to bottom
         attachedObjects: [

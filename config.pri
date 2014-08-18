@@ -49,17 +49,20 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
+        $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/notificationtransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/users.js) \
         $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/venuetransformator.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
+        $$quote($$BASEDIR/assets/images/assets/mask_blue_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
-        $$quote($$BASEDIR/assets/images/assets/rpxYT.jpg) \
+        $$quote($$BASEDIR/assets/images/assets/white_squircle.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_193.png) \
@@ -83,6 +86,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/AroundYou.qml) \
         $$quote($$BASEDIR/assets/pages/Notifications.qml) \
         $$quote($$BASEDIR/assets/pages/RecentCheckins.qml) \
+        $$quote($$BASEDIR/assets/pages/UserDetail.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \

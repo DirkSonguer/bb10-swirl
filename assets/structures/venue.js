@@ -12,7 +12,7 @@
 function FoursquareVenueData()
 {
 	// id
-	this.venueID = "";
+	this.venueId = "";
 
 	// name of the venue
 	this.name = "";

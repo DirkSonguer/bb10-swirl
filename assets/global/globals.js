@@ -14,6 +14,8 @@ var currentApplicationVersion = "1.0.0";
 
 // image sizes
 var foursquareProfileImageSmall = "100x100";
+var foursquareProfileImageMedium = "200x200";
+var foursquareProfileImageLarge = "400x400";
 
 // color definitions
 var blackberryStandardBlue = "#0391cc";

@@ -21,9 +21,11 @@ if (typeof dirPaths !== "undefined") {
 // Load the recent checkin data for the currently logged in user
 // First parameter is the current geolocation, given as GeolocationData
 // or 0
-// Second parameter is the id of the calling page, which will receive the
+// Second parameter is the time after which the checkins should be pulled
+// or 0
+// Third parameter is the id of the calling page, which will receive the
 // recentCheckinDataLoaded() signal
-function getRecentCheckins(currentGeoLocation, callingPage) {
+function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 	// console.log("# Loading recent checkins: ");
 
 	var req = new XMLHttpRequest();
@@ -78,8 +80,13 @@ function getRecentCheckins(currentGeoLocation, callingPage) {
 	if ((typeof currentGeoLocation != 'undefined') && (typeof currentGeoLocation.latitude != 'undefined')) {
 		url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	}
+	
+	// check if currentTimestamp is set
+	if (currentTimestamp > 0) {
+		url += "&afterTimestamp=" + currentTimestamp;
+	}	
 
-	// console.log("# Loading recent checkins with url: " + url);
+	console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

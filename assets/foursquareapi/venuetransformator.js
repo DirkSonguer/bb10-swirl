@@ -24,7 +24,7 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 	var venueData = new FoursquareVenueData();
 
 	// user id
-	venueData.venueID = venueObject.id;
+	venueData.venueId = venueObject.id;
 
 	// name of the venue
 	venueData.name = venueObject.name;

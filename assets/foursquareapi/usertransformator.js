@@ -24,7 +24,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	var userData = new FoursquareUserData();
 
 	// user id
-	userData.userID = userObject.id;
+	userData.userId = userObject.id;
 
 	// user name
 	// note, first and last name might be not set, thus the node would not exist
@@ -39,7 +39,9 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	userData.relationship = userObject.relationship;
 
 	// user profile image
-	userData.profileImage = userObject.photo.prefix + foursquareProfileImageSmall + userObject.photo.suffix;
+	userData.profileImageSmall = userObject.photo.prefix + foursquareProfileImageSmall + userObject.photo.suffix;
+	userData.profileImageMedium = userObject.photo.prefix + foursquareProfileImageMedium + userObject.photo.suffix;
+	userData.profileImageLarge = userObject.photo.prefix + foursquareProfileImageLarge + userObject.photo.suffix;
 	
 	// console.log("# Done transforming user item");
 	return userData;

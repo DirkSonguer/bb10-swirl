@@ -58,6 +58,13 @@ NavigationPane {
             // for the venue list
             CheckinList {
                 id: checkinList
+
+                onProfileClicked: {
+                    console.log("# Item clicked: " + userData.userId);
+                    var userDetailPage = userDetailComponent.createObject();
+                    userDetailPage.userData = userData;
+                    navigationPane.push(userDetailPage);
+                }
             }
         }
 
@@ -69,8 +76,8 @@ NavigationPane {
             // show loader
             loadingIndicator.showLoader("Loading recent checkins");
 
-            // load precent checkin stream
-            CheckinsRepository.getRecentCheckins(0, recentCheckinsPage);
+            // load recent checkin stream
+            CheckinsRepository.getRecentCheckins(0, 0, recentCheckinsPage);
         }
 
         // recent checkin data loaded and transformed
@@ -90,6 +97,16 @@ NavigationPane {
             loadingIndicator.hideLoader();
         }
     }
+
+    // attach components
+    attachedObjects: [
+        // user detail page
+        // will be called if user clicks on user item
+        ComponentDefinition {
+            id: userDetailComponent
+            source: "UserDetail.qml"
+        }
+    ]
 
     // destroy pages after use
     onPopTransitionEnded: {

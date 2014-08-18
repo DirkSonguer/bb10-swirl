@@ -20,12 +20,12 @@ function NotificationTransformator() {
 // The resulting user data is in the standard user format as
 // FoursquareUserData()
 NotificationTransformator.prototype.getNotificationDataFromObject = function(notificationObject) {
-	console.log("# Transforming notification item with id: " + notificationObject.ids[0]);
+	// console.log("# Transforming notification item with id: " + notificationObject.ids[0]);
 
 	var notificationData = new FoursquareNotificationData();
 	
-	notificationData.notificationID = notificationObject.ids[0];
-	notificationData.referralID = notificationObject.referralId;
+	notificationData.notificationId = notificationObject.ids[0];
+	notificationData.referralId = notificationObject.referralId;
 
 	notificationData.unread = notificationObject.unread;
 
@@ -41,6 +41,6 @@ NotificationTransformator.prototype.getNotificationDataFromObject = function(not
 		notificationData.icon = notificationObject.icon.prefix + notificationObject.icon.sizes[(notificationObject.icon.sizes.length)-1] + notificationObject.icon.name;		
 	}
 	
-	console.log("# Done transforming notification item");
+	// console.log("# Done transforming notification item");
 	return notificationData;
 };

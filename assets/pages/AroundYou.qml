@@ -46,25 +46,30 @@ NavigationPane {
             layout: DockLayout {
             }
 
+            // standard loading indicator
             LoadingIndicator {
                 id: loadingIndicator
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
 
+            // standard info message
             InfoMessage {
                 id: infoMessage
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
 
+            // around you list
+            // this will contain all the components and actions
+            // for the around you list
             AroundYouList {
                 id: aroundYouList
             }
         }
 
         // page creation is finished
-        // load the gallery content as soon as the page is ready
+        // try to fix the location, which will then load the recent checkins
         onCreationCompleted: {
             // console.log("# Creation of popular media page finished");
 
@@ -75,14 +80,15 @@ NavigationPane {
             positionSource.start();
         }
 
-        // popular media data loaded and transformed
-        // data is stored in "mediaDataArray" variant as array of type InstagramMediaData
+        // around you checkin data loaded and transformed
+        // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
             console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
 
+            // initially clear list
             aroundYouList.clearList();
 
-            // iterate through data objects
+            // iterate through data objects and fill list
             for (var index in recentCheckinData) {
                 aroundYouList.addToList(recentCheckinData[index]);
             }
@@ -113,9 +119,16 @@ NavigationPane {
 
                     // show loader
                     loadingIndicator.showLoader("Checking where your friends are");
-                    
-                    // load popular media stream
-                    CheckinsRepository.getRecentCheckins(aroundYouPage.currentGeolocation, aroundYouPage);
+
+                    // get the current timestamp
+                    var currentTimestamp = new Date().getTime();
+
+                    // substract a day to get only the checkins for the last 24 hours
+                    currentTimestamp = Math.round(currentTimestamp / 1000);
+                    currentTimestamp -= 86400;
+
+                    // load recent checkin stream with geolocation and time
+                    CheckinsRepository.getRecentCheckins(aroundYouPage.currentGeolocation, currentTimestamp, aroundYouPage);
 
                     // stop location service
                     positionSource.stop();

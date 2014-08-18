@@ -1,5 +1,5 @@
 1
-55
+59
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -13,17 +13,20 @@ components/InfoMessage.qml
 components/LoadingIndicator.qml
 components/NotificationItem.qml
 components/NotificationList.qml
+components/UserHeader.qml
 foursquareapi/checkins.js
 foursquareapi/checkintransformator.js
 foursquareapi/notificationtransformator.js
 foursquareapi/updates.js
+foursquareapi/users.js
 foursquareapi/usertransformator.js
 foursquareapi/venuetransformator.js
 global/copytext.js
 global/foursquarekeys.js
 global/globals.js
+images/assets/mask_blue_squircle.png
 images/assets/mask_squircle.png
-images/assets/rpxYT.jpg
+images/assets/white_squircle.png
 images/icons/icon_190.png
 images/icons/icon_191.png
 images/icons/icon_193.png
@@ -47,6 +50,7 @@ main.qml
 pages/AroundYou.qml
 pages/Notifications.qml
 pages/RecentCheckins.qml
+pages/UserDetail.qml
 sheets/About.qml
 sheets/UserLogin.qml
 structures/checkin.js

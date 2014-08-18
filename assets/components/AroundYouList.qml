@@ -137,7 +137,7 @@ Container {
 
                     AroundYouItem {
                         username: ListItemData.checkinData.userData.firstName
-                        profileImage: ListItemData.checkinData.userData.profileImage
+                        profileImage: ListItemData.checkinData.userData.profileImageMedium
                         locationName: ListItemData.checkinData.venueData.name
                         
                         horizontalAlignment: HorizontalAlignment.Center

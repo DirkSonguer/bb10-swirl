@@ -12,8 +12,8 @@
 function FoursquareNotificationData()
 {
 	// ids
-	this.notificationID = "";
-	this.referralID = "";
+	this.notificationId = "";
+	this.referralId = "";
 
 	// flag if notification has been read yet
 	this.unread = "";

@@ -11,7 +11,7 @@
 function FoursquareCheckinData()
 {
 	// id
-	this.checkinID = "";
+	this.checkinId = "";
 	
 	// timestamps
 	this.createdAt = "";

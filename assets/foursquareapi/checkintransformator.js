@@ -29,7 +29,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	var checkinData = new FoursquareCheckinData();
 
 	// checkin id
-	checkinData.checkinID = checkinObject.id;
+	checkinData.checkinId = checkinObject.id;
 
 	// timestamps
 	checkinData.createdAt = checkinObject.createdAt;
@@ -50,7 +50,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 		if (checkinData.distance > 30000)
 			checkinData.categorisedDistance = swirlAroundYouDistances[3];
 
-		console.log("# Found distance " + checkinData.distance + " so it's in category " + checkinData.categorisedDistance);
+		// console.log("# Found distance " + checkinData.distance + " so it's in category " + checkinData.categorisedDistance);
 	}
 	
 	// liked state

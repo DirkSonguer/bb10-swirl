@@ -78,7 +78,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	var checkinData = new FoursquareCheckinData();
 
 	// checkin id
-	checkinData.checkinID = checkinObject.id;
+	checkinData.checkinId = checkinObject.id;
 
 	// timestamps
 	checkinData.createdAt = checkinObject.createdAt;
