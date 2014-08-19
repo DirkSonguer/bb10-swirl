@@ -51,4 +51,8 @@ function FoursquareUserData() {
 	// the venue the user last checked in
 	// this is filled by a FoursquareVenueData object
 	this.lastCheckinVenue = "";	
+	
+	// the last photo the user uploaded
+	// this is filled by a FoursquarePhotoData object
+	this.lastPhoto = "";	
 }

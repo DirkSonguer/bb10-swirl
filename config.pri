@@ -46,6 +46,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
+        $$quote($$BASEDIR/assets/components/InfoTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
@@ -53,6 +54,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/notificationtransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/phototransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
         $$quote($$BASEDIR/assets/foursquareapi/users.js) \
         $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
@@ -93,6 +95,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/errordata.js) \
         $$quote($$BASEDIR/assets/structures/geolocation.js) \
         $$quote($$BASEDIR/assets/structures/notification.js) \
+        $$quote($$BASEDIR/assets/structures/photo.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)
 }

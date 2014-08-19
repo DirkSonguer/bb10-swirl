@@ -12,6 +12,7 @@
 Qt.include(dirPaths.assetPath + "global/globals.js");
 Qt.include(dirPaths.assetPath + "structures/user.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
 
 // Class function that gets the prototype methods
 function UserTransformator() {
@@ -58,6 +59,13 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	if (typeof userObject.checkins !== "undefined") {
 		var venueTransformator = new VenueTransformator();
 		userData.lastCheckinVenue = venueTransformator.getVenueDataFromObject(userObject.checkins.items[0].venue);
+	}
+
+	// last photo information
+	// this is stored as FoursquarePhotoData()
+	if (typeof userObject.photos !== "undefined") {
+		var photoTransformator = new PhotoTransformator();
+		userData.lastPhoto = photoTransformator.getPhotoDataFromObject(userObject.photos.items[0]);
 	}
 
 	// console.log("# Done transforming user item");

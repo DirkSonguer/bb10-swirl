@@ -28,81 +28,66 @@ Page {
     // signal if user profile data loading encountered an error
     signal userDetailDataError(variant errorData)
 
-    // signal to load the respective user infomation
-    // these are triggered by the respective UI components
-    signal loadRecentCheckins()
-    signal loadFriendsList()
-    signal loadPhotos()
-
     // property that holds the user data to load
     // this is filled by the calling page
     // contains only a limited object when filled
     // will be extended once the full data is loaded
     property variant userData
 
-    Container {
-        layout: StackLayout {
-            orientation: LayoutOrientation.TopToBottom
+    ScrollView {
+        // only vertical scrolling is needed
+        scrollViewProperties {
+            scrollMode: ScrollMode.Vertical
+            pinchToZoomEnabled: false
         }
-
-        UserHeader {
-            id: userDetailHeader
-
-            // handle tap on header component
-            gestureHandlers: [
-                TapHandler {
-                    onTapped: {
-                        userDetailPage.loadRecentCheckins()
-                    }
-                }
-            ]
-        }
-
         Container {
-            id: userDetailButtons
-
-            // layout orientation
-            layout: GridLayout {
-                columnCount: 2
+            layout: StackLayout {
+                orientation: LayoutOrientation.TopToBottom
             }
 
-            // friends button
-            // this shows the number of friends and
-            // loads the list on tap
-            Button {
-                id: userDetailFriendsButton
+            UserHeader {
+                id: userDetailHeader
 
-                // friend list event triggered
-                onClicked: {
-                    userDetailPage.loadFriendsList();
+                // handle tap on header component
+                gestureHandlers: [
+                    TapHandler {
+                        onTapped: {
+                            userDetailPage.loadRecentCheckins()
+                        }
+                    }
+                ]
+            }
+
+            Container {
+                id: userDetailButtons
+
+                // layout orientation
+                layout: GridLayout {
+                    columnCount: 2
                 }
             }
 
-            // photos button
-            // this shows the number of photos and
-            // loads the gallry on tap
-            Button {
-                id: userDetailPhotosButton
-
-                // photo event triggered
-                onClicked: {
-                    userDetailPage.loadPhotos();
-                }
+            InfoTile {
+                id: userDetailPhotosTile
+                
+                preferredWidth: DisplayInfo.width / 2
+                preferredHeight: DisplayInfo.width / 2
+                backgroundColor: Color.Black
             }
-        }
 
-        // standard loading indicator
-        LoadingIndicator {
-            id: loadingIndicator
-            verticalAlignment: VerticalAlignment.Center
-            horizontalAlignment: HorizontalAlignment.Center
-        }
+            // standard loading indicator
+            LoadingIndicator {
+                id: loadingIndicator
+                verticalAlignment: VerticalAlignment.Center
+                horizontalAlignment: HorizontalAlignment.Center
+            }
 
-        // standard info message
-        InfoMessage {
-            id: infoMessage
-            verticalAlignment: VerticalAlignment.Center
-            horizontalAlignment: HorizontalAlignment.Center
+            // standard info message
+            InfoMessage {
+                id: infoMessage
+                verticalAlignment: VerticalAlignment.Center
+                horizontalAlignment: HorizontalAlignment.Center
+            }
         }
     }
 
@@ -110,7 +95,7 @@ Page {
         // console.log("# Simple user object handed over to the page");
 
         // show loader
-        loadingIndicator.showLoader("Loading user data");
+        //loadingIndicator.showLoader("Loading user data");
 
         // fill header data based on simple user object
         userDetailHeader.username = userData.fullName;
@@ -118,28 +103,8 @@ Page {
 
         // load full user object
         UsersRepository.getUserData(userData.userId, userDetailPage);
-
-        // load recent checkins for user
-        userDetailPage.loadRecentCheckins();
     }
 
-    // load recent checkins for current user
-    onLoadRecentCheckins: {
-        console.log("# Loading recent checkins for user " + userDetailPage.userData.userId);
-
-    }
-
-    // load friends list for current user
-    onLoadFriendsList: {
-        console.log("# Loading friends list for user " + userDetailPage.userData.userId);
-
-    }
-
-    // load photos for current user
-    onLoadPhotos: {
-        console.log("# Loading photos for user " + userDetailPage.userData.userId);
-
-    }
 
     onUserDetailDataLoaded: {
         console.log("# User detail data loaded for user " + userData.userId);
@@ -150,7 +115,7 @@ Page {
         userDetailHeader.bio = userData.bio;
         userDetailHeader.lastCheckin = userData.lastCheckinVenue.name;
 
-        userDetailFriendsButton.text = userData.friendCount + " Friends";
-        userDetailPhotosButton.text = userData.photoCount + " Photos";
+        userDetailPhotosTile.headline = userData.photoCount + " Photos";
+        userDetailPhotosTile.image = userData.lastPhoto.imageFull;
     }
 }

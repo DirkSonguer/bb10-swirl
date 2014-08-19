@@ -35,7 +35,7 @@ TabbedPane {
     // pane definition
     showTabsOnActionBar: true
     activeTab: recentCheckinTab
-
+    
     // tab for the user notification feed
     Tab {
         id: notificationsTab
