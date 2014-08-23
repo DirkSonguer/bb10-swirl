@@ -68,39 +68,3 @@ HelperMethods.prototype.calculateElapsedTime = function(foursquareTime) {
 		return Math.round(elapsed / msPerYear) + 'y';
 	}
 };
-
-// Extract all checkin data from a checkin object
-// The resulting checkin data is in the standard checkin format as
-// FoursquareCheckinData()
-CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject) {
-	// console.log("# Transforming checkin item with id: " + checkinObject.id);
-
-	var checkinData = new FoursquareCheckinData();
-
-	// checkin id
-	checkinData.checkinId = checkinObject.id;
-
-	// timestamps
-	checkinData.createdAt = checkinObject.createdAt;
-	checkinData.elapsedTime = this.calculateElapsedTime(checkinObject.createdAt);
-	
-	// liked state
-	checkinData.userHasLiked = checkinObject.like;
-	
-	// likes and comments
-	checkinData.numberOfLikes = checkinObject.likes.count;
-	checkinData.numberOfComments = checkinObject.comments.count;
-
-	// general user information
-	// this is stored as FoursquareUserData()
-	var userTransformator = new UserTransformator();
-	checkinData.userData = userTransformator.getUserDataFromObject(checkinObject.user);
-
-	// general venue information
-	// this is stored as FoursquareVenueData()
-	var venueTransformator = new VenueTransformator();
-	checkinData.venueData = venueTransformator.getVenueDataFromObject(checkinObject.venue);
-	
-	// console.log("# Done transforming checkin item");
-	return checkinData;
-};

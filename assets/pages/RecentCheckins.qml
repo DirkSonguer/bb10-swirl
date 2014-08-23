@@ -60,7 +60,7 @@ NavigationPane {
                 id: checkinList
 
                 onProfileClicked: {
-                    console.log("# Item clicked: " + userData.userId);
+                    // console.log("# Item clicked: " + userData.userId);
                     var userDetailPage = userDetailComponent.createObject();
                     userDetailPage.userData = userData;
                     navigationPane.push(userDetailPage);

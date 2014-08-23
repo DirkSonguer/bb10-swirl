@@ -48,6 +48,14 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	// user bio
 	if (typeof userObject.bio !== "undefined") userData.bio = userObject.bio;
 
+	// user contact points
+	if (typeof userObject.contact !== "undefined") {
+		if (typeof userObject.contact.twitter !== "undefined") userData.contactTwitter = userObject.contact.twitter;
+		if (typeof userObject.contact.facebook !== "undefined") userData.contactFacebook = userObject.contact.facebook;
+		if (typeof userObject.contact.phone !== "undefined") userData.contactPhone = userObject.contact.phone;
+		if (typeof userObject.contact.email !== "undefined") userData.contactMail = userObject.contact.email;
+	}
+
 	// current interaction counts
 	if (typeof userObject.checkins !== "undefined") userData.checkinCount = userObject.checkins.count;
 	if (typeof userObject.photos !== "undefined") userData.photoCount = userObject.photos.count;
@@ -63,11 +71,34 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// last photo information
 	// this is stored as FoursquarePhotoData()
-	if (typeof userObject.photos !== "undefined") {
+	if ( (typeof userObject.photos !== "undefined") && (typeof userObject.photos.items[0] !== "undefined")) {
 		var photoTransformator = new PhotoTransformator();
 		userData.lastPhoto = photoTransformator.getPhotoDataFromObject(userObject.photos.items[0]);
 	}
 
-	// console.log("# Done transforming user item");
+	// friends list
+	// this is stored as array of FoursquareUserData()
+	// beware: this might end up being recursive!
+	if (typeof userObject.friends !== "undefined") {
+		if ((typeof userObject.friends.groups !== "undefined") && (userObject.friends.groups.length > 0)) {
+			// set up user list data array
+			userData.friendList = new Array();
+
+			// iterate through all groups
+			for ( var groupIndex in userObject.friends.groups) {
+				// iterate through all user items in the current group
+				for ( var itemIndex in userObject.friends.groups[groupIndex].items) {
+					// console.log("# Transforming friend item with id: " +
+					// userObject.friends.groups[groupIndex].items[itemIndex].id);
+					var userFriendData = this.getUserDataFromObject(userObject.friends.groups[groupIndex].items[itemIndex]);
+					userData.friendList.push(userFriendData);
+				}
+			}
+
+			// console.log("# Found " + userData.friendList.length + " friends for user " + userObject.id);
+		}
+	}
+
+	// console.log("# Done transforming user item with id: " + userObject.id);
 	return userData;
 };

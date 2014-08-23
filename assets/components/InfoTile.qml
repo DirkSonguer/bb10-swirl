@@ -27,69 +27,90 @@ Container {
 
     // external properties
     property alias backgroundColor: infoTileComponent.background
-    property alias image: infoTileBackgroundImage.url
+    property alias webImage: infoTileWebBackgroundImage.url
+    property alias localImage: infoTileLocalBackgroundImage.imageSource
+    property variant imageScaling
     property alias headline: infoTileHeadline.text
 
-    // layout definition
-    preferredWidth: 200
-    preferredHeight: 200
-
     // set initial background color
-    // can be changed via the componentBackground property
+    // can be changed via the backgroundColor property
     background: Color.create(Globals.blackberryStandardBlue)
 
+    // layout orientation
+    layout: DockLayout {
+    }
+
+    // gallery image
+    // this is a web image view provided by WebViewImage
+    WebImageView {
+        id: infoTileWebBackgroundImage
+
+        // align the image in the center
+        scalingMethod: ScalingMethod.AspectFill
+        verticalAlignment: VerticalAlignment.Fill
+        horizontalAlignment: HorizontalAlignment.Fill
+
+        // set initial visibility to false
+        // make image visible if text is added
+        visible: false
+        onUrlChanged: {
+            visible = true;
+        }
+    }
+
+    ImageView {
+        id: infoTileLocalBackgroundImage
+
+        // align the image in the center
+        scalingMethod: ScalingMethod.AspectFill
+        verticalAlignment: VerticalAlignment.Fill
+        horizontalAlignment: HorizontalAlignment.Fill
+
+        // set initial visibility to false
+        // make image visible if text is added
+        visible: false
+        onImageSourceChanged: {
+            visible = true;
+        }
+    }
+
     Container {
-        id: infoTileContainer
+        // layout definition
+        leftPadding: 10
+        rightPadding: 10
 
-        // layout orientation
-        layout: DockLayout {
-        }
+        // layout definition
+        horizontalAlignment: HorizontalAlignment.Left
+        verticalAlignment: VerticalAlignment.Bottom
 
-        // gallery image
-        // this is a web image view provided by WebViewImage
-        WebImageView {
-            id: infoTileBackgroundImage
+        background: infoTileComponent.background
+        opacity: 0.8
 
-            // align the image in the center
-            scalingMethod: ScalingMethod.AspectFill
-            verticalAlignment: VerticalAlignment.Fill
-            horizontalAlignment: HorizontalAlignment.Fill
-            preferredWidth: DisplayInfo.width
-//            opacity: 0.45
-        }
-
-        Container {
-            // layout definition
-            leftPadding: 10
-            rightPadding: 10
+        // text label for headline
+        Label {
+            id: infoTileHeadline
 
             // layout definition
-            horizontalAlignment: HorizontalAlignment.Left
-            verticalAlignment: VerticalAlignment.Bottom
-            
-            background: infoTileComponent.background
-            opacity: 0.8
-            
-            // text label for headline
-            Label {
-                id: infoTileHeadline
+            leftMargin: 5
+            textStyle.base: SystemDefaults.TextStyles.BigText
+            textStyle.fontWeight: FontWeight.W100
+            textStyle.textAlign: TextAlign.Left
+            textStyle.fontSize: FontSize.Large
+            textStyle.color: Color.White
 
-                // layout definition
-                leftMargin: 5
-                textStyle.base: SystemDefaults.TextStyles.BigText
-                textStyle.fontWeight: FontWeight.W100
-                textStyle.textAlign: TextAlign.Left
-                textStyle.fontSize: FontSize.Large
-                textStyle.color: Color.White
-
-                // set initial visibility to false
-                // make label visible if text is added
-                visible: false
-                onTextChanged: {
-                    visible = true;
-                }
+            // set initial visibility to false
+            // make label visible if text is added
+            visible: false
+            onTextChanged: {
+                visible = true;
             }
         }
+    }
+    
+    // change the image scaling
+    onImageScalingChanged: {
+        infoTileWebBackgroundImage.scalingMethod = infoTileComponent.imageScaling;// ScalingMethod.AspectFill
+        infoTileLocalBackgroundImage.scalingMethod = infoTileComponent.imageScaling;// ScalingMethod.AspectFill
     }
 
     // handle tap on custom button

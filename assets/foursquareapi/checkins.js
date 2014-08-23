@@ -55,7 +55,9 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
 				callingPage.recentCheckinDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -76,17 +78,18 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 	url += "&m=swarm";
 
 	// check if currentGeoLocation is set
-	// we assume that if the system was able to define the latitude, it also defined the longitude
+	// we assume that if the system was able to define the latitude, it also
+	// defined the longitude
 	if ((typeof currentGeoLocation != 'undefined') && (typeof currentGeoLocation.latitude != 'undefined')) {
 		url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	}
-	
+
 	// check if currentTimestamp is set
 	if (currentTimestamp > 0) {
 		url += "&afterTimestamp=" + currentTimestamp;
-	}	
+	}
 
-	console.log("# Loading recent checkins with url: " + url);
+	// console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

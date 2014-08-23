@@ -83,7 +83,7 @@ NavigationPane {
         // around you checkin data loaded and transformed
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
-            console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
+            // console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
 
             // initially clear list
             aroundYouList.clearList();
@@ -113,9 +113,9 @@ NavigationPane {
 
                 // check if location was really fixed
                 if (! aroundYouPage.currentGeolocation) {
-                    console.log("# Location could not be fixed");
+                    // console.log("# Location could not be fixed");
                 } else {
-                    console.debug("# Location found: " + aroundYouPage.currentGeolocation.latitude, aroundYouPage.currentGeolocation.longitude);
+                    // console.debug("# Location found: " + aroundYouPage.currentGeolocation.latitude, aroundYouPage.currentGeolocation.longitude);
 
                     // show loader
                     loadingIndicator.showLoader("Checking where your friends are");

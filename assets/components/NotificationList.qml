@@ -49,7 +49,7 @@ Container {
     // item is given as type InstagramCommentData
     signal addToList(variant item)
     onAddToList: {
-        console.log("# Adding item with ID " + item.notificationId + " to notification list data model");
+        // console.log("# Adding item with ID " + item.notificationId + " to notification list data model");
         notificationListComponent.currentItemIndex += 1;
         notificationListDataModel.insert({
                 "notificationData": item,

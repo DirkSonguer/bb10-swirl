@@ -17,8 +17,6 @@
 #ifndef ApplicationUI_HPP_
 #define ApplicationUI_HPP_
 
-#include <QObject>
-
 namespace bb
 {
     namespace cascades
@@ -34,13 +32,14 @@ class QTranslator;
  *
  * Use this object to create and init app UI, to create context objects, to register the new meta types etc.
  */
-class ApplicationUI : public QObject
+class ApplicationUI: public QObject
 {
     Q_OBJECT
 public:
     ApplicationUI();
-    virtual ~ApplicationUI() {}
-private slots:
+    virtual ~ApplicationUI()
+    {
+    }
     void onSystemLanguageChanged();
 private:
     QTranslator* m_pTranslator;

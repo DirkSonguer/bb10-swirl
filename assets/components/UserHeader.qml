@@ -41,7 +41,7 @@ Container {
     // layout definition
     background: Color.create(Globals.blackberryStandardBlue)
     preferredWidth: DisplayInfo.width
-    topPadding: ui.sdu(5)
+    topPadding: ui.sdu(4)
     bottomPadding: ui.sdu(2)
 
     // profile image container

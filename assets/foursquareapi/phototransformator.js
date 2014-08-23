@@ -21,7 +21,7 @@ function PhotoTransformator() {
 // The resulting user data is in the standard user format as
 // FoursquarephotoData()
 PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
-	console.log("# Transforming user item with id: " + photoObject.id);
+	// console.log("# Transforming user item with id: " + photoObject.id);
 
 	var photoData = new FoursquarePhotoData();
 

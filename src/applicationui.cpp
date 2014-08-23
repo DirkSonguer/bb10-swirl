@@ -25,16 +25,21 @@
 // individual includes
 #include <bb/cascades/SceneCover>
 #include <bb/device/DisplayInfo>
+#include <bb/system/phone/Phone>
 #include "WebImageView.h"
+#include "CommunicationInvokes.hpp"
 
 // use blackberry namespaces
 using namespace bb::device;
 using namespace bb::cascades;
+using namespace bb::system;
 
 ApplicationUI::ApplicationUI() :
         QObject()
 {
     qmlRegisterType<WebImageView>("WebImageView", 1, 0, "WebImageView");
+    qmlRegisterType<CommunicationInvokes>("CommunicationInvokes", 1, 0, "CommunicationInvokes");
+    qmlRegisterType<bb::system::phone::Phone>("bb.system.phone", 1, 0, "Phone");
     qmlRegisterType<QTimer>("QtTimer", 1, 0, "Timer");
 
     // The SceneCover is registered so that it can be used in QML
@@ -43,16 +48,18 @@ ApplicationUI::ApplicationUI() :
     // Since it is not possible to create an instance of the AbstractCover
     // it is registered as an uncreatable type (necessary for accessing
     // Application.cover).
-    qmlRegisterUncreatableType<AbstractCover>("bb.cascades", 1, 0,
-            "AbstractCover", "An AbstractCover cannot be created.");
+    qmlRegisterUncreatableType<AbstractCover>("bb.cascades", 1, 0, "AbstractCover",
+            "An AbstractCover cannot be created.");
 
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);
 
-    bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
+    bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this,
+            SLOT(onSystemLanguageChanged()));
     // This is only available in Debug builds
-    Q_ASSERT(res);
+    // Q_ASSERT(res);
+
     // Since the variable is not used in the app, this is added to avoid a
     // compiler warning
     Q_UNUSED(res);
@@ -70,10 +77,9 @@ ApplicationUI::ApplicationUI() :
     // Build the path, add it as a context property, and expose
     // it to QML
     QDeclarativePropertyMap* dirPaths = new QDeclarativePropertyMap;
-    dirPaths->insert("currentPath", QVariant(QString(
-            "file://" + workingDir)));
-    dirPaths->insert("assetPath", QVariant(QString(
-            "file://" + workingDir + "/app/native/assets/")));
+    dirPaths->insert("currentPath", QVariant(QString("file://" + workingDir)));
+    dirPaths->insert("assetPath",
+            QVariant(QString("file://" + workingDir + "/app/native/assets/")));
     qml->setContextProperty("dirPaths", dirPaths);
 
     DisplayInfo display;

@@ -31,7 +31,7 @@ function getNotifications(callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			console.log("# Notifications object received. Transforming.");
+			// console.log("# Notifications object received. Transforming.");
 
 			// prepare transformator and return object
 			var notificationTransformator = new NotificationTransformator();
@@ -45,14 +45,14 @@ function getNotifications(callingPage) {
 				notificationDataArray[index] = notificationDataItem;
 			}
 
-			console.log("# Done loading notifications");
+			// console.log("# Done loading notifications");
 			callingPage.notificationDataLoaded(notificationDataArray);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
 				callingPage.notificationDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -72,7 +72,7 @@ function getNotifications(callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading notifications with url: " + url);
+	// console.log("# Loading notifications with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -91,18 +91,18 @@ function checkForNewNotifications(callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			console.log("# Notifications object received. Checking for new updates");
+			// console.log("# Notifications object received. Checking for new updates");
 
 			var notificationCount = jsonObject.notifications[0].item.unreadCount;
 
-			console.log("# Done loading new notification count");
+			// console.log("# Done loading new notification count. Found: " + notificationCount);
 			callingPage.notificationCountDataLoaded(notificationCount);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
 				callingPage.notificationCountDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -122,7 +122,7 @@ function checkForNewNotifications(callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading notification count with url: " + url);
+	// console.log("# Loading notification count with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
