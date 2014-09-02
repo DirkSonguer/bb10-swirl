@@ -61,17 +61,27 @@ void WebImageView::imageLoaded() {
 	// Get reply
 	QNetworkReply * reply = qobject_cast<QNetworkReply*>(sender());
 
+	// check for redirect
     QUrl redirect = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
-    if( redirect.isValid() ) {
-        setUrl(redirect);
-    }
-    else
-    {
-        // Process reply
+    if( !redirect.isValid() ) {
+        // Process reply as correct image
         QByteArray imageData = reply->readAll();
 
         // Set image from data
         setImage( Image(imageData) );
+    }
+    else
+    {
+        // check if the image is from twitter and the old "bigger" type
+        if ( (redirect.toString().contains("pbs.twimg.com")) && (redirect.toString().contains("_bigger")) ) {
+            // if so, change image type to 400x400 size
+            QString newTwitterUrl = "";
+            newTwitterUrl = redirect.toString().replace("_bigger", "_400x400");
+            redirect.setUrl(newTwitterUrl);
+        }
+
+        // follow the redirect
+        setUrl(redirect);
     }
 
 	// Memory management

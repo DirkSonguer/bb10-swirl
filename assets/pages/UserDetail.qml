@@ -71,7 +71,7 @@ Page {
                     id: userDetailFriendsTile
 
                     // layout definition
-                    backgroundColor: Color.Black
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
                     preferredHeight: DisplayInfo.width / 2
                     preferredWidth: DisplayInfo.width / 2
 
@@ -85,7 +85,7 @@ Page {
                     id: userDetailPhotosTile
 
                     // layout definition
-                    backgroundColor: Color.Black
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
                     preferredHeight: DisplayInfo.width / 2
                     preferredWidth: DisplayInfo.width / 2
 
@@ -284,12 +284,14 @@ Page {
         if (userData.contactTwitter !== "") {
             userDetailTwitterContactTile.visible = true;
             userDetailTwitterContactTile.webImage = "http://avatars.io/twitter/" + userData.contactTwitter + "?size=large";
+            console.log("# Twitter " + userDetailTwitterContactTile.webImage);
         }
 
         // activate invocation and show tile if facebook id is available
         if (userData.contactFacebook !== "") {
             userDetailFacebookContactTile.visible = true;
-            userDetailFacebookContactTile.webImage = "http://avatars.io/facebook/" + userData.contactFacebook + "?size=large";
+            userDetailFacebookContactTile.webImage = "https://graph.facebook.com/" + userData.contactFacebook + "/picture?type=large&width=400&height=400";
+            console.log("# Facebook " + userDetailFacebookContactTile.webImage);
         }
 
         // activate invocation and show tile if phone number is available
