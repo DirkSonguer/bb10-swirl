@@ -96,6 +96,15 @@ NavigationPane {
             // hide loader
             loadingIndicator.hideLoader();
         }
+
+        // recent checkin data could not be load
+        onRecentCheckinDataError: {
+            // show info message
+            infoMessage.showMessage(errorData.errorMessage, "Could not load checkins around you");
+            
+            // hide loader
+            loadingIndicator.hideLoader();
+        }
     }
 
     // attached objects

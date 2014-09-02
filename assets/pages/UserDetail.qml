@@ -104,8 +104,8 @@ Page {
                     preferredWidth: DisplayInfo.width / 2
 
                     // set icon & label
-                    localImage: "asset:///images/icons/icon_facebook_w.png"
-                    imageScaling: ScalingMethod.None
+                    // localImage: "asset:///images/icons/icon_facebook_w.png"
+                    // imageScaling: ScalingMethod.None
                     headline: "Facebook"
 
                     // set initial visibility to false
@@ -128,8 +128,8 @@ Page {
                     preferredWidth: DisplayInfo.width / 2
 
                     // set icon & label
-                    localImage: "asset:///images/icons/icon_twitter_w.png"
-                    imageScaling: ScalingMethod.None
+                    // localImage: "asset:///images/icons/icon_twitter_w.png"
+                    // imageScaling: ScalingMethod.None
                     headline: "Twitter"
 
                     // set initial visibility to false
@@ -283,13 +283,13 @@ Page {
         // activate invocation and show tile if twitter id is available
         if (userData.contactTwitter !== "") {
             userDetailTwitterContactTile.visible = true;
+            userDetailTwitterContactTile.webImage = "http://avatars.io/twitter/" + userData.contactTwitter + "?size=large";
         }
 
         // activate invocation and show tile if facebook id is available
         if (userData.contactFacebook !== "") {
-            console.log("# Facebook ID: " + userData.contactFacebook)
             userDetailFacebookContactTile.visible = true;
-            userDetailFacebookContactTile.webImage = "http://avatars.io/twitter/dirksonguer";
+            userDetailFacebookContactTile.webImage = "http://avatars.io/facebook/" + userData.contactFacebook + "?size=large";
         }
 
         // activate invocation and show tile if phone number is available

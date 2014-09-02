@@ -58,19 +58,24 @@ double WebImageView::loading() const {
 }
 
 void WebImageView::imageLoaded() {
-
 	// Get reply
 	QNetworkReply * reply = qobject_cast<QNetworkReply*>(sender());
 
-	// Process reply
-	QByteArray imageData = reply->readAll();
+    QUrl redirect = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+    if( redirect.isValid() ) {
+        setUrl(redirect);
+    }
+    else
+    {
+        // Process reply
+        QByteArray imageData = reply->readAll();
 
-	// Set image from data
-	setImage( Image(imageData) );
+        // Set image from data
+        setImage( Image(imageData) );
+    }
 
 	// Memory management
 	reply->deleteLater();
-
 }
 
 void WebImageView::dowloadProgressed(qint64 bytes,qint64 total) {

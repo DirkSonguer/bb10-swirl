@@ -10,6 +10,7 @@
 
 // include other scripts used here
 Qt.include(dirPaths.assetPath + "global/globals.js");
+Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
 Qt.include(dirPaths.assetPath + "structures/user.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
@@ -71,7 +72,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// last photo information
 	// this is stored as FoursquarePhotoData()
-	if ( (typeof userObject.photos !== "undefined") && (typeof userObject.photos.items[0] !== "undefined")) {
+	if ((typeof userObject.photos !== "undefined") && (typeof userObject.photos.items[0] !== "undefined")) {
 		var photoTransformator = new PhotoTransformator();
 		userData.lastPhoto = photoTransformator.getPhotoDataFromObject(userObject.photos.items[0]);
 	}
@@ -95,7 +96,8 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 				}
 			}
 
-			// console.log("# Found " + userData.friendList.length + " friends for user " + userObject.id);
+			// console.log("# Found " + userData.friendList.length + " friends
+			// for user " + userObject.id);
 		}
 	}
 

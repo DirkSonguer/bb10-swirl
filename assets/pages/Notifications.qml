@@ -89,6 +89,15 @@ NavigationPane {
             // hide loader
             loadingIndicator.hideLoader();
         }
+
+        // notification data could not be load
+        onNotificationDataError: {
+            // show info message
+            infoMessage.showMessage(errorData.errorMessage, "Could not load checkins around you");
+
+            // hide loader
+            loadingIndicator.hideLoader();
+        }
     }
 
     // destroy pages after use

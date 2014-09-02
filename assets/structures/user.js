@@ -36,12 +36,17 @@ function FoursquareUserData() {
 	this.profileImageMedium = "";
 	this.profileImageLarge = "";
 
-	// unser contact information
+	// user contact information
 	// note that those are relative ids of the user for the specific platforms
 	this.contactTwitter = "";
 	this.contactFacebook = "";
 	this.contactPhone = "";
 	this.contactMail = "";
+
+	// user social profile images
+	// note that those are retreived by the user contact information
+	this.profileTwitter = "";
+	this.profileFacebook = "";
 
 	// current interaction counts
 	this.checkinCount = "";
