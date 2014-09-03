@@ -1,7 +1,7 @@
 // *************************************************** //
-// Checkins Script
+// Venues Script
 //
-// This script is used to load, format and show checkin
+// This script is used to load, format and show venue
 // related data.
 //
 // Author: Dirk Songuer
@@ -14,19 +14,16 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "classes/authenticationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/configurationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
-	Qt.include(dirPaths.assetPath + "foursquareapi/checkintransformator.js");
-	Qt.include(dirPaths.assetPath + "structures/checkin.js");
+	// Qt.include(dirPaths.assetPath + "foursquareapi/checkintransformator.js");
+	Qt.include(dirPaths.assetPath + "structures/venue.js");
 }
 
-// Load the recent checkin data for the currently logged in user
-// First parameter is the current geolocation, given as GeolocationData
-// or 0
-// Second parameter is the time after which the checkins should be pulled
-// or 0
-// Third parameter is the id of the calling page, which will receive the
-// recentCheckinDataLoaded() signal
-function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
-	// console.log("# Loading recent checkins");
+// Load the full vanue object for a given venue
+// First parameter is the Foursquare venue id
+// Second parameter is the id of the calling page, which will receive the
+// venueDetailDataLoaded() signal
+function getVenueData(venueId, callingPage) {
+	console.log("# Loading detail venue data for id: " + venueId);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -35,6 +32,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
+			/*
 			// console.log("# Recent checkins object received. Transforming.");
 			// prepare transformator and return object
 			var checkinTransformator = new CheckinTransformator();
@@ -50,6 +48,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 			// console.log("# Done loading recent checkins");
 			callingPage.recentCheckinDataLoaded(checkinDataArray);
+			*/
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -58,7 +57,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 				// console.log("# Error found with code " +
 				// network.errorData.errorCode + " and message " +
 				// network.errorData.errorMessage);
-				callingPage.recentCheckinDataError(network.errorData);
+				callingPage.venueDetailDataError(network.errorData);
 				network.clearErrors();
 			}
 		}
@@ -72,24 +71,13 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
-	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/recent";
+	url = foursquarekeys.foursquareAPIUrl + "/v2/venues";
+	url += "/" + venueId;
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// check if currentGeoLocation is set
-	// we assume that if the system was able to define the latitude, it also
-	// defined the longitude
-	if ((typeof currentGeoLocation != 'undefined') && (typeof currentGeoLocation.latitude != 'undefined')) {
-		url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
-	}
-
-	// check if currentTimestamp is set
-	if (currentTimestamp > 0) {
-		url += "&afterTimestamp=" + currentTimestamp;
-	}
-
-	// console.log("# Loading recent checkins with url: " + url);
+	console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

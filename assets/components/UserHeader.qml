@@ -67,6 +67,10 @@ Container {
             preferredWidth: ui.sdu(20)
             minHeight: ui.sdu(20)
             minWidth: ui.sdu(20)
+            
+            onUrlChanged: {
+                console.log("# URL changed to: " + url);
+            }
         }
 
         // create the squircle mask around the image

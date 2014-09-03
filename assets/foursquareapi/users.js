@@ -45,7 +45,9 @@ function getUserData(userId, callingPage) {
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
 				callingPage.userDetailDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -71,11 +73,10 @@ function getUserData(userId, callingPage) {
 	req.send();
 }
 
-
-//Load the user data for the a given user user
-//First parameter is the id of the user to load the data for
-//Second parameter is the calling page, which will receive the
-//userDetailDataLoaded() signal
+// Load the user data for the a given user user
+// First parameter is the id of the user to load the data for
+// Second parameter is the calling page, which will receive the
+// userCheckinDataLoaded() signal
 function getCheckinsForUser(userId, callingPage) {
 	// console.log("# Loading user checkins");
 
@@ -99,7 +100,9 @@ function getCheckinsForUser(userId, callingPage) {
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
 				callingPage.userCheckinDataError(network.errorData);
 				network.clearErrors();
 			}

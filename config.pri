@@ -59,6 +59,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
         $$quote($$BASEDIR/assets/foursquareapi/users.js) \
         $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/venues.js) \
         $$quote($$BASEDIR/assets/foursquareapi/venuetransformator.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
@@ -95,6 +96,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/Notifications.qml) \
         $$quote($$BASEDIR/assets/pages/RecentCheckins.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetail.qml) \
+        $$quote($$BASEDIR/assets/pages/VenueDetail.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \

@@ -1,5 +1,5 @@
 1
-68
+70
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -23,6 +23,7 @@ foursquareapi/phototransformator.js
 foursquareapi/updates.js
 foursquareapi/users.js
 foursquareapi/usertransformator.js
+foursquareapi/venues.js
 foursquareapi/venuetransformator.js
 global/copytext.js
 global/foursquarekeys.js
@@ -59,6 +60,7 @@ pages/AroundYou.qml
 pages/Notifications.qml
 pages/RecentCheckins.qml
 pages/UserDetail.qml
+pages/VenueDetail.qml
 sheets/About.qml
 sheets/UserLogin.qml
 structures/checkin.js

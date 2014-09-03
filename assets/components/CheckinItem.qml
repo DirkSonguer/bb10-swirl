@@ -28,7 +28,7 @@ Container {
     signal userClicked()
 
     // signal that location data has been clicked
-    signal locationClicked()
+    signal itemClicked()
     
     // property for the user profile image, given as url
     property alias profileImage: checkinUserProfileImage.url
@@ -195,7 +195,7 @@ Container {
             TapHandler {
                 onTapped: {
                     // console.log("# Checkin location name clicked");
-                    checkinItemComponent.locationClicked();
+                    checkinItemComponent.itemClicked();
                 }
             }
         ]

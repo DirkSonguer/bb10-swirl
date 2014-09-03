@@ -31,8 +31,8 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// user name
 	// note, first and last name might be not set, thus the node would not exist
-	if (userObject.firstName !== null) userData.firstName = userObject.firstName;
-	if (userObject.lastName !== null) userData.lastName = userObject.lastName;
+	if (typeof userObject.firstName !== "undefined") userData.firstName = userObject.firstName;
+	if (typeof userObject.lastName !== "undefined") userData.lastName = userObject.lastName;
 	userData.fullName = userData.firstName + " " + userData.lastName;
 
 	// user gender

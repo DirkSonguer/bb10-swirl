@@ -60,10 +60,17 @@ NavigationPane {
                 id: checkinList
 
                 onProfileClicked: {
-                    // console.log("# Item clicked: " + userData.userId);
+                    // console.log("# User clicked: " + userData.userId);
                     var userDetailPage = userDetailComponent.createObject();
                     userDetailPage.userData = userData;
                     navigationPane.push(userDetailPage);
+                }
+
+                onItemClicked: {
+                    // console.log("# Item clicked: " + venueData.userId);
+                    var venueDetailPage = venueDetailComponent.createObject();
+                    venueDetailPage.venueData = venueData;
+                    navigationPane.push(venueDetailPage);
                 }
             }
         }
@@ -114,6 +121,12 @@ NavigationPane {
         ComponentDefinition {
             id: userDetailComponent
             source: "UserDetail.qml"
+        },
+        // venue detail page
+        // will be called if user clicks on venue item
+        ComponentDefinition {
+            id: venueDetailComponent
+            source: "VenueDetail.qml"
         }
     ]
 

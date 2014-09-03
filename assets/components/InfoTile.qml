@@ -106,11 +106,11 @@ Container {
             }
         }
     }
-    
+
     // change the image scaling
     onImageScalingChanged: {
-        infoTileWebBackgroundImage.scalingMethod = infoTileComponent.imageScaling;// ScalingMethod.AspectFill
-        infoTileLocalBackgroundImage.scalingMethod = infoTileComponent.imageScaling;// ScalingMethod.AspectFill
+        infoTileWebBackgroundImage.scalingMethod = infoTileComponent.imageScaling; // ScalingMethod.AspectFill
+        infoTileLocalBackgroundImage.scalingMethod = infoTileComponent.imageScaling; // ScalingMethod.AspectFill
     }
 
     // handle tap on custom button
@@ -121,4 +121,27 @@ Container {
             }
         }
     ]
+
+    // handle ui touch elements
+    onTouch: {
+        // user interaction
+        if (event.touchType == TouchType.Down) {
+            infoTileComponent.leftPadding = 10;
+            infoTileComponent.rightPadding = 10;
+            infoTileComponent.topPadding = 10;
+            infoTileComponent.bottomPadding = 10;
+            infoTileWebBackgroundImage.opacity = 0.8;
+            infoTileLocalBackgroundImage.opacity = 0.8;
+        }
+
+        // user released or is moving
+        if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+            infoTileComponent.leftPadding = 0;
+            infoTileComponent.rightPadding = 0;
+            infoTileComponent.topPadding = 0;
+            infoTileComponent.bottomPadding = 0;
+            infoTileWebBackgroundImage.opacity = 1.0;
+            infoTileLocalBackgroundImage.opacity = 1.0;
+        }
+    }
 }

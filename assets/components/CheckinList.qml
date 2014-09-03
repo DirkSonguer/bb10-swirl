@@ -23,7 +23,7 @@ Container {
     signal listIsScrolling()
 
     // signal if item was clicked
-    signal itemClicked(variant commentData)
+    signal itemClicked(variant venueData)
     
     // signal if user was clicked
     signal profileClicked(variant userData)
@@ -117,8 +117,9 @@ Container {
                             Qt.profileClicked(ListItemData.checkinData.userData);
                         }
                         
-                        onLocationClicked: {
+                        onItemClicked: {
                             // send item clicked event
+                            Qt.itemClicked(ListItemData.checkinData.venueData);
                         }
                     }
                 }

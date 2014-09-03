@@ -2,7 +2,7 @@
 // User Detail Page
 //
 // The user detail page shows details and metadata of
-// the guven user.
+// the given user.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -38,6 +38,9 @@ Page {
     // contains only a limited object when filled
     // will be extended once the full data is loaded
     property variant userData
+
+    // flag to chek if user data detail object has been loaded
+    property bool userDataDetailsLoaded: false
 
     // property for the friend image slideshow
     // a timer will update this to swap through the images
@@ -242,20 +245,25 @@ Page {
         userDetailHeader.username = userData.fullName;
         userDetailHeader.profileImage = userData.profileImageLarge;
 
-        // load full user object
-        UsersRepository.getUserData(userData.userId, userDetailPage);
+        // check if full user object has been loaded
+        if (! userDetailPage.userDataDetailsLoaded) {
+            // load full user object
+            UsersRepository.getUserData(userData.userId, userDetailPage);
+        }
     }
 
     // full user object has been loaded
     // fill entire page components with data
     onUserDetailDataLoaded: {
-        console.log("# User detail data loaded for user " + userData.userId);
+        // console.log("# User detail data loaded for user " + userData.userId);
 
+        // store the full object and set flag to true
+        userDetailPage.userDataDetailsLoaded = true;
         userDetailPage.userData = userData;
 
         // refill header data based on full user object
-        userDetailHeader.profileImage = userData.profileImageLarge;
-        userDetailHeader.username = userData.fullName;
+        // userDetailHeader.profileImage = userData.profileImageLarge;
+        // userDetailHeader.username = userData.fullName;
         userDetailHeader.bio = userData.bio;
         userDetailHeader.lastCheckin = userData.lastCheckinVenue.name;
 
@@ -284,14 +292,12 @@ Page {
         if (userData.contactTwitter !== "") {
             userDetailTwitterContactTile.visible = true;
             userDetailTwitterContactTile.webImage = "http://avatars.io/twitter/" + userData.contactTwitter + "?size=large";
-            console.log("# Twitter " + userDetailTwitterContactTile.webImage);
         }
 
         // activate invocation and show tile if facebook id is available
         if (userData.contactFacebook !== "") {
             userDetailFacebookContactTile.visible = true;
             userDetailFacebookContactTile.webImage = "https://graph.facebook.com/" + userData.contactFacebook + "/picture?type=large&width=400&height=400";
-            console.log("# Facebook " + userDetailFacebookContactTile.webImage);
         }
 
         // activate invocation and show tile if phone number is available
