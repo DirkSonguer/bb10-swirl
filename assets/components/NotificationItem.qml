@@ -170,10 +170,14 @@ Container {
     onTouch: {
         // user interaction
         if (event.touchType == TouchType.Down) {
+            notificationItemComponent.background = Color.create(Globals.blackberryStandardBlue);
+            notificationUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
         }
 
         // user released or is moving
         if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+            notificationItemComponent.background = Color.Transparent;
+            notificationUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
         }
     }
 }
