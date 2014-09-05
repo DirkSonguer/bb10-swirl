@@ -8,11 +8,10 @@
 // *************************************************** //
 
 // data structure for Foursquare checkin
-function FoursquareCheckinData()
-{
-	// id
+function FoursquareCheckinData() {
+	// checkin id
 	this.checkinId = "";
-	
+
 	// timestamps
 	this.createdAt = "";
 	this.elapsedTime = "";
@@ -23,14 +22,14 @@ function FoursquareCheckinData()
 
 	// liked state
 	this.userHasLiked = "";
-	
+
 	// likes and comments
 	this.numberOfLikes = "";
 	this.numberOfComments = "";
 
 	// this is filled by a FoursquareUserData object
 	this.userData = "";
-	
+
 	// this is filled by a FoursquareVenueData object
 	this.venueData = "";
 }

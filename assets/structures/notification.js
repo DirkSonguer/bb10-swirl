@@ -9,9 +9,8 @@
 // *************************************************** //
 
 // data structure for Foursquare notification
-function FoursquareNotificationData()
-{
-	// ids
+function FoursquareNotificationData() {
+	// notification ids
 	this.notificationId = "";
 	this.referralId = "";
 
@@ -25,11 +24,11 @@ function FoursquareNotificationData()
 	this.createdAt = "";
 	this.elapsedTime = "";
 	this.formattedTime = "";
-	
+
 	// related image and icon for the notification
 	this.image = "";
 	this.icon = "";
-	
+
 	// type of notification as well as
 	// associated target information
 	this.targetType = "";

@@ -15,6 +15,7 @@
 
 // data structure for Foursquare photo
 function FoursquarePhotoData() {
+	// photo id
 	this.photoId = "";
 	
 	// timestamps

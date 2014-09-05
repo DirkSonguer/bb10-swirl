@@ -15,6 +15,7 @@
 
 // data structure for Foursquare user
 function FoursquareUserData() {
+	// user id
 	this.userId = "";
 
 	// user bio as string
@@ -52,7 +53,7 @@ function FoursquareUserData() {
 	this.checkinCount = "";
 	this.friendCount = "";
 	this.photoCount = "";
-	this.tipsCount = "";
+	this.tipCount = "";
 
 	// the venue the user last checked in
 	// this is filled by a FoursquareVenueData object

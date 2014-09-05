@@ -19,7 +19,6 @@ import "../components"
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../foursquareapi/users.js" as UsersRepository
-import "../classes/helpermethods.js" as HelperMethods
 
 // import image url loader component
 import CommunicationInvokes 1.0
@@ -79,7 +78,7 @@ Page {
                     preferredWidth: DisplayInfo.width / 2
 
                     // set initial visibility to false
-                    // will be set if the user has stored phone contacts
+                    // will be set if the user has friends
                     visible: false
                 }
 
@@ -93,7 +92,7 @@ Page {
                     preferredWidth: DisplayInfo.width / 2
 
                     // set initial visibility to false
-                    // will be set if the user has stored phone contacts
+                    // will be set if the user has photos
                     visible: false
                 }
 

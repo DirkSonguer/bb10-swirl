@@ -37,7 +37,6 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 		if (jsonObject) {
 			// console.log("# Recent checkins object received. Transforming.");
 			// prepare transformator and return object
-			var checkinTransformator = new CheckinTransformator();
 			var checkinDataArray = new Array();
 
 			// iterate through all media items

@@ -34,7 +34,6 @@ function getNotifications(callingPage) {
 			// console.log("# Notifications object received. Transforming.");
 
 			// prepare transformator and return object
-			var notificationTransformator = new NotificationTransformator();
 			var notificationDataArray = new Array();
 
 			// iterate through all media items

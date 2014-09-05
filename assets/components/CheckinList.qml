@@ -109,7 +109,7 @@ Container {
                         username: ListItemData.checkinData.userData.fullName
                         profileImage: ListItemData.checkinData.userData.profileImageMedium
                         locationName: ListItemData.checkinData.venueData.name
-                        locationCity: ListItemData.checkinData.venueData.city + ", " + ListItemData.checkinData.venueData.country
+                        locationCity: ListItemData.checkinData.venueData.location.city + ", " + ListItemData.checkinData.venueData.location.country
                         elapsedTime: ListItemData.checkinData.elapsedTime
                         
                         onUserClicked: {

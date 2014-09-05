@@ -10,8 +10,7 @@
 // *************************************************** //
 
 // data structure for errors
-function ErrorData()
-{
+function ErrorData() {
 	// general image information and links
 	this.errorType = "";
 	this.errorCode = "";

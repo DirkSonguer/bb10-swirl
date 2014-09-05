@@ -49,11 +49,14 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
+        $$quote($$BASEDIR/assets/components/LocationTile.qml) \
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/locationcategorytransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/locationtransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/notificationtransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/phototransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
@@ -66,6 +69,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/global/globals.js) \
         $$quote($$BASEDIR/assets/images/assets/mask_blue_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
+        $$quote($$BASEDIR/assets/images/assets/triangle_down.png) \
         $$quote($$BASEDIR/assets/images/assets/white_squircle.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
@@ -100,8 +104,11 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
+        $$quote($$BASEDIR/assets/structures/contact.js) \
         $$quote($$BASEDIR/assets/structures/errordata.js) \
         $$quote($$BASEDIR/assets/structures/geolocation.js) \
+        $$quote($$BASEDIR/assets/structures/location.js) \
+        $$quote($$BASEDIR/assets/structures/locationcategory.js) \
         $$quote($$BASEDIR/assets/structures/notification.js) \
         $$quote($$BASEDIR/assets/structures/photo.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \

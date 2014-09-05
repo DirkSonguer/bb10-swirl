@@ -11,6 +11,8 @@
 // include other scripts used here
 Qt.include(dirPaths.assetPath + "global/globals.js");
 
+//singleton instance of class
+var helperMethods = new HelperMethods();
 
 // Class function that gets the prototype methods
 function HelperMethods() {

@@ -14,7 +14,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "classes/authenticationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/configurationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
-	// Qt.include(dirPaths.assetPath + "foursquareapi/checkintransformator.js");
+	Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 	Qt.include(dirPaths.assetPath + "structures/venue.js");
 }
 
@@ -32,23 +32,11 @@ function getVenueData(venueId, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			/*
-			// console.log("# Recent checkins object received. Transforming.");
 			// prepare transformator and return object
-			var checkinTransformator = new CheckinTransformator();
-			var checkinDataArray = new Array();
+			var venueData = venueTransformator.getVenueDataFromObject(jsonObject.response.venue);
 
-			// iterate through all media items
-			for ( var index in jsonObject.response.recent) {
-				// get checkin data item and store it into return array
-				var checkinDataItem = new FoursquareCheckinData();
-				checkinDataItem = checkinTransformator.getCheckinDataFromObject(jsonObject.response.recent[index]);
-				checkinDataArray[index] = checkinDataItem;
-			}
-
-			// console.log("# Done loading recent checkins");
-			callingPage.recentCheckinDataLoaded(checkinDataArray);
-			*/
+			// console.log("# Done loading venue data");
+			callingPage.venueDetailDataLoaded(venueData);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -65,14 +53,13 @@ function getVenueData(venueId, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading recent checkins");
+		// console.log("# User not logged in. Aborted loading venue data");
 		return false;
 	}
 
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
-	url = foursquarekeys.foursquareAPIUrl + "/v2/venues";
-	url += "/" + venueId;
+	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/" + venueId;
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";

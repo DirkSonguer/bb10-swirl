@@ -14,15 +14,19 @@ Qt.include(dirPaths.assetPath + "structures/photo.js");
 Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 
+//singleton instance of class
+var photoTransformator = new PhotoTransformator();
+
 // Class function that gets the prototype methods
 function PhotoTransformator() {
 }
-// Extract all user data from a user object
-// The resulting user data is in the standard user format as
-// FoursquarephotoData()
-PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
-	// console.log("# Transforming user item with id: " + photoObject.id);
 
+// Extract all photo data from a user object
+// The resulting data is stored as FoursquarePhotoData()
+PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
+	// console.log("# Transforming photo item with id: " + photoObject.id);
+
+	// create new data object
 	var photoData = new FoursquarePhotoData();
 
 	// photo id
@@ -30,7 +34,6 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 
 	// timestamps
 	photoData.createdAt = photoObject.createdAt;
-	var helperMethods = new HelperMethods();
 	photoData.elapsedTime = helperMethods.calculateElapsedTime(photoObject.createdAt);
 
 	// images
@@ -38,14 +41,33 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 	photoData.imageSmall = photoObject.prefix + foursquareProfileImageSmall + photoObject.suffix;
 	photoData.imageMedium = photoObject.prefix + foursquareProfileImageMedium + photoObject.suffix;
 	photoData.imageFull = photoObject.prefix + photoObject.width + "x" + photoObject.height + photoObject.suffix;
-	
+
 	// general venue information
 	// this is stored as FoursquareVenueData()
 	if (typeof photoObject.venue !== "undefined") {
-		var venueTransformator = new VenueTransformator();
 		photoData.lastCheckinVenue = venueTransformator.getVenueDataFromObject(photoObject.venue);
 	}
 
 	// console.log("# Done transforming photo item");
 	return photoData;
+};
+
+// Extract all photo data from an array of photo objects
+// The resulting data is stored as array of FoursquarePhotoData()
+PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) {
+	// console.log("# Transforming photo array with " + photoObjectArray.length + " items");
+
+	// create new return array
+	var photoDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in photoObjectArray) {
+		// get photo data item and store it into return array
+		var photoDataObject = new FoursquarePhotoData();
+		photoDataObject = this.getPhotoDataFromObject(photoObjectArray[index]);
+		photoDataArray[index] = photoDataObject;
+	}
+
+	// console.log("# Done transforming photo array");
+	return photoDataArray;
 };

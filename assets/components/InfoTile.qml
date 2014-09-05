@@ -40,7 +40,7 @@ Container {
     layout: DockLayout {
     }
 
-    // gallery image
+    // tile image
     // this is a web image view provided by WebViewImage
     WebImageView {
         id: infoTileWebBackgroundImage
@@ -58,6 +58,8 @@ Container {
         }
     }
 
+    // tile image
+    // this is a local image
     ImageView {
         id: infoTileLocalBackgroundImage
 
@@ -74,10 +76,11 @@ Container {
         }
     }
 
+    // tile headline container
     Container {
         // layout definition
-        leftPadding: 10
-        rightPadding: 10
+        leftPadding: ui.sdu(1)
+        rightPadding: ui.sdu(1)
 
         // layout definition
         horizontalAlignment: HorizontalAlignment.Left

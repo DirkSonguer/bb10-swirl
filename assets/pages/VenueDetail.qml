@@ -18,7 +18,6 @@ import "../components"
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../foursquareapi/venues.js" as VenueRepository
-import "../classes/helpermethods.js" as HelperMethods
 
 // import image url loader component
 import CommunicationInvokes 1.0
@@ -52,6 +51,50 @@ Page {
                 orientation: LayoutOrientation.TopToBottom
             }
 
+            LocationTile {
+                id: venueDetailLocationTile
+
+                preferredWidth: DisplayInfo.width
+                preferredHeight: DisplayInfo.width / 2
+            }
+
+            Container {
+                id: locationDetailTiles
+
+                // layout orientation
+                layout: GridLayout {
+                    columnCount: 2
+                }
+
+                // tips tile
+                InfoTile {
+                    id: locationDetailTipsTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / 2
+                    preferredWidth: DisplayInfo.width / 2
+
+                    // set initial visibility to false
+                    // will be set if the venue has tips
+                    visible: false
+                }
+
+                // photos tile
+                InfoTile {
+                    id: locationDetailPhotosTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / 2
+                    preferredWidth: DisplayInfo.width / 2
+
+                    // set initial visibility to false
+                    // will be set if the venue has photos
+                    visible: false
+                }
+            }
+
             // standard loading indicator
             LoadingIndicator {
                 id: loadingIndicator
@@ -83,8 +126,25 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
+        // set location tile
+        venueDetailLocationTile.latitude = venueData.location.lat;
+        venueDetailLocationTile.longitude = venueData.location.lng;
+        venueDetailLocationTile.altitude = 10000;
+        venueDetailLocationTile.webImage = venueData.locationCategories[0].iconLarge;
+        venueDetailLocationTile.headline = venueData.name;
+        
+        // check if venue has photos
+        if (venueData.photoCount > 0) {
+            locationDetailPhotosTile.headline = venueData.photoCount + " Photos";
+            locationDetailPhotosTile.visible = true;
+            
+            // activate and show venue photos if available
+            if (venueData.photos[0] !== "") {
+                locationDetailPhotosTile.webImage = venueData.photos[0].imageFull;
+            }
+        }        
     }
 
     // invocation for opening other apps
