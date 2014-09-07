@@ -59,7 +59,7 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 	if (typeof venueObject.likes !== "undefined") venueData.likeCount = venueObject.likes.count;
 
 	// venue photos
-	if ((typeof venueObject.photos !== "undefined") && (typeof venueObject.photos.groups !== "undefined")) {
+	if ((typeof venueObject.photos !== "undefined") && (typeof venueObject.photos.groups !== "undefined") && (typeof venueObject.photos.groups[0] !== "undefined")) {
 		venueData.photos = photoTransformator.getPhotoDataFromArray(venueObject.photos.groups[0].items);
 	}
 

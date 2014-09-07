@@ -1,13 +1,11 @@
 1
-78
+77
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
-classes/loginuihandler.js
 classes/networkhandler.js
 components/AroundYouItem.qml
 components/AroundYouList.qml
-components/BackgroundImage.qml
 components/CheckinItem.qml
 components/CheckinList.qml
 components/InfoMessage.qml
@@ -17,6 +15,7 @@ components/LocationTile.qml
 components/NotificationItem.qml
 components/NotificationList.qml
 components/UserHeader.qml
+components/VenueHeader.qml
 foursquareapi/checkins.js
 foursquareapi/checkintransformator.js
 foursquareapi/contacttransformator.js

@@ -51,24 +51,38 @@ Page {
                 orientation: LayoutOrientation.TopToBottom
             }
 
-            LocationTile {
-                id: venueDetailLocationTile
-
-                preferredWidth: DisplayInfo.width
-                preferredHeight: DisplayInfo.width / 2
+            VenueHeader {
+                id: venueDetailHeader
             }
-
+            /*
+             * LocationTile {
+             * id: venueDetailLocationTile
+             * 
+             * preferredWidth: DisplayInfo.width
+             * preferredHeight: DisplayInfo.width / 2
+             * }
+             */
             Container {
-                id: locationDetailTiles
+                id: venueDetailTiles
 
                 // layout orientation
                 layout: GridLayout {
                     columnCount: 2
                 }
 
+                // address tile
+                LocationTile {
+                    id: venueDetailAddressTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / 2
+                    preferredWidth: DisplayInfo.width / 2
+                }
+
                 // tips tile
                 InfoTile {
-                    id: locationDetailTipsTile
+                    id: venueDetailTipsTile
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
@@ -82,7 +96,7 @@ Page {
 
                 // photos tile
                 InfoTile {
-                    id: locationDetailPhotosTile
+                    id: venueDetailPhotosTile
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
@@ -126,25 +140,53 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
-        // set location tile
-        venueDetailLocationTile.latitude = venueData.location.lat;
-        venueDetailLocationTile.longitude = venueData.location.lng;
-        venueDetailLocationTile.altitude = 10000;
-        venueDetailLocationTile.webImage = venueData.locationCategories[0].iconLarge;
-        venueDetailLocationTile.headline = venueData.name;
-        
+        // venue address
+        venueDetailAddressTile.latitude = venueData.location.lat;
+        venueDetailAddressTile.longitude = venueData.location.lng;
+        venueDetailAddressTile.altitude = 10000;
+        venueDetailAddressTile.webImage = venueData.locationCategories[0].iconLarge;
+
+        // show address if formatted address is available
+        // otherwise show name
+        if (venueData.location.formattedAddress != "") {
+            venueDetailAddressTile.headline = venueData.location.formattedAddress;
+        } else {
+            venueDetailAddressTile.headline = venueData.name;
+        }
+
+        // fill header image
+        if (venueData.photos != "") {
+            venueDetailHeader.image = venueData.photos[(venueData.photos.length - 1)].imageFull;
+        } else if (venueData.locationCategories != "") {
+            venueDetailHeader.image = venueData.locationCategories[0].iconLarge
+        }
+
+        // location name
+        venueDetailHeader.name = venueData.name;
+
+        // location category
+        if (venueData.locationCategories != "") {
+            venueDetailHeader.category = venueData.locationCategories[0].name;
+        }
+        /*
+         * // venue address
+         * if (venueData.location.formattedAddress != "") {
+         * venueDetailAddressTile.bodytext = venueData.location.formattedAddress;
+         * venueDetailAddressTile.visible = true;
+         * }
+         */
         // check if venue has photos
         if (venueData.photoCount > 0) {
-            locationDetailPhotosTile.headline = venueData.photoCount + " Photos";
-            locationDetailPhotosTile.visible = true;
-            
+            venueDetailPhotosTile.headline = venueData.photoCount + " Photos";
+            venueDetailPhotosTile.visible = true;
+
             // activate and show venue photos if available
-            if (venueData.photos[0] !== "") {
-                locationDetailPhotosTile.webImage = venueData.photos[0].imageFull;
+            if (venueData.photos !== "") {
+                venueDetailPhotosTile.webImage = venueData.photos[0].imageFull;
             }
-        }        
+        }
     }
 
     // invocation for opening other apps

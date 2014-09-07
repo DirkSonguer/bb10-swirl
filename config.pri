@@ -51,6 +51,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
+        $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/contacttransformator.js) \

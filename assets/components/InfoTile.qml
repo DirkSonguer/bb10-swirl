@@ -31,6 +31,7 @@ Container {
     property alias localImage: infoTileLocalBackgroundImage.imageSource
     property variant imageScaling
     property alias headline: infoTileHeadline.text
+    property alias bodytext: infoTileBodytext.text
 
     // set initial background color
     // can be changed via the backgroundColor property
@@ -95,6 +96,8 @@ Container {
 
             // layout definition
             leftMargin: 5
+
+            // text style defintion
             textStyle.base: SystemDefaults.TextStyles.BigText
             textStyle.fontWeight: FontWeight.W100
             textStyle.textAlign: TextAlign.Left
@@ -108,6 +111,29 @@ Container {
                 visible = true;
             }
         }
+        
+        // text label for main text
+        Label {
+            id: infoTileBodytext
+            
+            // layout definition
+            leftMargin: 5
+            
+            // text style defintion
+            textStyle.base: SystemDefaults.TextStyles.BodyText
+            textStyle.fontWeight: FontWeight.W100
+            textStyle.textAlign: TextAlign.Left
+            textStyle.fontSize: FontSize.XLarge
+            textStyle.color: Color.White
+            multiline: true
+            
+            // set initial visibility to false
+            // make label visible if text is added
+            visible: false
+            onTextChanged: {
+                visible = true;
+            }
+        }        
     }
 
     // change the image scaling

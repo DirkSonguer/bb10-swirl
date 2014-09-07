@@ -12,7 +12,7 @@
 Qt.include(dirPaths.assetPath + "global/globals.js");
 Qt.include(dirPaths.assetPath + "structures/location.js");
 
-//singleton instance of class
+// singleton instance of class
 var locationTransformator = new LocationTransformator();
 
 // Class function that gets the prototype methods
@@ -22,7 +22,8 @@ function LocationTransformator() {
 // Extract all location data from a user object
 // The resulting data is stored as FoursquareLocationData()
 LocationTransformator.prototype.getLocationDataFromObject = function(locationObject) {
-	// console.log("# Transforming location item with id: " + locationObject.id);
+	// console.log("# Transforming location item with id: " +
+	// locationObject.id);
 
 	// create new data object
 	var locationData = new FoursquareLocationData();
@@ -38,7 +39,16 @@ LocationTransformator.prototype.getLocationDataFromObject = function(locationObj
 	if (typeof locationObject.country !== "undefined") locationData.country = locationObject.country;
 
 	// formatted address data
-	if (typeof locationObject.formattedAddress !== "undefined") locationData.formattedAddress = locationObject.formattedAddress;
+	if (typeof locationObject.formattedAddress !== "undefined") {
+		// clear formatted address field
+		locationData.formattedAddress = "";
+
+		// iterate through all location items and add them to the address line
+		for ( var index in locationObject.formattedAddress) {
+			if (locationData.formattedAddress != "") locationData.formattedAddress += ", ";
+			locationData.formattedAddress += locationObject.formattedAddress[index];
+		}
+	}
 
 	// lat / lng coordinates
 	locationData.lat = locationObject.lat;

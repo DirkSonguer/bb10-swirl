@@ -149,6 +149,7 @@ Container {
             textStyle.textAlign: TextAlign.Left
             textStyle.fontSize: FontSize.Large
             textStyle.color: Color.White
+            multiline: true
 
             // set initial visibility to false
             // make label visible if text is added
