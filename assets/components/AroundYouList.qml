@@ -136,9 +136,9 @@ Container {
                     topMargin: 1
 
                     AroundYouItem {
-                        username: ListItemData.checkinData.userData.firstName
-                        profileImage: ListItemData.checkinData.userData.profileImageMedium
-                        locationName: ListItemData.checkinData.venueData.name
+                        username: ListItemData.checkinData.user.firstName
+                        profileImage: ListItemData.checkinData.user.profileImageMedium
+                        locationName: ListItemData.checkinData.venue.name
                         
                         horizontalAlignment: HorizontalAlignment.Center
 

@@ -16,7 +16,7 @@ Qt.include(dirPaths.assetPath + "foursquareapi/usertransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 Qt.include(dirPaths.assetPath + "structures/checkin.js");
 
-//singleton instance of class
+// singleton instance of class
 var checkinTransformator = new CheckinTransformator();
 
 // Class function that gets the prototype methods
@@ -63,13 +63,37 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 
 	// general user information
 	// this is stored as FoursquareUserData()
-	var userTransformator = new UserTransformator();
-	checkinData.userData = userTransformator.getUserDataFromObject(checkinObject.user);
+	if (typeof checkinObject.user !== "undefined") {
+		checkinData.user = userTransformator.getUserDataFromObject(checkinObject.user);
+	}
 
 	// general venue information
 	// this is stored as FoursquareVenueData()
-	checkinData.venueData = venueTransformator.getVenueDataFromObject(checkinObject.venue);
+	if (typeof checkinObject.venue !== "undefined") {
+		checkinData.venue = venueTransformator.getVenueDataFromObject(checkinObject.venue);
+	}
 
 	// console.log("# Done transforming checkin item");
 	return checkinData;
+};
+
+// Extract all checkin data from an array of checkin objects
+// The resulting data is stored as array of FoursquareCheckinData()
+CheckinTransformator.prototype.getCheckinDataFromArray = function(checkinObjectArray) {
+	// console.log("# Transforming venue array with " +
+	// checkinObjectArray.length + " items");
+
+	// create new return array
+	var checkinDataArray = new Array();
+
+	// iterate through all checkin items
+	for ( var index in checkinObjectArray) {
+		// get checkin data item and store it into return array
+		var checkinData = new FoursquareCheckinData();
+		checkinData = this.getCheckinDataFromObject(checkinObjectArray[index]);
+		checkinDataArray[index] = checkinData;
+	}
+
+	// console.log("# Done transforming venue array");
+	return checkinDataArray;
 };

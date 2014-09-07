@@ -13,14 +13,17 @@ Qt.include(dirPaths.assetPath + "global/globals.js");
 Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
 Qt.include(dirPaths.assetPath + "structures/user.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/checkintransformator.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/contacttransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
 
-//singleton instance of class
+// singleton instance of class
 var userTransformator = new UserTransformator();
 
 // Class function that gets the prototype methods
 function UserTransformator() {
 }
+
 // Extract all user data from a user object
 // The resulting data is stored as FoursquareUserData()
 UserTransformator.prototype.getUserDataFromObject = function(userObject) {
@@ -54,10 +57,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// user contact points
 	if (typeof userObject.contact !== "undefined") {
-		if (typeof userObject.contact.twitter !== "undefined") userData.contactTwitter = userObject.contact.twitter;
-		if (typeof userObject.contact.facebook !== "undefined") userData.contactFacebook = userObject.contact.facebook;
-		if (typeof userObject.contact.phone !== "undefined") userData.contactPhone = userObject.contact.phone;
-		if (typeof userObject.contact.email !== "undefined") userData.contactMail = userObject.contact.email;
+		userData.contact = contactTransformator.getContactDataFromObject(userObject.contact);
 	}
 
 	// current interaction counts
@@ -66,42 +66,48 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	if (typeof userObject.friends !== "undefined") userData.friendCount = userObject.friends.count;
 	if (typeof userObject.tips !== "undefined") userData.tipCount = userObject.tips.count;
 
-	// general venue information
-	// this is stored as FoursquareVenueData()
-	if (typeof userObject.checkins !== "undefined") {
-		userData.lastCheckinVenue = venueTransformator.getVenueDataFromObject(userObject.checkins.items[0].venue);
+	// last checkins
+	// this is stored as array of FoursquareVenueData()
+	if (typeof userObject.checkins !== "undefined") {		
+		userData.checkins = checkinTransformator.getCheckinDataFromArray(userObject.checkins.items);
+		// userData.checkins = venueTransformator.getVenueDataFromArray(userObject.checkins.items);
 	}
 
-	// last photo information
-	// this is stored as FoursquarePhotoData()
+	// venue photos
+	// this is stored as array of FoursquarePhotoData()
 	if ((typeof userObject.photos !== "undefined") && (typeof userObject.photos.items[0] !== "undefined")) {
-		userData.lastPhoto = photoTransformator.getPhotoDataFromObject(userObject.photos.items[0]);
+		userData.photos = photoTransformator.getPhotoDataFromArray(userObject.photos.items);
 	}
 
 	// friends list
 	// this is stored as array of FoursquareUserData()
-	// beware: this might end up being recursive!
 	if (typeof userObject.friends !== "undefined") {
-		if ((typeof userObject.friends.groups !== "undefined") && (userObject.friends.groups.length > 0)) {
-			// set up user list data array
-			userData.friendList = new Array();
-
-			// iterate through all groups
-			for ( var groupIndex in userObject.friends.groups) {
-				// iterate through all user items in the current group
-				for ( var itemIndex in userObject.friends.groups[groupIndex].items) {
-					// console.log("# Transforming friend item with id: " +
-					// userObject.friends.groups[groupIndex].items[itemIndex].id);
-					var userFriendData = this.getUserDataFromObject(userObject.friends.groups[groupIndex].items[itemIndex]);
-					userData.friendList.push(userFriendData);
-				}
-			}
-
-			// console.log("# Found " + userData.friendList.length + " friends
-			// for user " + userObject.id);
+		if ((typeof userObject.friends.groups !== "undefined") && (typeof userObject.friends.groups[0] !== "undefined")) {
+			userData.friends = this.getUserDataFromArray(userObject.friends.groups[0].items);
 		}
 	}
 
 	// console.log("# Done transforming user item with id: " + userObject.id);
 	return userData;
+};
+
+// Extract all user data from an array of user objects
+// The resulting data is stored as array of FoursquareUserData()
+UserTransformator.prototype.getUserDataFromArray = function(userObjectArray) {
+	// console.log("# Transforming user array with " + userObjectArray.length +
+	// " items");
+
+	// create new return array
+	var userDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in userObjectArray) {
+		// get user data item and store it into return array
+		var userData = new FoursquareUserData();
+		userData = this.getUserDataFromObject(userObjectArray[index]);
+		userDataArray[index] = userData;
+	}
+
+	// console.log("# Done transforming user array");
+	return userDataArray;
 };

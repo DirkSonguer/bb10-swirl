@@ -63,9 +63,9 @@ PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) 
 	// iterate through all media items
 	for ( var index in photoObjectArray) {
 		// get photo data item and store it into return array
-		var photoDataObject = new FoursquarePhotoData();
-		photoDataObject = this.getPhotoDataFromObject(photoObjectArray[index]);
-		photoDataArray[index] = photoDataObject;
+		var photoData = new FoursquarePhotoData();
+		photoData = this.getPhotoDataFromObject(photoObjectArray[index]);
+		photoDataArray[index] = photoData;
 	}
 
 	// console.log("# Done transforming photo array");

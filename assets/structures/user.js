@@ -37,17 +37,10 @@ function FoursquareUserData() {
 	this.profileImageMedium = "";
 	this.profileImageLarge = "";
 
-	// user contact information
-	// note that those are relative ids of the user for the specific platforms
-	this.contactTwitter = "";
-	this.contactFacebook = "";
-	this.contactPhone = "";
-	this.contactMail = "";
-
-	// user social profile images
-	// note that those are retreived by the user contact information
-	this.profileTwitter = "";
-	this.profileFacebook = "";
+	// contact data
+	// this contains the online and offline contact data
+	// and is an FoursquareContactData object
+	this.contact = "";
 
 	// current interaction counts
 	this.checkinCount = "";
@@ -55,15 +48,15 @@ function FoursquareUserData() {
 	this.photoCount = "";
 	this.tipCount = "";
 
-	// the venue the user last checked in
-	// this is filled by a FoursquareVenueData object
-	this.lastCheckinVenue = "";
+	// the venues the user last checked in
+	// this is an array of FoursquareVenueData objects
+	this.checkins = "";
 
-	// the last photo the user uploaded
-	// this is filled by a FoursquarePhotoData object
-	this.lastPhoto = "";
+	// the photos associated with this user
+	// this is an array of FoursquarePhotoData objects
+	this.photos = "";
 
 	// the friend list of the user
-	// this is filled by an array of FoursquareUserData
-	this.friendList = "";
+	// this is an array of FoursquareUserData object
+	this.friends = "";
 }

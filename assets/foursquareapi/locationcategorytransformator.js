@@ -60,9 +60,9 @@ LocationCategoryTransformator.prototype.getLocationCategoryDataFromArray = funct
 	// iterate through all media items
 	for ( var index in locationCategoryObjectArray) {
 		// get location category data item and store it into return array
-		var locationCategoryObject = new FoursquareLocationCategoryData();
-		locationCategoryObject = this.getLocationCategoryDataFromObject(locationCategoryObjectArray[index]);
-		locationCategoryArray[index] = locationCategoryObject;
+		var locationCategoryData = new FoursquareLocationCategoryData();
+		locationCategoryData = this.getLocationCategoryDataFromObject(locationCategoryObjectArray[index]);
+		locationCategoryArray[index] = locationCategoryData;
 	}
 
 	// console.log("# Done transforming location category array");

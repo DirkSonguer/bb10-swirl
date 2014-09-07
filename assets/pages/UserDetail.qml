@@ -116,7 +116,7 @@ Page {
 
                     // define facebook invocation
                     onClicked: {
-                        communicationInvokes.openFacebookProfile(userDetailPage.userData.contactFacebook);
+                        communicationInvokes.openFacebookProfile(userDetailPage.userData.contact.facebook);
                     }
                 }
 
@@ -141,7 +141,7 @@ Page {
                     // define twitter invocation
                     onClicked: {
                         // communicationInvokes.sendTwitterMessage("@" + userDetailPage.userData.contactTwitter + ": ");
-                        communicationInvokes.openTwitterProfile(userDetailPage.userData.contactTwitter);
+                        communicationInvokes.openTwitterProfile(userDetailPage.userData.contact.twitter);
                     }
                 }
 
@@ -166,7 +166,7 @@ Page {
                     // define phone invocation
                     onClicked: {
                         // phone class provides a dialer pad
-                        phoneDialer.requestDialpad(userDetailPage.userData.contactPhone);
+                        phoneDialer.requestDialpad(userDetailPage.userData.contact.phone);
                     }
                 }
 
@@ -190,7 +190,7 @@ Page {
 
                     // define SMS invocation
                     onClicked: {
-                        communicationInvokes.sendTextMessage(userDetailPage.userData.contactPhone, "Hi there!", false);
+                        communicationInvokes.sendTextMessage(userDetailPage.userData.contact.phone, "Hi there!", false);
                     }
                 }
 
@@ -214,7 +214,7 @@ Page {
 
                     // define email invocation
                     onClicked: {
-                        communicationInvokes.sendMail(userDetailPage.userData.contactMail, "Hi there!", "");
+                        communicationInvokes.sendMail(userDetailPage.userData.contact.email, "Hi there!", "");
                     }
                 }
             }
@@ -260,11 +260,13 @@ Page {
         userDetailPage.userDataDetailsLoaded = true;
         userDetailPage.userData = userData;
 
-        // refill header data based on full user object
-        // userDetailHeader.profileImage = userData.profileImageLarge;
-        // userDetailHeader.username = userData.fullName;
+        // fill header data based on full user object
         userDetailHeader.bio = userData.bio;
-        userDetailHeader.lastCheckin = userData.lastCheckinVenue.name;
+
+        // get name of last venue the user checked in
+        if (userData.checkins.length > 0) {
+            userDetailHeader.lastCheckin = userData.checkins[0].venue.name;
+        }
 
         // check if user has photos
         if (userData.photoCount > 0) {
@@ -272,42 +274,42 @@ Page {
             userDetailPhotosTile.visible = true;
 
             // activate and show user photos if available
-            if (userData.lastPhoto.imageFull !== "") {
-                userDetailPhotosTile.webImage = userData.lastPhoto.imageFull;
+            if (userData.photos[0] !== "") {
+                userDetailPhotosTile.webImage = userData.photos[0].imageFull;
             }
         }
 
         // check if user has friends
-        if (userData.friendList.length > 0) {
+        if (userData.friends.length > 0) {
             // fill friends tile data
             userDetailFriendsTile.headline = userData.friendCount + " Friends";
             userDetailFriendsTile.visible = true;
 
             // activate and show friends image if available
-            userDetailFriendsTile.webImage = userData.friendList[0].profileImageMedium;
+            userDetailFriendsTile.webImage = userData.friends[0].profileImageLarge;
         }
 
         // activate invocation and show tile if twitter id is available
-        if (userData.contactTwitter !== "") {
+        if (userData.contact.twitter !== "") {
             userDetailTwitterContactTile.visible = true;
-            userDetailTwitterContactTile.webImage = "http://avatars.io/twitter/" + userData.contactTwitter + "?size=large";
+            userDetailTwitterContactTile.webImage = "http://avatars.io/twitter/" + userData.contact.twitter + "?size=large";
         }
 
         // activate invocation and show tile if facebook id is available
-        if (userData.contactFacebook !== "") {
+        if (userData.contact.facebook !== "") {
             userDetailFacebookContactTile.visible = true;
-            userDetailFacebookContactTile.webImage = "https://graph.facebook.com/" + userData.contactFacebook + "/picture?type=large&width=400&height=400";
+            userDetailFacebookContactTile.webImage = "https://graph.facebook.com/" + userData.contact.facebook + "/picture?type=large&width=400&height=400";
         }
 
         // activate invocation and show tile if phone number is available
-        if (userData.contactPhone !== "") {
+        if (userData.contact.phone !== "") {
             userDetailPhoneContactTile.headline = "Call " + userData.fullName;
             userDetailPhoneContactTile.visible = true;
             userDetailSMSContactTile.visible = true;
         }
 
         // activate invocation and show tile if mail is available
-        if (userData.contactMail !== "") {
+        if (userData.contact.email !== "") {
             userDetailMailContactTile.visible = true;
         }
     }

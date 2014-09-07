@@ -35,7 +35,6 @@ function getUserData(userId, callingPage) {
 			// console.log("# User object received. Transforming.");
 
 			// prepare transformator and return object
-			var userTransformator = new UserTransformator();
 			var userData = userTransformator.getUserDataFromObject(jsonObject.response.user);
 
 			// console.log("# Done loading user data");
@@ -68,7 +67,7 @@ function getUserData(userId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading user data with url: " + url);
+	console.log("# Loading user data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

@@ -15,7 +15,7 @@ Qt.include(dirPaths.assetPath + "foursquareapi/locationtransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/locationcategorytransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
 
-//singleton instance of class
+// singleton instance of class
 var venueTransformator = new VenueTransformator();
 
 // Class function that gets the prototype methods
@@ -44,7 +44,7 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 	}
 
 	// location category data
-	if (typeof venueObject.location !== "undefined") {
+	if (typeof venueObject.categories !== "undefined") {
 		venueData.locationCategories = locationCategoryTransformator.getLocationCategoryDataFromArray(venueObject.categories);
 	}
 
@@ -59,10 +59,31 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 	if (typeof venueObject.likes !== "undefined") venueData.likeCount = venueObject.likes.count;
 
 	// venue photos
-	if ((typeof venueObject.photos !== "undefined") && (typeof venueObject.photos.groups[0] !== "undefined")) {
+	if ((typeof venueObject.photos !== "undefined") && (typeof venueObject.photos.groups !== "undefined")) {
 		venueData.photos = photoTransformator.getPhotoDataFromArray(venueObject.photos.groups[0].items);
 	}
 
 	// console.log("# Done transforming venue item");
 	return venueData;
+};
+
+// Extract all venue data from an array of venue objects
+// The resulting data is stored as array of FoursquareVenueData()
+VenueTransformator.prototype.getVenueDataFromArray = function(venueObjectArray) {
+	// console.log("# Transforming venue array with " + venueObjectArray.length
+	// + " items");
+
+	// create new return array
+	var venueDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in venueObjectArray) {
+		// get venue data item and store it into return array
+		var venueData = new FoursquareVenueData();
+		venueData = this.getVenueDataFromObject(venueObjectArray[index]);
+		venueDataArray[index] = venueData;
+	}
+
+	// console.log("# Done transforming venue array");
+	return venueDataArray;
 };

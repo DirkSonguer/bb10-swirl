@@ -28,8 +28,8 @@ function FoursquareCheckinData() {
 	this.numberOfComments = "";
 
 	// this is filled by a FoursquareUserData object
-	this.userData = "";
+	this.user = "";
 
 	// this is filled by a FoursquareVenueData object
-	this.venueData = "";
+	this.venue = "";
 }

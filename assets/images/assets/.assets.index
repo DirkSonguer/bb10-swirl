@@ -1,5 +1,5 @@
 1
-77
+78
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -19,6 +19,7 @@ components/NotificationList.qml
 components/UserHeader.qml
 foursquareapi/checkins.js
 foursquareapi/checkintransformator.js
+foursquareapi/contacttransformator.js
 foursquareapi/locationcategorytransformator.js
 foursquareapi/locationtransformator.js
 foursquareapi/notificationtransformator.js

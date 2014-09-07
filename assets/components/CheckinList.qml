@@ -106,20 +106,20 @@ Container {
                         preferredWidth: Qt.fullDisplaySize
                         minWidth: Qt.fullDisplaySize
 
-                        username: ListItemData.checkinData.userData.fullName
-                        profileImage: ListItemData.checkinData.userData.profileImageMedium
-                        locationName: ListItemData.checkinData.venueData.name
-                        locationCity: ListItemData.checkinData.venueData.location.city + ", " + ListItemData.checkinData.venueData.location.country
+                        username: ListItemData.checkinData.user.fullName
+                        profileImage: ListItemData.checkinData.user.profileImageMedium
+                        locationName: ListItemData.checkinData.venue.name
+                        locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country
                         elapsedTime: ListItemData.checkinData.elapsedTime
                         
                         onUserClicked: {
                             // send user clicked event
-                            Qt.profileClicked(ListItemData.checkinData.userData);
+                            Qt.profileClicked(ListItemData.checkinData.user);
                         }
                         
                         onItemClicked: {
                             // send item clicked event
-                            Qt.itemClicked(ListItemData.checkinData.venueData);
+                            Qt.itemClicked(ListItemData.checkinData.venue);
                         }
                     }
                 }
