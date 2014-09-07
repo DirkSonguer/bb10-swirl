@@ -67,10 +67,6 @@ Container {
             preferredWidth: ui.sdu(20)
             minHeight: ui.sdu(20)
             minWidth: ui.sdu(20)
-            
-            onUrlChanged: {
-                console.log("# URL changed to: " + url);
-            }
         }
 
         // create the squircle mask around the image
@@ -87,6 +83,7 @@ Container {
             minHeight: ui.sdu(20)
             minWidth: ui.sdu(20)
 
+            // mask image
             imageSource: "asset:///images/assets/mask_blue_squircle.png"
         }
     }
@@ -101,10 +98,11 @@ Container {
         Label {
             id: userHeaderUsername
 
-            horizontalAlignment: HorizontalAlignment.Center
-
             // layout definition
             bottomMargin: 0
+            horizontalAlignment: HorizontalAlignment.Center
+
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.PrimaryText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Large
@@ -115,23 +113,22 @@ Container {
         // user bio label
         Label {
             id: userHeaderBio
-            
+
             // layout definition
-            topMargin: 0
             horizontalAlignment: HorizontalAlignment.Center
+            topMargin: 0
+
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.BodyText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Center
             textStyle.color: Color.White
-            
-            // allow multiline content
             multiline: true
-            
+
             // set initial visibility to false
-            visible: false
-            
             // when text is added, show component
+            visible: false
             onTextChanged: {
                 visible = true;
             }
@@ -146,6 +143,8 @@ Container {
             // layout definition
             topMargin: 0
             bottomMargin: 0
+
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.SmallText
             textStyle.fontWeight: FontWeight.Bold
             textStyle.fontSize: FontSize.XSmall

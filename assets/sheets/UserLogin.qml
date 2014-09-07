@@ -19,7 +19,6 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../global/foursquarekeys.js" as FoursquareKeys
 import "../classes/authenticationhandler.js" as Authentication
-import "../classes/loginuihandler.js" as LoginUIHandler
 
 Page {
     id: userLoginSheet

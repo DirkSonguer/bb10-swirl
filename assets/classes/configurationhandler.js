@@ -54,7 +54,7 @@ ConfigurationHandler.prototype.getConfiguration = function(configurationKey) {
 // or it can contain an error with respective message
 ConfigurationHandler.prototype.setConfiguration = function(configurationKey, configurationValue) {
 	// console.log("# Storing configuration);
-	
+
 	var db = openDatabaseSync("Swirl", "1.0", "Swirl persistent data storage", 1);
 
 	db.transaction(function(tx) {
@@ -73,7 +73,7 @@ ConfigurationHandler.prototype.setConfiguration = function(configurationKey, con
 // Resets the current configuration to empty values
 ConfigurationHandler.prototype.resetConfiguration = function() {
 	// console.log("# Resetting configuration);
-	
+
 	var db = openDatabaseSync("Swirl", "1.0", "Swirl persistent data storage", 1);
 
 	db.transaction(function(tx) {

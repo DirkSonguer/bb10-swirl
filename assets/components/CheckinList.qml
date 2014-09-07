@@ -24,7 +24,7 @@ Container {
 
     // signal if item was clicked
     signal itemClicked(variant venueData)
-    
+
     // signal if user was clicked
     signal profileClicked(variant userData)
 
@@ -45,10 +45,10 @@ Container {
     }
 
     // signal to add a new item
-    // item is given as type InstagramCommentData
+    // item is given as type FoursquareCheckinData
     signal addToList(variant item)
     onAddToList: {
-        // console.log("# Adding item with ID " + item.commentId + " to comment list data model");
+        // console.log("# Adding item with ID " + item.checkinId + " to checkin list data model");
         userCheckinListComponent.currentItemIndex += 1;
         userCheckinListDataModel.insert({
                 "checkinData": item,
@@ -106,17 +106,20 @@ Container {
                         preferredWidth: Qt.fullDisplaySize
                         minWidth: Qt.fullDisplaySize
 
+                        // set data
                         username: ListItemData.checkinData.user.fullName
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country
                         elapsedTime: ListItemData.checkinData.elapsedTime
-                        
+
+                        // user profile was clicked
                         onUserClicked: {
                             // send user clicked event
                             Qt.profileClicked(ListItemData.checkinData.user);
                         }
-                        
+
+                        // location was clicked
                         onItemClicked: {
                             // send item clicked event
                             Qt.itemClicked(ListItemData.checkinData.venue);
@@ -124,7 +127,7 @@ Container {
                     }
                 }
             }
-        ]    
+        ]
 
         // add action for loading additional data after scrolling to bottom
         attachedObjects: [

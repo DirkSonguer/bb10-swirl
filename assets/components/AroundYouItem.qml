@@ -61,6 +61,7 @@ Container {
         layout: DockLayout {
         }
 
+        // layout definition
         horizontalAlignment: HorizontalAlignment.Center
 
         // profile image
@@ -79,7 +80,7 @@ Container {
             minWidth: ui.sdu(18)
         }
 
-        // mask the profile image to make it round
+        // mask the profile image to make it a squircle
         ImageView {
             id: aroundYouUserProfileImageMask
 
@@ -93,6 +94,7 @@ Container {
             minHeight: ui.sdu(18)
             minWidth: ui.sdu(18)
 
+            // mask image
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
 
@@ -118,8 +120,8 @@ Container {
             id: aroundYouUsername
 
             // layout definition
-            bottomMargin: 0
             horizontalAlignment: HorizontalAlignment.Center
+            bottomMargin: 0
 
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.SmallText
@@ -134,8 +136,8 @@ Container {
             id: aroundYouLocationName
 
             // layout definition
-            topMargin: 0
             horizontalAlignment: HorizontalAlignment.Center
+            topMargin: 0
 
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.TitleText

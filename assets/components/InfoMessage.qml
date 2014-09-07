@@ -27,12 +27,12 @@ Container {
     // signal to indicate a tap on the error message
     // this can be used by the using page
     signal messageClicked();
-    
+
     // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
     }
-    
+
     // layout definition
     leftPadding: ui.sdu(1)
     rightPadding: ui.sdu(1)
@@ -40,13 +40,13 @@ Container {
     // the actual title text
     Label {
         id: infoTitle
-        
+
         // text style definition
         textStyle.base: SystemDefaults.TextStyles.BigText
         textStyle.fontWeight: FontWeight.W500
         textStyle.textAlign: TextAlign.Left
         multiline: true
-        
+
         // hide title components initially
         // will be set true if content is added
         visible: false
@@ -66,7 +66,7 @@ Container {
         // will be set true if content is added
         visible: false
     }
-    
+
     // handle tap on message container
     gestureHandlers: [
         TapHandler {
@@ -75,7 +75,7 @@ Container {
             }
         }
     ]
-    
+
     // show the loader with the given message
     onShowMessage: {
         // only show message component if a message was given

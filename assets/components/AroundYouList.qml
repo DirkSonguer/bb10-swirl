@@ -41,10 +41,10 @@ Container {
     }
 
     // signal to add a new item
-    // item is given as type InstagramCommentData
+    // item is given as type FoursquareCheckinData
     signal addToList(variant item)
     onAddToList: {
-        // console.log("# Adding item with ID " + item.commentId + " to comment list data model");
+        // console.log("# Adding item with ID " + item.checkinId + " to around you list data model");
         aroundYouListComponent.currentItemIndex += 1;
         aroundYouListDataModel.insert({
                 "checkinData": item,
@@ -74,6 +74,7 @@ Container {
         // associate the data model for the list view
         dataModel: aroundYouListDataModel
 
+        // layout definition
         layout: GridListLayout {
             headerMode: ListHeaderMode.Sticky
             columnCount: 3
@@ -101,6 +102,8 @@ Container {
                         textStyle.fontWeight: FontWeight.W100
                         textStyle.color: Color.create(Globals.blackberryStandardBlue)
 
+                        // this is used to show the distance category text instead of the ids
+                        // to prevent sorting by alphabet, the ids are used for sorting
                         onCreationCompleted: {
                             var textSplit = text.split("#");
                             text = textSplit[1];
@@ -118,7 +121,7 @@ Container {
             },
             ListItemComponent {
                 type: "item"
-                
+
                 // define gallery view component as view for each list item
                 Container {
                     id: aroundYouItem
@@ -136,16 +139,20 @@ Container {
                     topMargin: 1
 
                     AroundYouItem {
+                        // layout definition
+                        horizontalAlignment: HorizontalAlignment.Center
+
+                        // set data
                         username: ListItemData.checkinData.user.firstName
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
-                        
-                        horizontalAlignment: HorizontalAlignment.Center
 
+                        // user profile was clicked
                         onUserClicked: {
                             // send user clicked event
                         }
 
+                        // location was clicked
                         onLocationClicked: {
                             // send item clicked event
                         }

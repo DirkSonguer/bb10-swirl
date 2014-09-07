@@ -116,7 +116,8 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 	// thus if the response does not contain the status code 200 it's an error
 	// (may be a different error code or empty)
 	if ((httpResponseText.indexOf('"code":200') === -1) && (httpResponseText.indexOf('"code":') > 1)) {
-		// console.log("# Response does not have response 200 verification by Foursquare");
+		// console.log("# Response does not have response 200 verification by
+		// Foursquare");
 
 		// eval the response text to check the content
 		var jsonObject = eval('(' + httpResponseText + ')');
@@ -135,7 +136,8 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 				return;
 			}
 		} else {
-			// console.log("# JSON evaluation not successful, adding generic error");
+			// console.log("# JSON evaluation not successful, adding generic
+			// error");
 
 			// the error was not handled by Foursquare
 			// fill the error data object with a generic error description

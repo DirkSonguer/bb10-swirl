@@ -39,11 +39,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/authenticationhandler.js) \
         $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
         $$quote($$BASEDIR/assets/classes/helpermethods.js) \
-        $$quote($$BASEDIR/assets/classes/loginuihandler.js) \
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
-        $$quote($$BASEDIR/assets/components/BackgroundImage.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \

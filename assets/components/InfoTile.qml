@@ -129,10 +129,10 @@ Container {
     onTouch: {
         // user interaction
         if (event.touchType == TouchType.Down) {
-            infoTileComponent.leftPadding = 10;
-            infoTileComponent.rightPadding = 10;
-            infoTileComponent.topPadding = 10;
-            infoTileComponent.bottomPadding = 10;
+            infoTileComponent.leftPadding = ui.sdu(1);
+            infoTileComponent.rightPadding = ui.sdu(1);
+            infoTileComponent.topPadding = ui.sdu(1);
+            infoTileComponent.bottomPadding = ui.sdu(1);
             infoTileWebBackgroundImage.opacity = 0.8;
             infoTileLocalBackgroundImage.opacity = 0.8;
         }

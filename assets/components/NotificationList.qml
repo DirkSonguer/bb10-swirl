@@ -25,7 +25,7 @@ Container {
 
     // signal if item was clicked
     signal itemClicked(variant commentData)
-    
+
     // signal if user was clicked
     signal profileClicked(variant userData)
 
@@ -46,7 +46,7 @@ Container {
     }
 
     // signal to add a new item
-    // item is given as type InstagramCommentData
+    // item is given as type FoursquareNotificationData
     signal addToList(variant item)
     onAddToList: {
         // console.log("# Adding item with ID " + item.notificationId + " to notification list data model");
@@ -107,15 +107,16 @@ Container {
                         preferredWidth: Qt.fullDisplaySize
                         minWidth: Qt.fullDisplaySize
 
+                        // set data
                         profileImage: ListItemData.notificationData.image
                         notificationText: ListItemData.notificationData.text
                         elapsedTime: ListItemData.notificationData.elapsedTime
                         icon: ListItemData.notificationData.icon
-                        
+
                         onUserClicked: {
                             // send user clicked event
                         }
-                        
+
                         onNotificationClicked: {
                             // send item clicked event
                         }

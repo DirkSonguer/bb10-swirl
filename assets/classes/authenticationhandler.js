@@ -31,7 +31,8 @@ function AuthenticationHandler() {
 // It can either be a token if the authentication was successful
 // or it can contain an error with respective message
 AuthenticationHandler.prototype.checkFoursquareAuthenticationUrl = function(url) {
-	// console.log("# Checking Foursquare URL for authentication information: " + url.toString());
+	// console.log("# Checking Foursquare URL for authentication information: "
+	// + url.toString());
 
 	var currentURL = url.toString();
 	var returnStatus = new Array();
@@ -49,7 +50,8 @@ AuthenticationHandler.prototype.checkFoursquareAuthenticationUrl = function(url)
 
 		// if there is an Foursquare token, store it and set the return status
 		if (foursquareTokenCode.length > 0) {
-			// console.log("# Found Foursquare access token code: " + foursquareTokenCode);
+			// console.log("# Found Foursquare access token code: " +
+			// foursquareTokenCode);
 			this.validateAccessToken(foursquareTokenCode);
 			returnStatus["status"] = "AUTH_SUCCESS";
 		}
@@ -94,7 +96,8 @@ AuthenticationHandler.prototype.validateAccessToken = function(accessToken) {
 	req.onreadystatechange = function() {
 		if (req.readyState === XMLHttpRequest.DONE) {
 			if (req.status != 200) {
-				// console.log("# Error happened while validating access token, got HTTP status " + req.status);
+				// console.log("# Error happened while validating access token,
+				// got HTTP status " + req.status);
 				return;
 			}
 
@@ -104,7 +107,8 @@ AuthenticationHandler.prototype.validateAccessToken = function(accessToken) {
 			if ((jsonObject.error == null) && (jsonObject["response"]["user"].id != null)) {
 				var userid = jsonObject["response"]["user"].id;
 				auth.storeFoursquareData(userid, accessToken);
-				// console.log("# Done validating access token for user " + userid);
+				// console.log("# Done validating access token for user " +
+				// userid);
 			}
 		}
 	};
@@ -120,7 +124,8 @@ AuthenticationHandler.prototype.validateAccessToken = function(accessToken) {
 // Note that only one Foursquare token can exist in the database at any given
 // time
 AuthenticationHandler.prototype.storeFoursquareData = function(userId, accessToken) {
-	// console.log("# Storing userdata into database for user: " + userId + " with token: " + accessToken);
+	// console.log("# Storing userdata into database for user: " + userId + "
+	// with token: " + accessToken);
 
 	// check if there is already user data in the database
 	if (auth.isAuthenticated()) {
@@ -182,7 +187,8 @@ AuthenticationHandler.prototype.isAuthenticated = function() {
 
 	if (userdata["id"] != null) {
 		// user already has a token
-		// console.log("# User is authenticated with id " + userdata["id"] + " and token " + userdata["access_token"] + ". Returning true");
+		// console.log("# User is authenticated with id " + userdata["id"] + "
+		// and token " + userdata["access_token"] + ". Returning true");
 		return true;
 	}
 
