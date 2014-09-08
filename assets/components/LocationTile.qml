@@ -26,15 +26,23 @@ Container {
 
     // signal that map view has been clicked
     signal clicked()
-
+    
     // signal that map view was long pressed
     signal longPress()
 
     // external properties
     property alias backgroundColor: locationTileComponent.background
-    property alias latitude: locationTileView.latitude
-    property alias longitude: locationTileView.longitude
-    property alias altitude: locationTileView.altitude
+
+    // venue location object
+    // this is of type FoursquareVenueData()
+    property variant venueLocation
+
+    // altitude / zoom factor
+    property string zoom: "10"
+
+    // map size
+    property string size: "400"
+
     property alias webImage: locationTileWebPinImage.url
     property alias localImage: locationTileLocalPinImage.imageSource
     property alias headline: locationTileHeadline.text
@@ -46,13 +54,22 @@ Container {
     // layout orientation
     layout: DockLayout {
     }
+    /*
+     * // actual map view
+     * // map position needs to be set by the using component
+     * MapView {
+     * id: locationTileView
+     * 
+     * // layout definition
+     * verticalAlignment: VerticalAlignment.Fill
+     * horizontalAlignment: HorizontalAlignment.Fill
+     * }
+     */
+    WebImageView {
+        id: locationMapImage
 
-    // actual map view
-    // map position needs to be set by the using component
-    MapView {
-        id: locationTileView
-
-        // layout definition
+        // align the image in the center
+        scalingMethod: ScalingMethod.AspectFill
         verticalAlignment: VerticalAlignment.Fill
         horizontalAlignment: HorizontalAlignment.Fill
     }
@@ -160,6 +177,16 @@ Container {
         }
     }
 
+    onVenueLocationChanged: {
+        // assemble google maps link and assign it
+        var googleMapsLink = "http://maps.googleapis.com/maps/api/staticmap?center=";
+        googleMapsLink += venueLocation.lat + "," + venueLocation.lng;
+        googleMapsLink += "&zoom=" + locationTileComponent.zoom;
+        googleMapsLink += "&size=" + locationTileComponent.size + "x" + locationTileComponent.size;
+        googleMapsLink += "&sensor=false";
+        locationMapImage.url = googleMapsLink;
+    }
+
     // handle tap and long press on map view
     gestureHandlers: [
         TapHandler {
@@ -169,8 +196,29 @@ Container {
         },
         LongPressHandler {
             onLongPressed: {
-                locationTileComponent.longPress();
+                locationMapComponent.longPress();
             }
         }
     ]
+
+    // handle ui touch elements
+    onTouch: {
+        // user interaction
+        if (event.touchType == TouchType.Down) {
+            locationTileComponent.leftPadding = ui.sdu(1);
+            locationTileComponent.rightPadding = ui.sdu(1);
+            locationTileComponent.topPadding = ui.sdu(1);
+            locationTileComponent.bottomPadding = ui.sdu(1);
+            locationMapImage.opacity = 0.8;
+        }
+
+        // user released or is moving
+        if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+            locationTileComponent.leftPadding = 0;
+            locationTileComponent.rightPadding = 0;
+            locationTileComponent.topPadding = 0;
+            locationTileComponent.bottomPadding = 0;
+            locationMapImage.opacity = 1.0;
+        }
+    }
 }

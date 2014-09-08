@@ -9,6 +9,7 @@
 
 // import blackberry components
 import bb.cascades 1.3
+import bb.platform 1.3
 import bb.system.phone 1.0
 
 // set import directory for components
@@ -54,14 +55,7 @@ Page {
             VenueHeader {
                 id: venueDetailHeader
             }
-            /*
-             * LocationTile {
-             * id: venueDetailLocationTile
-             * 
-             * preferredWidth: DisplayInfo.width
-             * preferredHeight: DisplayInfo.width / 2
-             * }
-             */
+
             Container {
                 id: venueDetailTiles
 
@@ -78,6 +72,10 @@ Page {
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
                     preferredHeight: DisplayInfo.width / 2
                     preferredWidth: DisplayInfo.width / 2
+
+                    onClicked: {
+                        locationBBMapsInvoker.go();
+                    }
                 }
 
                 // tips tile
@@ -135,6 +133,19 @@ Page {
             // load full user object
             VenueRepository.getVenueData(venueData.venueId, venueDetailPage);
         }
+
+        // location name
+        venueDetailHeader.name = venueData.name;
+
+        // location category
+        if (venueData.locationCategories != "") {
+            venueDetailHeader.category = venueData.locationCategories[0].name;
+        }
+
+        // fill header image
+        if (venueData.locationCategories != "") {
+            venueDetailHeader.image = venueData.locationCategories[0].iconLarge
+        }
     }
 
     // full user object has been loaded
@@ -143,10 +154,17 @@ Page {
         // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
         // venue address
-        venueDetailAddressTile.latitude = venueData.location.lat;
-        venueDetailAddressTile.longitude = venueData.location.lng;
-        venueDetailAddressTile.altitude = 10000;
+        venueDetailAddressTile.zoom = "14";
+        venueDetailAddressTile.size = "400";
+        venueDetailAddressTile.venueLocation = venueData.location;
         venueDetailAddressTile.webImage = venueData.locationCategories[0].iconLarge;
+
+        // set data for bb maps invocation
+        locationBBMapsInvoker.locationLatitude = venueData.location.lat;
+        locationBBMapsInvoker.locationLongitude = venueData.location.lng;
+        locationBBMapsInvoker.locationName = venueData.name;
+        locationBBMapsInvoker.centerLatitude = venueData.location.lat;
+        locationBBMapsInvoker.altitude = 200;
 
         // show address if formatted address is available
         // otherwise show name
@@ -170,13 +188,7 @@ Page {
         if (venueData.locationCategories != "") {
             venueDetailHeader.category = venueData.locationCategories[0].name;
         }
-        /*
-         * // venue address
-         * if (venueData.location.formattedAddress != "") {
-         * venueDetailAddressTile.bodytext = venueData.location.formattedAddress;
-         * venueDetailAddressTile.visible = true;
-         * }
-         */
+
         // check if venue has photos
         if (venueData.photoCount > 0) {
             venueDetailPhotosTile.headline = venueData.photoCount + " Photos";
@@ -196,6 +208,11 @@ Page {
         },
         CommunicationInvokes {
             id: communicationInvokes
+        },
+        // map invoker
+        // used to hand over location data to bb maps
+        LocationMapInvoker {
+            id: locationBBMapsInvoker
         }
     ]
 }

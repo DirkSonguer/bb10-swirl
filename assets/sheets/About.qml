@@ -58,12 +58,36 @@ Page {
 
                     // layout definition
                     preferredWidth: DisplayInfo.width - 20
-                    topMargin: 60
+                    topMargin: ui.sdu(5)
 
                     // trigger email invocation
                     onClicked: {
                         emailInvocation.trigger(emailInvocation.query.invokeActionId);
                     }
+                }
+
+                InfoMessage {
+                    id: tosMessage
+
+                    topMargin: ui.sdu(5)
+                    leftPadding: 0
+                    rightPadding: 0
+                }
+
+                InfoMessage {
+                    id: privacyMessage
+                    
+                    topMargin: ui.sdu(5)
+                    leftPadding: 0
+                    rightPadding: 0
+                }
+
+                InfoMessage {
+                    id: creditsMessage
+
+                    topMargin: ui.sdu(5)
+                    leftPadding: 0
+                    rightPadding: 0
                 }
             }
         }
@@ -71,6 +95,9 @@ Page {
 
     onCreationCompleted: {
         infoMessage.showMessage(Copytext.swirlAboutBody, Copytext.swirlAboutHeadline);
+        tosMessage.showMessage(Copytext.swirlAboutToS, "Terms of Service");
+        privacyMessage.showMessage(Copytext.swirlAboutPrivacy, "Privacy");
+        creditsMessage.showMessage(Copytext.swirlAboutCredits, "Third Parties");
     }
 
     // close action for the sheet
