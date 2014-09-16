@@ -48,9 +48,11 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	userData.relationship = userObject.relationship;
 
 	// user profile image
-	userData.profileImageSmall = userObject.photo.prefix + foursquareProfileImageSmall + userObject.photo.suffix;
-	userData.profileImageMedium = userObject.photo.prefix + foursquareProfileImageMedium + userObject.photo.suffix;
-	userData.profileImageLarge = userObject.photo.prefix + foursquareProfileImageLarge + userObject.photo.suffix;
+	if (typeof userObject.photo !== "undefined") {
+		userData.profileImageSmall = userObject.photo.prefix + foursquareProfileImageSmall + userObject.photo.suffix;
+		userData.profileImageMedium = userObject.photo.prefix + foursquareProfileImageMedium + userObject.photo.suffix;
+		userData.profileImageLarge = userObject.photo.prefix + foursquareProfileImageLarge + userObject.photo.suffix;
+	}
 
 	// user bio
 	if (typeof userObject.bio !== "undefined") userData.bio = userObject.bio;
@@ -68,9 +70,10 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// last checkins
 	// this is stored as array of FoursquareVenueData()
-	if (typeof userObject.checkins !== "undefined") {		
+	if (typeof userObject.checkins !== "undefined") {
 		userData.checkins = checkinTransformator.getCheckinDataFromArray(userObject.checkins.items);
-		// userData.checkins = venueTransformator.getVenueDataFromArray(userObject.checkins.items);
+		// userData.checkins =
+		// venueTransformator.getVenueDataFromArray(userObject.checkins.items);
 	}
 
 	// venue photos
@@ -83,7 +86,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	// this is stored as array of FoursquareUserData()
 	if (typeof userObject.friends !== "undefined") {
 		if ((typeof userObject.friends.groups !== "undefined") && (typeof userObject.friends.groups[0] !== "undefined")) {
-			userData.friends = this.getUserDataFromArray(userObject.friends.groups[0].items);
+			userData.friends = this.getUserDataFromGroupArray(userObject.friends.groups);
 		}
 	}
 
@@ -94,8 +97,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 // Extract all user data from an array of user objects
 // The resulting data is stored as array of FoursquareUserData()
 UserTransformator.prototype.getUserDataFromArray = function(userObjectArray) {
-	// console.log("# Transforming user array with " + userObjectArray.length +
-	// " items");
+	console.log("# Transforming user array with " + userObjectArray.length + " items");
 
 	// create new return array
 	var userDataArray = new Array();
@@ -108,6 +110,27 @@ UserTransformator.prototype.getUserDataFromArray = function(userObjectArray) {
 		userDataArray[index] = userData;
 	}
 
-	// console.log("# Done transforming user array");
+	console.log("# Done transforming user array, found " + userDataArray.length + " users");
+	return userDataArray;
+};
+
+// Extract all user data from an array of user group objects
+// The resulting data is stored as array of FoursquareUserData()
+UserTransformator.prototype.getUserDataFromGroupArray = function(userGroupObjectArray) {
+	console.log("# Transforming user group array with " + userGroupObjectArray.length + " groups");
+
+	// create new return array
+	var userDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in userGroupObjectArray) {
+		// get user data item and store it into return array
+		var userGroupData = new Array();
+		userGroupData = this.getUserDataFromArray(userGroupObjectArray[index].items);
+		console.log("# Extracted " + userGroupData.length + " users from group");
+		userDataArray = userDataArray.concat(userGroupData);
+	}
+
+	console.log("# Done transforming user group array, found " + userDataArray.length + " users");
 	return userDataArray;
 };
