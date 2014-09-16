@@ -29,9 +29,15 @@ Container {
     property alias backgroundColor: infoTileComponent.background
     property alias webImage: infoTileWebBackgroundImage.url
     property alias localImage: infoTileLocalBackgroundImage.imageSource
-    property variant imageScaling
     property alias headline: infoTileHeadline.text
     property alias bodytext: infoTileBodytext.text
+
+// image scaling method
+    property variant imageScaling
+
+// gallery image
+// this should be an array of 4 URLs
+    property variant galleryImages
 
     // set initial background color
     // can be changed via the backgroundColor property
@@ -73,6 +79,23 @@ Container {
         // make image visible if text is added
         visible: false
         onImageSourceChanged: {
+            visible = true;
+        }
+    }
+    
+    // tile quad gallery
+    // this is a web image view provided by WebViewImage
+    QuadImageGallery {
+        id: infoTileLocalQuadImageGallery
+        
+        // align the image in the center
+        verticalAlignment: VerticalAlignment.Fill
+        horizontalAlignment: HorizontalAlignment.Fill
+        
+        // set initial visibility to false
+        // make image visible if text is added
+        visible: false
+        onGalleryImagesChanged: {
             visible = true;
         }
     }
@@ -140,6 +163,11 @@ Container {
     onImageScalingChanged: {
         infoTileWebBackgroundImage.scalingMethod = infoTileComponent.imageScaling; // ScalingMethod.AspectFill
         infoTileLocalBackgroundImage.scalingMethod = infoTileComponent.imageScaling; // ScalingMethod.AspectFill
+    }
+    
+    // change gallery images for quad image component
+    onGalleryImagesChanged: {
+        infoTileLocalQuadImageGallery.galleryImages = infoTileComponent.galleryImages;
     }
 
     // handle tap on custom button

@@ -281,12 +281,18 @@ Page {
 
         // check if user has friends
         if (userData.friends.length > 0) {
+            console.log("# Found " + userData.friends.length + " friends");
+            
             // fill friends tile data
             userDetailFriendsTile.headline = userData.friendCount + " Friends";
             userDetailFriendsTile.visible = true;
 
             // activate and show friends image if available
-            userDetailFriendsTile.webImage = userData.friends[0].profileImageLarge;
+            if (userData.friends.length > 2) {
+                userDetailFriendsTile.galleryImages = userData.friends;
+            } else {
+                userDetailFriendsTile.webImage = userData.friends[0].profileImageLarge;                
+            }
         }
 
         // activate invocation and show tile if twitter id is available

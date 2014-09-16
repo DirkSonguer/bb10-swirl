@@ -50,6 +50,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/LocationTile.qml) \
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
+        $$quote($$BASEDIR/assets/components/QuadImageGallery.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
