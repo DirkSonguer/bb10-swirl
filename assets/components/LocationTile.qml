@@ -196,7 +196,7 @@ Container {
         },
         LongPressHandler {
             onLongPressed: {
-                locationMapComponent.longPress();
+                locationTileComponent.longPress();
             }
         }
     ]

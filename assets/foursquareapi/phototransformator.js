@@ -68,6 +68,6 @@ PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) 
 		photoDataArray[index] = photoData;
 	}
 
-	// console.log("# Done transforming photo array");
+	console.log("# Done transforming photo array, found " + photoDataArray.length + " items");
 	return photoDataArray;
 };

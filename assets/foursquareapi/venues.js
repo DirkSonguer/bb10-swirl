@@ -23,7 +23,7 @@ if (typeof dirPaths !== "undefined") {
 // Second parameter is the id of the calling page, which will receive the
 // venueDetailDataLoaded() signal
 function getVenueData(venueId, callingPage) {
-	console.log("# Loading detail venue data for id: " + venueId);
+	// console.log("# Loading detail venue data for id: " + venueId);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -64,7 +64,7 @@ function getVenueData(venueId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading venue data with url: " + url);
+	// console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

@@ -195,6 +195,14 @@ Container {
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Left
+            
+            // check for empty city information and remove useless separator
+            onTextChanged: {
+                if (text.indexOf(", ") == 0) {
+                    // console.log("# No city given, removing separator");
+                    checkinLocationCity.text = text.substring(2, text.length);
+                }
+            }
         }
 
         // handle tap on custom button

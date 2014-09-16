@@ -73,8 +73,17 @@ Page {
                     preferredHeight: DisplayInfo.width / 2
                     preferredWidth: DisplayInfo.width / 2
 
+                    // set initial visibility to false
+                    // will be set if the venue has a given address
+                    visible: false
+
+                    // call bb maps on click
                     onClicked: {
                         locationBBMapsInvoker.go();
+                    }
+
+                    // TODO: Call menu with Google maps
+                    onLongPress: {
                     }
                 }
 
@@ -126,7 +135,7 @@ Page {
     // calling page handed over the simple venue object
     // based on that, fill first data and load full venue object
     onVenueDataChanged: {
-        console.log("# Simple venue object handed over to the page");
+        // console.log("# Simple venue object handed over to the page");
 
         // check if full user object has been loaded
         if (! venueDetailPage.venueDataDetailsLoaded) {
@@ -153,27 +162,6 @@ Page {
     onVenueDetailDataLoaded: {
         // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
-        // venue address
-        venueDetailAddressTile.zoom = "14";
-        venueDetailAddressTile.size = "400";
-        venueDetailAddressTile.venueLocation = venueData.location;
-        venueDetailAddressTile.webImage = venueData.locationCategories[0].iconLarge;
-
-        // set data for bb maps invocation
-        locationBBMapsInvoker.locationLatitude = venueData.location.lat;
-        locationBBMapsInvoker.locationLongitude = venueData.location.lng;
-        locationBBMapsInvoker.locationName = venueData.name;
-        locationBBMapsInvoker.centerLatitude = venueData.location.lat;
-        locationBBMapsInvoker.altitude = 200;
-
-        // show address if formatted address is available
-        // otherwise show name
-        if (venueData.location.formattedAddress != "") {
-            venueDetailAddressTile.headline = venueData.location.formattedAddress;
-        } else {
-            venueDetailAddressTile.headline = venueData.name;
-        }
-
         // fill header image
         if (venueData.photos != "") {
             venueDetailHeader.image = venueData.photos[(venueData.photos.length - 1)].imageFull;
@@ -188,6 +176,28 @@ Page {
         if (venueData.locationCategories != "") {
             venueDetailHeader.category = venueData.locationCategories[0].name;
         }
+
+        // venue map
+        venueDetailAddressTile.zoom = "15";
+        venueDetailAddressTile.size = "400";
+        venueDetailAddressTile.venueLocation = venueData.location;
+        venueDetailAddressTile.webImage = venueData.locationCategories[0].iconLarge;
+
+        // show address if formatted address is available
+        // otherwise show name
+        if (venueData.location.formattedAddress != "") {
+            venueDetailAddressTile.headline = venueData.location.formattedAddress;
+        } else {
+            venueDetailAddressTile.headline = venueData.name;
+        }
+
+        // set data for bb maps invocation
+        locationBBMapsInvoker.locationLatitude = venueData.location.lat;
+        locationBBMapsInvoker.locationLongitude = venueData.location.lng;
+        locationBBMapsInvoker.locationName = venueData.name;
+        locationBBMapsInvoker.centerLatitude = venueData.location.lat;
+        locationBBMapsInvoker.altitude = 200;
+        venueDetailAddressTile.visible = true;
 
         // check if venue has photos
         if (venueData.photoCount > 0) {
