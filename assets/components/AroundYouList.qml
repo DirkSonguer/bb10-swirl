@@ -150,11 +150,13 @@ Container {
                         // user profile was clicked
                         onUserClicked: {
                             // send user clicked event
+                            Qt.profileClicked(ListItemData.checkinData.user);
                         }
 
                         // location was clicked
                         onLocationClicked: {
                             // send item clicked event
+                            Qt.itemClicked(ListItemData.checkinData.venue);
                         }
                     }
                 }

@@ -162,10 +162,16 @@ Container {
     onTouch: {
         // user interaction
         if (event.touchType == TouchType.Down) {
+            aroundYouItemComponent.background = Color.create(Globals.blackberryStandardBlue);
+            aroundYouUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
+            aroundYouUsername.textStyle.color = Color.White;
         }
 
         // user released or is moving
         if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+            aroundYouItemComponent.background = Color.Transparent;
+            aroundYouUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
+            aroundYouUsername.textStyle.color = Color.create(Globals.blackberryStandardBlue);
         }
     }
 }

@@ -65,6 +65,13 @@ NavigationPane {
             // for the around you list
             AroundYouList {
                 id: aroundYouList
+
+                onProfileClicked: {
+                    // console.log("# User clicked: " + userData.userId);
+                    var userDetailPage = userDetailComponent.createObject();
+                    userDetailPage.userData = userData;
+                    navigationPane.push(userDetailPage);
+                }
             }
         }
 
@@ -101,7 +108,7 @@ NavigationPane {
         onRecentCheckinDataError: {
             // show info message
             infoMessage.showMessage(errorData.errorMessage, "Could not load checkins around you");
-            
+
             // hide loader
             loadingIndicator.hideLoader();
         }
@@ -110,6 +117,20 @@ NavigationPane {
     // attached objects
     // this contains the sheets which are used for general page based popupos
     attachedObjects: [
+
+        // user detail page
+        // will be called if user clicks on user item
+        ComponentDefinition {
+            id: userDetailComponent
+            source: "UserDetail.qml"
+        },
+        // venue detail page
+        // will be called if user clicks on venue item
+        ComponentDefinition {
+            id: venueDetailComponent
+            source: "VenueDetail.qml"
+        },
+        // position source object and logic
         PositionSource {
             id: positionSource
             // desired interval between updates in milliseconds
