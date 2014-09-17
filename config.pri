@@ -44,13 +44,14 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
+        $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/components/LocationTile.qml) \
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
-        $$quote($$BASEDIR/assets/components/QuadImageGallery.qml) \
+        $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \

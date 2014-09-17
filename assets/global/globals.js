@@ -19,3 +19,5 @@ var foursquareProfileImageLarge = "400x400";
 
 // color definitions
 var blackberryStandardBlue = "#0391cc";
+var foursquareGreen = "#57ac4f";
+var foursquareRed = "#e85e7d";

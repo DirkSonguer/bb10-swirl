@@ -97,7 +97,7 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 // Extract all user data from an array of user objects
 // The resulting data is stored as array of FoursquareUserData()
 UserTransformator.prototype.getUserDataFromArray = function(userObjectArray) {
-	console.log("# Transforming user array with " + userObjectArray.length + " items");
+	// console.log("# Transforming user array with " + userObjectArray.length + " items");
 
 	// create new return array
 	var userDataArray = new Array();
@@ -110,14 +110,14 @@ UserTransformator.prototype.getUserDataFromArray = function(userObjectArray) {
 		userDataArray[index] = userData;
 	}
 
-	console.log("# Done transforming user array, found " + userDataArray.length + " users");
+	// console.log("# Done transforming user array, found " + userDataArray.length + " users");
 	return userDataArray;
 };
 
 // Extract all user data from an array of user group objects
 // The resulting data is stored as array of FoursquareUserData()
 UserTransformator.prototype.getUserDataFromGroupArray = function(userGroupObjectArray) {
-	console.log("# Transforming user group array with " + userGroupObjectArray.length + " groups");
+	// console.log("# Transforming user group array with " + userGroupObjectArray.length + " groups");
 
 	// create new return array
 	var userDataArray = new Array();
@@ -131,6 +131,6 @@ UserTransformator.prototype.getUserDataFromGroupArray = function(userGroupObject
 		userDataArray = userDataArray.concat(userGroupData);
 	}
 
-	console.log("# Done transforming user group array, found " + userDataArray.length + " users");
+	// console.log("# Done transforming user group array, found " + userDataArray.length + " users");
 	return userDataArray;
 };

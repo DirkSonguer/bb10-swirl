@@ -68,8 +68,22 @@ Page {
                     columnCount: 2
                 }
 
+                // relationship tile
+                RelationshipTile {
+                    id: userDetailRelationshipTile
+                    
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / 2
+                    preferredWidth: DisplayInfo.width / 2
+                    
+                    // set initial visibility to false
+                    // will be set if the user is not "self"
+                    visible: false
+                }
+
                 // friends tile
-                InfoTile {
+                GalleryTile {
                     id: userDetailFriendsTile
 
                     // layout definition
@@ -267,6 +281,25 @@ Page {
         if (userData.checkins.length > 0) {
             userDetailHeader.lastCheckin = userData.checkins[0].venue.name;
         }
+        
+        // set relationship status
+        // respective state and action will be set by tile
+        if (userData.relationship != "self") {
+            userDetailRelationshipTile.userData = userData;
+            userDetailRelationshipTile.visible = true;
+        }
+        
+        // check if user has friends
+        if (userData.friends.length > 0) {
+            console.log("# Found " + userData.friends.length + " friends");
+            
+            // fill friends tile data
+            userDetailFriendsTile.headline = userData.friendCount + " Friends";
+            userDetailFriendsTile.visible = true;
+            
+            // activate and show friends
+            userDetailFriendsTile.galleryImages = userData.friends;
+        }        
 
         // check if user has photos
         if (userData.photoCount > 0) {
@@ -276,22 +309,6 @@ Page {
             // activate and show user photos if available
             if (userData.photos[0] !== "") {
                 userDetailPhotosTile.webImage = userData.photos[0].imageFull;
-            }
-        }
-
-        // check if user has friends
-        if (userData.friends.length > 0) {
-            console.log("# Found " + userData.friends.length + " friends");
-            
-            // fill friends tile data
-            userDetailFriendsTile.headline = userData.friendCount + " Friends";
-            userDetailFriendsTile.visible = true;
-
-            // activate and show friends image if available
-            if (userData.friends.length > 2) {
-                userDetailFriendsTile.galleryImages = userData.friends;
-            } else {
-                userDetailFriendsTile.webImage = userData.friends[0].profileImageLarge;                
             }
         }
 

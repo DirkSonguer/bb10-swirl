@@ -30,6 +30,13 @@ function FoursquareUserData() {
 	this.gender = "";
 
 	// relationship of the respective user to the current one
+	// can be: self, friend, pendingMe (user has sent a friend request that
+	// acting user has not accepted),
+	// pendingThem (acting user has sent a friend request to the user but they
+	// have not accepted) or
+	// followingThem (acting user is following a celebrity or page).
+	// If the acting user is a celebrity, does not indicate whether the user is
+	// following them.
 	this.relationship = "";
 
 	// profile image

@@ -32,12 +32,8 @@ Container {
     property alias headline: infoTileHeadline.text
     property alias bodytext: infoTileBodytext.text
 
-// image scaling method
+    // image scaling method
     property variant imageScaling
-
-// gallery image
-// this should be an array of 4 URLs
-    property variant galleryImages
 
     // set initial background color
     // can be changed via the backgroundColor property
@@ -82,23 +78,6 @@ Container {
             visible = true;
         }
     }
-    
-    // tile quad gallery
-    // this is a web image view provided by WebViewImage
-    QuadImageGallery {
-        id: infoTileLocalQuadImageGallery
-        
-        // align the image in the center
-        verticalAlignment: VerticalAlignment.Fill
-        horizontalAlignment: HorizontalAlignment.Fill
-        
-        // set initial visibility to false
-        // make image visible if text is added
-        visible: false
-        onGalleryImagesChanged: {
-            visible = true;
-        }
-    }
 
     // tile headline container
     Container {
@@ -134,14 +113,14 @@ Container {
                 visible = true;
             }
         }
-        
+
         // text label for main text
         Label {
             id: infoTileBodytext
-            
+
             // layout definition
             leftMargin: 5
-            
+
             // text style defintion
             textStyle.base: SystemDefaults.TextStyles.BodyText
             textStyle.fontWeight: FontWeight.W100
@@ -149,25 +128,20 @@ Container {
             textStyle.fontSize: FontSize.XLarge
             textStyle.color: Color.White
             multiline: true
-            
+
             // set initial visibility to false
             // make label visible if text is added
             visible: false
             onTextChanged: {
                 visible = true;
             }
-        }        
+        }
     }
 
     // change the image scaling
     onImageScalingChanged: {
         infoTileWebBackgroundImage.scalingMethod = infoTileComponent.imageScaling; // ScalingMethod.AspectFill
         infoTileLocalBackgroundImage.scalingMethod = infoTileComponent.imageScaling; // ScalingMethod.AspectFill
-    }
-    
-    // change gallery images for quad image component
-    onGalleryImagesChanged: {
-        infoTileLocalQuadImageGallery.galleryImages = infoTileComponent.galleryImages;
     }
 
     // handle tap on custom button

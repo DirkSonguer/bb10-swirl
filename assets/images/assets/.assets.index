@@ -1,5 +1,5 @@
 1
-78
+79
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -8,13 +8,14 @@ components/AroundYouItem.qml
 components/AroundYouList.qml
 components/CheckinItem.qml
 components/CheckinList.qml
+components/GalleryTile.qml
 components/InfoMessage.qml
 components/InfoTile.qml
 components/LoadingIndicator.qml
 components/LocationTile.qml
 components/NotificationItem.qml
 components/NotificationList.qml
-components/QuadImageGallery.qml
+components/RelationshipTile.qml
 components/UserHeader.qml
 components/VenueHeader.qml
 foursquareapi/checkins.js
