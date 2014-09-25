@@ -44,6 +44,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
+        $$quote($$BASEDIR/assets/components/FriendsList.qml) \
         $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
@@ -98,11 +99,12 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_768x1280.png) \
         $$quote($$BASEDIR/assets/main.qml) \
-        $$quote($$BASEDIR/assets/pages/AroundYou.qml) \
-        $$quote($$BASEDIR/assets/pages/Notifications.qml) \
-        $$quote($$BASEDIR/assets/pages/RecentCheckins.qml) \
-        $$quote($$BASEDIR/assets/pages/UserDetail.qml) \
-        $$quote($$BASEDIR/assets/pages/VenueDetail.qml) \
+        $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
+        $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/NotificationsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/RecentCheckinsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
+        $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \

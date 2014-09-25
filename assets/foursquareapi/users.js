@@ -72,7 +72,7 @@ function getUserData(userId, callingPage) {
 	req.send();
 }
 
-// Load the user data for the a given user user
+// Load the checkins for the a given user user
 // First parameter is the id of the user to load the data for
 // Second parameter is the calling page, which will receive the
 // userCheckinDataLoaded() signal
@@ -86,7 +86,7 @@ function getCheckinsForUser(userId, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			// console.log("# User object received. Transforming.");
+			// console.log("# User checkin object received. Transforming.");
 
 			// prepare transformator and return object
 			var userTransformator = new UserTransformator();
@@ -123,6 +123,61 @@ function getCheckinsForUser(userId, callingPage) {
 	url += "&m=swarm";
 
 	// console.log("# Loading user checkins with url: " + url);
+	req.open("GET", url, true);
+	req.send();
+}
+
+// Load the friends for the a given user user
+// First parameter is the id of the user to load the data for
+// Second parameter is the calling page, which will receive the
+// userFriendsDataLoaded() signal
+function getFriendsForUser(userId, callingPage) {
+	// console.log("# Loading user friends");
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# Friends object received. Transforming.");
+
+			// prepare transformator and return object
+			var userTransformator = new UserTransformator();
+			var friendsData = userTransformator.getUserDataFromArray(jsonObject.response.friends.items);
+
+			// console.log("# Done loading friends data");
+			callingPage.userFriendsDataLoaded(friendsData);
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.userFriendsDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted loading notifications");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/users";
+	url += "/" + userId + "/friends";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	console.log("# Loading friends data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

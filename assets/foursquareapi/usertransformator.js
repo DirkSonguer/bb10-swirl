@@ -44,6 +44,9 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	// user gender
 	userData.gender = userObject.gender;
 
+	// home city
+	if (typeof userObject.homeCity !== "undefined") userData.homeCity = userObject.homeCity;
+
 	// user relationship to the currently active user
 	userData.relationship = userObject.relationship;
 
@@ -117,7 +120,8 @@ UserTransformator.prototype.getUserDataFromArray = function(userObjectArray) {
 // Extract all user data from an array of user group objects
 // The resulting data is stored as array of FoursquareUserData()
 UserTransformator.prototype.getUserDataFromGroupArray = function(userGroupObjectArray) {
-	// console.log("# Transforming user group array with " + userGroupObjectArray.length + " groups");
+	// console.log("# Transforming user group array with " +
+	// userGroupObjectArray.length + " groups");
 
 	// create new return array
 	var userDataArray = new Array();
@@ -127,10 +131,18 @@ UserTransformator.prototype.getUserDataFromGroupArray = function(userGroupObject
 		// get user data item and store it into return array
 		var userGroupData = new Array();
 		userGroupData = this.getUserDataFromArray(userGroupObjectArray[index].items);
-		console.log("# Extracted " + userGroupData.length + " users from group");
+
+		// fill user group name to extracted objects
+		for ( var groupIndex in userGroupData) {
+			userGroupData[groupIndex].groupName = userGroupObjectArray[index].name;
+		}
+
+		// console.log("# Extracted " + userGroupData.length + " users from
+		// group " + userGroupObjectArray[index].name);
 		userDataArray = userDataArray.concat(userGroupData);
 	}
 
-	// console.log("# Done transforming user group array, found " + userDataArray.length + " users");
+	// console.log("# Done transforming user group array, found " +
+	// userDataArray.length + " users");
 	return userDataArray;
 };

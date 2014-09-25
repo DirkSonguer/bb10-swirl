@@ -17,6 +17,11 @@
 function FoursquareUserData() {
 	// user id
 	this.userId = "";
+	
+	// user group
+	// note that this will only be filled if the user
+	// is a friend of another user
+	this.groupName = "";
 
 	// user bio as string
 	this.bio = "";
@@ -28,6 +33,9 @@ function FoursquareUserData() {
 
 	// user gender
 	this.gender = "";
+	
+	// home city
+	this.homeCity = "";
 
 	// relationship of the respective user to the current one
 	// can be: self, friend, pendingMe (user has sent a friend request that

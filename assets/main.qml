@@ -46,7 +46,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            notificationsComponent.source = "pages/Notifications.qml";
+            notificationsComponent.source = "pages/NotificationsPage.qml";
             var notificationsPage = notificationsComponent.createObject();
             notificationsTab.setContent(notificationsPage);
 
@@ -74,7 +74,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            aroundYouComponent.source = "pages/AroundYou.qml";
+            aroundYouComponent.source = "pages/AroundYouPage.qml";
             var aroundYouPage = aroundYouComponent.createObject();
             aroundYouTab.setContent(aroundYouPage);
         }
@@ -98,7 +98,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            recentCheckinsComponent.source = "pages/RecentCheckins.qml";
+            recentCheckinsComponent.source = "pages/RecentCheckinsPage.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
 
@@ -129,7 +129,7 @@ TabbedPane {
             // console.log("# Info: User is authenticated");
 
             // load initial tab and fill it with content
-            recentCheckinsComponent.source = "pages/RecentCheckins.qml";
+            recentCheckinsComponent.source = "pages/RecentCheckinsPage.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
 
