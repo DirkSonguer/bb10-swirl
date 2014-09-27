@@ -71,12 +71,12 @@ Page {
                 // relationship tile
                 RelationshipTile {
                     id: userDetailRelationshipTile
-                    
+
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
                     preferredHeight: DisplayInfo.width / 2
                     preferredWidth: DisplayInfo.width / 2
-                    
+
                     // set initial visibility to false
                     // will be set if the user is not "self"
                     visible: false
@@ -94,11 +94,28 @@ Page {
                     // set initial visibility to false
                     // will be set if the user has friends
                     visible: false
-                    
+
                     onClicked: {
                         var friendsListPage = friendsListComponent.createObject();
                         friendsListPage.userData = userDetailPage.userData;
                         navigationPane.push(friendsListPage);
+                    }
+                }
+
+                // checkins tile
+                GalleryTile {
+                    id: userDetailCheckinsTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / 2
+                    preferredWidth: DisplayInfo.width / 2
+
+                    // set initial visibility to false
+                    // will be set if the user has friends
+                    visible: false
+
+                    onClicked: {
                     }
                 }
 
@@ -266,7 +283,7 @@ Page {
 
         // check if full user object has been loaded
         if (! userDetailPage.userDataDetailsLoaded) {
-            // load full user object
+            // if not, load full user object
             UsersRepository.getUserData(userData.userId, userDetailPage);
         }
     }
@@ -285,27 +302,33 @@ Page {
 
         // get name of last venue the user checked in
         if (userData.checkins.length > 0) {
+            console.log("# Found " + userData.checkins.length + " checkins");
+
+            // fill header
             userDetailHeader.lastCheckin = userData.checkins[0].venue.name;
+
+            // fill checkin tile
+            userDetailCheckinsTile.headline = userData.checkinCount + " Checkins";
+            userDetailCheckinsTile.venueData = userData.checkins[0].venue;
+            userDetailCheckinsTile.visible = true;
         }
-        
+
         // set relationship status
         // respective state and action will be set by tile
         if (userData.relationship != "self") {
             userDetailRelationshipTile.userData = userData;
             userDetailRelationshipTile.visible = true;
         }
-        
+
         // check if user has friends
         if (userData.friends.length > 0) {
             console.log("# Found " + userData.friends.length + " friends");
-            
+
             // fill friends tile data
             userDetailFriendsTile.headline = userData.friendCount + " Friends";
+            userDetailFriendsTile.userArray = userData.friends;
             userDetailFriendsTile.visible = true;
-            
-            // activate and show friends
-            userDetailFriendsTile.galleryImages = userData.friends;
-        }        
+        }
 
         // check if user has photos
         if (userData.photoCount > 0) {

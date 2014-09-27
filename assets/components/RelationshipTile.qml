@@ -15,6 +15,7 @@ import bb.system 1.2
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
+import "../foursquareapi/users.js" as UsersRepository
 
 // import image url loader component
 import WebImageView 1.0
@@ -24,6 +25,12 @@ Container {
 
     // signal that button has been clicked
     signal clicked()
+
+    // signal if user profile data loading is complete
+    signal userDetailDataLoaded(variant userData)
+
+    // signal if user profile data loading encountered an error
+    signal userDetailDataError(variant errorData)
 
     // external properties
     property alias backgroundColor: relationshipTileComponent.background
@@ -120,6 +127,16 @@ Container {
                     relationshipTileStatusText.visible = false;
                     confirmationButtons.visible = false;
                     loadingIndicator.showLoader("");
+
+// unfriend or unfollow
+                    if ((relationshipTileComponent.currentAction == "unfriend") || ((relationshipTileComponent.currentAction == "unfollow"))) {
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, , "unfriend", relationshipTileComponent);
+                    }
+                    
+                    // approve user
+                    if (relationshipTileComponent.currentAction == "pendingMe") {
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, , "approve", relationshipTileComponent);
+                    }
                 }
             }
 
@@ -142,13 +159,18 @@ Container {
 
                 // declining the action will just reset the state and hide the buttons
                 onClicked: {
+                    // deny user
+                    if (relationshipTileComponent.currentAction == "pendingMe") {
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, , "deny", relationshipTileComponent);
+                    }
+                    
                     // reset text, action state and hide controls
                     relationshipTileComponent.currentAction = "";
                     confirmationButtons.visible = false;
                     relationshipTileComponent.userDataChanged();
                 }
             }
-        }        
+        }
     }
 
     // standard loading indicator
@@ -156,23 +178,82 @@ Container {
         id: loadingIndicator
         verticalAlignment: VerticalAlignment.Center
         horizontalAlignment: HorizontalAlignment.Center
-    }        
+    }
 
     // relationship status changed
     onUserDataChanged: {
+        // console.log("# User relationship is " + relationshipTileComponent.userData.relationship);
+
+        // user is a friend
         if (relationshipTileComponent.userData.relationship == "friend") {
             relationshipTileComponent.backgroundColor = Color.create(Globals.foursquareGreen);
             relationshipTileStatusText.text = "You are friends with " + relationshipTileComponent.userData.firstName;
         }
+
+        // user is unknown
+        if (relationshipTileComponent.userData.relationship == "none") {
+            relationshipTileComponent.backgroundColor = Color.create(Globals.foursquareRed);
+            relationshipTileStatusText.text = "Seems like you don't know " + relationshipTileComponent.userData.firstName + ", yet";
+        }
+
+        // user requested to be added as friend
+        if (relationshipTileComponent.userData.relationship == "pendingMe") {
+            relationshipTileComponent.backgroundColor = Color.create(Globals.foursquareOrange);
+            relationshipTileStatusText.text = relationshipTileComponent.userData.firstName + " says you are friends and wants to be added";
+        }
+
+        // user requested to be added as friend
+        if (relationshipTileComponent.userData.relationship == "pendingThem") {
+            relationshipTileComponent.backgroundColor = Color.create(Globals.foursquareOrange);
+            relationshipTileStatusText.text = "You know " + relationshipTileComponent.userData.firstName + ", but the friend invite is pending";
+        }
+
+        // user is following
+        if (relationshipTileComponent.userData.relationship == "followingThem") {
+            relationshipTileComponent.backgroundColor = Color.create(Globals.foursquareGreen);
+            relationshipTileStatusText.text = "You follow " + relationshipTileComponent.userData.firstName + "";
+        }
+    }
+
+    // action was completed
+    onUserDetailDataLoaded: {
+        // hide loader and clear action
+        loadingIndicator.hideLoader();
+        relationshipTileComponent.currentAction = "";
+
+        // store new user data object
+        relationshipTileComponent.userData = userData;
     }
 
     // handle tap on custom button
     gestureHandlers: [
         TapHandler {
             onTapped: {
+                // user is a friend
                 if (relationshipTileComponent.userData.relationship == "friend") {
                     relationshipTileComponent.currentAction = "unfriend";
                     relationshipTileStatusText.text = "Unfriend " + relationshipTileComponent.userData.firstName + "?";
+                    confirmationButtons.visible = true;
+                }
+
+                // user is unknown
+                if (relationshipTileComponent.userData.relationship == "none") {
+                    relationshipTileComponent.currentAction = "friend";
+                    relationshipTileStatusText.text = "Are you friends with " + relationshipTileComponent.userData.firstName + "?";
+                    confirmationButtons.visible = true;
+                }
+
+                // user requested to be added as friend
+                if (relationshipTileComponent.userData.relationship == "pendingMe") {
+                    relationshipTileComponent.currentAction = "confirmfriend";
+                    relationshipTileStatusText.text = "Confirm that " + relationshipTileComponent.userData.firstName + " is a friend?";
+                    confirmationButtons.visible = true;
+                }
+
+                // user is following
+                if (relationshipTileComponent.userData.relationship == "followingThem") {
+                    relationshipTileComponent.currentAction = "unfollow";
+                    relationshipTileStatusText.text = "Unfollow " + relationshipTileComponent.userData.firstName + "?";
                     confirmationButtons.visible = true;
                 }
             }

@@ -30,10 +30,17 @@ Container {
     property alias headline: galleryTileHeadline.text
     property alias bodytext: galleryTileBodytext.text
 
-    // gallery image
-    // this should be an array of any type that supports
-    // object.profileImageLarge
-    property variant galleryImages
+    // user array
+    // this variant can be used to fill the gallery images
+    // in this case the user images will be used
+    // expected is an array of type FoursquareUserData
+    property variant userArray
+
+    // photo array
+    // this variant can be used to fill the gallery images
+    // in this case a photo array will be used
+    // expected is an array of type FoursquarePhotoData
+    property variant photoArray
 
     // set initial background color
     // can be changed via the backgroundColor property
@@ -193,15 +200,21 @@ Container {
             }
         }
     }
-    // fill images
-    onGalleryImagesChanged: {
-        // only fill gallery if 4 (or more) images are available in the array
-        if (galleryImages.length >= 3) {
-            quadImageOne.url = galleryImages[0].profileImageLarge;
-            quadImageTwo.url = galleryImages[1].profileImageLarge;
-            quadImageThree.url = galleryImages[2].profileImageLarge;
-            quadImageFour.url = galleryImages[3].profileImageLarge;
-        }
+
+    // fill images based on user objects
+    onUserArrayChanged: {
+        if (typeof userArray[0] !== "undefined") quadImageOne.url = userArray[0].profileImageLarge;
+        if (typeof userArray[1] !== "undefined") quadImageTwo.url = userArray[1].profileImageLarge;
+        if (typeof userArray[2] !== "undefined") quadImageThree.url = userArray[2].profileImageLarge;
+        if (typeof userArray[3] !== "undefined") quadImageFour.url = userArray[3].profileImageLarge;
+    }
+
+    // fill images based on a venue object
+    onPhotoArrayChanged: {
+        if (typeof venueData.photos[0] !== "undefined") quadImageOne.url = venueData.photos[0];
+        if (typeof venueData.photos[1] !== "undefined") quadImageTwo.url = venueData.photos[1];
+        if (typeof venueData.photos[2] !== "undefined") quadImageTwo.url = venueData.photos[2];
+        if (typeof venueData.photos[3] !== "undefined") quadImageTwo.url = venueData.photos[3];
     }
 
     // handle tap on custom button

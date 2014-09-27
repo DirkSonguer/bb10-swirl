@@ -181,3 +181,61 @@ function getFriendsForUser(userId, callingPage) {
 	req.open("GET", url, true);
 	req.send();
 }
+
+// Unfriend or unfollow the given user user
+// Note that this returns a user data object with the updated
+// user information
+// First parameter is the id of the user to unfriend
+// Second parameter is the new relationship state
+// should be approve, deny, unfriend
+// Third parameter is the calling page, which will receive the
+// userDetailDataLoaded() signal
+function changeUserRelationship(userId, relationshipState, callingPage) {
+	// console.log("# Unfriending user");
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# User object received. Transforming.");
+
+			// prepare transformator and return object
+			var userData = userTransformator.getUserDataFromObject(jsonObject.response.user);
+
+			// console.log("# Done loading user data");
+			callingPage.userDetailDataLoaded(userData);
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.userDetailDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted loading notifications");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/users";
+	url += "/" + userId + "/" + relationshipState;
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	console.log("# Unfriending user with url: " + url);
+	req.open("POST", url, true);
+	req.send();
+}
