@@ -128,14 +128,14 @@ Container {
                     confirmationButtons.visible = false;
                     loadingIndicator.showLoader("");
 
-// unfriend or unfollow
+                    // unfriend or unfollow
                     if ((relationshipTileComponent.currentAction == "unfriend") || ((relationshipTileComponent.currentAction == "unfollow"))) {
-                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, , "unfriend", relationshipTileComponent);
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "unfriend", relationshipTileComponent);
                     }
-                    
+
                     // approve user
                     if (relationshipTileComponent.currentAction == "pendingMe") {
-                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, , "approve", relationshipTileComponent);
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "approve", relationshipTileComponent);
                     }
                 }
             }
@@ -161,9 +161,9 @@ Container {
                 onClicked: {
                     // deny user
                     if (relationshipTileComponent.currentAction == "pendingMe") {
-                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, , "deny", relationshipTileComponent);
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "deny", relationshipTileComponent);
                     }
-                    
+
                     // reset text, action state and hide controls
                     relationshipTileComponent.currentAction = "";
                     confirmationButtons.visible = false;

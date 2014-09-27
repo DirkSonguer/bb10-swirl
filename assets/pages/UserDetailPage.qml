@@ -102,37 +102,6 @@ Page {
                     }
                 }
 
-                // checkins tile
-                GalleryTile {
-                    id: userDetailCheckinsTile
-
-                    // layout definition
-                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
-
-                    // set initial visibility to false
-                    // will be set if the user has friends
-                    visible: false
-
-                    onClicked: {
-                    }
-                }
-
-                // photos tile
-                InfoTile {
-                    id: userDetailPhotosTile
-
-                    // layout definition
-                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
-
-                    // set initial visibility to false
-                    // will be set if the user has photos
-                    visible: false
-                }
-
                 // facebook contact tile
                 InfoTile {
                     id: userDetailFacebookContactTile
@@ -306,11 +275,6 @@ Page {
 
             // fill header
             userDetailHeader.lastCheckin = userData.checkins[0].venue.name;
-
-            // fill checkin tile
-            userDetailCheckinsTile.headline = userData.checkinCount + " Checkins";
-            userDetailCheckinsTile.venueData = userData.checkins[0].venue;
-            userDetailCheckinsTile.visible = true;
         }
 
         // set relationship status
@@ -328,17 +292,6 @@ Page {
             userDetailFriendsTile.headline = userData.friendCount + " Friends";
             userDetailFriendsTile.userArray = userData.friends;
             userDetailFriendsTile.visible = true;
-        }
-
-        // check if user has photos
-        if (userData.photoCount > 0) {
-            userDetailPhotosTile.headline = userData.photoCount + " Photos";
-            userDetailPhotosTile.visible = true;
-
-            // activate and show user photos if available
-            if (userData.photos[0] !== "") {
-                userDetailPhotosTile.webImage = userData.photos[0].imageFull;
-            }
         }
 
         // activate invocation and show tile if twitter id is available
