@@ -43,6 +43,10 @@ NotificationTransformator.prototype.getNotificationDataFromObject = function(not
 		notificationData.icon = notificationObject.icon.prefix + notificationObject.icon.sizes[(notificationObject.icon.sizes.length) - 1] + notificationObject.icon.name;
 	}
 
+	notificationData.targetType = notificationObject.target.type;
+	
+	notificationData.targetObject = notificationObject.target.object;
+
 	// console.log("# Done transforming notification item");
 	return notificationData;
 };

@@ -32,6 +32,5 @@ function FoursquareNotificationData() {
 	// type of notification as well as
 	// associated target information
 	this.targetType = "";
-	this.targetVenue = "";
-	this.targetUser = "";
+	this.targetObject = "";
 }

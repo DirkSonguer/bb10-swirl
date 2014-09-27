@@ -161,7 +161,7 @@ Container {
             TapHandler {
                 onTapped: {
                     // console.log("# notification location name clicked");
-                    notificationItemComponent.locationClicked();
+                    notificationItemComponent.notificationClicked();
                 }
             }
         ]

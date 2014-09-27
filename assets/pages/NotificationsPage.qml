@@ -18,6 +18,8 @@ import "../components"
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../foursquareapi/updates.js" as UpdatesRepository
+import "../foursquareapi/usertransformator.js" as UserTransformator
+import "../foursquareapi/checkintransformator.js" as CheckinTransformator
 
 // this is a page that is available from the main tab, thus it has to be a navigation pane
 // note that the id is always "navigationPane"
@@ -58,6 +60,37 @@ NavigationPane {
             // for the notification list
             NotificationList {
                 id: notificationList
+
+                // item has been clicked
+                onItemClicked: {
+                    // console.log("# Notification of type " + notificationData.targetType + " has been clicked");
+
+                    // user notification item
+                    if (notificationData.targetType == "user") {
+                        // console.log("# User notification clicked");
+
+                        // transform notification object into user object
+                        var userData = UserTransformator.userTransformator.getUserDataFromObject(notificationData.targetObject);
+
+                        // open page with new user object
+                        var userDetailPage = userDetailComponent.createObject();
+                        userDetailPage.userData = userData;
+                        navigationPane.push(userDetailPage);
+                    }
+
+                    // checkin notification item
+                    if (notificationData.targetType == "checkin") {
+                        // console.log("# Checkin notification clicked");
+
+                        // transform notification object into checkin object
+                        var checkinData = CheckinTransformator.checkinTransformator.getCheckinDataFromObject(notificationData.targetObject);
+
+                        // open page with new checkin object
+                        var venueDetailPage = venueDetailComponent.createObject();
+                        venueDetailPage.venueData = checkinData.venue;
+                        navigationPane.push(venueDetailPage);
+                    }
+                }
             }
         }
 
@@ -99,6 +132,22 @@ NavigationPane {
             loadingIndicator.hideLoader();
         }
     }
+
+    // attach components
+    attachedObjects: [
+        // user detail page
+        // will be called if user clicks on user item
+        ComponentDefinition {
+            id: userDetailComponent
+            source: "UserDetailPage.qml"
+        },
+        // venue detail page
+        // will be called if user clicks on venue item
+        ComponentDefinition {
+            id: venueDetailComponent
+            source: "VenueDetailPage.qml"
+        }
+    ]
 
     // destroy pages after use
     onPopTransitionEnded: {

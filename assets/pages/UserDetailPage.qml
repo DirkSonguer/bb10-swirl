@@ -319,11 +319,13 @@ Page {
         }
     }
 
-    // invocation for opening other apps
+    // attach components
     attachedObjects: [
+        // invocation for dialer
         Phone {
             id: phoneDialer
         },
+        // invocation for opening other apps
         CommunicationInvokes {
             id: communicationInvokes
         },

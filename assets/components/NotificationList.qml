@@ -24,10 +24,7 @@ Container {
     signal listIsScrolling()
 
     // signal if item was clicked
-    signal itemClicked(variant commentData)
-
-    // signal if user was clicked
-    signal profileClicked(variant userData)
+    signal itemClicked(variant notificationData)
 
     // property that holds the current index
     // this is incremented as new items are added
@@ -115,10 +112,12 @@ Container {
 
                         onUserClicked: {
                             // send user clicked event
+                            Qt.itemClicked(ListItemData.notificationData);
                         }
 
                         onNotificationClicked: {
                             // send item clicked event
+                            Qt.itemClicked(ListItemData.notificationData);
                         }
                     }
                 }
