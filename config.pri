@@ -107,6 +107,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
+        $$quote($$BASEDIR/assets/sheets/UserLogout.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
         $$quote($$BASEDIR/assets/structures/contact.js) \
         $$quote($$BASEDIR/assets/structures/errordata.js) \

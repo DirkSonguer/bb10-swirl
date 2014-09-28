@@ -35,7 +35,7 @@ TabbedPane {
     // pane definition
     showTabsOnActionBar: true
     activeTab: recentCheckinTab
-    
+
     // tab for the user notification feed
     Tab {
         id: notificationsTab
@@ -46,6 +46,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
+            console.log("# Notifications tab triggered");
             notificationsComponent.source = "pages/NotificationsPage.qml";
             var notificationsPage = notificationsComponent.createObject();
             notificationsTab.setContent(notificationsPage);
@@ -74,6 +75,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
+            console.log("# Around you tab triggered");
             aroundYouComponent.source = "pages/AroundYouPage.qml";
             var aroundYouPage = aroundYouComponent.createObject();
             aroundYouTab.setContent(aroundYouPage);
@@ -98,6 +100,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
+            console.log("# Recent checkin tab triggered");
             recentCheckinsComponent.source = "pages/RecentCheckinsPage.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
@@ -120,7 +123,7 @@ TabbedPane {
     onCreationCompleted: {
         // enter debug user
         // TODO: Remove for live app
-        Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
+        // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
         // check if user is already logged in
         // if yes, continue with the application
@@ -165,21 +168,37 @@ TabbedPane {
                 title: "About"
                 imageSource: "asset:///images/icons/icon_about.png"
                 onTriggered: {
-                    // create logout sheet
+                    // create about sheet
                     var aboutSheetPage = aboutComponent.createObject();
                     aboutSheet.setContent(aboutSheetPage);
                     aboutSheet.open();
                 }
             },
-            // action for rate sheet
             ActionItem {
-                id: mainMenuRate
-                title: "Update & Rate"
-                imageSource: "asset:///images/icons/icon_bbworld.png"
+                id: mainMenuLogout
+                title: "Logout"
+                imageSource: "asset:///images/icons/icon_close.png"
                 onTriggered: {
-                    rateAppLink.trigger("bb.action.OPEN");
+                    // delete the foursquare tokens from the database
+                    UpdatesRepository.auth.deleteStoredFoursquareData();
+                    
+                    // create logout sheet
+                    var logoutSheetPage = logoutComponent.createObject();
+                    logoutSheet.setContent(logoutSheetPage);
+                    logoutSheet.open();
                 }
             }
+            /*,
+             * // action for rate sheet
+             * ActionItem {
+             * id: mainMenuRate
+             * title: "Update & Rate"
+             * imageSource: "asset:///images/icons/icon_bbworld.png"
+             * onTriggered: {
+             * rateAppLink.trigger("bb.action.OPEN");
+             * }
+             * }
+             */
         ]
     }
 
@@ -187,7 +206,7 @@ TabbedPane {
     // this contains the sheets which are used for general page based popupos
     attachedObjects: [
         // sheet for about page
-        // this is used by the main menu about item
+        // this is used by the main menu
         Sheet {
             id: aboutSheet
 
@@ -199,10 +218,9 @@ TabbedPane {
                 }
             ]
         },
-        // sheet for about page
-        // this is used by the main menu about item
+        // sheet for login page
+        // this is used by the main menu
         Sheet {
-            // TODO: Remove sheet
             id: loginSheet
 
             // attach a component for the about page
@@ -210,6 +228,19 @@ TabbedPane {
                 ComponentDefinition {
                     id: loginComponent
                     source: "sheets/UserLogin.qml"
+                }
+            ]
+        },
+        // sheet for logout page
+        // this is used by the main menu
+        Sheet {
+            id: logoutSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: logoutComponent
+                    source: "sheets/UserLogout.qml"
                 }
             ]
         },

@@ -20,6 +20,9 @@ import "../global/copytext.js" as Copytext
 import "../global/foursquarekeys.js" as FoursquareKeys
 import "../classes/authenticationhandler.js" as Authentication
 
+// import timer type
+import QtTimer 1.0
+
 Page {
     id: userLoginSheet
 
@@ -76,7 +79,7 @@ Page {
                     if (loadRequest.status == WebLoadStatus.Succeeded) {
                         // console.log("# Loading process done");
                         loadingIndicator.hideLoader();
-                        if (! authenticationDone) {
+                        if (! userLoginSheet.authenticationDone) {
                             loginFoursquareWebView.visible = true
                         }
                     }
@@ -95,21 +98,16 @@ Page {
                         loginFoursquareWebView.visible = false
                         var errorMessage = loginErrorText.text += "Foursquare says: " + foursquareResponse["error_description"] + "(" + foursquareResponse["status"] + ")";
                         infoMessage.showMessage(Copytext.swirlLoginErrorMessage, Copytext.swirlLoginErrorTitle);
-                        authenticationDone = false;
+                        userLoginSheet.authenticationDone = false;
                     }
 
                     // show the success message if the Foursquare authentication was ok
                     if (foursquareResponse["status"] === "AUTH_SUCCESS") {
                         console.log("# Authentication successful: " + foursquareResponse["status"]);
 
-                        // show confirmation
-                        loginFoursquareWebView.visible = false
-                        loadingIndicator.hideLoader();
-                        authenticationDone = true;
-
-                        // close sheet and reload calling tab with new user credentialsÏ
-                        userLoginSheet.tabToReload.triggered();
-                        loginSheet.close();
+                        // note that the storage of the Foursquare tokens is asynchronous
+                        // hence we need to wait a bit until everything is there
+                        loginDelayTimer.start();
                     }
                 }
             }
@@ -128,7 +126,31 @@ Page {
         }
     }
 
+    // show loading message
     onCreationCompleted: {
         loadingIndicator.showLoader("Loading login process");
     }
+
+    // attached objects
+    attachedObjects: [
+        // timer component
+        // used to delay reload after commenting
+        Timer {
+            id: loginDelayTimer
+            interval: 1000
+            singleShot: true
+
+            // wait until all data is stored
+            onTimeout: {
+                // hide webview and loading components
+                loginFoursquareWebView.visible = false
+                loadingIndicator.hideLoader();
+                userLoginSheet.authenticationDone = true;
+
+                // close sheet and reload calling tab with new user credentialsÏ
+                userLoginSheet.tabToReload.triggered();
+                loginSheet.close();
+            }
+        }
+    ]
 }

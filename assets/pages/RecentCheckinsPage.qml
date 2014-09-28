@@ -78,7 +78,7 @@ NavigationPane {
         // page creation is finished
         // load the gallery content as soon as the page is ready
         onCreationCompleted: {
-            // console.log("# Creation of recent checkin page finished");
+            console.log("# Creation of recent checkin page finished");
 
             // show loader
             loadingIndicator.showLoader("Loading recent checkins");
@@ -90,7 +90,7 @@ NavigationPane {
         // recent checkin data loaded and transformed
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
-            // console.log("# Recent checkin data loaded. Found " + recentCheckinData.length + " items");
+            console.log("# Recent checkin data loaded. Found " + recentCheckinData.length + " items");
 
             // initially clear list
             checkinList.clearList();

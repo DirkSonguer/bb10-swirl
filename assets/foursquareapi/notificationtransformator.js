@@ -13,7 +13,7 @@ Qt.include(dirPaths.assetPath + "global/globals.js");
 Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 Qt.include(dirPaths.assetPath + "structures/notification.js");
 
-//singleton instance of class
+// singleton instance of class
 var notificationTransformator = new NotificationTransformator();
 
 // Class function that gets the prototype methods
@@ -44,7 +44,7 @@ NotificationTransformator.prototype.getNotificationDataFromObject = function(not
 	}
 
 	notificationData.targetType = notificationObject.target.type;
-	
+
 	notificationData.targetObject = notificationObject.target.object;
 
 	// console.log("# Done transforming notification item");

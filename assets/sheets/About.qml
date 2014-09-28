@@ -76,7 +76,7 @@ Page {
 
                 InfoMessage {
                     id: privacyMessage
-                    
+
                     topMargin: ui.sdu(5)
                     leftPadding: 0
                     rightPadding: 0
@@ -104,7 +104,7 @@ Page {
     actions: [
         ActionItem {
             title: "Close"
-            ActionBar.placement: ActionBarPlacement.OnBar
+            ActionBar.placement: ActionBarPlacement.Signature
             imageSource: "asset:///images/icons/icon_close.png"
 
             // close sheet when pressed

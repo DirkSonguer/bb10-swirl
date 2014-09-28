@@ -25,5 +25,9 @@ var swirlLoginSuccessMessage = "You are authenticated with Foursquare and you ca
 var swirlLoginErrorTitle = "Authentication went wrong";
 var swirlLoginErrorMessage = "You could not be logged into Foursquare. This has nothing to do with your credentials, it seems like the Foursquare server messed something up. Sorry!";
 
+// logout related
+var swirlLogoutSuccessTitle = "Logout successful";
+var swirlLogoutSuccessMessage = "You are logged out of Swirl.";
+
 // list labels
 var swirlAroundYouDistances =  new Array("0#Around you", "1#Around the block", "2#Somewhat near", "3#Somewhere else");

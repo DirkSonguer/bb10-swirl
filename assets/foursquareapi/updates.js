@@ -51,7 +51,9 @@ function getNotifications(callingPage) {
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
 				callingPage.notificationDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -90,18 +92,23 @@ function checkForNewNotifications(callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			// console.log("# Notifications object received. Checking for new updates");
+			// console.log("# Notifications object received. Checking for new
+			// updates");
 
+			// get unread count
 			var notificationCount = jsonObject.notifications[0].item.unreadCount;
 
-			// console.log("# Done loading new notification count. Found: " + notificationCount);
+			// console.log("# Done loading new notification count. Found: " +
+			// notificationCount);
 			callingPage.notificationCountDataLoaded(notificationCount);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
 				callingPage.notificationCountDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -110,7 +117,8 @@ function checkForNewNotifications(callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notification count");
+		// console.log("# User not logged in. Aborted loading notification
+		// count");
 		return false;
 	}
 
