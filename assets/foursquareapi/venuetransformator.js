@@ -87,3 +87,23 @@ VenueTransformator.prototype.getVenueDataFromArray = function(venueObjectArray) 
 	// console.log("# Done transforming venue array");
 	return venueDataArray;
 };
+
+// Extract all venue data from an array of groups that contain venue objects
+// The resulting data is stored as array of FoursquareVenueData()
+VenueTransformator.prototype.getVenueDataFromGroupArray = function(venueGroupObjectArray) {
+	console.log("# Transforming venue group array with " + venueGroupObjectArray.length + " items");
+
+	// create new return array
+	var venueDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in venueGroupObjectArray) {
+		// get venue data item and store it into return array
+		var venueData = new FoursquareVenueData();
+		venueData = this.getVenueDataFromObject(venueGroupObjectArray[index].venue);
+		venueDataArray[index] = venueData;
+	}
+
+	console.log("# Done transforming venue group array");
+	return venueDataArray;
+};

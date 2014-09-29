@@ -1,8 +1,8 @@
 // *************************************************** //
-// Recent Checkins Page
+// Add Checkins Page
 //
-// The recent checkins page shows the venue feed for the
-// last checkins by the users friends.
+// The add checkins page handles all actions needed for
+// checkin into a venue.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -11,12 +11,16 @@
 // import blackberry components
 import bb.cascades 1.3
 
+// import geolocation services
+import QtMobilitySubset.location 1.1
+
 // set import directory for components
 import "../components"
 
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
+import "../foursquareapi/venues.js" as VenueRepository
 import "../foursquareapi/checkins.js" as CheckinsRepository
 
 // this is a page that is available from the main tab, thus it has to be a navigation pane
@@ -25,13 +29,17 @@ NavigationPane {
     id: navigationPane
 
     Page {
-        id: recentCheckinsPage
+        id: addCheckinPage
 
         // signal if popular media data loading is complete
-        signal recentCheckinDataLoaded(variant recentCheckinData)
+        signal venueDataLoaded(variant venueData)
 
         // signal if popular media data loading encountered an error
-        signal recentCheckinDataError(variant errorData)
+        signal venueDataError(variant errorData)
+
+        // property for the current geolocation
+        // contains lat and lon
+        property variant currentGeolocation
 
         // main content container
         Container {
@@ -52,52 +60,47 @@ NavigationPane {
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
-
-            // checkin list
+            
+            // venue list
             // this will contain all the components and actions
             // for the venue list
-            CheckinList {
-                id: checkinList
-
-                onProfileClicked: {
-                    // console.log("# User clicked: " + userData.userId);
-                    var userDetailPage = userDetailComponent.createObject();
-                    userDetailPage.userData = userData;
-                    navigationPane.push(userDetailPage);
-                }
-
+            VenueList {
+                id: venueList
+                
+                listSortAscending: true
+                
                 onItemClicked: {
                     // console.log("# Item clicked: " + venueData.userId);
                     var venueDetailPage = venueDetailComponent.createObject();
                     venueDetailPage.venueData = venueData;
                     navigationPane.push(venueDetailPage);
-                }
-            }
+                }                
+            }            
         }
 
         // page creation is finished
-        // load the gallery content as soon as the page is ready
+        // start the location tracking as soon as the page is ready
         onCreationCompleted: {
-            console.log("# Creation of recent checkin page finished");
+            console.log("# Creation of add checkin page finished");
 
             // show loader
-            loadingIndicator.showLoader("Loading recent checkins");
+            loadingIndicator.showLoader("Trying to fix your location");
 
-            // load recent checkin stream
-            CheckinsRepository.getRecentCheckins(0, 0, recentCheckinsPage);
+            // start searching for the current geolocation
+            positionSource.start();
         }
 
-        // recent checkin data loaded and transformed
+        // around you checkin data loaded and transformed
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
-        onRecentCheckinDataLoaded: {
-            console.log("# Recent checkin data loaded. Found " + recentCheckinData.length + " items");
-
+        onVenueDataLoaded: {
+            console.log("# Venue data loaded. Found " + venueData.length + " items");
+            
             // initially clear list
-            checkinList.clearList();
-
+            venueList.clearList();
+            
             // iterate through data objects
-            for (var index in recentCheckinData) {
-                checkinList.addToList(recentCheckinData[index]);
+            for (var index in venueData) {
+                venueList.addToList(venueData[index]);
             }
 
             // hide loader
@@ -105,10 +108,10 @@ NavigationPane {
         }
 
         // recent checkin data could not be load
-        onRecentCheckinDataError: {
+        onVenueDataError: {
             // show info message
-            infoMessage.showMessage(errorData.errorMessage, "Could not load recent checkins");
-
+            infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
+            
             // hide loader
             loadingIndicator.hideLoader();
         }
@@ -116,17 +119,39 @@ NavigationPane {
 
     // attach components
     attachedObjects: [
-        // user detail page
-        // will be called if user clicks on user item
-        ComponentDefinition {
-            id: userDetailComponent
-            source: "UserDetailPage.qml"
-        },
         // venue detail page
         // will be called if user clicks on venue item
         ComponentDefinition {
             id: venueDetailComponent
             source: "VenueDetailPage.qml"
+        },
+        // position source object and logic
+        PositionSource {
+            id: positionSource
+            // desired interval between updates in milliseconds
+            updateInterval: 10000
+
+            // when position found (changed from null), update the location objects
+            onPositionChanged: {
+                // store coordinates
+                addCheckinPage.currentGeolocation = positionSource.position.coordinate;
+
+                // check if location was really fixed
+                if (! addCheckinPage.currentGeolocation) {
+                    // console.log("# Location could not be fixed");
+                } else {
+                    // console.debug("# Location found: " + addCheckinPage.currentGeolocation.latitude + ", " + addCheckinPage.currentGeolocation.longitude);
+
+                    // show loader
+                    loadingIndicator.showLoader("Checking what's around you");
+                    
+                    // load recent checkin stream with geolocation and time
+                    VenueRepository.exploreVenues(addCheckinPage.currentGeolocation, 1000, addCheckinPage);
+
+                    // stop location service
+                    positionSource.stop();
+                }
+            }
         }
     ]
 

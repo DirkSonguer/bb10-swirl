@@ -53,8 +53,11 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
         $$quote($$BASEDIR/assets/components/NotificationList.qml) \
         $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
+        $$quote($$BASEDIR/assets/components/SearchInput.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
+        $$quote($$BASEDIR/assets/components/VenueItem.qml) \
+        $$quote($$BASEDIR/assets/components/VenueList.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/contacttransformator.js) \
@@ -70,13 +73,13 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
+        $$quote($$BASEDIR/assets/images/assets/blue_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/mask_blue_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/triangle_down.png) \
         $$quote($$BASEDIR/assets/images/assets/white_squircle.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_193.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_195.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_196.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_197.png) \
@@ -85,11 +88,13 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_aroundyou.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_call_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_checkin.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_recent.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
@@ -99,6 +104,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_768x1280.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/NotificationsPage.qml) \

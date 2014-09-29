@@ -36,56 +36,27 @@ TabbedPane {
     showTabsOnActionBar: true
     activeTab: recentCheckinTab
 
-    // tab for the user notification feed
+    // tab to add new checkin
     Tab {
-        id: notificationsTab
-        title: "Notifications"
-        imageSource: "asset:///images/icons/icon_notification.png"
+        id: addCheckinTab
+        title: "Add Checkin"
+        imageSource: "asset:///images/icons/icon_checkin.png"
 
         // note that the page is bound to the component every time it loads
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            console.log("# Notifications tab triggered");
-            notificationsComponent.source = "pages/NotificationsPage.qml";
-            var notificationsPage = notificationsComponent.createObject();
-            notificationsTab.setContent(notificationsPage);
-
-            // flag if new content is available
-            // will be set true by onNotificationCountDataLoaded
-            newContentAvailable = false;
+            console.log("# Add checkin tab triggered");
+            addCheckinComponent.source = "pages/AddCheckinPage.qml";
+            var addCheckinPage = addCheckinComponent.createObject();
+            addCheckinTab.setContent(addCheckinPage);
         }
 
-        // attach a component for the user feed page
+        // attach a component for the recent checkin page
         // this is bound to the content property later on onCreationCompleted()
         attachedObjects: [
             ComponentDefinition {
-                id: notificationsComponent
-            }
-        ]
-    }
-
-    // tab for the around you overview
-    Tab {
-        id: aroundYouTab
-        title: "Around You"
-        imageSource: "asset:///images/icons/icon_aroundyou.png"
-
-        // note that the page is bound to the component every time it loads
-        // this is because the page needs to be created as tapped
-        // if created on startup it does not work immediately after login
-        onTriggered: {
-            console.log("# Around you tab triggered");
-            aroundYouComponent.source = "pages/AroundYouPage.qml";
-            var aroundYouPage = aroundYouComponent.createObject();
-            aroundYouTab.setContent(aroundYouPage);
-        }
-
-        // attach a component for the user feed page
-        // this is bound to the content property later on onCreationCompleted()
-        attachedObjects: [
-            ComponentDefinition {
-                id: aroundYouComponent
+                id: addCheckinComponent
             }
         ]
     }
@@ -119,11 +90,65 @@ TabbedPane {
         ]
     }
 
+    // tab for the around you overview
+    Tab {
+        id: aroundYouTab
+        title: "Around You"
+        imageSource: "asset:///images/icons/icon_aroundyou.png"
+        
+        // note that the page is bound to the component every time it loads
+        // this is because the page needs to be created as tapped
+        // if created on startup it does not work immediately after login
+        onTriggered: {
+            console.log("# Around you tab triggered");
+            aroundYouComponent.source = "pages/AroundYouPage.qml";
+            var aroundYouPage = aroundYouComponent.createObject();
+            aroundYouTab.setContent(aroundYouPage);
+        }
+        
+        // attach a component for the user feed page
+        // this is bound to the content property later on onCreationCompleted()
+        attachedObjects: [
+            ComponentDefinition {
+                id: aroundYouComponent
+            }
+        ]
+    }
+    
+    // tab for the user notification feed
+    Tab {
+        id: notificationsTab
+        title: "Notifications"
+        imageSource: "asset:///images/icons/icon_notification.png"
+
+        // note that the page is bound to the component every time it loads
+        // this is because the page needs to be created as tapped
+        // if created on startup it does not work immediately after login
+        onTriggered: {
+            console.log("# Notifications tab triggered");
+            notificationsComponent.source = "pages/NotificationsPage.qml";
+            var notificationsPage = notificationsComponent.createObject();
+            notificationsTab.setContent(notificationsPage);
+
+            // flag if new content is available
+            // will be set true by onNotificationCountDataLoaded
+            newContentAvailable = false;
+        }
+
+        // attach a component for the user feed page
+        // this is bound to the content property later on onCreationCompleted()
+        attachedObjects: [
+            ComponentDefinition {
+                id: notificationsComponent
+            }
+        ]
+    }
+
     // main logic on startup
     onCreationCompleted: {
         // enter debug user
         // TODO: Remove for live app
-        // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
+        Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
         // check if user is already logged in
         // if yes, continue with the application
@@ -181,7 +206,7 @@ TabbedPane {
                 onTriggered: {
                     // delete the foursquare tokens from the database
                     UpdatesRepository.auth.deleteStoredFoursquareData();
-                    
+
                     // create logout sheet
                     var logoutSheetPage = logoutComponent.createObject();
                     logoutSheet.setContent(logoutSheetPage);

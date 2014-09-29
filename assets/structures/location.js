@@ -26,6 +26,9 @@ function FoursquareLocationData() {
 	// lat / lng coordinates
 	this.lat = "";
 	this.lng = "";
+	
+	// distance to current location
+	this.distance = "";
 
 	// formatted address
 	this.formattedAddress = "";
