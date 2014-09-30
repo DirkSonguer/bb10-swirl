@@ -57,7 +57,7 @@ Container {
             submitKey: SubmitKey.Submit
             onSubmitted: {
                 if (submitter.text.length > 0) {
-                    console.log("# Search input for " + submitter.text);
+                    // console.log("# Search input for " + submitter.text);
 
                     // store current search term
                     searchInputComponent.currentSearchTerm = submitter.text;

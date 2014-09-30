@@ -87,13 +87,13 @@ Page {
 
                 // check on every page load if the oauth token is in it
                 onUrlChanged: {
-                    console.log("# Authentication URL changed: " + url);
+                    // console.log("# Authentication URL changed: " + url);
                     var foursquareResponse = new Array();
                     foursquareResponse = Authentication.auth.checkFoursquareAuthenticationUrl(url);
 
                     // show the error message if the Foursquare authentication was not successfull
                     if (foursquareResponse["status"] === "AUTH_ERROR") {
-                        console.log("# Authentication failed: " + foursquareResponse["status"]);
+                        // console.log("# Authentication failed: " + foursquareResponse["status"]);
 
                         loginFoursquareWebView.visible = false
                         var errorMessage = loginErrorText.text += "Foursquare says: " + foursquareResponse["error_description"] + "(" + foursquareResponse["status"] + ")";
@@ -103,7 +103,7 @@ Page {
 
                     // show the success message if the Foursquare authentication was ok
                     if (foursquareResponse["status"] === "AUTH_SUCCESS") {
-                        console.log("# Authentication successful: " + foursquareResponse["status"]);
+                        // console.log("# Authentication successful: " + foursquareResponse["status"]);
 
                         // note that the storage of the Foursquare tokens is asynchronous
                         // hence we need to wait a bit until everything is there

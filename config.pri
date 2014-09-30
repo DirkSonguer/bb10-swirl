@@ -57,6 +57,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/SearchInput.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
+        $$quote($$BASEDIR/assets/components/VenueHeaderShort.qml) \
         $$quote($$BASEDIR/assets/components/VenueItem.qml) \
         $$quote($$BASEDIR/assets/components/VenueList.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
@@ -106,11 +107,12 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_768x1280.png) \
         $$quote($$BASEDIR/assets/main.qml) \
-        $$quote($$BASEDIR/assets/pages/AddCheckinVenueSelectionPage.qml) \
+        $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/NotificationsPage.qml) \
         $$quote($$BASEDIR/assets/pages/RecentCheckinsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \

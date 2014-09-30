@@ -271,7 +271,7 @@ Page {
 
         // get name of last venue the user checked in
         if (userData.checkins.length > 0) {
-            console.log("# Found " + userData.checkins.length + " checkins");
+            // console.log("# Found " + userData.checkins.length + " checkins");
 
             // fill header
             userDetailHeader.lastCheckin = userData.checkins[0].venue.name;
@@ -286,7 +286,7 @@ Page {
 
         // check if user has friends
         if (userData.friends.length > 0) {
-            console.log("# Found " + userData.friends.length + " friends");
+            // console.log("# Found " + userData.friends.length + " friends");
 
             // fill friends tile data
             userDetailFriendsTile.headline = userData.friendCount + " Friends";

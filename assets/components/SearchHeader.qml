@@ -19,10 +19,10 @@ import WebImageView 1.0
 
 Container {
     id: searchHeaderComponent
-    
+
     // signal that search process should be triggered
     signal updateSearch(string searchTerm)
-    
+
     // signal that search component should reset itself
     signal resetSearch()
 
@@ -33,7 +33,7 @@ Container {
     // layout definition
     background: Color.create(Globals.blackberryStandardBlue)
     preferredWidth: DisplayInfo.width
-    topPadding: ui.sdu(4)
+    topPadding: ui.sdu(3)
     bottomPadding: ui.sdu(2)
 
     // search call to action container
@@ -63,9 +63,8 @@ Container {
         Label {
             id: searchHeaderCallToAction
 
-            verticalAlignment: VerticalAlignment.Center
-
             // layout definition
+            verticalAlignment: VerticalAlignment.Center
             bottomMargin: 0
 
             // call to action text
@@ -83,7 +82,7 @@ Container {
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    console.log("# Search header call to action clicked");
+                    // console.log("# Search header call to action clicked");
                     searchHeaderCallToActionContainer.visible = false;
                     searchHeaderSearchContainer.visible = true;
                 }
@@ -95,8 +94,8 @@ Container {
     Container {
         id: searchHeaderSearchContainer
 
-        visible: false;
-        
+        visible: false
+
         leftPadding: ui.sdu(2)
         rightPadding: ui.sdu(1)
 
@@ -106,13 +105,13 @@ Container {
         }
 
         // search header label
-        Label {            
+        Label {
             // layout definition
             bottomMargin: 0
-            
+
             // call to action text
             text: Copytext.swirlSearchCallToAction
-            
+
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.SmallText
             textStyle.fontWeight: FontWeight.W100
@@ -120,19 +119,19 @@ Container {
             textStyle.textAlign: TextAlign.Left
             textStyle.color: Color.White
         }
-        
+
         // search input field
         SearchInput {
             id: searchHeaderInputField
-            
+
             // hint text shown in input field
             hintText: Copytext.swirlSearchInputLabel
-            
+
             // search has been triggered
             onTriggered: {
                 searchHeaderComponent.updateSearch(searchTerm);
             }
-            
+
             onReset: {
                 searchHeaderSearchContainer.visible = false;
                 searchHeaderCallToActionContainer.visible = true;

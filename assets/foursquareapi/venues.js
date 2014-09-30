@@ -121,7 +121,7 @@ function explore(currentGeoLocation, searchQuery, searchRadius, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=foursquare";
 
-	console.log("# Loading venue data with url: " + url);
+	// console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -178,7 +178,7 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading venue data with url: " + url);
+	// console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

@@ -65,7 +65,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		console.log("# User not logged in. Aborted loading recent checkins");
+		// console.log("# User not logged in. Aborted loading recent checkins");
 		return false;
 	}
 
@@ -88,7 +88,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 		url += "&afterTimestamp=" + currentTimestamp;
 	}
 
-	console.log("# Loading recent checkins with url: " + url);
+	// console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

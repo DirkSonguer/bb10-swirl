@@ -105,9 +105,9 @@ NavigationPane {
 
                     onItemClicked: {
                         // console.log("# Item clicked: " + venueData.userId);
-                        var venueDetailPage = venueDetailComponent.createObject();
-                        venueDetailPage.venueData = venueData;
-                        navigationPane.push(venueDetailPage);
+                        var addCheckinPage = addCheckinComponent.createObject();
+                        addCheckinPage.venueData = venueData;
+                        navigationPane.push(addCheckinPage);
                     }
                 }
             }
@@ -116,7 +116,7 @@ NavigationPane {
         // page creation is finished
         // start the location tracking as soon as the page is ready
         onCreationCompleted: {
-            console.log("# Creation of add checkin page finished");
+            // console.log("# Creation of add checkin page finished");
 
             // show loader
             loadingIndicator.showLoader("Trying to fix your location");
@@ -159,8 +159,8 @@ NavigationPane {
         // venue detail page
         // will be called if user clicks on venue item
         ComponentDefinition {
-            id: venueDetailComponent
-            source: "VenueDetailPage.qml"
+            id: addCheckinComponent
+            source: "AddCheckinPage.qml"
         },
         // position source object and logic
         PositionSource {
