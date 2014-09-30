@@ -47,7 +47,7 @@ TabbedPane {
         // if created on startup it does not work immediately after login
         onTriggered: {
             console.log("# Add checkin tab triggered");
-            addCheckinComponent.source = "pages/AddCheckinPage.qml";
+            addCheckinComponent.source = "pages/AddCheckinVenueSelectionPage.qml";
             var addCheckinPage = addCheckinComponent.createObject();
             addCheckinTab.setContent(addCheckinPage);
         }

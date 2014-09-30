@@ -142,8 +142,8 @@ Container {
                 }
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
-                    if (! scrollStateHandler.atBeginning) {
-                        notificationListComponent.listIsScrolling();
+                    if (scrolling) {
+                        venueListComponent.listIsScrolling();                        
                     }
                 }
             }

@@ -60,22 +60,57 @@ NavigationPane {
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
             }
-            
-            // venue list
-            // this will contain all the components and actions
-            // for the venue list
-            VenueList {
-                id: venueList
-                
-                listSortAscending: true
-                
-                onItemClicked: {
-                    // console.log("# Item clicked: " + venueData.userId);
-                    var venueDetailPage = venueDetailComponent.createObject();
-                    venueDetailPage.venueData = venueData;
-                    navigationPane.push(venueDetailPage);
-                }                
-            }            
+
+            // main content container
+            Container {
+                // layout orientation
+                layout: StackLayout {
+                    orientation: LayoutOrientation.TopToBottom
+                }
+
+                // search functionality
+                SearchHeader {
+                    id: venueListSearchHeader
+
+                    // set initial visibility to false during loading
+                    visible: false
+
+                    // search term has been entered
+                    // update the search accordingly
+                    onUpdateSearch: {
+                        // initially clear list
+                        venueList.clearList();
+                        loadingIndicator.showLoader("Searching..");
+                        VenueRepository.search(addCheckinPage.currentGeolocation, "checkin", searchTerm, 0, addCheckinPage);
+                    }
+                }
+
+                // venue list
+                // this will contain all the components and actions
+                // for the venue list
+                VenueList {
+                    id: venueList
+
+                    listSortAscending: true
+
+                    onListTopReached: {
+                        if (currentItemIndex > 0) {
+                            venueListSearchHeader.visible = true;
+                        }
+                    }
+
+                    onListIsScrolling: {
+                        venueListSearchHeader.visible = false;
+                    }
+
+                    onItemClicked: {
+                        // console.log("# Item clicked: " + venueData.userId);
+                        var venueDetailPage = venueDetailComponent.createObject();
+                        venueDetailPage.venueData = venueData;
+                        navigationPane.push(venueDetailPage);
+                    }
+                }
+            }
         }
 
         // page creation is finished
@@ -93,11 +128,11 @@ NavigationPane {
         // around you checkin data loaded and transformed
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onVenueDataLoaded: {
-            console.log("# Venue data loaded. Found " + venueData.length + " items");
-            
+            // console.log("# Venue data loaded. Found " + venueData.length + " items");
+
             // initially clear list
             venueList.clearList();
-            
+
             // iterate through data objects
             for (var index in venueData) {
                 venueList.addToList(venueData[index]);
@@ -105,13 +140,15 @@ NavigationPane {
 
             // hide loader
             loadingIndicator.hideLoader();
+
+            //show components
+            venueListSearchHeader.visible = true;
         }
 
         // recent checkin data could not be load
         onVenueDataError: {
-            // show info message
-            infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
-            
+            // infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
+
             // hide loader
             loadingIndicator.hideLoader();
         }
@@ -144,9 +181,9 @@ NavigationPane {
 
                     // show loader
                     loadingIndicator.showLoader("Checking what's around you");
-                    
+
                     // load recent checkin stream with geolocation and time
-                    VenueRepository.exploreVenues(addCheckinPage.currentGeolocation, 1000, addCheckinPage);
+                    VenueRepository.search(addCheckinPage.currentGeolocation, "checkin", "", 0, addCheckinPage);
 
                     // stop location service
                     positionSource.stop();

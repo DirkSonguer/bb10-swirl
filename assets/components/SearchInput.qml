@@ -8,40 +8,26 @@
 // via the respective signals.
 //
 // Author: Dirk Songuer
-// License: GPL v2
-// See: http://choosealicense.com/licenses/gpl-v2/
+// License: All rights reserved
 // *************************************************** //
 
 // import blackberry components
-import bb.cascades 1.2
+import bb.cascades 1.3
 import bb.system 1.2
 
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
-import "../instagramapi/search.js" as SearchRepository
 
 Container {
     id: searchInputComponent
 
-    // signal if media search data loading is complete
-    signal searchMediaDataLoaded(variant mediaDataArray, string paginationId)
-
-    // signal that next media page should be loaded
-    signal nextMediaPage(string paginationNextMaxId)
-
-    // signal if user search data loading is complete
-    signal searchUserDataLoaded(variant userDataArray)
-
-    // signal if popular media data loading encountered an error
-    signal searchDataError(variant errorData)
-    
     // signal that search process has been triggered
-    signal triggered()
+    signal triggered(string searchTerm)
 
-    // flag to search for media or users
-    property string searchType: "media"
-    
+    // signal that search process has been reset
+    signal reset()
+
     // property that contains the current search term
     property string currentSearchTerm: ""
 
@@ -62,7 +48,7 @@ Container {
         id: searchInput
 
         // configure text field
-        hintText: "Search media"
+        hintText: ""
         clearButtonVisible: true
         inputMode: TextFieldInputMode.Chat
 
@@ -71,21 +57,15 @@ Container {
             submitKey: SubmitKey.Submit
             onSubmitted: {
                 if (submitter.text.length > 0) {
-                    // console.log("# Searching for " + searchInputComponent.searchType + " with terms " + submitter.text);
+                    console.log("# Search input for " + submitter.text);
 
-                    if (searchInputComponent.searchType == "media") {
-                        // load media items with given search terms
-                        SearchRepository.getMediaSearchResults(submitter.text, 0, searchInputComponent);
-                    } else {
-                        // load users with given search terms
-                        SearchRepository.getUserSearchResults(submitter.text, searchInputComponent);
-                    }
-                    
                     // store current search term
                     searchInputComponent.currentSearchTerm = submitter.text;
-                    
+
                     // signal that loading process has been triggered
-                    searchInputComponent.triggered();
+                    searchInputComponent.triggered(submitter.text);
+                } else {
+                    searchInputComponent.reset();
                 }
             }
         }
@@ -93,16 +73,20 @@ Container {
 
     // comment submit button
     ImageButton {
-        defaultImageSource: "asset:///images/icons/icon_search_dimmed.png"
-        pressedImageSource: "asset:///images/icons/icon_search.png"
+        // position and layout properties
+        verticalAlignment: VerticalAlignment.Center
+
+        // set button icons
+        defaultImageSource: "asset:///images/icons/icon_search.png"
+        pressedImageSource: "asset:///images/icons/icon_search_dimmed.png"
+
+        // send search request if clicked
         onClicked: {
+            // console.log("# Search input icon clicked");
+            
             // send the submit signal to the text input field
             searchInput.input.submitted(searchInput);
         }
     }
-    
-    // load next set of media items for current search
-    onNextMediaPage: {
-        SearchRepository.getMediaSearchResults(searchInputComponent.currentSearchTerm, paginationNextMaxId, searchInputComponent);
-    }
+
 }

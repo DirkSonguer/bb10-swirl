@@ -1,5 +1,5 @@
 1
-88
+90
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -17,6 +17,7 @@ components/LocationTile.qml
 components/NotificationItem.qml
 components/NotificationList.qml
 components/RelationshipTile.qml
+components/SearchHeader.qml
 components/SearchInput.qml
 components/UserHeader.qml
 components/VenueHeader.qml
@@ -62,13 +63,14 @@ images/icons/icon_profile.png
 images/icons/icon_recent.png
 images/icons/icon_reload.png
 images/icons/icon_search.png
+images/icons/icon_search_dimmed.png
 images/icons/icon_sms_w.png
 images/icons/icon_twitter_w.png
 images/splashscreens/Swirl_Splash_720x1280.png
 images/splashscreens/Swirl_Splash_720x720.png
 images/splashscreens/Swirl_Splash_768x1280.png
 main.qml
-pages/AddCheckinPage.qml
+pages/AddCheckinVenueSelectionPage.qml
 pages/AroundYouPage.qml
 pages/FriendsPage.qml
 pages/NotificationsPage.qml

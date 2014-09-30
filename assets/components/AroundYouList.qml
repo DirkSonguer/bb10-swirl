@@ -88,8 +88,8 @@ Container {
 
                 Container {
                     // layout definition
-                    topMargin: 30
-                    leftPadding: 15
+                    topMargin: ui.sdu(3)
+                    leftPadding: ui.sdu(1.5)
 
                     // date label
                     Label {
@@ -184,8 +184,8 @@ Container {
                 }
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
-                    if (! scrollStateHandler.atBeginning) {
-                        aroundYouListComponent.listIsScrolling();
+                    if (scrolling) {
+                        venueListComponent.listIsScrolling();                        
                     }
                 }
             }

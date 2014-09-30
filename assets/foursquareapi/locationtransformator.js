@@ -55,7 +55,11 @@ LocationTransformator.prototype.getLocationDataFromObject = function(locationObj
 	locationData.lng = locationObject.lng;
 
 	// distance
-	if (typeof locationObject.distance !== "undefined") locationData.distance = locationObject.distance;
+	if (typeof locationObject.distance !== "undefined") {
+		locationData.distance = locationObject.distance;
+		locationData.distanceInKm = (locationObject.distance / 1000);
+		locationData.distanceInKm = locationData.distanceInKm.toFixed(2);
+	}
 
 	
 	// console.log("# Done transforming location item");

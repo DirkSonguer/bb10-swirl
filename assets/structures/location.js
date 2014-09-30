@@ -29,6 +29,7 @@ function FoursquareLocationData() {
 	
 	// distance to current location
 	this.distance = "";
+	this.distanceInKm = "";
 
 	// formatted address
 	this.formattedAddress = "";

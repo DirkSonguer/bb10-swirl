@@ -1,7 +1,7 @@
 // *************************************************** //
-// User Checkin List Component
+// Venue List Component
 //
-// This component shows a list of checkins by users.
+// This component shows a list of venues.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -104,7 +104,7 @@ Container {
                         // set data
                         name: ListItemData.venueData.name
                         address: ListItemData.venueData.location.address
-                        distance: ListItemData.venueData.location.distance + " meters away"
+                        distance: ListItemData.venueData.location.distanceInKm + " km away"
                         venueImage: ListItemData.venueData.locationCategories[0].iconLarge
 
                         // location was clicked
@@ -135,8 +135,8 @@ Container {
                 }
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
-                    if (! scrollStateHandler.atBeginning) {
-                        venueListComponent.listIsScrolling();
+                    if (scrolling) {
+                        venueListComponent.listIsScrolling();                        
                     }
                 }
             }

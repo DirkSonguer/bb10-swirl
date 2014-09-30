@@ -1,9 +1,8 @@
 // *************************************************** //
-// Around You Item Component
+// Venue Item Component
 //
-// This component shows data for a user venue, consisting
-// of user image, user name and current location / venue
-// data.
+// This component shows a list of venues with respective
+// data relevant for the user.
 // The component also handles the interaction with the
 // individual elements.
 //
@@ -27,17 +26,17 @@ Container {
     // signal that item has been clicked
     signal itemClicked()
 
-    // property for the user profile image, given as url
-    property alias venueImage: venueItemImage.url
-    
-    // property for the user profile image, given as url
-    property alias address: venueItemAddress.text
-    
-    // property for the user profile image, given as url
-    property alias distance: venueItemDistance.text
-    
     // property for the venue name, given as string
     property alias name: venueItemName.text
+
+    // property for the venue image, given as url
+    property alias venueImage: venueItemImage.url
+
+    // property for the venue address, given as string
+    property alias address: venueItemAddress.text
+
+    // property for the user distance to the venue, given as string
+    property alias distance: venueItemDistance.text
 
     // layout orientation
     layout: StackLayout {
@@ -59,25 +58,26 @@ Container {
         // layout definition
         horizontalAlignment: HorizontalAlignment.Center
 
-        // mask the profile image to make it a squircle
+        // use a blue squircle as background for the white venue icon
         ImageView {
             id: venueItemImageMask
-            
+
             // position and layout properties
             verticalAlignment: VerticalAlignment.Center
             horizontalAlignment: HorizontalAlignment.Left
-            
+
             // set image size to maximum profile picture size
             preferredHeight: ui.sdu(18)
             preferredWidth: ui.sdu(18)
             minHeight: ui.sdu(18)
             minWidth: ui.sdu(18)
-            
+
             // mask image
             imageSource: "asset:///images/assets/blue_squircle.png"
         }
-        
-        // profile image
+
+        // venue image
+        // note that this will actually be a white icon for the venue category
         // this is a web image view provided by WebViewImage
         WebImageView {
             id: venueItemImage
@@ -87,21 +87,11 @@ Container {
             horizontalAlignment: HorizontalAlignment.Center
 
             // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(15)
-            preferredWidth: ui.sdu(15)
-            minHeight: ui.sdu(15)
-            minWidth: ui.sdu(15)
+            preferredHeight: ui.sdu(14)
+            preferredWidth: ui.sdu(14)
+            minHeight: ui.sdu(14)
+            minWidth: ui.sdu(14)
         }
-
-        // handle tap on profile picture
-        gestureHandlers: [
-            TapHandler {
-                onTapped: {
-                    // console.log("# venue image clicked");
-                    venueItemComponent.itemClicked();
-                }
-            }
-        ]
     }
 
     // venue meta data container
@@ -130,48 +120,37 @@ Container {
             textStyle.textAlign: TextAlign.Left
             textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
-        
-        // user name label
+
+        // venue address label
         Label {
             id: venueItemAddress
-            
+
             // layout definition
             horizontalAlignment: HorizontalAlignment.Left
             topMargin: 0
             bottomMargin: 0
-            
+
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.SmallText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.XSmall
             textStyle.textAlign: TextAlign.Left
-        }        
+        }
 
-        
-        // user name label
+        // user distance to venue label
         Label {
             id: venueItemDistance
-            
+
             // layout definition
             horizontalAlignment: HorizontalAlignment.Left
             topMargin: 0
-            
+
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.SmallText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.XSmall
             textStyle.textAlign: TextAlign.Left
-        }    
-        
-        // handle tap on custom button
-        gestureHandlers: [
-            TapHandler {
-                onTapped: {
-                    // console.log("# venue location name clicked");
-                    venueItemComponent.itemClicked();
-                }
-            }
-        ]
+        }
     }
 
     // handle ui touch elements
@@ -188,4 +167,14 @@ Container {
             venueItemName.textStyle.color = Color.create(Globals.blackberryStandardBlue);
         }
     }
+
+    // handle tap on venue item
+    gestureHandlers: [
+        TapHandler {
+            onTapped: {
+                // console.log("# venue item clicked");
+                venueItemComponent.itemClicked();
+            }
+        }
+    ]
 }
