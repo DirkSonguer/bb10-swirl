@@ -1,8 +1,9 @@
 // *************************************************** //
-// Add Checkins Page
+// Search Venue Page
 //
-// The add checkins page handles all actions needed for
-// checkin into a venue.
+// The search venue page shows venues around the current
+// position and allows searching for ones nearby.
+// It also acts as the first step for checkin in.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -29,7 +30,7 @@ NavigationPane {
     id: navigationPane
 
     Page {
-        id: addCheckinPage
+        id: searchVenuePage
 
         // signal if popular media data loading is complete
         signal venueDataLoaded(variant venueData)
@@ -81,7 +82,7 @@ NavigationPane {
                         // initially clear list
                         venueList.clearList();
                         loadingIndicator.showLoader("Searching..");
-                        VenueRepository.search(addCheckinPage.currentGeolocation, "checkin", searchTerm, 0, addCheckinPage);
+                        VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
                     }
                 }
 
@@ -107,6 +108,7 @@ NavigationPane {
                         // console.log("# Item clicked: " + venueData.userId);
                         var addCheckinPage = addCheckinComponent.createObject();
                         addCheckinPage.venueData = venueData;
+                        addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
                         navigationPane.push(addCheckinPage);
                     }
                 }
@@ -171,19 +173,19 @@ NavigationPane {
             // when position found (changed from null), update the location objects
             onPositionChanged: {
                 // store coordinates
-                addCheckinPage.currentGeolocation = positionSource.position.coordinate;
+                searchVenuePage.currentGeolocation = positionSource.position.coordinate;
 
                 // check if location was really fixed
-                if (! addCheckinPage.currentGeolocation) {
+                if (! searchVenuePage.currentGeolocation) {
                     // console.log("# Location could not be fixed");
                 } else {
-                    // console.debug("# Location found: " + addCheckinPage.currentGeolocation.latitude + ", " + addCheckinPage.currentGeolocation.longitude);
+                    // console.debug("# Location found: " + searchVenuePage.currentGeolocation.latitude + ", " + searchVenuePage.currentGeolocation.longitude);
 
                     // show loader
                     loadingIndicator.showLoader("Checking what's around you");
 
                     // load recent checkin stream with geolocation and time
-                    VenueRepository.search(addCheckinPage.currentGeolocation, "checkin", "", 0, addCheckinPage);
+                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", "", 0, searchVenuePage);
 
                     // stop location service
                     positionSource.stop();

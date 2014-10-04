@@ -26,11 +26,11 @@ import "foursquareapi/updates.js" as UpdatesRepository
 TabbedPane {
     id: mainTabbedPane
 
-    // signal if notification count data loading is complete
-    signal notificationCountDataLoaded(variant notificationCount)
+    // signal if update count data loading is complete
+    signal updateCountDataLoaded(variant updateCount)
 
-    // signal if notification count data loading encountered an error
-    signal notificationCountDataError(variant errorData)
+    // signal if update count data loading encountered an error
+    signal updateCountDataError(variant errorData)
 
     // pane definition
     showTabsOnActionBar: true
@@ -46,7 +46,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            // console.log("# Add checkin tab triggered");
+            console.log("# Add checkin tab triggered");
             addCheckinComponent.source = "pages/SearchVenuePage.qml";
             var addCheckinPage = addCheckinComponent.createObject();
             addCheckinTab.setContent(addCheckinPage);
@@ -71,13 +71,13 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            // console.log("# Recent checkin tab triggered");
+            console.log("# Recent checkin tab triggered");
             recentCheckinsComponent.source = "pages/RecentCheckinsPage.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
 
             // reset tab content by resetting the page
-            mainTabbedPane.activeTab = notificationsTab;
+            mainTabbedPane.activeTab = updateTab;
             mainTabbedPane.activeTab = recentCheckinTab;
         }
 
@@ -100,7 +100,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            // console.log("# Around you tab triggered");
+            console.log("# Around you tab triggered");
             aroundYouComponent.source = "pages/AroundYouPage.qml";
             var aroundYouPage = aroundYouComponent.createObject();
             aroundYouTab.setContent(aroundYouPage);
@@ -115,23 +115,23 @@ TabbedPane {
         ]
     }
     
-    // tab for the user notification feed
+    // tab for the user update feed
     Tab {
-        id: notificationsTab
-        title: "Notifications"
+        id: updatesTab
+        title: "Updates"
         imageSource: "asset:///images/icons/icon_notification.png"
 
         // note that the page is bound to the component every time it loads
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            // console.log("# Notifications tab triggered");
-            notificationsComponent.source = "pages/NotificationsPage.qml";
-            var notificationsPage = notificationsComponent.createObject();
-            notificationsTab.setContent(notificationsPage);
+            console.log("# Updates tab triggered");
+            updatesComponent.source = "pages/UpdatesPage.qml";
+            var updatesPage = updatesComponent.createObject();
+            updatesTab.setContent(updatesPage);
 
             // flag if new content is available
-            // will be set true by onNotificationCountDataLoaded
+            // will be set true by onupdateCountDataLoaded
             newContentAvailable = false;
         }
 
@@ -139,7 +139,7 @@ TabbedPane {
         // this is bound to the content property later on onCreationCompleted()
         attachedObjects: [
             ComponentDefinition {
-                id: notificationsComponent
+                id: updatesComponent
             }
         ]
     }
@@ -161,8 +161,8 @@ TabbedPane {
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
 
-            // check for new notifications
-            UpdatesRepository.checkForNewNotifications(mainTabbedPane);
+            // check for new updates
+            UpdatesRepository.checkForNewUpdates(mainTabbedPane);
         } else {
             // console.log("# Info: User is not authenticated");
 
@@ -174,10 +174,10 @@ TabbedPane {
         }
     }
 
-    // check if new notifications have been found or not
-    onNotificationCountDataLoaded: {
-        if (notificationCount > 0) {
-            notificationsTab.newContentAvailable = true;
+    // check if new updates have been found or not
+    onUpdateCountDataLoaded: {
+        if (updateCount > 0) {
+            updatesTab.newContentAvailable = true;
         }
     }
 

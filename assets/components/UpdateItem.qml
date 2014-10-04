@@ -1,7 +1,7 @@
 // *************************************************** //
-// Notification Item Component
+// Update Item Component
 //
-// This component shows data for a notification, consisting
+// This component shows data for an update, consisting
 // of user or venue image, user name and further metadata.
 // The component also handles the interaction with the
 // individual elements.
@@ -21,25 +21,25 @@ import "../global/copytext.js" as Copytext
 import WebImageView 1.0
 
 Container {
-    id: notificationItemComponent
+    id: updateItemComponent
 
     // signal that user data has been clicked
     signal userClicked()
 
-    // signal that notification data has been clicked
-    signal notificationClicked()
+    // signal that update data has been clicked
+    signal updateClicked()
 
     // property for the user profile image, given as url
-    property alias profileImage: notificationUserProfileImage.url
+    property alias profileImage: updateUserProfileImage.url
 
     // property for the user profile image, given as url
-    property alias icon: notificationIconImage.url
+    property alias icon: updateIconImage.url
 
-    // property for the notification text, given as string
-    property alias notificationText: notificationText.text
+    // property for the update text, given as string
+    property alias updateText: updateText.text
 
-    // property for the elapsed time since notification, given as string
-    property alias elapsedTime: notificationElapsedTime.text
+    // property for the elapsed time since update, given as string
+    property alias elapsedTime: updateElapsedTime.text
 
     // layout orientation
     layout: StackLayout {
@@ -61,7 +61,7 @@ Container {
         // profile image
         // this is a web image view provided by WebViewImage
         WebImageView {
-            id: notificationUserProfileImage
+            id: updateUserProfileImage
 
             // align the image in the center
             verticalAlignment: VerticalAlignment.Center
@@ -76,7 +76,7 @@ Container {
 
         // mask the profile image to make it round
         ImageView {
-            id: notificationUserProfileImageMask
+            id: updateUserProfileImageMask
 
             // position and layout properties
             verticalAlignment: VerticalAlignment.Center
@@ -95,7 +95,7 @@ Container {
         // profile image
         // this is a web image view provided by WebViewImage
         WebImageView {
-            id: notificationIconImage
+            id: updateIconImage
 
             // align the image in the center
             verticalAlignment: VerticalAlignment.Top
@@ -112,14 +112,14 @@ Container {
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    // console.log("# notification user profile image clicked");
-                    notificationItemComponent.userClicked();
+                    // console.log("# update user profile image clicked");
+                    updateItemComponent.userClicked();
                 }
             }
         ]
     }
 
-    // notification meta data container
+    // update meta data container
     Container {
         // layout definition
         topPadding: ui.sdu(1)
@@ -133,7 +133,7 @@ Container {
 
         // user name label
         Label {
-            id: notificationElapsedTime
+            id: updateElapsedTime
 
             // layout definition
             bottomMargin: 0
@@ -145,7 +145,7 @@ Container {
 
         // user name label
         Label {
-            id: notificationText
+            id: updateText
 
             // layout definition
             topMargin: 0
@@ -160,8 +160,8 @@ Container {
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    // console.log("# notification location name clicked");
-                    notificationItemComponent.notificationClicked();
+                    // console.log("# update location name clicked");
+                    updateItemComponent.updateClicked();
                 }
             }
         ]
@@ -171,14 +171,14 @@ Container {
     onTouch: {
         // user interaction
         if (event.touchType == TouchType.Down) {
-            notificationItemComponent.background = Color.create(Globals.blackberryStandardBlue);
-            notificationUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
+            updateItemComponent.background = Color.create(Globals.blackberryStandardBlue);
+            updateUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
         }
 
         // user released or is moving
         if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
-            notificationItemComponent.background = Color.Transparent;
-            notificationUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
+            updateItemComponent.background = Color.Transparent;
+            updateUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
         }
     }
 }

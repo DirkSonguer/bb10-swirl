@@ -2,7 +2,7 @@
 // Updated Script
 //
 // This script is used to load, format and show updates
-// related data. Currently, this is only notifications.
+// related data. Currently, this is only updates.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -14,15 +14,17 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "classes/authenticationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/configurationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
-	Qt.include(dirPaths.assetPath + "foursquareapi/notificationtransformator.js");
-	Qt.include(dirPaths.assetPath + "structures/notification.js");
+	Qt.include(dirPaths.assetPath + "foursquareapi/updatetransformator.js");
+	Qt.include(dirPaths.assetPath + "structures/update.js");
 }
 
-// Load the recent notification data for the currently logged in user
+// Load the recent update data for the currently logged in user
+// Note: although the call is "notification", the actual return objects are of
+// type "update"
 // First parameter is the id of the calling page, which will receive the
 // notificationDataLoaded() signal
 function getNotifications(callingPage) {
-	// console.log("# Loading notifications");
+	// console.log("# Loading updates");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -31,21 +33,21 @@ function getNotifications(callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			// console.log("# Notifications object received. Transforming.");
+			// console.log("# Updates object received. Transforming.");
 
 			// prepare transformator and return object
-			var notificationDataArray = new Array();
+			var updateDataArray = new Array();
 
 			// iterate through all media items
 			for ( var index in jsonObject.response.notifications.items) {
 				// get checkin data item and store it into return array
-				var notificationDataItem = new FoursquareNotificationData();
-				notificationDataItem = notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications.items[index]);
-				notificationDataArray[index] = notificationDataItem;
+				var updateDataItem = new FoursquareUpdateData();
+				updateDataItem = updateTransformator.getUpdateDataFromObject(jsonObject.response.notifications.items[index]);
+				updateDataArray[index] = updateDataItem;
 			}
 
-			// console.log("# Done loading notifications");
-			callingPage.notificationDataLoaded(notificationDataArray);
+			// console.log("# Done loading updates");
+			callingPage.notificationDataLoaded(updateDataArray);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -62,7 +64,7 @@ function getNotifications(callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notifications");
+		// console.log("# User not logged in. Aborted loading updates");
 		return false;
 	}
 
@@ -73,17 +75,17 @@ function getNotifications(callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading notifications with url: " + url);
+	// console.log("# Loading updates with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
 
-// Load the recent notification data for the currently logged in user
+// Load the recent update data for the currently logged in user
 // and checks if new content is available
 // First parameter is the id of the calling page, which will receive the
-// notificationUpdateDataLoaded() signal
-function checkForNewNotifications(callingPage) {
-	// console.log("# Loading new notification count");
+// updateCountDataLoaded() signal
+function checkForNewUpdates(callingPage) {
+	// console.log("# Loading new update count");
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -92,15 +94,15 @@ function checkForNewNotifications(callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			// console.log("# Notifications object received. Checking for new
+			// console.log("# Update object received. Checking for new
 			// updates");
 
 			// get unread count
-			var notificationCount = jsonObject.notifications[0].item.unreadCount;
+			var updateCount = jsonObject.notifications[0].item.unreadCount;
 
-			// console.log("# Done loading new notification count. Found: " +
-			// notificationCount);
-			callingPage.notificationCountDataLoaded(notificationCount);
+			// console.log("# Done loading new update count. Found: " +
+			// updateCount);
+			callingPage.updateCountDataLoaded(updateCount);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -109,7 +111,7 @@ function checkForNewNotifications(callingPage) {
 				// console.log("# Error found with code " +
 				// network.errorData.errorCode + " and message " +
 				// network.errorData.errorMessage);
-				callingPage.notificationCountDataError(network.errorData);
+				callingPage.updateCountDataError(network.errorData);
 				network.clearErrors();
 			}
 		}
@@ -117,7 +119,7 @@ function checkForNewNotifications(callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notification
+		// console.log("# User not logged in. Aborted loading update
 		// count");
 		return false;
 	}
@@ -129,7 +131,7 @@ function checkForNewNotifications(callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading notification count with url: " + url);
+	// console.log("# Loading update count with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

@@ -1,7 +1,7 @@
 // *************************************************** //
-// Notification List Component
+// Update List Component
 //
-// This component shows a list of notifications for the
+// This component shows a list of updates for the
 // current user.
 //
 // Author: Dirk Songuer
@@ -16,7 +16,7 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 
 Container {
-    id: notificationListComponent
+    id: updateListComponent
 
     // signal if gallery is scrolled to start or end
     signal listBottomReached()
@@ -24,7 +24,7 @@ Container {
     signal listIsScrolling()
 
     // signal if item was clicked
-    signal itemClicked(variant notificationData)
+    signal itemClicked(variant updateData)
 
     // property that holds the current index
     // this is incremented as new items are added
@@ -34,24 +34,24 @@ Container {
 
     // properties to define how the list should be sorted
     property string listSortingKey: "timestamp"
-    property alias listSortAscending: notificationListDataModel.sortedAscending
+    property alias listSortAscending: updateListDataModel.sortedAscending
 
     // signal to clear the gallery contents
     signal clearList()
     onClearList: {
-        notificationListDataModel.clear();
+        updateListDataModel.clear();
     }
 
     // signal to add a new item
-    // item is given as type FoursquareNotificationData
+    // item is given as type FoursquareUpdateData
     signal addToList(variant item)
     onAddToList: {
-        // console.log("# Adding item with ID " + item.notificationId + " to notification list data model");
-        notificationListComponent.currentItemIndex += 1;
-        notificationListDataModel.insert({
-                "notificationData": item,
+        // console.log("# Adding item with ID " + item.updateId + " to update list data model");
+        updateListComponent.currentItemIndex += 1;
+        updateListDataModel.insert({
+                "updateData": item,
                 "timestamp": item.createdAt,
-                "currentIndex": notificationListComponent.currentItemIndex
+                "currentIndex": updateListComponent.currentItemIndex
             });
     }
 
@@ -59,8 +59,8 @@ Container {
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
         Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = notificationListComponent.itemClicked;
-        Qt.profileClicked = notificationListComponent.profileClicked;
+        Qt.itemClicked = updateListComponent.itemClicked;
+        Qt.profileClicked = updateListComponent.profileClicked;
     }
 
     // layout orientation
@@ -69,10 +69,10 @@ Container {
 
     // list of Instagram popular media
     ListView {
-        id: notificationList
+        id: updateList
 
         // associate the data model for the list view
-        dataModel: notificationListDataModel
+        dataModel: updateListDataModel
 
         // layout orientation
         layout: StackListLayout {
@@ -86,7 +86,7 @@ Container {
 
                 // define gallery view component as view for each list item
                 Container {
-                    id: notificationItem
+                    id: updateItem
 
                     // layout orientation
                     layout: DockLayout {
@@ -99,25 +99,25 @@ Container {
                     // layout definition
                     topMargin: 1
 
-                    NotificationItem {
+                    UpdateItem {
                         // layout definition
                         preferredWidth: Qt.fullDisplaySize
                         minWidth: Qt.fullDisplaySize
 
                         // set data
-                        profileImage: ListItemData.notificationData.image
-                        notificationText: ListItemData.notificationData.text
-                        elapsedTime: ListItemData.notificationData.elapsedTime
-                        icon: ListItemData.notificationData.icon
+                        profileImage: ListItemData.updateData.image
+                        updateText: ListItemData.updateData.text
+                        elapsedTime: ListItemData.updateData.elapsedTime
+                        icon: ListItemData.updateData.icon
 
                         onUserClicked: {
                             // send user clicked event
-                            Qt.itemClicked(ListItemData.notificationData);
+                            Qt.itemClicked(ListItemData.updateData);
                         }
 
-                        onNotificationClicked: {
+                        onUpdateClicked: {
                             // send item clicked event
-                            Qt.itemClicked(ListItemData.notificationData);
+                            Qt.itemClicked(ListItemData.updateData);
                         }
                     }
                 }
@@ -131,19 +131,19 @@ Container {
                 onAtBeginningChanged: {
                     // console.log("# onAtBeginningChanged");
                     if (scrollStateHandler.atBeginning) {
-                        notificationListComponent.listTopReached();
+                        updateListComponent.listTopReached();
                     }
                 }
                 onAtEndChanged: {
                     // console.log("# onAtEndChanged");
                     if (scrollStateHandler.atEnd) {
-                        notificationListComponent.listBottomReached();
+                        updateListComponent.listBottomReached();
                     }
                 }
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
                     if (scrolling) {
-                        notificationListComponent.listIsScrolling();                        
+                        updateListComponent.listIsScrolling();                        
                     }
                 }
             }
@@ -154,7 +154,7 @@ Container {
     attachedObjects: [
         // this will be the data model for the popular media list view
         GroupDataModel {
-            id: notificationListDataModel
+            id: updateListDataModel
             sortedAscending: false
             sortingKeys: [ listSortingKey ]
 

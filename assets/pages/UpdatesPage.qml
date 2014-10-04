@@ -1,7 +1,7 @@
 // *************************************************** //
-// Notification Page
+// Update Page
 //
-// The notification page shows the notification feed
+// The Update page shows the update notification feed
 // for the currently logged in user.
 //
 // Author: Dirk Songuer
@@ -27,12 +27,12 @@ NavigationPane {
     id: navigationPane
 
     Page {
-        id: notificationsPage
+        id: updatesPage
 
-        // signal if notification data loading is complete
-        signal notificationDataLoaded(variant notificationData)
+        // signal if update data loading is complete
+        signal notificationDataLoaded(variant updateData)
 
-        // signal if notification data loading encountered an error
+        // signal if update data loading encountered an error
         signal notificationDataError(variant errorData)
 
         // main content container
@@ -55,22 +55,22 @@ NavigationPane {
                 horizontalAlignment: HorizontalAlignment.Center
             }
 
-            // notification list
+            // update list
             // this will contain all the components and actions
-            // for the notification list
-            NotificationList {
-                id: notificationList
+            // for the update list
+            UpdateList {
+                id: updateList
 
                 // item has been clicked
                 onItemClicked: {
-                    // console.log("# Notification of type " + notificationData.targetType + " has been clicked");
+                    // console.log("# Update of type " + updateData.targetType + " has been clicked");
 
-                    // user notification item
-                    if (notificationData.targetType == "user") {
-                        // console.log("# User notification clicked");
+                    // user update item
+                    if (updateData.targetType == "user") {
+                        // console.log("# User update clicked");
 
-                        // transform notification object into user object
-                        var userData = UserTransformator.userTransformator.getUserDataFromObject(notificationData.targetObject);
+                        // transform update object into user object
+                        var userData = UserTransformator.userTransformator.getUserDataFromObject(updateData.targetObject);
 
                         // open page with new user object
                         var userDetailPage = userDetailComponent.createObject();
@@ -78,12 +78,12 @@ NavigationPane {
                         navigationPane.push(userDetailPage);
                     }
 
-                    // checkin notification item
-                    if (notificationData.targetType == "checkin") {
-                        // console.log("# Checkin notification clicked");
+                    // checkin update item
+                    if (updateData.targetType == "checkin") {
+                        // console.log("# Checkin update clicked");
 
-                        // transform notification object into checkin object
-                        var checkinData = CheckinTransformator.checkinTransformator.getCheckinDataFromObject(notificationData.targetObject);
+                        // transform update object into checkin object
+                        var checkinData = CheckinTransformator.checkinTransformator.getCheckinDataFromObject(updateData.targetObject);
 
                         // open page with new checkin object
                         var venueDetailPage = venueDetailComponent.createObject();
@@ -95,38 +95,38 @@ NavigationPane {
         }
 
         // page creation is finished
-        // load the notification content as soon as the page is ready
+        // load the update content as soon as the page is ready
         onCreationCompleted: {
-            // console.log("# Creation of notification page finished");
+            // console.log("# Creation of update page finished");
 
             // show loader
-            loadingIndicator.showLoader("Loading your notifications");
+            loadingIndicator.showLoader("Loading your updates");
 
-            // load notification stream
-            UpdatesRepository.getNotifications(notificationsPage);
+            // load update stream
+            UpdatesRepository.getNotifications(updatesPage);
         }
 
-        // notification data loaded and transformed
-        // data is stored in "notificationData" variant as array of type FoursquareNotificationData
+        // update data loaded and transformed
+        // data is stored in "updateData" variant as array of type FoursquareupdateData
         onNotificationDataLoaded: {
-            // console.log("# Notification data loaded. Found " + notificationData.length + " items");
+            // console.log("# Update data loaded. Found " + updateData.length + " items");
 
             // initially clear list
-            notificationList.clearList();
+            updateList.clearList();
 
             // iterate through data objects and fill list
-            for (var index in notificationData) {
-                notificationList.addToList(notificationData[index]);
+            for (var index in updateData) {
+                updateList.addToList(updateData[index]);
             }
 
             // hide loader
             loadingIndicator.hideLoader();
         }
 
-        // notification data could not be load
+        // update data could not be load
         onNotificationDataError: {
             // show info message
-            infoMessage.showMessage(errorData.errorMessage, "Could not load checkins around you");
+            infoMessage.showMessage(errorData.errorMessage, "Could not load your updates");
 
             // hide loader
             loadingIndicator.hideLoader();

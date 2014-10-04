@@ -15,6 +15,8 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "classes/configurationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
 	Qt.include(dirPaths.assetPath + "foursquareapi/checkintransformator.js");
+	Qt.include(dirPaths.assetPath + "foursquareapi/updatetransformator.js");
+	Qt.include(dirPaths.assetPath + "structures/update.js");
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
 }
 
@@ -90,5 +92,69 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 	// console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
+	req.send();
+}
+
+// Add a new checkin for a given loction
+// First parameter is the id of the venue to check into
+// Second parameter is a string to add as checkin comment
+// Third parameter is the current geolocation, given as GeolocationData
+// Fourth parameter is a string with broadcast ids: private / public, facebook,
+// twitter, followers
+// Fifth parameter the id of the calling page, which will receive the
+// recentCheckinDataLoaded() signal
+function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) {
+	console.log("# Adding checkin for venue: " + venueId);
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# Add checkin object received. Transforming.");
+			var checkinData = new FoursquareCheckinData();
+			checkinData = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
+
+			// extract notification
+			// var notificationData = new FoursquareUpdateData();
+			// notificationData = notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
+
+			// console.log("# Done adding checkin");
+			// callingPage.addCheckinDataLoaded(checkinData, notificationData);
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.addCheckinDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted adding checkin");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/add";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&venueId=" + venueId;
+	url += "&broadcast=" + broadcast;
+	url += "&shout=" + shout;
+	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	console.log("# Adding checkin with url: " + url);
+	req.open("POST", url, true);
 	req.send();
 }

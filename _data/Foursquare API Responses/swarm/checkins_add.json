@@ -1,0 +1,191 @@
+{
+  "meta" : {
+    "code" : 200
+  },
+  "response" : {
+    "notificationsOrder" : [
+      "special",
+      "score",
+      "leaderboard",
+      "replies"
+    ],
+    "checkin" : {
+      "source" : {
+        "name" : "Swirl",
+        "url" : "http://apps.songuer.de/"
+      },
+      "timeZoneOffset" : -240,
+      "likes" : {
+        "groups" : [],
+        "count" : 0
+      },
+      "score" : {
+        "scores" : [
+          {
+            "points" : 5,
+            "message" : "You've traveled 3992 miles since your last check-in!",
+            "icon" : "https://ss1.4sqi.net/img/points/swarm-travel.png"
+          }
+        ],
+        "total" : 5
+      },
+      "private" : true,
+      "visibility" : "private",
+      "createdAt" : 1412425968,
+      "shout" : "Hello",
+      "objectLeaderboards" : [],
+      "type" : "checkin",
+      "id" : "542fe8f0498e037c503e32b4",
+      "user" : {
+        "gender" : "none",
+        "firstName" : "Dirk",
+        "id" : "6625189",
+        "relationship" : "self",
+        "photo" : {
+          "prefix" : "https://irs3.4sqi.net/img/user/",
+          "suffix" : "/IFRWMUV31RGN2TVI.jpg"
+        },
+        "lastName" : "Songuer"
+      },
+      "exactContextLine" : "Waterloo, ON",
+      "posts" : {
+        "count" : 0,
+        "textCount" : 0
+      },
+      "venue" : {
+        "location" : {
+          "address" : "258 King St. N.",
+          "city" : "Waterloo",
+          "distance" : 1392,
+          "postalCode" : "N2J 2Y9",
+          "crossStreet" : "btw University Ave. & Hickory St.",
+          "country" : "Canada",
+          "formattedAddress" : [
+            "258 King St. N. (btw University Ave. & Hickory St.)",
+            "Waterloo ON N2J 2Y9"
+          ],
+          "lat" : 43.47701556918863,
+          "lng" : -80.52489817142487,
+          "cc" : "CA",
+          "state" : "ON"
+        },
+        "specials" : {
+          "count" : 0
+        },
+        "reasons" : {
+          "count" : 1,
+          "items" : [
+            {
+              "summary" : "You're here! +5 points",
+              "reasonName" : "hereNowReason",
+              "target" : {
+                "object" : {
+                  "target" : {
+                    "type" : "path",
+                    "url" : "/checkins/542fe8f0498e037c503e32b4"
+                  },
+                  "id" : "542fe8f0498e037c503e32b7",
+                  "ignorable" : false,
+                  "type" : "checkinDetail"
+                },
+                "type" : "navigation"
+              },
+              "type" : "general"
+            }
+          ]
+        },
+        "id" : "4c1a5931b4e62d7f9fa6d793",
+        "contact" : {
+          "phone" : "+15197472690",
+          "formattedPhone" : "+1 519-747-2690"
+        },
+        "categories" : [
+          {
+            "pluralName" : "Burrito Places",
+            "primary" : true,
+            "shortName" : "Burritos",
+            "id" : "4bf58dd8d48988d153941735",
+            "name" : "Burrito Place",
+            "icon" : {
+              "prefix" : "https://ss3.4sqi.net/img/categories_v2/food/burrito_",
+              "suffix" : ".png"
+            }
+          }
+        ],
+        "verified" : false,
+        "stats" : {
+          "checkinsCount" : 2966,
+          "usersCount" : 856,
+          "tipCount" : 33
+        },
+        "hereNow" : {
+          "summary" : "Nobody here",
+          "groups" : [],
+          "count" : 0
+        },
+        "name" : "Burrito Boyz",
+        "url" : "http://burritoboyz.ca"
+      },
+      "distance" : 0,
+      "photos" : {
+        "count" : 0,
+        "items" : []
+      },
+      "comments" : {
+        "count" : 0,
+        "items" : []
+      },
+      "displayGeo" : {
+        "id" : "72057594044104759",
+        "name" : "Waterloo, ON"
+      },
+      "like" : false,
+      "reasonCannotAddComments" : "commentsclosed"
+    },
+    "notifications" : [
+      {
+        "type" : "insights",
+        "alert" : true,
+        "item" : {
+          "insights" : {
+            "count" : 1,
+            "items" : [
+              {
+                "summary" : "You just got a new sticker here! Want to add it to your check-in?",
+                "shareable" : false,
+                "sticker" : {
+                  "pickerPosition" : {
+                    "page" : 1,
+                    "index" : 16
+                  },
+                  "id" : "53fe77d24b9048855b3648b4",
+                  "image" : {
+                    "prefix" : "https://irs3.4sqi.net/img/sticker/",
+                    "sizes" : [
+                      60,
+                      94
+                    ],
+                    "name" : "/knifefork_1690e2.png"
+                  },
+                  "teaseText" : "Help yourself to this locally-sourced, small-batch, grass-fed, artisinal sticker.",
+                  "name" : "Knife and fork"
+                },
+                "title" : "",
+                "image" : "",
+                "type" : "stickerUnlock"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "notifications" : [
+    {
+      "type" : "notificationTray",
+      "item" : {
+        "unreadCount" : 0
+      }
+    }
+  ]
+}

@@ -50,11 +50,11 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/components/LocationTile.qml) \
-        $$quote($$BASEDIR/assets/components/NotificationItem.qml) \
-        $$quote($$BASEDIR/assets/components/NotificationList.qml) \
         $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
         $$quote($$BASEDIR/assets/components/SearchHeader.qml) \
         $$quote($$BASEDIR/assets/components/SearchInput.qml) \
+        $$quote($$BASEDIR/assets/components/UpdateItem.qml) \
+        $$quote($$BASEDIR/assets/components/UpdateList.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeaderShort.qml) \
@@ -65,9 +65,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/foursquareapi/contacttransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/locationcategorytransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/locationtransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/notificationtransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/phototransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/updatetransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/users.js) \
         $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/venues.js) \
@@ -110,9 +110,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
-        $$quote($$BASEDIR/assets/pages/NotificationsPage.qml) \
         $$quote($$BASEDIR/assets/pages/RecentCheckinsPage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
+        $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
@@ -124,8 +124,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/geolocation.js) \
         $$quote($$BASEDIR/assets/structures/location.js) \
         $$quote($$BASEDIR/assets/structures/locationcategory.js) \
-        $$quote($$BASEDIR/assets/structures/notification.js) \
         $$quote($$BASEDIR/assets/structures/photo.js) \
+        $$quote($$BASEDIR/assets/structures/update.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)
 }

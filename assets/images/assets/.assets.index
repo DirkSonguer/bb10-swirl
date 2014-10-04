@@ -14,11 +14,11 @@ components/InfoMessage.qml
 components/InfoTile.qml
 components/LoadingIndicator.qml
 components/LocationTile.qml
-components/NotificationItem.qml
-components/NotificationList.qml
 components/RelationshipTile.qml
 components/SearchHeader.qml
 components/SearchInput.qml
+components/UpdateItem.qml
+components/UpdateList.qml
 components/UserHeader.qml
 components/VenueHeader.qml
 components/VenueHeaderShort.qml
@@ -29,9 +29,9 @@ foursquareapi/checkintransformator.js
 foursquareapi/contacttransformator.js
 foursquareapi/locationcategorytransformator.js
 foursquareapi/locationtransformator.js
-foursquareapi/notificationtransformator.js
 foursquareapi/phototransformator.js
 foursquareapi/updates.js
+foursquareapi/updatetransformator.js
 foursquareapi/users.js
 foursquareapi/usertransformator.js
 foursquareapi/venues.js
@@ -74,9 +74,9 @@ main.qml
 pages/AddCheckinPage.qml
 pages/AroundYouPage.qml
 pages/FriendsPage.qml
-pages/NotificationsPage.qml
 pages/RecentCheckinsPage.qml
 pages/SearchVenuePage.qml
+pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
 sheets/About.qml
@@ -88,7 +88,7 @@ structures/errordata.js
 structures/geolocation.js
 structures/location.js
 structures/locationcategory.js
-structures/notification.js
 structures/photo.js
+structures/update.js
 structures/user.js
 structures/venue.js

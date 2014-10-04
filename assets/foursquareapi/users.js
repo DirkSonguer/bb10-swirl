@@ -55,7 +55,7 @@ function getUserData(userId, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notifications");
+		// console.log("# User not logged in. Aborted loading user data");
 		return false;
 	}
 
@@ -110,7 +110,7 @@ function getCheckinsForUser(userId, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notifications");
+		// console.log("# User not logged in. Aborted loading user checkins");
 		return false;
 	}
 
@@ -165,7 +165,7 @@ function getFriendsForUser(userId, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notifications");
+		// console.log("# User not logged in. Aborted loading user friends");
 		return false;
 	}
 
@@ -223,7 +223,7 @@ function changeUserRelationship(userId, relationshipState, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading notifications");
+		// console.log("# User not logged in. Aborted changing relationship");
 		return false;
 	}
 

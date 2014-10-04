@@ -1,23 +1,23 @@
 // *************************************************** //
-// Notification Data Structure
+// Update Data Structure
 //
 // This structure holds metadata related to foursquare
-// notifications
+// updates and notifications
 //
 // Author: Dirk Songuer
 // License: All rights reserved
 // *************************************************** //
 
 // data structure for Foursquare notification
-function FoursquareNotificationData() {
-	// notification ids
-	this.notificationId = "";
+function FoursquareUpdateData() {
+	// update ids
+	this.updateId = "";
 	this.referralId = "";
 
-	// flag if notification has been read yet
+	// flag if update has been read yet
 	this.unread = "";
 
-	// notification text
+	// update text
 	this.text = "";
 
 	// timestamps
@@ -25,11 +25,11 @@ function FoursquareNotificationData() {
 	this.elapsedTime = "";
 	this.formattedTime = "";
 
-	// related image and icon for the notification
+	// related image and icon for the update
 	this.image = "";
 	this.icon = "";
 
-	// type of notification as well as
+	// type of update as well as
 	// associated target information
 	this.targetType = "";
 	this.targetObject = "";
