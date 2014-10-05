@@ -14,6 +14,7 @@ Qt.include(dirPaths.assetPath + "global/copytext.js");
 Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/usertransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/scoretransformator.js");
 Qt.include(dirPaths.assetPath + "structures/checkin.js");
 
 // singleton instance of class
@@ -71,6 +72,12 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// this is stored as FoursquareVenueData()
 	if (typeof checkinObject.venue !== "undefined") {
 		checkinData.venue = venueTransformator.getVenueDataFromObject(checkinObject.venue);
+	}
+
+	// score information
+	// this is stored as FoursquareVenueData()
+	if ((typeof checkinObject.score !== "undefined") && (typeof checkinObject.score.scores !== "undefined")) {
+		checkinData.scores = scoreTransformator.getScoreDataFromArray(checkinObject.score.scores);
 	}
 
 	// console.log("# Done transforming checkin item");

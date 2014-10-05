@@ -147,7 +147,7 @@ Page {
                 loadingIndicator.hideLoader();
                 userLoginSheet.authenticationDone = true;
 
-                // close sheet and reload calling tab with new user credentialsÏ
+                // close sheet and reload calling tab with new user credentials
                 userLoginSheet.tabToReload.triggered();
                 loginSheet.close();
             }

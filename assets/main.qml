@@ -77,7 +77,7 @@ TabbedPane {
             recentCheckinTab.setContent(recentCheckinsPage);
 
             // reset tab content by resetting the page
-            mainTabbedPane.activeTab = updateTab;
+            mainTabbedPane.activeTab = updatesTab;
             mainTabbedPane.activeTab = recentCheckinTab;
         }
 

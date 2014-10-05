@@ -32,4 +32,7 @@ function FoursquareCheckinData() {
 
 	// this is filled by a FoursquareVenueData object
 	this.venue = "";
+	
+	// this is filled by an array of FoursquareScoreData objects
+	this.scores = "";
 }

@@ -42,6 +42,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinInput.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/FriendsList.qml) \
@@ -51,6 +52,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/components/LocationTile.qml) \
         $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreItem.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreList.qml) \
         $$quote($$BASEDIR/assets/components/SearchHeader.qml) \
         $$quote($$BASEDIR/assets/components/SearchInput.qml) \
         $$quote($$BASEDIR/assets/components/UpdateItem.qml) \
@@ -66,6 +69,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/foursquareapi/locationcategorytransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/locationtransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/phototransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/scoretransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updatetransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/users.js) \
@@ -92,16 +96,24 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_call_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_checkin.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_disabled.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_public_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_public_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_recent.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search_dimmed.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sms_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x1280.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
@@ -124,7 +136,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/geolocation.js) \
         $$quote($$BASEDIR/assets/structures/location.js) \
         $$quote($$BASEDIR/assets/structures/locationcategory.js) \
+        $$quote($$BASEDIR/assets/structures/notification.js) \
         $$quote($$BASEDIR/assets/structures/photo.js) \
+        $$quote($$BASEDIR/assets/structures/score.js) \
         $$quote($$BASEDIR/assets/structures/update.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)

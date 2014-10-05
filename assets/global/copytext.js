@@ -35,3 +35,6 @@ var swirlAroundYouDistances =  new Array("0#Around you", "1#Around the block", "
 // venue search
 var swirlSearchCallToAction = "Search for venues";
 var swirlSearchInputLabel = "Enter venue name";
+
+// checkin
+var swirlCheckinConfirmation = "We got you at ";

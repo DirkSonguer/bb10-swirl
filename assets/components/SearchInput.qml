@@ -27,6 +27,9 @@ Container {
 
     // signal that search process has been reset
     signal reset()
+    
+    // signal to focus the input field
+    signal focus()
 
     // property that contains the current search term
     property string currentSearchTerm: ""
@@ -88,5 +91,10 @@ Container {
             searchInput.input.submitted(searchInput);
         }
     }
-
+    
+    // requesting focus for input field
+    onFocus: {
+        // console.log("# Requesting focus via onFocus");
+        searchInput.requestFocus();
+    }
 }

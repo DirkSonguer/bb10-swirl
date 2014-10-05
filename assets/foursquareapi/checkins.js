@@ -18,6 +18,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "foursquareapi/updatetransformator.js");
 	Qt.include(dirPaths.assetPath + "structures/update.js");
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
+	Qt.include(dirPaths.assetPath + "structures/score.js");
 }
 
 // Load the recent checkin data for the currently logged in user
@@ -118,11 +119,11 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 			checkinData = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
 
 			// extract notification
-			// var notificationData = new FoursquareUpdateData();
+			var notificationData = new FoursquareScoreData();
 			// notificationData = notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
 
 			// console.log("# Done adding checkin");
-			// callingPage.addCheckinDataLoaded(checkinData, notificationData);
+			callingPage.addCheckinDataLoaded(checkinData, notificationData);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -156,5 +157,5 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 
 	console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
-	req.send();
+	// req.send();
 }

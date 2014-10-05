@@ -173,6 +173,7 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/explore";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
+	if (searchIntent != "") url += "&intent=" + searchIntent;
 	if (searchQuery != "") url += "&query=" + searchQuery;
 	if (searchRadius > 0) url += "&radius=" + searchRadius;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;

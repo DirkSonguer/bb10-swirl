@@ -85,6 +85,7 @@ Container {
                     // console.log("# Search header call to action clicked");
                     searchHeaderCallToActionContainer.visible = false;
                     searchHeaderSearchContainer.visible = true;
+                    searchHeaderInputField.focus();
                 }
             }
         ]
