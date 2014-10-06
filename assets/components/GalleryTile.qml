@@ -152,6 +152,7 @@ Container {
         horizontalAlignment: HorizontalAlignment.Left
         verticalAlignment: VerticalAlignment.Bottom
 
+        // background and opacity
         background: galleryTileComponent.background
         opacity: 0.8
 

@@ -65,7 +65,9 @@ Container {
     layout: DockLayout {
     }
 
-    // list of Instagram popular media
+    // list of scores
+    // this will be used once a checkin is done
+    // or to show a list of scores for a past checkin
     ListView {
         id: scoreList
 

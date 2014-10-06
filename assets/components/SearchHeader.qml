@@ -55,7 +55,7 @@ Container {
             // position and layout properties
             verticalAlignment: VerticalAlignment.Center
 
-            // mask image
+            // search icon
             imageSource: "asset:///images/icons/icon_search.png"
         }
 
@@ -95,10 +95,13 @@ Container {
     Container {
         id: searchHeaderSearchContainer
 
-        visible: false
-
+        // layout definition
         leftPadding: ui.sdu(2)
         rightPadding: ui.sdu(1)
+
+        // set initial visibility to false
+        // will be set true if user tapped on call to action
+        visible: false
 
         // layout orientation
         layout: StackLayout {
@@ -133,6 +136,7 @@ Container {
                 searchHeaderComponent.updateSearch(searchTerm);
             }
 
+            // search input should be reset
             onReset: {
                 searchHeaderSearchContainer.visible = false;
                 searchHeaderCallToActionContainer.visible = true;
@@ -140,5 +144,4 @@ Container {
             }
         }
     }
-
 }

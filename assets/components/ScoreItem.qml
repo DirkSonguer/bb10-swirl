@@ -55,8 +55,9 @@ Container {
         verticalAlignment: VerticalAlignment.Top
         horizontalAlignment: HorizontalAlignment.Right
 
+        // set initial visibility to false
+        // will be set visible once a url is added
         visible: false
-
         onUrlChanged: {
             visible = true;
         }

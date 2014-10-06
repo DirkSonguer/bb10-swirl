@@ -64,7 +64,7 @@ Container {
     layout: DockLayout {
     }
 
-    // list of Instagram popular media
+    // list of venues
     ListView {
         id: venueList
 
@@ -96,6 +96,7 @@ Container {
                     // layout definition
                     topMargin: 1
 
+                    // the actual venue item
                     VenueItem {
                         // layout definition
                         preferredWidth: Qt.fullDisplaySize
@@ -136,7 +137,7 @@ Container {
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
                     if (scrolling) {
-                        venueListComponent.listIsScrolling();                        
+                        venueListComponent.listIsScrolling();
                     }
                 }
             }

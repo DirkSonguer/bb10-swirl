@@ -123,6 +123,8 @@ Container {
             orientation: LayoutOrientation.TopToBottom
         }
 
+        // username and elapsed time container
+        // this places both values in one line
         Container {
             id: usernameAndElapsedTimeContainer
 
@@ -189,13 +191,13 @@ Container {
 
             // layout definition
             topMargin: 0
-            
+
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.SubtitleText
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Left
-            
+
             // check for empty city information and remove useless separator
             onTextChanged: {
                 if (text.indexOf(", ") == 0) {

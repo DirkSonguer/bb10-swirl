@@ -34,6 +34,7 @@ Container {
         orientation: LayoutOrientation.TopToBottom
     }
 
+    // set input field to full width
     preferredWidth: DisplayInfo.width
 
     // set initial visibility to false
@@ -43,11 +44,12 @@ Container {
     TextArea {
         id: checkinInput
 
-        preferredHeight: ui.sdu(32)   
+        // layout definition
+        preferredHeight: ui.sdu(32)
 
         // configure text field
         hintText: ""
-        
+
         // text style definition
         textStyle.base: SystemDefaults.TextStyles.PrimaryText
         textStyle.fontWeight: FontWeight.W100

@@ -26,7 +26,7 @@ Container {
 
     // signal that map view has been clicked
     signal clicked()
-    
+
     // signal that map view was long pressed
     signal longPress()
 
@@ -43,6 +43,7 @@ Container {
     // map size
     property string size: "400"
 
+    // web metadata properties
     property alias webImage: locationTileWebPinImage.url
     property alias localImage: locationTileLocalPinImage.imageSource
     property alias headline: locationTileHeadline.text
@@ -54,17 +55,8 @@ Container {
     // layout orientation
     layout: DockLayout {
     }
-    /*
-     * // actual map view
-     * // map position needs to be set by the using component
-     * MapView {
-     * id: locationTileView
-     * 
-     * // layout definition
-     * verticalAlignment: VerticalAlignment.Fill
-     * horizontalAlignment: HorizontalAlignment.Fill
-     * }
-     */
+
+    // note: the actual map is a google maps image
     WebImageView {
         id: locationMapImage
 
@@ -126,7 +118,7 @@ Container {
                 }
             }
 
-            // tile image
+            // pin image
             // this is a local image
             ImageView {
                 id: locationTileLocalPinImage

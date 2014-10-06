@@ -1,5 +1,5 @@
 // *************************************************** //
-// Around You List Component
+// Friends List Component
 //
 // This component shows a list of checkins by users.
 //
@@ -68,7 +68,7 @@ Container {
     layout: DockLayout {
     }
 
-    // list of Instagram popular media
+    // list of friends
     ListView {
         id: friendsList
 
@@ -151,7 +151,7 @@ Container {
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
                     if (scrolling) {
-                        friendsListComponent.listIsScrolling();                        
+                        friendsListComponent.listIsScrolling();
                     }
                 }
             }

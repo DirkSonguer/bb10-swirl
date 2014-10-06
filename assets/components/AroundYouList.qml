@@ -1,7 +1,8 @@
 // *************************************************** //
 // Around You List Component
 //
-// This component shows a list of checkins by users.
+// This component shows a list of users as an around
+// you list.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -61,13 +62,19 @@ Container {
         Qt.fullDisplaySize = DisplayInfo.width;
         Qt.itemClicked = aroundYouListComponent.itemClicked;
         Qt.profileClicked = aroundYouListComponent.profileClicked;
+
+        // check for passport
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
+            // change column count to 4 to account for wider display
+            aroundYouList.layout.columnCount = 4;
+        }
     }
 
     // layout orientation
     layout: DockLayout {
     }
 
-    // list of Instagram popular media
+    // list of user items
     ListView {
         id: aroundYouList
 
@@ -138,6 +145,7 @@ Container {
                     // layout definition
                     topMargin: 1
 
+                    // the actual around you item
                     AroundYouItem {
                         // layout definition
                         horizontalAlignment: HorizontalAlignment.Center
@@ -157,7 +165,7 @@ Container {
                         onLocationClicked: {
                             // send item clicked event
                             // Qt.itemClicked(ListItemData.checkinData.venue);
-                            
+
                             // send user clicked event
                             Qt.profileClicked(ListItemData.checkinData.user);
                         }
@@ -185,7 +193,7 @@ Container {
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
                     if (scrolling) {
-                        aroundYouListComponent.listIsScrolling();                        
+                        aroundYouListComponent.listIsScrolling();
                     }
                 }
             }

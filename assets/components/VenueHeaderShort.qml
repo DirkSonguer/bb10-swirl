@@ -73,9 +73,8 @@ Container {
             Label {
                 id: venueHeaderShortCategory
 
-                horizontalAlignment: HorizontalAlignment.Center
-
                 // layout definition
+                horizontalAlignment: HorizontalAlignment.Center
                 topMargin: 0
                 bottomMargin: 0
 

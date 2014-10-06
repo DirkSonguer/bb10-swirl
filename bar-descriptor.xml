@@ -76,6 +76,7 @@
        <image>Swirl_Splash_768x1280.png</image>
        <image>Swirl_Splash_720x1280.png</image>
        <image>Swirl_Splash_720x720.png</image>
+       <image>Swirl_Splash_1440x1440.png</image>
     </splashScreens>
     <category>core.media</category>
     <authorId>gYAAgBdeWwop_OlO2UhxazMyvtM</authorId>
@@ -102,6 +103,7 @@
     <asset path="assets/images/splashscreens/Swirl_Splash_768x1280.png">Swirl_Splash_768x1280.png</asset>
     <asset path="assets/images/splashscreens/Swirl_Splash_720x1280.png">Swirl_Splash_720x1280.png</asset>
     <asset path="assets/images/splashscreens/Swirl_Splash_720x720.png">Swirl_Splash_720x720.png</asset>
+    <asset path="assets/images/splashscreens/Swirl_Splash_1440x1440.png">Swirl_Splash_1440x1440.png</asset>
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

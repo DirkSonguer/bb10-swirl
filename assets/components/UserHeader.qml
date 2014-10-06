@@ -34,6 +34,7 @@ Container {
     // last checkin of user
     property alias lastCheckin: userHeaderLastCheckin.text
 
+    // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
     }
@@ -138,9 +139,8 @@ Container {
         Label {
             id: userHeaderLastCheckin
 
-            horizontalAlignment: HorizontalAlignment.Center
-
             // layout definition
+            horizontalAlignment: HorizontalAlignment.Center
             topMargin: 0
             bottomMargin: 0
 

@@ -67,7 +67,7 @@ Container {
     layout: DockLayout {
     }
 
-    // list of Instagram popular media
+    // list of update notifications
     ListView {
         id: updateList
 
@@ -99,6 +99,7 @@ Container {
                     // layout definition
                     topMargin: 1
 
+                    // the actual update item
                     UpdateItem {
                         // layout definition
                         preferredWidth: Qt.fullDisplaySize
@@ -110,11 +111,13 @@ Container {
                         elapsedTime: ListItemData.updateData.elapsedTime
                         icon: ListItemData.updateData.icon
 
+                        // user and update area both send the item clicked signal
                         onUserClicked: {
                             // send user clicked event
                             Qt.itemClicked(ListItemData.updateData);
                         }
 
+                        // user and update area both send the item clicked signal
                         onUpdateClicked: {
                             // send item clicked event
                             Qt.itemClicked(ListItemData.updateData);
@@ -143,7 +146,7 @@ Container {
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
                     if (scrolling) {
-                        updateListComponent.listIsScrolling();                        
+                        updateListComponent.listIsScrolling();
                     }
                 }
             }

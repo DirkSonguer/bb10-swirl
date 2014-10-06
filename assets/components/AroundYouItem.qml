@@ -39,17 +39,13 @@ Container {
     // property for the aroundYou location, given as string
     property alias locationName: aroundYouLocationName.text
 
-    // property for the aroundYou city, given as string
-    // property alias locationCity: aroundYouLocationCity.text
-
     // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
     }
 
+// layout definition
     horizontalAlignment: HorizontalAlignment.Center
-
-    // layout definition
     topPadding: ui.sdu(2)
     bottomPadding: ui.sdu(2)
     leftPadding: ui.sdu(1)

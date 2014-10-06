@@ -89,6 +89,7 @@ Container {
         horizontalAlignment: HorizontalAlignment.Left
         verticalAlignment: VerticalAlignment.Bottom
 
+        // background and opacity
         background: infoTileComponent.background
         opacity: 0.8
 

@@ -140,7 +140,7 @@ Container {
                 }
             }
 
-            // declination button
+            // decline button
             Button {
                 id: declineButton
 

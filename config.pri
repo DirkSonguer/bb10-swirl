@@ -115,6 +115,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
+        $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_1440x1440.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x1280.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_768x1280.png) \

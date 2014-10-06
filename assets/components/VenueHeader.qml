@@ -31,6 +31,7 @@ Container {
     // venue category
     property alias category: venueHeaderCategory.text
 
+    // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
     }
@@ -111,9 +112,8 @@ Container {
         Label {
             id: venueHeaderCategory
 
-            horizontalAlignment: HorizontalAlignment.Center
-
             // layout definition
+            horizontalAlignment: HorizontalAlignment.Center
             topMargin: 0
             bottomMargin: 0
 

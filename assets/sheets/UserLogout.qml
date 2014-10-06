@@ -35,7 +35,7 @@ Page {
 
         // webview container
         Container {
-            // this webview just calls the Instagram logout functionality
+            // this webview just calls the Foursquare logout functionality
             WebView {
                 url: "https://de.foursquare.com/logout"
 //                maxHeight: 0

@@ -44,6 +44,9 @@ Page {
     // property for the friend image slideshow
     // a timer will update this to swap through the images
     property int currentFriendImage: 0
+    
+    // column count
+    property int columnCount: 2
 
     ScrollView {
         // only vertical scrolling is needed
@@ -65,7 +68,7 @@ Page {
 
                 // layout orientation
                 layout: GridLayout {
-                    columnCount: 2
+                    columnCount: userDetailPage.columnCount
                 }
 
                 // relationship tile
@@ -74,8 +77,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set initial visibility to false
                     // will be set if the user is not "self"
@@ -88,8 +91,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set initial visibility to false
                     // will be set if the user has friends
@@ -108,8 +111,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
                     // localImage: "asset:///images/icons/icon_facebook_w.png"
@@ -132,8 +135,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
                     // localImage: "asset:///images/icons/icon_twitter_w.png"
@@ -157,8 +160,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
                     localImage: "asset:///images/icons/icon_call_w.png"
@@ -182,8 +185,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
                     localImage: "asset:///images/icons/icon_sms_w.png"
@@ -206,8 +209,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
                     localImage: "asset:///images/icons/icon_mail_w.png"
@@ -254,6 +257,12 @@ Page {
         if (! userDetailPage.userDataDetailsLoaded) {
             // if not, load full user object
             UsersRepository.getUserData(userData.userId, userDetailPage);
+        }
+        
+        // check for passport
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
+            // change column count to 3 to account for wider display
+            userDetailPage.columnCount = 3;
         }
     }
 

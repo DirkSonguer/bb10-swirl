@@ -1,5 +1,5 @@
 // *************************************************** //
-// User Checkin List Component
+// Checkin List Component
 //
 // This component shows a list of checkins by users.
 //
@@ -15,7 +15,7 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 
 Container {
-    id: userCheckinListComponent
+    id: checkinListComponent
 
     // signal if gallery is scrolled to start or end
     signal listBottomReached()
@@ -36,12 +36,12 @@ Container {
 
     // properties to define how the list should be sorted
     property string listSortingKey: "timestamp"
-    property alias listSortAscending: userCheckinListDataModel.sortedAscending
+    property alias listSortAscending: checkinListDataModel.sortedAscending
 
     // signal to clear the gallery contents
     signal clearList()
     onClearList: {
-        userCheckinListDataModel.clear();
+        checkinListDataModel.clear();
     }
 
     // signal to add a new item
@@ -49,11 +49,11 @@ Container {
     signal addToList(variant item)
     onAddToList: {
         // console.log("# Adding item with ID " + item.checkinId + " to checkin list data model");
-        userCheckinListComponent.currentItemIndex += 1;
-        userCheckinListDataModel.insert({
+        checkinListComponent.currentItemIndex += 1;
+        checkinListDataModel.insert({
                 "checkinData": item,
                 "timestamp": item.createdAt,
-                "currentIndex": userCheckinListComponent.currentItemIndex
+                "currentIndex": checkinListComponent.currentItemIndex
             });
     }
 
@@ -61,20 +61,20 @@ Container {
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
         Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = userCheckinListComponent.itemClicked;
-        Qt.profileClicked = userCheckinListComponent.profileClicked;
+        Qt.itemClicked = checkinListComponent.itemClicked;
+        Qt.profileClicked = checkinListComponent.profileClicked;
     }
 
     // layout orientation
     layout: DockLayout {
     }
 
-    // list of Instagram popular media
+    // list of user checkins
     ListView {
-        id: userCheckinList
+        id: checkinList
 
         // associate the data model for the list view
-        dataModel: userCheckinListDataModel
+        dataModel: checkinListDataModel
 
         // layout orientation
         layout: StackListLayout {
@@ -88,7 +88,7 @@ Container {
 
                 // define gallery view component as view for each list item
                 Container {
-                    id: userCheckinItem
+                    id: checkinItem
 
                     // layout orientation
                     layout: DockLayout {
@@ -101,6 +101,7 @@ Container {
                     // layout definition
                     topMargin: 1
 
+                    // the actual checkin item
                     CheckinItem {
                         // layout definition
                         preferredWidth: Qt.fullDisplaySize
@@ -115,7 +116,7 @@ Container {
 
                         // user profile was clicked
                         onUserClicked: {
-                            // send user clicked event
+                            // send user profile clicked event
                             Qt.profileClicked(ListItemData.checkinData.user);
                         }
 
@@ -136,19 +137,19 @@ Container {
                 onAtBeginningChanged: {
                     // console.log("# onAtBeginningChanged");
                     if (scrollStateHandler.atBeginning) {
-                        userCheckinListComponent.listTopReached();
+                        checkinListComponent.listTopReached();
                     }
                 }
                 onAtEndChanged: {
                     // console.log("# onAtEndChanged");
                     if (scrollStateHandler.atEnd) {
-                        userCheckinListComponent.listBottomReached();
+                        checkinListComponent.listBottomReached();
                     }
                 }
                 onScrollingChanged: {
                     // console.log("# List is scrolling: " + scrollStateHandler.toDebugString());
                     if (scrolling) {
-                        userCheckinListComponent.listIsScrolling();                        
+                        checkinListComponent.listIsScrolling();
                     }
                 }
             }
@@ -159,7 +160,7 @@ Container {
     attachedObjects: [
         // this will be the data model for the popular media list view
         GroupDataModel {
-            id: userCheckinListDataModel
+            id: checkinListDataModel
             sortedAscending: false
             sortingKeys: [ listSortingKey ]
 
