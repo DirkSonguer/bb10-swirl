@@ -50,6 +50,7 @@ Page {
             scrollMode: ScrollMode.Vertical
             pinchToZoomEnabled: false
         }
+        
         Container {
             layout: StackLayout {
                 orientation: LayoutOrientation.TopToBottom
@@ -130,6 +131,17 @@ Page {
                     preferredWidth: DisplayInfo.width / checkinDetailPage.columnCount
                 }
             }
+            
+            // comment preview
+            CommentPreview {
+                id: checkinDetailComments
+                
+                // layout definition
+                preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
+                preferredWidth: DisplayInfo.width
+                
+                visible: false
+            }            
 
             // standard loading indicator
             LoadingIndicator {
@@ -164,13 +176,13 @@ Page {
         // user name and image
         checkinDetailUserCheckinTile.bodytext = checkinData.user.firstName + " checked in here " + checkinData.elapsedTime + " ago";
         checkinDetailUserCheckinTile.webImage = checkinData.user.profileImageLarge;
-
+/*
         // shout / message
         if (checkinData.shout != "") {
             checkinDetailShoutTile.bodytext = "\"" + checkinData.shout + "\"";
             checkinDetailShoutTile.visible = true;
         }
-
+*/
         // location category
         if (checkinData.venue.locationCategories != "") {
             checkinDetailHeader.category = checkinData.venue.locationCategories[0].name;
@@ -185,6 +197,13 @@ Page {
         if ((checkinData.photoCount > 0) && (checkinData.photos !== "")) {
             checkinDetailPhotosTile.webImage = checkinData.photos[0].imageFull;
             checkinDetailPhotosTile.visible = true;
+        }
+
+        console.log("# Comments: " + checkinData.comments.length);
+        
+        if (checkinData.comments.length > 0) {
+            checkinDetailComments.addToList(checkinData.comments)
+            checkinDetailComments.visible = true;
         }
 
         // like tile data

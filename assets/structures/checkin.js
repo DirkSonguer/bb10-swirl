@@ -42,4 +42,7 @@ function FoursquareCheckinData() {
 	
 	// this is filled by an array of FoursquarePhotoData objects
 	this.photos = "";
+		
+	// this is filled by an array of FoursquarePhotoData objects
+	this.comments = "";
 }

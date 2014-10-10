@@ -1,5 +1,5 @@
 1
-111
+114
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -9,6 +9,7 @@ components/AroundYouList.qml
 components/CheckinInput.qml
 components/CheckinItem.qml
 components/CheckinList.qml
+components/CommentPreview.qml
 components/FriendsList.qml
 components/GalleryTile.qml
 components/InfoMessage.qml
@@ -30,6 +31,7 @@ components/VenueItem.qml
 components/VenueList.qml
 foursquareapi/checkins.js
 foursquareapi/checkintransformator.js
+foursquareapi/commenttransformator.js
 foursquareapi/contacttransformator.js
 foursquareapi/locationcategorytransformator.js
 foursquareapi/locationtransformator.js
@@ -100,6 +102,7 @@ sheets/About.qml
 sheets/UserLogin.qml
 sheets/UserLogout.qml
 structures/checkin.js
+structures/comment.js
 structures/contact.js
 structures/errordata.js
 structures/geolocation.js

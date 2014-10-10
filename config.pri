@@ -45,6 +45,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/CheckinInput.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
+        $$quote($$BASEDIR/assets/components/CommentPreview.qml) \
         $$quote($$BASEDIR/assets/components/FriendsList.qml) \
         $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
@@ -66,6 +67,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/VenueList.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/commenttransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/contacttransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/locationcategorytransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/locationtransformator.js) \
@@ -136,6 +138,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogout.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
+        $$quote($$BASEDIR/assets/structures/comment.js) \
         $$quote($$BASEDIR/assets/structures/contact.js) \
         $$quote($$BASEDIR/assets/structures/errordata.js) \
         $$quote($$BASEDIR/assets/structures/geolocation.js) \

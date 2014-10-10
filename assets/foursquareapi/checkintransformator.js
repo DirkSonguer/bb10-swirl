@@ -16,6 +16,7 @@ Qt.include(dirPaths.assetPath + "foursquareapi/usertransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/scoretransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/commenttransformator.js");
 Qt.include(dirPaths.assetPath + "structures/checkin.js");
 
 // singleton instance of class
@@ -81,6 +82,12 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 		checkinData.venue = venueTransformator.getVenueDataFromObject(checkinObject.venue);
 	}
 
+	// gcomments
+	// this is stored as FoursquareCommentData()
+	if ( (typeof checkinObject.comments !== "undefined") && (typeof checkinObject.comments.items !== "undefined")) {
+		checkinData.comments = commentTransformator.getCommentDataFromArray(checkinObject.comments.items);
+	}
+	
 	// score information
 	// this is stored as FoursquareVenueData()
 	if ((typeof checkinObject.score !== "undefined") && (typeof checkinObject.score.scores !== "undefined")) {
