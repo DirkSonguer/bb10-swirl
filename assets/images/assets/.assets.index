@@ -1,5 +1,5 @@
 1
-106
+111
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -13,6 +13,7 @@ components/FriendsList.qml
 components/GalleryTile.qml
 components/InfoMessage.qml
 components/InfoTile.qml
+components/LikeTile.qml
 components/LoadingIndicator.qml
 components/LocationTile.qml
 components/RelationshipTile.qml
@@ -65,6 +66,7 @@ images/icons/icon_facebook_disabled.png
 images/icons/icon_facebook_inactive.png
 images/icons/icon_facebook_w.png
 images/icons/icon_home.png
+images/icons/icon_liked_w.png
 images/icons/icon_mail_w.png
 images/icons/icon_notification.png
 images/icons/icon_profile.png
@@ -79,12 +81,15 @@ images/icons/icon_twitter_active.png
 images/icons/icon_twitter_disabled.png
 images/icons/icon_twitter_inactive.png
 images/icons/icon_twitter_w.png
+images/icons/icon_unliked_w.png
+images/splashscreens/Swirl_Splash_1440x1440.png
 images/splashscreens/Swirl_Splash_720x1280.png
 images/splashscreens/Swirl_Splash_720x720.png
 images/splashscreens/Swirl_Splash_768x1280.png
 main.qml
 pages/AddCheckinPage.qml
 pages/AroundYouPage.qml
+pages/CheckinDetailPage.qml
 pages/FriendsPage.qml
 pages/RecentCheckinsPage.qml
 pages/SearchVenuePage.qml

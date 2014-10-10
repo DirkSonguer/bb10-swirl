@@ -1,7 +1,7 @@
 // *************************************************** //
 // Venue Detail Page
 //
-// The venue detailvenue.
+// The venue detail page.
 //
 // Author: Dirk Songuer
 // License: All rights reserved

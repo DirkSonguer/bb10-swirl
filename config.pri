@@ -49,6 +49,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
+        $$quote($$BASEDIR/assets/components/LikeTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/components/LocationTile.qml) \
         $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
@@ -101,6 +102,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
@@ -115,6 +117,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_1440x1440.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x1280.png) \
         $$quote($$BASEDIR/assets/images/splashscreens/Swirl_Splash_720x720.png) \
@@ -122,6 +125,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
+        $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/RecentCheckinsPage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \

@@ -91,7 +91,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 		url += "&afterTimestamp=" + currentTimestamp;
 	}
 
-	// console.log("# Loading recent checkins with url: " + url);
+	console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -120,7 +120,8 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 
 			// extract notification
 			var notificationData = new FoursquareScoreData();
-			// notificationData = notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
+			// notificationData =
+			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
 
 			// console.log("# Done adding checkin");
 			callingPage.addCheckinDataLoaded(checkinData, notificationData);
@@ -157,5 +158,65 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 
 	console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
-	// req.send();
+	req.send();
+}
+
+// Set a like status for a checkin
+// First parameter is the id of the checkin to check into
+// Second parameter is the state of the checkin
+// Third parameter the id of the calling page, which will receive the
+// likeDataLoaded() signal
+function likeCheckin(checkinId, set, callingPage) {
+	console.log("# Setting like state to " + set + " for venue: " + checkinId);
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# Add checkin object received. Transforming.");
+			// var checkinData = new FoursquareCheckinData();
+			// checkinData = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
+
+			// extract notification
+			// var notificationData = new FoursquareScoreData();
+			// notificationData =
+			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
+
+			// console.log("# Done adding checkin");
+			callingPage.likeDataLoaded();
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.likeDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted adding checkin");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/";
+	url += checkinId + "/like";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&set=" + set;
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	// console.log("# Setting like with url: " + url);
+	req.open("POST", url, true);
+	req.send();
 }

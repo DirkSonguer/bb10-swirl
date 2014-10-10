@@ -22,6 +22,9 @@ import WebImageView 1.0
 Container {
     id: venueHeaderComponent
 
+    // signal that header has been clicked
+    signal clicked()
+
     // venue image
     property alias image: venueHeaderImage.url
 
@@ -125,4 +128,13 @@ Container {
             textStyle.color: Color.White
         }
     }
+
+    // handle tap on header
+    gestureHandlers: [
+        TapHandler {
+            onTapped: {
+                venueHeaderComponent.clicked();
+            }
+        }
+    ]
 }

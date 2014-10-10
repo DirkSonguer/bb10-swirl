@@ -85,7 +85,7 @@ NavigationPane {
                         // transform update object into checkin object
                         var checkinData = CheckinTransformator.checkinTransformator.getCheckinDataFromObject(updateData.targetObject);
 
-                        // open page with new checkin object
+                        // open page with new venue object
                         var venueDetailPage = venueDetailComponent.createObject();
                         venueDetailPage.venueData = checkinData.venue;
                         navigationPane.push(venueDetailPage);

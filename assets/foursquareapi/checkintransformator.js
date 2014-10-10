@@ -15,6 +15,7 @@ Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/usertransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/venuetransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/scoretransformator.js");
+Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
 Qt.include(dirPaths.assetPath + "structures/checkin.js");
 
 // singleton instance of class
@@ -34,6 +35,11 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 
 	// checkin id
 	checkinData.checkinId = checkinObject.id;
+	
+	// shout / message
+	if (typeof checkinObject.shout !== "undefined") {
+		checkinData.shout = checkinObject.shout;
+	}
 
 	// timestamps
 	if (typeof checkinObject.createdAt !== "undefined") {
@@ -58,9 +64,10 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// liked state
 	checkinData.userHasLiked = checkinObject.like;
 
-	// likes and comments
-	checkinData.numberOfLikes = checkinObject.likes.count;
-	checkinData.numberOfComments = checkinObject.comments.count;
+	// current interaction counts
+	checkinData.likeCount = checkinObject.likes.count;
+	checkinData.commentCount = checkinObject.comments.count;
+	checkinData.photoCount = checkinObject.photos.count;
 
 	// general user information
 	// this is stored as FoursquareUserData()
@@ -78,6 +85,11 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// this is stored as FoursquareVenueData()
 	if ((typeof checkinObject.score !== "undefined") && (typeof checkinObject.score.scores !== "undefined")) {
 		checkinData.scores = scoreTransformator.getScoreDataFromArray(checkinObject.score.scores);
+	}
+
+	// checkin photos
+	if ((typeof checkinObject.photos !== "undefined") && (typeof checkinObject.photos.items !== "undefined")) {
+		checkinData.photos = photoTransformator.getPhotoDataFromArray(checkinObject.photos.items);
 	}
 
 	// console.log("# Done transforming checkin item");

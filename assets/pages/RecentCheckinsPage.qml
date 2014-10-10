@@ -67,10 +67,10 @@ NavigationPane {
                 }
 
                 onItemClicked: {
-                    // console.log("# Item clicked: " + venueData.userId);
-                    var venueDetailPage = venueDetailComponent.createObject();
-                    venueDetailPage.venueData = venueData;
-                    navigationPane.push(venueDetailPage);
+                    console.log("# Item clicked: " + checkinData.checkinId);
+                    var checkinDetailPage = checkinDetailComponent.createObject();
+                    checkinDetailPage.checkinData = checkinData;
+                    navigationPane.push(checkinDetailPage);
                 }
             }
         }
@@ -125,8 +125,8 @@ NavigationPane {
         // venue detail page
         // will be called if user clicks on venue item
         ComponentDefinition {
-            id: venueDetailComponent
-            source: "VenueDetailPage.qml"
+            id: checkinDetailComponent
+            source: "CheckinDetailPage.qml"
         }
     ]
 

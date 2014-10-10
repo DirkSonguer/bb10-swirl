@@ -11,6 +11,9 @@
 function FoursquareCheckinData() {
 	// checkin id
 	this.checkinId = "";
+	
+	// shout / message for the checkin
+	this.shout = "";
 
 	// timestamps
 	this.createdAt = "";
@@ -22,10 +25,11 @@ function FoursquareCheckinData() {
 
 	// liked state
 	this.userHasLiked = "";
-
-	// likes and comments
-	this.numberOfLikes = "";
-	this.numberOfComments = "";
+	
+	// current interaction counts
+	this.commentCount = "";
+	this.likeCount = "";
+	this.photoCount = "";
 
 	// this is filled by a FoursquareUserData object
 	this.user = "";
@@ -35,4 +39,7 @@ function FoursquareCheckinData() {
 	
 	// this is filled by an array of FoursquareScoreData objects
 	this.scores = "";
+	
+	// this is filled by an array of FoursquarePhotoData objects
+	this.photos = "";
 }
