@@ -19,6 +19,7 @@ import "../components"
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../foursquareapi/venues.js" as VenueRepository
+import "../foursquareapi/checkins.js" as CheckinsRepository
 
 // import image url loader component
 import CommunicationInvokes 1.0
@@ -31,6 +32,12 @@ Page {
 
     // signal if venue data loading encountered an error
     signal venueDetailDataError(variant errorData)
+
+    // signal if comment has been added
+    signal addCommentDataLoaded()
+
+    // signal if adding a comment encountered an error
+    signal addCommentDataError(variant errorData)
 
     // property that holds the checkin data to load
     // this is filled by the calling page
@@ -50,7 +57,7 @@ Page {
             scrollMode: ScrollMode.Vertical
             pinchToZoomEnabled: false
         }
-        
+
         Container {
             layout: StackLayout {
                 orientation: LayoutOrientation.TopToBottom
@@ -131,17 +138,27 @@ Page {
                     preferredWidth: DisplayInfo.width / checkinDetailPage.columnCount
                 }
             }
-            
+
             // comment preview
             CommentPreview {
                 id: checkinDetailComments
-                
+
                 // layout definition
-                preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
+                // preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
                 preferredWidth: DisplayInfo.width
-                
+
                 visible: false
-            }            
+            }
+
+            // comment input
+            CommentInput {
+                id: checkinDetailCommentInput
+
+                // comment should be added
+                onTriggered: {
+                    CheckinsRepository.addComment(checkinDetailPage.checkinData.checkinId, commentText, checkinDetailPage);
+                }
+            }
 
             // standard loading indicator
             LoadingIndicator {
@@ -176,13 +193,13 @@ Page {
         // user name and image
         checkinDetailUserCheckinTile.bodytext = checkinData.user.firstName + " checked in here " + checkinData.elapsedTime + " ago";
         checkinDetailUserCheckinTile.webImage = checkinData.user.profileImageLarge;
-/*
-        // shout / message
-        if (checkinData.shout != "") {
-            checkinDetailShoutTile.bodytext = "\"" + checkinData.shout + "\"";
-            checkinDetailShoutTile.visible = true;
-        }
-*/
+        /*
+         * // shout / message
+         * if (checkinData.shout != "") {
+         * checkinDetailShoutTile.bodytext = "\"" + checkinData.shout + "\"";
+         * checkinDetailShoutTile.visible = true;
+         * }
+         */
         // location category
         if (checkinData.venue.locationCategories != "") {
             checkinDetailHeader.category = checkinData.venue.locationCategories[0].name;
@@ -199,8 +216,8 @@ Page {
             checkinDetailPhotosTile.visible = true;
         }
 
-        console.log("# Comments: " + checkinData.comments.length);
-        
+        console.log("# Shout is " + "Comments: " + checkinData.comments.length);
+
         if (checkinData.comments.length > 0) {
             checkinDetailComments.addToList(checkinData.comments)
             checkinDetailComments.visible = true;

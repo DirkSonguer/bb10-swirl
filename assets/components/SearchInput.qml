@@ -2,10 +2,7 @@
 // Search Input Component
 //
 // This component provides an input field for the
-// search functionality. It also handles the actual
-// sending of the search parameters and receives the
-// answers, which are handed back to the using page
-// via the respective signals.
+// search functionality.
 //
 // Author: Dirk Songuer
 // License: All rights reserved

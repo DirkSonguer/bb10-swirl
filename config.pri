@@ -45,6 +45,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/CheckinInput.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
+        $$quote($$BASEDIR/assets/components/CommentInput.qml) \
         $$quote($$BASEDIR/assets/components/CommentPreview.qml) \
         $$quote($$BASEDIR/assets/components/FriendsList.qml) \
         $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
@@ -99,6 +100,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_call_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_checkin.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_comments.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_comments_dimmed.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_inactive.png) \

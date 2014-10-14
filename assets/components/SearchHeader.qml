@@ -121,6 +121,7 @@ Container {
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Left
+            textStyle.fontStyle: FontStyle.Italic
             textStyle.color: Color.White
         }
 

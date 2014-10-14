@@ -18,6 +18,7 @@ Qt.include(dirPaths.assetPath + "foursquareapi/scoretransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/phototransformator.js");
 Qt.include(dirPaths.assetPath + "foursquareapi/commenttransformator.js");
 Qt.include(dirPaths.assetPath + "structures/checkin.js");
+Qt.include(dirPaths.assetPath + "structures/comment.js");
 
 // singleton instance of class
 var checkinTransformator = new CheckinTransformator();
@@ -36,7 +37,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 
 	// checkin id
 	checkinData.checkinId = checkinObject.id;
-	
+
 	// shout / message
 	if (typeof checkinObject.shout !== "undefined") {
 		checkinData.shout = checkinObject.shout;
@@ -82,12 +83,35 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 		checkinData.venue = venueTransformator.getVenueDataFromObject(checkinObject.venue);
 	}
 
-	// gcomments
-	// this is stored as FoursquareCommentData()
-	if ( (typeof checkinObject.comments !== "undefined") && (typeof checkinObject.comments.items !== "undefined")) {
-		checkinData.comments = commentTransformator.getCommentDataFromArray(checkinObject.comments.items);
+	// create array for comments
+	checkinData.comments = new Array();
+
+	// check if the checkin has an attached shout
+	// if so, add it to the comments as first comment
+	if (typeof checkinObject.shout !== "undefined") {
+		// create new comment object
+		var shoutComment = new FoursquareCommentData();
+
+		// fill the comment object with the current checkin data
+		shoutComment.text = checkinObject.shout;
+		shoutComment.createdAt = checkinData.createdAt;
+		shoutComment.elapsedTime = checkinData.elapsedTime;
+		shoutComment.user = checkinData.user;
+
+		var tempCommentArray = new Array();
+		tempCommentArray[0] = shoutComment;
+
+		checkinData.comments = checkinData.comments.concat(tempCommentArray);
 	}
-	
+
+	// actual comment array
+	// this is stored as an array of FoursquareCommentData()
+	if ((typeof checkinObject.comments !== "undefined") && (typeof checkinObject.comments.items !== "undefined")) {
+		var tempCommentArray = new Array();
+		tempCommentArray = commentTransformator.getCommentDataFromArray(checkinObject.comments.items);
+		checkinData.comments = checkinData.comments.concat(tempCommentArray);
+	}
+
 	// score information
 	// this is stored as FoursquareVenueData()
 	if ((typeof checkinObject.score !== "undefined") && (typeof checkinObject.score.scores !== "undefined")) {
@@ -95,6 +119,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	}
 
 	// checkin photos
+	// this is stored as an array of FoursquarePhotoData()
 	if ((typeof checkinObject.photos !== "undefined") && (typeof checkinObject.photos.items !== "undefined")) {
 		checkinData.photos = photoTransformator.getPhotoDataFromArray(checkinObject.photos.items);
 	}

@@ -178,7 +178,8 @@ function likeCheckin(checkinId, set, callingPage) {
 		if (jsonObject) {
 			// console.log("# Add checkin object received. Transforming.");
 			// var checkinData = new FoursquareCheckinData();
-			// checkinData = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
+			// checkinData =
+			// checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
 
 			// extract notification
 			// var notificationData = new FoursquareScoreData();
@@ -196,6 +197,67 @@ function likeCheckin(checkinId, set, callingPage) {
 				// network.errorData.errorCode + " and message " +
 				// network.errorData.errorMessage);
 				callingPage.likeDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted adding checkin");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/";
+	url += checkinId + "/like";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&set=" + set;
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	// console.log("# Setting like with url: " + url);
+	req.open("POST", url, true);
+	req.send();
+}
+
+// Add a comment to a checkin
+// First parameter is the id of the checkin to add the comment to
+// Second parameter is the actual commnent text
+// Third parameter the id of the calling page, which will receive the
+// addCommentDataLoaded() signal
+function addComment(checkinId, commentText, callingPage) {
+	console.log("# Adding comment to " + checkinId + " with text: " + commentText);
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# Add checkin object received. Transforming.");
+			// var checkinData = new FoursquareCheckinData();
+			// checkinData =
+			// checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
+
+			// extract notification
+			// var notificationData = new FoursquareScoreData();
+			// notificationData =
+			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
+
+			// console.log("# Done adding checkin");
+			callingPage.addCommentDataLoaded();
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.addCommentDataError(network.errorData);
 				network.clearErrors();
 			}
 		}

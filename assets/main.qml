@@ -46,7 +46,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            console.log("# Add checkin tab triggered");
+            // console.log("# Add checkin tab triggered");
             addCheckinComponent.source = "pages/SearchVenuePage.qml";
             var addCheckinPage = addCheckinComponent.createObject();
             addCheckinTab.setContent(addCheckinPage);
@@ -71,7 +71,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            console.log("# Recent checkin tab triggered");
+            // console.log("# Recent checkin tab triggered");
             recentCheckinsComponent.source = "pages/RecentCheckinsPage.qml";
             var recentCheckinsPage = recentCheckinsComponent.createObject();
             recentCheckinTab.setContent(recentCheckinsPage);
@@ -100,7 +100,7 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            console.log("# Around you tab triggered");
+            // console.log("# Around you tab triggered");
             aroundYouComponent.source = "pages/AroundYouPage.qml";
             var aroundYouPage = aroundYouComponent.createObject();
             aroundYouTab.setContent(aroundYouPage);
@@ -125,8 +125,12 @@ TabbedPane {
         // this is because the page needs to be created as tapped
         // if created on startup it does not work immediately after login
         onTriggered: {
-            console.log("# Updates tab triggered");
-            updatesComponent.source = "pages/UpdatesPage.qml";
+            // console.log("# Updates tab triggered");
+            //updatesComponent.source = "pages/UpdatesPage.qml";
+            //var updatesPage = updatesComponent.createObject();
+            //updatesTab.setContent(updatesPage);
+
+            updatesComponent.source = "pages/CheckinDetailPage.qml";
             var updatesPage = updatesComponent.createObject();
             updatesTab.setContent(updatesPage);
 

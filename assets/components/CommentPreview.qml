@@ -112,10 +112,11 @@ Container {
                     }
 
                     // layout definition
-                    topPadding: 20
-                    leftPadding: 30
-                    rightPadding: 10
+                    topPadding: ui.sdu(2)
+                    leftPadding: ui.sdu(1)
+                    rightPadding: ui.sdu(1)
 
+                    // profile image container
                     Container {
                         // layout orientation
                         layout: DockLayout {
@@ -134,10 +135,10 @@ Container {
                             url: ListItemData.commentData.user.profileImageSmall
 
                             // set image size to small profile icons
-                            preferredHeight: ui.sdu(7.5)
-                            preferredWidth: ui.sdu(7.5)
-                            minHeight: ui.sdu(7.5)
-                            minWidth: ui.sdu(7.5)
+                            preferredHeight: ui.sdu(10)
+                            preferredWidth: ui.sdu(10)
+                            minHeight: ui.sdu(10)
+                            minWidth: ui.sdu(10)
                         }
 
                         // mask the profile image to make it round
@@ -153,19 +154,23 @@ Container {
 
                             // set image size to maximum screen size
                             // this will be either 768x768 (Z10) or 720x720 (all others)
-                            preferredHeight: ui.sdu(7.5)
-                            preferredWidth: ui.sdu(7.5)
-                            minHeight: ui.sdu(7.5)
-                            minWidth: ui.sdu(7.5)
+                            preferredHeight: ui.sdu(10)
+                            preferredWidth: ui.sdu(10)
+                            minHeight: ui.sdu(10)
+                            minWidth: ui.sdu(10)
                         }
                     }
 
                     // image caption
                     Label {
                         id: itemCaption
-                        
+
+                        // layout definition
+                        verticalAlignment: VerticalAlignment.Center
+
+                        // comment text
                         text: ListItemData.commentData.text
-                        
+
                         // text style definition
                         textStyle.base: SystemDefaults.TextStyles.BodyText
                         textStyle.fontWeight: FontWeight.W100
@@ -188,33 +193,13 @@ Container {
             }
         ]
     }
-    /*
-     * // comment data was loaded successfully
-     * // data is stored in "commentDataArray" variant as array of type InstagramCommentData
-     * onMediaCommentsLoaded: {
-     * commentPreviewComponent.addToList(commentDataArray);
-     * }
-     * 
-     * // handle ui touch elements
-     * onTouch: {
-     * // user pressed description
-     * if (event.touchType == TouchType.Down) {
-     * commentPreviewComponent.background = Color.create(Globals.instagoHighlightBackgroundColor);
-     * }
-     * 
-     * // user released description or is moving
-     * if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
-     * commentPreviewComponent.background = Color.create(Globals.instagoDefaultBackgroundColor);
-     * }
-     * }
-     */
 
     // attached objects
     attachedObjects: [
         // this will be the data model for the popular media list view
         GroupDataModel {
             id: commentPreviewDataModel
-            sortedAscending: false
+            sortedAscending: true
 
             // items are grouped by the view and transformators
             // no need to set a behaviour by the data model

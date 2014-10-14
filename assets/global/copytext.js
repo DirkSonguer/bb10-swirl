@@ -30,7 +30,7 @@ var swirlLogoutSuccessTitle = "Logout successful";
 var swirlLogoutSuccessMessage = "You are logged out of Swirl.";
 
 // list labels
-var swirlAroundYouDistances =  new Array("0#Around you", "1#Around the block", "2#Somewhat near", "3#Somewhere else");
+var swirlAroundYouDistances = new Array("0#Around you", "1#Around the block", "2#Somewhat near", "3#Somewhere else");
 
 // venue search
 var swirlSearchCallToAction = "Search for venues";
@@ -38,3 +38,6 @@ var swirlSearchInputLabel = "Enter venue name";
 
 // checkin
 var swirlCheckinConfirmation = "We got you at ";
+
+// checkin comment
+var swirlCommentCallToAction = "Add comment to checkin";
