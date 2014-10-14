@@ -149,7 +149,7 @@ NavigationPane {
 
         // recent checkin data could not be load
         onVenueDataError: {
-            // infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
+            infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
 
             // hide loader
             loadingIndicator.hideLoader();

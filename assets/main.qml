@@ -126,11 +126,7 @@ TabbedPane {
         // if created on startup it does not work immediately after login
         onTriggered: {
             // console.log("# Updates tab triggered");
-            //updatesComponent.source = "pages/UpdatesPage.qml";
-            //var updatesPage = updatesComponent.createObject();
-            //updatesTab.setContent(updatesPage);
-
-            updatesComponent.source = "pages/CheckinDetailPage.qml";
+            updatesComponent.source = "pages/UpdatesPage.qml";
             var updatesPage = updatesComponent.createObject();
             updatesTab.setContent(updatesPage);
 
