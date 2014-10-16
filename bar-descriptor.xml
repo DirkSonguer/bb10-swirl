@@ -26,7 +26,7 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry 10 applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.example.SwirlBB10</id>
+    <id>com.dirksonguer.swirl</id>
     <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7-g/SwirlBB10" entry="true" type="Qnx/Elf">SwirlBB10</asset>
@@ -47,12 +47,12 @@
 
     <!-- The name that is displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>SwirlBB10</name>
+    <name>Swirl</name>
 
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
-    <versionNumber>1.0.0</versionNumber>
+    <versionNumber>1.1.0</versionNumber>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -63,13 +63,20 @@
 
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>The SwirlBB10 application</description>
+    <description>Swirl is a Foursquare app for BlackBerry 10 that embraces the new changes in the foursquare platform. In this regard it acts much like Swarm to allow you to meet your friends and check in with them - all native for your BB10 device!</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
-    <author>Example Inc.</author>
+    <splashScreens>
+       <image>Swirl_Splash_720x720.png</image>
+       <image>Swirl_Splash_720x1280.png</image>
+       <image>Swirl_Splash_768x1280.png</image>
+       <image>Swirl_Splash_1440x1440.png</image>
+    </splashScreens>
+    <authorId>gYAAgBdeWwop_OlO2UhxazMyvtM</authorId>
+    <author>Dirk Songuer</author>
 
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
@@ -91,6 +98,10 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
+    <asset path="Swirl_Splash_720x720.png">Swirl_Splash_720x720.png</asset>
+    <asset path="Swirl_Splash_720x1280.png">Swirl_Splash_720x1280.png</asset>
+    <asset path="Swirl_Splash_768x1280.png">Swirl_Splash_768x1280.png</asset>
+    <asset path="Swirl_Splash_1440x1440.png">Swirl_Splash_1440x1440.png</asset>
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
