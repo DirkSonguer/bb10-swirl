@@ -16,21 +16,38 @@
 
 #include "applicationui.hpp"
 
+// standard includes
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
 
+// individual includes
+//#include <bb/cascades/SceneCover>
+#include <bb/device/DisplayInfo>
+#include <bb/system/phone/Phone>
+#include "WebImageView.h"
+#include "CommunicationInvokes.hpp"
+
+// use blackberry namespaces
+using namespace bb::device;
 using namespace bb::cascades;
+using namespace bb::system;
 
 ApplicationUI::ApplicationUI() :
         QObject()
 {
+    qmlRegisterType<WebImageView>("WebImageView", 1, 0, "WebImageView");
+    qmlRegisterType<CommunicationInvokes>("CommunicationInvokes", 1, 0, "CommunicationInvokes");
+    qmlRegisterType<bb::system::phone::Phone>("bb.system.phone", 1, 0, "Phone");
+    qmlRegisterType<QTimer>("QtTimer", 1, 0, "Timer");
+
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);
 
-    bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
+    bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this,
+            SLOT(onSystemLanguageChanged()));
     // This is only available in Debug builds
     Q_ASSERT(res);
     // Since the variable is not used in the app, this is added to avoid a
@@ -43,6 +60,26 @@ ApplicationUI::ApplicationUI() :
     // Create scene document from main.qml asset, the parent is set
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
+
+    // Retrieve the path to the app's working directory
+    QString workingDir = QDir::currentPath();
+
+    // Build the path, add it as a context property, and expose it to QML
+    QDeclarativePropertyMap* dirPaths = new QDeclarativePropertyMap;
+    dirPaths->insert("currentPath", QVariant(QString("file://" + workingDir)));
+    dirPaths->insert("assetPath",
+            QVariant(QString("file://" + workingDir + "/app/native/assets/")));
+    qml->setContextProperty("dirPaths", dirPaths);
+
+    DisplayInfo display;
+    int width = display.pixelSize().width();
+    int height = display.pixelSize().height();
+
+    QDeclarativePropertyMap* displayProperties = new QDeclarativePropertyMap;
+    displayProperties->insert("width", QVariant(width));
+    displayProperties->insert("height", QVariant(height));
+
+    qml->setContextProperty("DisplayInfo", displayProperties);
 
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();

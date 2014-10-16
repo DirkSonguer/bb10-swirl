@@ -36,16 +36,81 @@ simulator {
 
 config_pri_assets {
     OTHER_FILES += \
-        $$quote($$BASEDIR/assets/DetailsPage.qml) \
-        $$quote($$BASEDIR/assets/main.qml)
+        $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
+        $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
+        $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/commenttransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/contacttransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/locationcategorytransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/locationtransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/phototransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/scoretransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/updatetransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/users.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/venues.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/venuetransformator.js) \
+        $$quote($$BASEDIR/assets/global/copytext.js) \
+        $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
+        $$quote($$BASEDIR/assets/global/globals.js) \
+        $$quote($$BASEDIR/assets/images/assets/blue_squircle.png) \
+        $$quote($$BASEDIR/assets/images/assets/mask_blue_squircle.png) \
+        $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
+        $$quote($$BASEDIR/assets/images/assets/triangle_down.png) \
+        $$quote($$BASEDIR/assets/images/assets/white_squircle.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_195.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_196.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_197.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_198.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_aroundyou.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_call_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_checkin.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_comments.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_comments_dimmed.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_disabled.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_inactive.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_facebook_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_public_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_public_inactive.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_recent.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_search_dimmed.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_sms_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
+        $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/DetailsPage.qml) \
+        $$quote($$BASEDIR/assets/sheets/About.qml)
 }
 
 config_pri_source_group1 {
     SOURCES += \
+        $$quote($$BASEDIR/src/CommunicationInvokes.cpp) \
+        $$quote($$BASEDIR/src/WebImageView.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
         $$quote($$BASEDIR/src/main.cpp)
 
-    HEADERS += $$quote($$BASEDIR/src/applicationui.hpp)
+    HEADERS += \
+        $$quote($$BASEDIR/src/CommunicationInvokes.hpp) \
+        $$quote($$BASEDIR/src/WebImageView.h) \
+        $$quote($$BASEDIR/src/applicationui.hpp)
 }
 
 CONFIG += precompile_header

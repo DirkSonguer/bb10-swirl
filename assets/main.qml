@@ -1,36 +1,31 @@
-/*
- * Copyright (c) 2011-2014 BlackBerry Limited.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// *************************************************** //
+// Main
+//
+// This is the main entry point of the application.
+// It provides the main navigation pane, menus and
+// the components for the main pages.
+// Note that the actual page content is defined in
+// the /pages.
+//
+// Author: Dirk Songuer
+// License: All rights reserved
+// *************************************************** //
 
+// import blackberry components
 import bb.cascades 1.3
 
 NavigationPane {
     id: navigationPane
 
     Page {
-        titleBar: TitleBar {
-            // Localized text with the dynamic translation and locale updates support
-            title: qsTr("Page 1") + Retranslate.onLocaleOrLanguageChanged
-        }
-
         Container {
         }
 
         actions: ActionItem {
-            title: qsTr("Second page") + Retranslate.onLocaleOrLanguageChanged
-            ActionBar.placement: ActionBarPlacement.OnBar
+            title: "Add Checkin"
+            imageSource: "asset:///images/icons/icon_checkin.png"
+
+            ActionBar.placement: ActionBarPlacement.Signature
 
             onTriggered: {
                 // A second Page is created and pushed when this action is triggered.
@@ -39,12 +34,50 @@ NavigationPane {
         }
     }
 
+    // application menu (top menu)
+    Menu.definition: MenuDefinition {
+        id: mainMenu
+
+        // application menu items
+        actions: [
+            // action for ratinig the app
+            ActionItem {
+                id: mainMenuAbout
+                title: "About"
+                imageSource: "asset:///images/icons/icon_about.png"
+                onTriggered: {
+                    // create about sheet
+                    var aboutSheetPage = aboutComponent.createObject();
+                    aboutSheet.setContent(aboutSheetPage);
+                    aboutSheet.open();
+                }
+            }
+        ]
+    }
+
+    // attached objects
+    // this contains the sheets which are used for general page based popupos
+    // also the pages that are used by the menu
     attachedObjects: [
+        // sheet for about page
+        // this is used by the main menu
+        Sheet {
+            id: aboutSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: aboutComponent
+                    source: "sheets/About.qml"
+                }
+            ]
+        },
         // Definition of the second Page, used to dynamically create the Page above.
         ComponentDefinition {
             id: secondPageDefinition
-            source: "DetailsPage.qml"
+            source: "pages/DetailsPage.qml"
         }
+
     ]
 
     onPopTransitionEnded: {
