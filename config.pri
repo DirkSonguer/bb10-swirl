@@ -36,22 +36,21 @@ simulator {
 
 config_pri_assets {
     OTHER_FILES += \
+        $$quote($$BASEDIR/assets/classes/authenticationhandler.js) \
+        $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
+        $$quote($$BASEDIR/assets/classes/helpermethods.js) \
+        $$quote($$BASEDIR/assets/classes/networkhandler.js) \
+        $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
+        $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/checkintransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/commenttransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/contacttransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/locationcategorytransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/locationtransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/phototransformator.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/scoretransformator.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/transformators.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/updatetransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/users.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/usertransformator.js) \
         $$quote($$BASEDIR/assets/foursquareapi/venues.js) \
-        $$quote($$BASEDIR/assets/foursquareapi/venuetransformator.js) \
         $$quote($$BASEDIR/assets/global/copytext.js) \
         $$quote($$BASEDIR/assets/global/foursquarekeys.js) \
         $$quote($$BASEDIR/assets/global/globals.js) \
@@ -96,8 +95,22 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
         $$quote($$BASEDIR/assets/pages/DetailsPage.qml) \
-        $$quote($$BASEDIR/assets/sheets/About.qml)
+        $$quote($$BASEDIR/assets/sheets/About.qml) \
+        $$quote($$BASEDIR/assets/structures/checkin.js) \
+        $$quote($$BASEDIR/assets/structures/comment.js) \
+        $$quote($$BASEDIR/assets/structures/contact.js) \
+        $$quote($$BASEDIR/assets/structures/errordata.js) \
+        $$quote($$BASEDIR/assets/structures/geolocation.js) \
+        $$quote($$BASEDIR/assets/structures/location.js) \
+        $$quote($$BASEDIR/assets/structures/locationcategory.js) \
+        $$quote($$BASEDIR/assets/structures/notification.js) \
+        $$quote($$BASEDIR/assets/structures/photo.js) \
+        $$quote($$BASEDIR/assets/structures/score.js) \
+        $$quote($$BASEDIR/assets/structures/update.js) \
+        $$quote($$BASEDIR/assets/structures/user.js) \
+        $$quote($$BASEDIR/assets/structures/venue.js)
 }
 
 config_pri_source_group1 {
