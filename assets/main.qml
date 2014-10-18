@@ -236,8 +236,9 @@ NavigationPane {
 
                 // action
                 onTriggered: {
-                    // A second Page is created and pushed when this action is triggered.
-                    navigationPane.push(secondPageDefinition.createObject());
+                    // console.log("# Add checkin tab triggered");
+                    var addCheckinPage = addCheckinComponent.createObject();
+                    navigationPane.push(addCheckinPage);
                 }
             },
             ActionItem {
@@ -318,10 +319,11 @@ NavigationPane {
             id: updatesComponent
             source: "pages/UpdatesPage.qml"
         },
-        // Definition of the second Page, used to dynamically create the Page above.
+        // search venue page
+        // will be called if user clicks on add checkin action
         ComponentDefinition {
-            id: secondPageDefinition
-            source: "pages/DetailsPage.qml"
+            id: addCheckinComponent
+            source: "pages/SearchVenuePage.qml"
         },
         // position source object and logic
         PositionSource {

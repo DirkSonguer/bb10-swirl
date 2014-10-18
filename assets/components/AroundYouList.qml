@@ -23,9 +23,6 @@ Container {
     signal listTopReached()
     signal listIsScrolling()
 
-    // signal if item was clicked
-    signal itemClicked(variant commentData)
-
     // signal if user was clicked
     signal profileClicked(variant userData)
 
@@ -59,9 +56,7 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = aroundYouListComponent.itemClicked;
-        Qt.profileClicked = aroundYouListComponent.profileClicked;
+        Qt.aroundYouListProfileClicked = aroundYouListComponent.profileClicked;
 
         // check for passport
         if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
@@ -158,16 +153,7 @@ Container {
                         // user profile was clicked
                         onUserClicked: {
                             // send user clicked event
-                            Qt.profileClicked(ListItemData.checkinData.user);
-                        }
-
-                        // location was clicked
-                        onLocationClicked: {
-                            // send item clicked event
-                            // Qt.itemClicked(ListItemData.checkinData.venue);
-
-                            // send user clicked event
-                            Qt.profileClicked(ListItemData.checkinData.user);
+                            Qt.aroundYouListProfileClicked(ListItemData.checkinData.user);
                         }
                     }
                 }

@@ -93,9 +93,9 @@ Page {
                         imageSourceDisabledChecked: "asset:///images/icons/icon_public_inactive.png"
                         imageSourcePressedUnchecked: "asset:///images/icons/icon_public_active.png"
                         imageSourcePressedChecked: "asset:///images/icons/icon_public_active.png"
-                        
+
                         onCheckedChanged: {
-                            if (!checked) {
+                            if (! checked) {
                                 addCheckinFacebook.enabled = false;
                                 addCheckinTwitter.enabled = false;
                             } else {
@@ -174,11 +174,11 @@ Page {
 
                             console.log("# Broadcast string is: " + broadcast);
 
-                            // CheckinsRepository.addCheckin(venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
+                            CheckinsRepository.addCheckin(venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
 
                             // hide input and show loader
-                            //addCheckinContainer.visible = false;
-                            //loadingIndicator.showLoader("Adding Checkin");
+                            addCheckinContainer.visible = false;
+                            loadingIndicator.showLoader("Adding Checkin");
                         }
                     }
                 }

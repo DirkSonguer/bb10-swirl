@@ -60,9 +60,9 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = checkinListComponent.itemClicked;
-        Qt.profileClicked = checkinListComponent.profileClicked;
+        Qt.checkinListFullDisplaySize = DisplayInfo.width;
+        Qt.checkinListItemClicked = checkinListComponent.itemClicked;
+        Qt.checkinListProfileClicked = checkinListComponent.profileClicked;
     }
 
     // layout orientation
@@ -104,8 +104,8 @@ Container {
                     // the actual checkin item
                     CheckinItem {
                         // layout definition
-                        preferredWidth: Qt.fullDisplaySize
-                        minWidth: Qt.fullDisplaySize
+                        preferredWidth: Qt.checkinListFullDisplaySize
+                        minWidth: Qt.checkinListFullDisplaySize
 
                         // set data
                         username: ListItemData.checkinData.user.fullName
@@ -117,13 +117,13 @@ Container {
                         // user profile was clicked
                         onUserClicked: {
                             // send user profile clicked event
-                            Qt.profileClicked(ListItemData.checkinData.user);
+                            Qt.checkinListProfileClicked(ListItemData.checkinData.user);
                         }
 
                         // location was clicked
                         onItemClicked: {
                             // send item clicked event
-                            Qt.itemClicked(ListItemData.checkinData);
+                            Qt.checkinListItemClicked(ListItemData.checkinData);
                         }
                     }
                 }

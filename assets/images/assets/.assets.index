@@ -1,5 +1,5 @@
 1
-103
+102
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -83,7 +83,6 @@ main.qml
 pages/AddCheckinPage.qml
 pages/AroundYouPage.qml
 pages/CheckinDetailPage.qml
-pages/DetailsPage.qml
 pages/FriendsPage.qml
 pages/SearchVenuePage.qml
 pages/UpdatesPage.qml

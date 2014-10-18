@@ -119,7 +119,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
-        $$quote($$BASEDIR/assets/pages/DetailsPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
         $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \

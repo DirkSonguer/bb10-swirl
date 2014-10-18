@@ -88,7 +88,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 		url += "&afterTimestamp=" + currentTimestamp;
 	}
 
-	console.log("# Loading recent checkins with url: " + url);
+	// console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -98,7 +98,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 // Second parameter is the id of the calling page, which will receive the
 // checkinDataLoaded() signal
 function getCheckinData(checkinId, callingPage) {
-	console.log("# Loading checkin with id " + checkinId);
+	// console.log("# Loading checkin with id " + checkinId);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -143,7 +143,7 @@ function getCheckinData(checkinId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading checkin with url: " + url);
+	// console.log("# Loading checkin with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

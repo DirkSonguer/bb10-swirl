@@ -22,153 +22,135 @@ import "../components"
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../foursquareapi/venues.js" as VenueRepository
-import "../foursquareapi/checkins.js" as CheckinsRepository
 
-// this is a page that is available from the main tab, thus it has to be a navigation pane
-// note that the id is always "navigationPane"
-NavigationPane {
-    id: navigationPane
+Page {
+    id: searchVenuePage
 
-    Page {
-        id: searchVenuePage
+    // signal if popular media data loading is complete
+    signal venueDataLoaded(variant venueData)
 
-        // signal if popular media data loading is complete
-        signal venueDataLoaded(variant venueData)
+    // signal if popular media data loading encountered an error
+    signal venueDataError(variant errorData)
 
-        // signal if popular media data loading encountered an error
-        signal venueDataError(variant errorData)
+    // property for the current geolocation
+    // contains lat and lon
+    property variant currentGeolocation
 
-        // property for the current geolocation
-        // contains lat and lon
-        property variant currentGeolocation
-
-        
-        Container {
-            Label {
-                text: "searchVenuePage"
-            }
+    // main content container
+    Container {
+        // layout orientation
+        layout: DockLayout {
         }
-        
 
-/*
+        // standard loading indicator
+        LoadingIndicator {
+            id: loadingIndicator
+            verticalAlignment: VerticalAlignment.Center
+            horizontalAlignment: HorizontalAlignment.Center
+        }
+
+        // standard info message
+        InfoMessage {
+            id: infoMessage
+            verticalAlignment: VerticalAlignment.Center
+            horizontalAlignment: HorizontalAlignment.Center
+        }
+
         // main content container
         Container {
             // layout orientation
-            layout: DockLayout {
+            layout: StackLayout {
+                orientation: LayoutOrientation.TopToBottom
             }
 
-            // standard loading indicator
-            LoadingIndicator {
-                id: loadingIndicator
-                verticalAlignment: VerticalAlignment.Center
-                horizontalAlignment: HorizontalAlignment.Center
-            }
+            // search functionality
+            SearchHeader {
+                id: venueListSearchHeader
 
-            // standard info message
-            InfoMessage {
-                id: infoMessage
-                verticalAlignment: VerticalAlignment.Center
-                horizontalAlignment: HorizontalAlignment.Center
-            }
+                // set initial visibility to false during loading
+                visible: false
 
-            // main content container
-            Container {
-                // layout orientation
-                layout: StackLayout {
-                    orientation: LayoutOrientation.TopToBottom
+                // search term has been entered
+                // update the search accordingly
+                onUpdateSearch: {
+                    // initially clear list
+                    venueList.clearList();
+                    loadingIndicator.showLoader("Searching..");
+                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
                 }
+            }
 
-                // search functionality
-                SearchHeader {
-                    id: venueListSearchHeader
+            // venue list
+            // this will contain all the components and actions
+            // for the venue list
+            VenueList {
+                id: venueList
 
-                    // set initial visibility to false during loading
-                    visible: false
+                listSortAscending: true
 
-                    // search term has been entered
-                    // update the search accordingly
-                    onUpdateSearch: {
-                        // initially clear list
-                        venueList.clearList();
-                        loadingIndicator.showLoader("Searching..");
-                        VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
+                onListTopReached: {
+                    if (currentItemIndex > 0) {
+                        venueListSearchHeader.visible = true;
                     }
                 }
 
-                // venue list
-                // this will contain all the components and actions
-                // for the venue list
-                VenueList {
-                    id: venueList
+                onListIsScrolling: {
+                    venueListSearchHeader.visible = false;
+                }
 
-                    listSortAscending: true
-
-                    onListTopReached: {
-                        if (currentItemIndex > 0) {
-                            venueListSearchHeader.visible = true;
-                        }
-                    }
-
-                    onListIsScrolling: {
-                        venueListSearchHeader.visible = false;
-                    }
-
-                    onItemClicked: {
-                        // console.log("# Item clicked: " + venueData.userId);
-                        var addCheckinPage = addCheckinComponent.createObject();
-                        addCheckinPage.venueData = venueData;
-                        addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
-                        navigationPane.push(addCheckinPage);
-                    }
+                onItemClicked: {
+                    // console.log("# Item clicked: " + venueData.userId);
+                    var addCheckinPage = addCheckinComponent.createObject();
+                    addCheckinPage.venueData = venueData;
+                    addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
+                    navigationPane.push(addCheckinPage);
                 }
             }
         }
-
-        // page creation is finished
-        // start the location tracking as soon as the page is ready
-        onCreationCompleted: {
-            // console.log("# Creation of add checkin page finished");
-
-            // show loader
-            loadingIndicator.showLoader("Trying to fix your location");
-
-            // start searching for the current geolocation
-            positionSource.start();
-        }
-
-        // around you checkin data loaded and transformed
-        // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
-        onVenueDataLoaded: {
-            // console.log("# Venue data loaded. Found " + venueData.length + " items");
-
-            // initially clear list
-            venueList.clearList();
-
-            // iterate through data objects
-            for (var index in venueData) {
-                venueList.addToList(venueData[index]);
-            }
-
-            // hide loader
-            loadingIndicator.hideLoader();
-
-            //show components
-            venueListSearchHeader.visible = true;
-        }
-
-        // recent checkin data could not be load
-        onVenueDataError: {
-            infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
-
-            // hide loader
-            loadingIndicator.hideLoader();
-
-            //show components
-            venueListSearchHeader.visible = true;
-        }
-*/
     }
-    /*
+
+    // page creation is finished
+    // start the location tracking as soon as the page is ready
+    onCreationCompleted: {
+        // console.log("# Creation of add checkin page finished");
+
+        // show loader
+        loadingIndicator.showLoader("Trying to fix your location");
+
+        // start searching for the current geolocation
+        positionSource.start();
+    }
+
+    // around you checkin data loaded and transformed
+    // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
+    onVenueDataLoaded: {
+        // console.log("# Venue data loaded. Found " + venueData.length + " items");
+
+        // initially clear list
+        venueList.clearList();
+
+        // iterate through data objects
+        for (var index in venueData) {
+            venueList.addToList(venueData[index]);
+        }
+
+        // hide loader
+        loadingIndicator.hideLoader();
+
+        //show components
+        venueListSearchHeader.visible = true;
+    }
+
+    // recent checkin data could not be load
+    onVenueDataError: {
+        infoMessage.showMessage(errorData.errorMessage, "Could not load venues around you");
+
+        // hide loader
+        loadingIndicator.hideLoader();
+
+        //show components
+        venueListSearchHeader.visible = true;
+    }
 
     // attach components
     attachedObjects: [
@@ -207,10 +189,4 @@ NavigationPane {
             }
         }
     ]
-    */
-
-    // destroy pages after use
-    onPopTransitionEnded: {
-        page.destroy();
-    }
 }

@@ -57,14 +57,14 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = scoreListComponent.itemClicked;
+        Qt.scoreListFullDisplaySize = DisplayInfo.width;
+        Qt.scoreListItemClicked = scoreListComponent.itemClicked;
     }
 
     // layout orientation
     layout: DockLayout {
     }
-
+/*
     // list of scores
     // this will be used once a checkin is done
     // or to show a list of scores for a past checkin
@@ -101,8 +101,8 @@ Container {
 
                     ScoreItem {
                         // layout definition
-                        preferredWidth: Qt.fullDisplaySize
-                        minWidth: Qt.fullDisplaySize
+                        preferredWidth: Qt.scoreListFullDisplaySize
+                        minWidth: Qt.scoreListFullDisplaySize
 
                         icon: ListItemData.scoreData.icon
                         message: ListItemData.scoreData.message
@@ -110,7 +110,7 @@ Container {
 
                         onScoreClicked: {
                             // send item clicked event
-                            Qt.itemClicked(ListItemData.scoreData);
+                            Qt.scoreListItemClicked(ListItemData.scoreData);
                         }
                     }
                 }
@@ -142,7 +142,7 @@ Container {
             }
         ]
     }
-
+*/
     // attached objects
     attachedObjects: [
         // this will be the data model for the popular media list view

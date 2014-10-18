@@ -93,7 +93,7 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.commentsClicked = commentPreviewComponent.clicked;
+        Qt.commentPreviewClicked = commentPreviewComponent.clicked;
         Qt.addToCalculatedHeight = commentPreviewComponent.addToCalculatedHeight;
     }
 
@@ -234,7 +234,7 @@ Container {
                     gestureHandlers: [
                         TapHandler {
                             onTapped: {
-                                Qt.commentsClicked();
+                                Qt.commentPreviewClicked();
                             }
                         }
                     ]

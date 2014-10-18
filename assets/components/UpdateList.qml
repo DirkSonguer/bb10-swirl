@@ -58,8 +58,8 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = updateListComponent.itemClicked;
+        Qt.updateListFullDisplaySize = DisplayInfo.width;
+        Qt.updateListItemClicked = updateListComponent.itemClicked;
     }
 
     // layout orientation
@@ -101,8 +101,8 @@ Container {
                     // the actual update item
                     UpdateItem {
                         // layout definition
-                        preferredWidth: Qt.fullDisplaySize
-                        minWidth: Qt.fullDisplaySize
+                        preferredWidth: Qt.updateListFullDisplaySize
+                        minWidth: Qt.updateListFullDisplaySize
 
                         // set data
                         profileImage: ListItemData.updateData.image
@@ -113,13 +113,13 @@ Container {
                         // user and update area both send the item clicked signal
                         onUserClicked: {
                             // send user clicked event
-                            Qt.itemClicked(ListItemData.updateData);
+                            Qt.updateListItemClicked(ListItemData.updateData);
                         }
 
                         // user and update area both send the item clicked signal
                         onUpdateClicked: {
                             // send item clicked event
-                            Qt.itemClicked(ListItemData.updateData);
+                            Qt.updateListItemClicked(ListItemData.updateData);
                         }
                     }
                 }

@@ -59,9 +59,7 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = friendsListComponent.itemClicked;
-        Qt.profileClicked = friendsListComponent.profileClicked;
+        Qt.friendsListProfileClicked = friendsListComponent.profileClicked;
     }
 
     // layout orientation
@@ -116,16 +114,7 @@ Container {
                         // user profile was clicked
                         onUserClicked: {
                             // send user clicked event
-                            Qt.profileClicked(ListItemData.friendData);
-                        }
-
-                        // location was clicked
-                        onLocationClicked: {
-                            // send item clicked event
-                            // Qt.itemClicked(ListItemData.checkinData.venue);
-
-                            // send user clicked event
-                            Qt.profileClicked(ListItemData.friendData);
+                            Qt.friendsListProfileClicked(ListItemData.friendData);
                         }
                     }
                 }

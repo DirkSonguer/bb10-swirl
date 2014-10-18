@@ -56,8 +56,8 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
-        Qt.fullDisplaySize = DisplayInfo.width;
-        Qt.itemClicked = venueListComponent.itemClicked;
+        Qt.venueListFullDisplaySize = DisplayInfo.width;
+        Qt.venueListItemClicked = venueListComponent.itemClicked;
     }
 
     // layout orientation
@@ -99,8 +99,8 @@ Container {
                     // the actual venue item
                     VenueItem {
                         // layout definition
-                        preferredWidth: Qt.fullDisplaySize
-                        minWidth: Qt.fullDisplaySize
+                        preferredWidth: Qt.venueListFullDisplaySize
+                        minWidth: Qt.venueListFullDisplaySize
 
                         // set data
                         name: ListItemData.venueData.name
@@ -111,7 +111,7 @@ Container {
                         // location was clicked
                         onItemClicked: {
                             // send item clicked event
-                            Qt.itemClicked(ListItemData.venueData);
+                            Qt.venueListItemClicked(ListItemData.venueData);
                         }
                     }
                 }

@@ -110,18 +110,27 @@ Page {
                     }
                 }
 
-                // user shout tile
-                InfoTile {
-                    id: checkinDetailShoutTile
+                // address tile
+                LocationTile {
+                    id: checkinDetailAddressTile
 
                     // layout definition
-                    backgroundColor: Color.create(Globals.foursquareGreen)
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
                     preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
                     preferredWidth: DisplayInfo.width / checkinDetailPage.columnCount
 
                     // set initial visibility to false
-                    // will be set if the checkin has a shout
+                    // will be set if the venue has a given address
                     visible: false
+
+                    // call bb maps on click
+                    onClicked: {
+                        locationBBMapsInvoker.go();
+                    }
+
+                    // TODO: Call menu with Google maps
+                    onLongPress: {
+                    }
                 }
 
                 // photos tile
@@ -157,7 +166,7 @@ Page {
                 preferredWidth: DisplayInfo.width
 
                 visible: false
-                
+
                 onCalculatedHeightChanged: {
                     console.log("# Calculated height changed to: " + calculatedHeight);
                     checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
@@ -230,14 +239,35 @@ Page {
             checkinDetailHeader.image = checkinData.venue.locationCategories[0].iconLarge
         }
 
+        // venue map
+        checkinDetailAddressTile.zoom = "15";
+        checkinDetailAddressTile.size = "400";
+        checkinDetailAddressTile.venueLocation = checkinData.venue.location;
+        checkinDetailAddressTile.webImage = checkinData.venue.locationCategories[0].iconLarge;
+
+        // show address if formatted address is available
+        // otherwise show name
+        if (checkinData.venue.location.formattedAddress != "") {
+            checkinDetailAddressTile.headline = checkinData.venue.location.formattedAddress;
+        } else {
+            checkinDetailAddressTile.headline = checkinData.venue.name;
+        }
+
+        // set data for bb maps invocation
+        locationBBMapsInvoker.locationLatitude = checkinData.venue.location.lat;
+        locationBBMapsInvoker.locationLongitude = checkinData.venue.location.lng;
+        locationBBMapsInvoker.locationName = checkinData.venue.name;
+        locationBBMapsInvoker.centerLatitude = checkinData.venue.location.lat;
+        locationBBMapsInvoker.altitude = 200;
+        checkinDetailAddressTile.visible = true;
+
         // check if checkin has photos
         if ((checkinData.photoCount > 0) && (checkinData.photos !== "")) {
             checkinDetailPhotosTile.webImage = checkinData.photos[0].imageFull;
             checkinDetailPhotosTile.visible = true;
         }
 
-        console.log("# Shout is " + "Comments: " + checkinData.comments.length);
-
+        // add comments to list
         if (checkinData.comments.length > 0) {
             checkinDetailComments.addToList(checkinData.comments);
             // checkinDetailComments.preferredHeight = checkinData.comments.length * ui.sdu(14);
@@ -245,7 +275,6 @@ Page {
         }
 
         // like tile data
-        console.log("# Setting likes, count: " + checkinData.likeCount + ", state: " + checkinData.userHasLiked);
         checkinDetailLikesTile.checkinData = checkinData;
     }
 
@@ -305,6 +334,11 @@ Page {
         ComponentDefinition {
             id: venueDetailComponent
             source: "VenueDetailPage.qml"
+        },
+        // map invoker
+        // used to hand over location data to bb maps
+        LocationMapInvoker {
+            id: locationBBMapsInvoker
         }
     ]
 }

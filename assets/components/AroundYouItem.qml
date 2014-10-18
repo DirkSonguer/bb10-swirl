@@ -27,9 +27,6 @@ Container {
     // signal that user data has been clicked
     signal userClicked()
 
-    // signal that location data has been clicked
-    signal locationClicked()
-
     // property for the user profile image, given as url
     property alias profileImage: aroundYouUserProfileImage.url
 
@@ -70,10 +67,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(18)
-            preferredWidth: ui.sdu(18)
-            minHeight: ui.sdu(18)
-            minWidth: ui.sdu(18)
+            preferredHeight: ui.sdu(20)
+            preferredWidth: ui.sdu(20)
+            minHeight: ui.sdu(20)
+            minWidth: ui.sdu(20)
         }
 
         // mask the profile image to make it a squircle
@@ -85,24 +82,14 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(18)
-            preferredWidth: ui.sdu(18)
-            minHeight: ui.sdu(18)
-            minWidth: ui.sdu(18)
+            preferredHeight: ui.sdu(20)
+            preferredWidth: ui.sdu(20)
+            minHeight: ui.sdu(20)
+            minWidth: ui.sdu(20)
 
             // mask image
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
-
-        // handle tap on profile picture
-        gestureHandlers: [
-            TapHandler {
-                onTapped: {
-                    // console.log("# aroundYou user profile image clicked");
-                    aroundYouItemComponent.userClicked();
-                }
-            }
-        ]
     }
 
     // aroundYou meta data container
@@ -120,9 +107,9 @@ Container {
             bottomMargin: 0
 
             // text style definition
-            textStyle.base: SystemDefaults.TextStyles.SmallText
+            textStyle.base: SystemDefaults.TextStyles.PrimaryText
             textStyle.fontWeight: FontWeight.W100
-            textStyle.fontSize: FontSize.Small
+            textStyle.fontSize: FontSize.Medium
             textStyle.textAlign: TextAlign.Center
             textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
@@ -142,16 +129,6 @@ Container {
             textStyle.textAlign: TextAlign.Center
             multiline: true
         }
-
-        // handle tap on custom button
-        gestureHandlers: [
-            TapHandler {
-                onTapped: {
-                    // console.log("# aroundYou location name clicked");
-                    aroundYouItemComponent.locationClicked();
-                }
-            }
-        ]
     }
 
     // handle ui touch elements
@@ -170,4 +147,15 @@ Container {
             aroundYouUsername.textStyle.color = Color.create(Globals.blackberryStandardBlue);
         }
     }
+    
+    
+    // handle tap on profile picture
+    gestureHandlers: [
+        TapHandler {
+            onTapped: {
+                // console.log("# aroundYou user profile image clicked");
+                aroundYouItemComponent.userClicked();
+            }
+        }
+    ]    
 }
