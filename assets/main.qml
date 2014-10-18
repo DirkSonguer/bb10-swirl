@@ -89,6 +89,7 @@ NavigationPane {
                 // will be set true if data has been loaded
                 visible: false
 
+                // profile of user was clicked
                 onProfileClicked: {
                     // console.log("# User clicked: " + userData.userId);
                     var userDetailPage = userDetailComponent.createObject();
@@ -99,7 +100,7 @@ NavigationPane {
 
             // checkin list
             // this will contain all the components and actions
-            // for the venue list
+            // for the checkin list
             CheckinList {
                 id: checkinList
 
@@ -107,6 +108,7 @@ NavigationPane {
                 // will be set true if data has been loaded
                 visible: false
 
+                // profile of user was clicked
                 onProfileClicked: {
                     // console.log("# User clicked: " + userData.userId);
                     var userDetailPage = userDetailComponent.createObject();
@@ -114,6 +116,7 @@ NavigationPane {
                     navigationPane.push(userDetailPage);
                 }
 
+                // checkin was clicked
                 onItemClicked: {
                     // console.log("# Item clicked: " + checkinData.checkinId);
                     var checkinDetailPage = checkinDetailComponent.createObject();
@@ -157,16 +160,16 @@ NavigationPane {
             }
         }
 
-        // around you checkin data loaded and transformed
+        // around you and checkin data was loaded and transformed
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
-            console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
+            // console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
 
             // initially clear lists
             aroundYouList.clearList();
             checkinList.clearList();
 
-            // iterate through data objects and fill list
+            // iterate through data objects and fill lists
             for (var index in recentCheckinData) {
                 aroundYouList.addToList(recentCheckinData[index]);
                 checkinList.addToList(recentCheckinData[index]);
@@ -176,6 +179,7 @@ NavigationPane {
             loadingIndicator.hideLoader();
 
             // show list with results
+            // first the around you list is shown
             aroundYouList.visible = true;
 
             // enable view changer
@@ -185,15 +189,17 @@ NavigationPane {
         // check if new updates have been found or not
         onUpdateCountDataLoaded: {
             if (updateCount > 0) {
+                // change icon to notifiation version
                 updatesPageAction.imageSource = "asset:///images/icons/icon_notification_available.png"
             }
         }
 
-        // main page action menu bar
+        // main page action menu bar (bottom menu)
         actions: [
             ActionItem {
                 id: changeCheckinViewAction
 
+                // title and image
                 title: "Recent"
                 imageSource: "asset:///images/icons/icon_recent.png"
 
@@ -228,6 +234,7 @@ NavigationPane {
             ActionItem {
                 id: addCheckinPageAction
 
+                // title and image
                 title: "Add Checkin"
                 imageSource: "asset:///images/icons/icon_checkin.png"
 
@@ -244,6 +251,7 @@ NavigationPane {
             ActionItem {
                 id: updatesPageAction
 
+                // title and image
                 title: "Updates"
                 imageSource: "asset:///images/icons/icon_notification.png"
 
@@ -289,7 +297,7 @@ NavigationPane {
     // also the pages that are used by the menu
     attachedObjects: [
         // sheet for about page
-        // this is used by the main menu
+        // this is used by the application menu
         Sheet {
             id: aboutSheet
 

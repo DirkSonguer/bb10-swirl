@@ -117,7 +117,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
-        $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \

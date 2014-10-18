@@ -10,6 +10,9 @@
 // import blackberry components
 import bb.cascades 1.3
 
+// import timer type
+import QtTimer 1.0
+
 // set import directory for components
 import "../components"
 
@@ -50,6 +53,10 @@ Page {
 
             VenueHeaderShort {
                 id: addCheckinHeader
+                
+                onTouch: {
+                    addCheckinInput.focus();
+                }
             }
 
             Container {
@@ -246,7 +253,7 @@ Page {
     // calling page handed over the simple venue object
     // based on that, fill first data and load full venue object
     onVenueDataChanged: {
-        // console.log("# Simple venue object handed over to the page");
+        console.log("# Simple venue object handed over to the page");
 
         // location name
         addCheckinHeader.name = venueData.name;
@@ -255,6 +262,8 @@ Page {
         if (venueData.locationCategories != "") {
             addCheckinHeader.category = venueData.locationCategories[0].name;
         }
+                
+        addCheckinInputTimer.start();
     }
 
     // checkin successfull
@@ -276,4 +285,21 @@ Page {
         // show container
         addCheckinResultContainer.visible = true;
     }
+    
+    // attached objects
+    attachedObjects: [
+        // timer component
+        // used to delay reload after commenting
+        Timer {
+            id: addCheckinInputTimer
+            interval: 1000
+            singleShot: true
+            
+            // when triggered, reload the comment data
+            onTimeout: {
+                // load comments for given media item
+                addCheckinInput.focus();
+            }
+        }
+    ]  
 }

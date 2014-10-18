@@ -24,6 +24,9 @@ Container {
 
     // signal that Checkin process has been reset
     signal reset()
+    
+    // signal to focus the input field
+    signal focus()
 
     // make input field properties accessible by external components
     property alias text: checkinInput.text
@@ -42,6 +45,7 @@ Container {
 
     // comment input field
     TextArea {
+//    TextField {
         id: checkinInput
 
         // layout definition
@@ -57,4 +61,11 @@ Container {
         textStyle.textAlign: TextAlign.Left
         textStyle.color: Color.create(Globals.blackberryStandardBlue)
     }
+    
+    
+    // requesting focus for input field
+    onFocus: {
+        console.log("# Requesting focus via onFocus");
+        checkinInput.requestFocus();
+    }    
 }
