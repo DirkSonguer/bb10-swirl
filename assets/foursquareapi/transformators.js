@@ -15,8 +15,10 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
 	Qt.include(dirPaths.assetPath + "structures/comment.js");
-	Qt.include(dirPaths.assetPath + "structures/locationcategory.js");
+	Qt.include(dirPaths.assetPath + "structures/contact.js");
 	Qt.include(dirPaths.assetPath + "structures/location.js");
+	Qt.include(dirPaths.assetPath + "structures/locationcategory.js");
+	Qt.include(dirPaths.assetPath + "structures/notification.js");
 	Qt.include(dirPaths.assetPath + "structures/photo.js");
 	Qt.include(dirPaths.assetPath + "structures/score.js");
 	Qt.include(dirPaths.assetPath + "structures/update.js");
@@ -73,9 +75,9 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	checkinData.userHasLiked = checkinObject.like;
 
 	// current interaction counts
-	checkinData.likeCount = checkinObject.likes.count;
-	checkinData.commentCount = checkinObject.comments.count;
-	checkinData.photoCount = checkinObject.photos.count;
+	if (typeof checkinObject.likes !== "undefined") checkinData.likeCount = checkinObject.likes.count;
+	if (typeof checkinObject.comments !== "undefined") checkinData.commentCount = checkinObject.comments.count;
+	if (typeof checkinObject.photos !== "undefined") checkinData.photoCount = checkinObject.photos.count;
 
 	// general user information
 	// this is stored as FoursquareUserData()

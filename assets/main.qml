@@ -26,6 +26,7 @@ import "global/globals.js" as Globals
 import "global/copytext.js" as Copytext
 import "classes/authenticationhandler.js" as Authentication
 import "foursquareapi/checkins.js" as CheckinsRepository
+import "foursquareapi/updates.js" as UpdatesRepository
 
 // this is the main page that provides the navigation pane for all subsequent pages
 // note that the id is always "navigationPane", even when accessing it from subpages
@@ -43,6 +44,12 @@ NavigationPane {
 
         // signal if popular media data loading encountered an error
         signal recentCheckinDataError(variant errorData)
+
+        // signal if update count data loading is complete
+        signal updateCountDataLoaded(variant updateCount)
+
+        // signal if update count data loading encountered an error
+        signal updateCountDataError(variant errorData)
 
         // property for the current geolocation
         // contains lat and lon
@@ -84,9 +91,9 @@ NavigationPane {
 
                 onProfileClicked: {
                     // console.log("# User clicked: " + userData.userId);
-                    // var userDetailPage = userDetailComponent.createObject();
-                    // userDetailPage.userData = userData;
-                    // navigationPane.push(userDetailPage);
+                    var userDetailPage = userDetailComponent.createObject();
+                    userDetailPage.userData = userData;
+                    navigationPane.push(userDetailPage);
                 }
             }
 
@@ -102,16 +109,16 @@ NavigationPane {
 
                 onProfileClicked: {
                     // console.log("# User clicked: " + userData.userId);
-                    // var userDetailPage = userDetailComponent.createObject();
-                    // userDetailPage.userData = userData;
-                    // navigationPane.push(userDetailPage);
+                    var userDetailPage = userDetailComponent.createObject();
+                    userDetailPage.userData = userData;
+                    navigationPane.push(userDetailPage);
                 }
 
                 onItemClicked: {
                     // console.log("# Item clicked: " + checkinData.checkinId);
-                    // var checkinDetailPage = checkinDetailComponent.createObject();
-                    // checkinDetailPage.checkinData = checkinData;
-                    // navigationPane.push(checkinDetailPage);
+                    var checkinDetailPage = checkinDetailComponent.createObject();
+                    checkinDetailPage.checkinData = checkinData;
+                    navigationPane.push(checkinDetailPage);
                 }
             }
 
@@ -137,7 +144,7 @@ NavigationPane {
                     positionSource.start();
 
                     // check for new updates
-                    // UpdatesRepository.checkForNewUpdates(mainTabbedPane);
+                    UpdatesRepository.checkForNewUpdates(mainPage);
                 } else {
                     // console.log("# Info: User is not authenticated");
 
@@ -173,6 +180,13 @@ NavigationPane {
 
             // enable view changer
             changeCheckinViewAction.enabled = true;
+        }
+
+        // check if new updates have been found or not
+        onUpdateCountDataLoaded: {
+            if (updateCount > 0) {
+                updatesPageAction.imageSource = "asset:///images/icons/icon_notification_available.png"
+            }
         }
 
         // main page action menu bar
@@ -225,6 +239,25 @@ NavigationPane {
                     // A second Page is created and pushed when this action is triggered.
                     navigationPane.push(secondPageDefinition.createObject());
                 }
+            },
+            ActionItem {
+                id: updatesPageAction
+
+                title: "Updates"
+                imageSource: "asset:///images/icons/icon_notification.png"
+
+                // action position
+                ActionBar.placement: ActionBarPlacement.OnBar
+
+                // action
+                onTriggered: {
+                    // reset update notification
+                    imageSource = "asset:///images/icons/icon_notification.png"
+
+                    // console.log("# Update action clicked");
+                    var updatesPage = updatesComponent.createObject();
+                    navigationPane.push(updatesPage);
+                }
             }
         ]
     }
@@ -266,6 +299,24 @@ NavigationPane {
                     source: "sheets/About.qml"
                 }
             ]
+        },
+        // user detail page
+        // will be called if user clicks on user item
+        ComponentDefinition {
+            id: userDetailComponent
+            source: "pages/UserDetailPage.qml"
+        },
+        // venue detail page
+        // will be called if user clicks on venue item
+        ComponentDefinition {
+            id: checkinDetailComponent
+            source: "pages/CheckinDetailPage.qml"
+        },
+        // update detail page
+        // will be called if user clicks on update action
+        ComponentDefinition {
+            id: updatesComponent
+            source: "pages/UpdatesPage.qml"
         },
         // Definition of the second Page, used to dynamically create the Page above.
         ComponentDefinition {

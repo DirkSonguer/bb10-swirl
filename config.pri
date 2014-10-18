@@ -42,10 +42,30 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinInput.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
+        $$quote($$BASEDIR/assets/components/CommentInput.qml) \
+        $$quote($$BASEDIR/assets/components/CommentPreview.qml) \
+        $$quote($$BASEDIR/assets/components/FriendsList.qml) \
+        $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
+        $$quote($$BASEDIR/assets/components/InfoTile.qml) \
+        $$quote($$BASEDIR/assets/components/LikeTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
+        $$quote($$BASEDIR/assets/components/LocationTile.qml) \
+        $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreItem.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreList.qml) \
+        $$quote($$BASEDIR/assets/components/SearchHeader.qml) \
+        $$quote($$BASEDIR/assets/components/SearchInput.qml) \
+        $$quote($$BASEDIR/assets/components/UpdateItem.qml) \
+        $$quote($$BASEDIR/assets/components/UpdateList.qml) \
+        $$quote($$BASEDIR/assets/components/UserHeader.qml) \
+        $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
+        $$quote($$BASEDIR/assets/components/VenueHeaderShort.qml) \
+        $$quote($$BASEDIR/assets/components/VenueItem.qml) \
+        $$quote($$BASEDIR/assets/components/VenueList.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/transformators.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
@@ -81,6 +101,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_notification_available.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_public_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_public_inactive.png) \
@@ -95,8 +116,15 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/AroundYouPage.qml) \
+        $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/DetailsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
+        $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \
+        $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
+        $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
         $$quote($$BASEDIR/assets/structures/comment.js) \
