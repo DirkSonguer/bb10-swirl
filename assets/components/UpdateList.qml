@@ -60,7 +60,6 @@ Container {
     onCreationCompleted: {
         Qt.fullDisplaySize = DisplayInfo.width;
         Qt.itemClicked = updateListComponent.itemClicked;
-        Qt.profileClicked = updateListComponent.profileClicked;
     }
 
     // layout orientation
