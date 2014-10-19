@@ -24,7 +24,7 @@ function FoursquareKeys()
 	this.foursquareAPIUrl = "https://api.foursquare.com";
 	
 	// Foursquare URL the user authenticates against
-	this.foursquareAuthorizeUrl = "https://foursquare.com/oauth2/authenticate";
+	this.foursquareAuthorizeUrl = "https://foursquare.com/oauth2/authorize";
 
 	// Foursquare redirect URL
 	this.foursquareRedirectUrl = "http://apps.songuer.de/swirl/redirect";

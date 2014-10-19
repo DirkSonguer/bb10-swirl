@@ -769,7 +769,7 @@ function LikeTransformator() {
 // Extract all like data from a like object
 // The resulting data is stored as FoursquareLikeData()
 LikeTransformator.prototype.getLikeDataFromObject = function(likeObject) {
-	console.log("# Transforming like item with id: " + likeObject.id);
+	// console.log("# Transforming like item with id: " + likeObject.id);
 
 	// create new data object
 	var likeData = new FoursquareLikeData();
@@ -786,14 +786,15 @@ LikeTransformator.prototype.getLikeDataFromObject = function(likeObject) {
 	likeData.profileImageMedium = likeObject.photo.prefix + foursquareProfileImageMedium + likeObject.photo.suffix;
 	likeData.profileImageLarge = likeObject.photo.prefix + foursquareProfileImageLarge + likeObject.photo.suffix;
 
-	console.log("# Done transforming like item");
+	// console.log("# Done transforming like item");
 	return likeData;
 };
 
 // Extract all venue data from an array of venue objects
 // The resulting data is stored as array of FoursquareVenueData()
 LikeTransformator.prototype.getLikeDataFromArray = function(likeObjectArray) {
-	console.log("# Transforming like array with " + likeObjectArray.length + " items");
+	// console.log("# Transforming like array with " + likeObjectArray.length +
+	// " items");
 
 	// create new return array
 	var likeDataArray = new Array();
@@ -806,14 +807,15 @@ LikeTransformator.prototype.getLikeDataFromArray = function(likeObjectArray) {
 		likeDataArray[index] = likeData;
 	}
 
-	console.log("# Done transforming like array");
+	// console.log("# Done transforming like array");
 	return likeDataArray;
 };
 
 // Extract all like data from an array of groups that contain like objects
 // The resulting data is stored as array of FoursquareLikeData()
 LikeTransformator.prototype.getLikeDataFromGroupArray = function(likeGroupObjectArray) {
-	console.log("# Transforming like group array with " + likeGroupObjectArray.length + " groups");
+	// console.log("# Transforming like group array with " +
+	// likeGroupObjectArray.length + " groups");
 
 	// create new return array
 	var likeDataArray = new Array();
@@ -824,10 +826,11 @@ LikeTransformator.prototype.getLikeDataFromGroupArray = function(likeGroupObject
 		var likeGroupData = new Array();
 		likeGroupData = this.getLikeDataFromArray(likeGroupObjectArray[index].items);
 
-		console.log("# Extracted " + likeGroupData.length + " likes from group " + likeGroupObjectArray[index].type);
+		// console.log("# Extracted " + likeGroupData.length + " likes from group " + likeGroupObjectArray[index].type);
 		likeDataArray = likeDataArray.concat(likeGroupData);
 	}
 
-	console.log("# Done transforming user group array, found " + likeDataArray.length + " likes");
+	// console.log("# Done transforming user group array, found " +
+	// likeDataArray.length + " likes");
 	return likeDataArray;
 };

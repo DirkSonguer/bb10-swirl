@@ -141,13 +141,17 @@ NavigationPane {
         onLoadContent: {
             // enter debug user
             // TODO: Remove for live app
-            Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
+            // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
             // check if user is already logged in
             // if yes, continue with the application
             // if not, then show login sheet first
             if (Authentication.auth.isAuthenticated()) {
                 console.log("# Info: User is authenticated");
+                
+                // hide lists because of reload
+                aroundYouList.visible = false;
+                checkinList.visible = false;
 
                 // show loader
                 loadingIndicator.showLoader("Trying to fix your location");
@@ -291,6 +295,20 @@ NavigationPane {
                     var aboutSheetPage = aboutComponent.createObject();
                     aboutSheet.setContent(aboutSheetPage);
                     aboutSheet.open();
+                }
+            },
+            ActionItem {
+                id: mainMenuLogout
+                title: "Logout"
+                imageSource: "asset:///images/icons/icon_close.png"
+                onTriggered: {
+                    // delete the foursquare tokens from the database
+                    Authentication.auth.deleteStoredFoursquareData();
+
+                    // create logout sheet
+                    var logoutSheetPage = logoutComponent.createObject();
+                    logoutSheet.setContent(logoutSheetPage);
+                    logoutSheet.open();
                 }
             }
         ]

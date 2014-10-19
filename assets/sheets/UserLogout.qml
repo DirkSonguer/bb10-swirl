@@ -38,8 +38,8 @@ Page {
             // this webview just calls the Foursquare logout functionality
             WebView {
                 url: "https://de.foursquare.com/logout"
-//                maxHeight: 0
-//                maxWidth: 0
+                maxHeight: 1
+                maxWidth: 1
             }
         }
     }
@@ -63,7 +63,6 @@ Page {
 
                 // create and open login sheet
                 var loginSheetPage = loginComponent.createObject();
-                loginSheetPage.tabToReload = recentCheckinTab;
                 loginSheet.setContent(loginSheetPage);
                 loginSheet.open();
             }

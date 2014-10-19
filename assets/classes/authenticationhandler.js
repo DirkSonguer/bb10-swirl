@@ -187,13 +187,12 @@ AuthenticationHandler.prototype.isAuthenticated = function() {
 
 	if (userdata["id"] != null) {
 		// user already has a token
-		// console.log("# User is authenticated with id " + userdata["id"] + "
-		// and token " + userdata["access_token"] + ". Returning true");
+		console.log("# User is authenticated with id " + userdata["id"] + " and token " + userdata["access_token"] + ". Returning true");
 		return true;
 	}
 
 	// user does not have a token
-	// console.log("# User is not authenticated. Returning false");
+	console.log("# User is not authenticated. Returning false");
 	return false;
 };
 
