@@ -303,7 +303,7 @@ Page {
 
     // checkin detail data has been loaded
     onCheckinDataLoaded: {
-        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
         // set data loaded flag to true
         checkinDetailPage.checkinDataDetailsLoaded = true;

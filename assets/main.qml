@@ -141,14 +141,14 @@ NavigationPane {
         onLoadContent: {
             // enter debug user
             // TODO: Remove for live app
-            // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
+            Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
             // check if user is already logged in
             // if yes, continue with the application
             // if not, then show login sheet first
             if (Authentication.auth.isAuthenticated()) {
-                console.log("# Info: User is authenticated");
-                
+                // console.log("# Info: User is authenticated");
+
                 // hide lists because of reload
                 aroundYouList.visible = false;
                 checkinList.visible = false;
@@ -159,7 +159,7 @@ NavigationPane {
                 // start searching for the current geolocation
                 positionSource.start();
             } else {
-                console.log("# Info: User is not authenticated");
+                // console.log("# Info: User is not authenticated");
 
                 // create and open login sheet
                 var loginSheetPage = loginComponent.createObject();
