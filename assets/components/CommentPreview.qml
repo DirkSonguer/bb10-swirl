@@ -78,7 +78,7 @@ Container {
 
         // iterate through data objects
         for (var index in item) {
-            console.log("# Comment text: " + item[index].text);
+            // console.log("# Comment text: " + item[index].text);
             commentPreviewComponent.currentItemIndex += 1;
             commentPreviewDataModel.insert({
                     "commentData": item[index],
@@ -221,7 +221,7 @@ Container {
                                     onLayoutFrameChanged: {
                                         var currentCalculatedHeight = layoutFrame.height + ui.sdu(5);
                                         if (currentCalculatedHeight < ui.sdu(12)) currentCalculatedHeight = ui.sdu(12);
-                                        console.log("# Height: " + currentCalculatedHeight);
+                                        // console.log("# Height: " + currentCalculatedHeight);
                                         Qt.addToCalculatedHeight(currentCalculatedHeight);
                                     }
                                 }

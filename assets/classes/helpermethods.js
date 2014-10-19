@@ -72,3 +72,12 @@ HelperMethods.prototype.calculateElapsedTime = function(foursquareTime) {
 		return Math.round(elapsed / msPerYear) + 'y';
 	}
 };
+
+// Check an object for recent notification data for the currently logged in user
+// and checks if new content is available
+HelperMethods.prototype.checkForNotification = function(jsonObject) {
+	if ((typeof jsonObject.notifications !== "undefined") && (typeof jsonObject.notifications[0] !== "undefined")) {
+		var updateCount = jsonObject.notifications[0].item.unreadCount;
+		mainPage.updateCountDataLoaded(updateCount);
+	}
+};

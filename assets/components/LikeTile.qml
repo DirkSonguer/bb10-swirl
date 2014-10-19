@@ -110,7 +110,7 @@ Container {
     }
 
     onCheckinDataChanged: {
-        console.log("# Changing like state to " + checkinData.userHasLiked);
+        // console.log("# Changing like state to " + checkinData.userHasLiked);
 
         likeTileComponent.likeState = checkinData.userHasLiked;
         likeTileComponent.likeCount = checkinData.likeCount;
@@ -128,16 +128,16 @@ Container {
     }
 
     onLikeDataLoaded: {
-        console.log("# State was: " + likeTileComponent.likeState);
+        // console.log("# State was: " + likeTileComponent.likeState);
 
         if (likeTileComponent.likeState == false) {
-            console.log("# User has liked the checkin, changing states");
+            // console.log("# User has liked the checkin, changing states");
             likeTileComponent.background = Color.create(Globals.foursquareGreen)
             likeTileLocalBackgroundImage.imageSource = "asset:///images/icons/icon_liked_w.png"
             likeTileComponent.likeState = true;
             likeTileComponent.likeCount += 1;
         } else {
-            console.log("# User has unliked the checkin, changing states");
+            // console.log("# User has unliked the checkin, changing states");
             likeTileComponent.background = Color.create(Globals.blackberryStandardBlue)
             likeTileLocalBackgroundImage.imageSource = "asset:///images/icons/icon_unliked_w.png"
             likeTileComponent.likeState = false;
@@ -146,7 +146,7 @@ Container {
 
         // show new likes count
         likeTileBodytext.text = likeTileComponent.likeCount + " likes";
-        console.log("# State is now: " + likeTileComponent.likeState);
+        // console.log("# State is now: " + likeTileComponent.likeState);
     }
 
     // handle tap on custom button

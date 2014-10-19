@@ -62,10 +62,9 @@ Container {
         textStyle.color: Color.create(Globals.blackberryStandardBlue)
     }
     
-    
     // requesting focus for input field
     onFocus: {
-        console.log("# Requesting focus via onFocus");
+        // console.log("# Requesting focus via onFocus");
         checkinInput.requestFocus();
     }    
 }

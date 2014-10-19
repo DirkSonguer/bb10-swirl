@@ -7,6 +7,8 @@
 // License: All rights reserved
 // *************************************************** //
 
+// TODO: Refactor
+
 // import blackberry components
 import bb.cascades 1.3
 import bb.platform 1.3
@@ -168,7 +170,7 @@ Page {
                 visible: false
 
                 onCalculatedHeightChanged: {
-                    console.log("# Calculated height changed to: " + calculatedHeight);
+                    // console.log("# Calculated height changed to: " + calculatedHeight);
                     checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
                 }
             }
@@ -302,7 +304,7 @@ Page {
     }
 
     onCheckinDataLoaded: {
-        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
         checkinDetailPage.checkinDataDetailsLoaded = true;
 

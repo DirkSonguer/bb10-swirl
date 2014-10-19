@@ -13,6 +13,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "global/foursquarekeys.js");
 	Qt.include(dirPaths.assetPath + "classes/authenticationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
+	Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
 	Qt.include(dirPaths.assetPath + "foursquareapi/transformators.js");
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
 	Qt.include(dirPaths.assetPath + "structures/score.js");
@@ -35,6 +36,11 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
+			// console.log("# Recent checkin object received. Transforming.");
+
+			// check for new notifications
+			helperMethods.checkForNotification(jsonObject);
+			
 			// console.log("# Recent checkins object received. Transforming.");
 			// prepare transformator and return object
 			var checkinDataArray = new Array();
@@ -109,11 +115,14 @@ function getCheckinData(checkinId, callingPage) {
 		if (jsonObject) {
 			// console.log("# Checkins object received. Transforming.");
 
+			// check for new notifications
+			helperMethods.checkForNotification(jsonObject);
+
 			// get checkin data item and store it
 			var checkinDataItem = new FoursquareCheckinData();
 			checkinDataItem = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
 
-			console.log("# Done loading checkin");
+			// console.log("# Done loading checkin");
 			callingPage.checkinDataLoaded(checkinDataItem);
 		} else {
 			// either the request is not done yet or an error occured
@@ -157,7 +166,7 @@ function getCheckinData(checkinId, callingPage) {
 // Fifth parameter the id of the calling page, which will receive the
 // recentCheckinDataLoaded() signal
 function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) {
-	console.log("# Adding checkin for venue: " + venueId);
+	// console.log("# Adding checkin for venue: " + venueId);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -170,6 +179,8 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 			var checkinData = new FoursquareCheckinData();
 			checkinData = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
 
+			// TODO: Activate checkin response
+			
 			// extract notification
 			var notificationData = new FoursquareScoreData();
 			// notificationData =
@@ -208,7 +219,7 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Adding checkin with url: " + url);
+	// console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }
@@ -219,7 +230,7 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 // Third parameter the id of the calling page, which will receive the
 // likeDataLoaded() signal
 function likeCheckin(checkinId, set, callingPage) {
-	console.log("# Setting like state to " + set + " for venue: " + checkinId);
+	// console.log("# Setting like state to " + set + " for venue: " + checkinId);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -228,6 +239,9 @@ function likeCheckin(checkinId, set, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
+			
+			// TODO: Activate like response
+			
 			// console.log("# Add checkin object received. Transforming.");
 			// var checkinData = new FoursquareCheckinData();
 			// checkinData =

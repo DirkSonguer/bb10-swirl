@@ -67,7 +67,7 @@ function getUserData(userId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading user data with url: " + url);
+	// console.log("# Loading user data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -177,7 +177,7 @@ function getFriendsForUser(userId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading friends data with url: " + url);
+	// console.log("# Loading friends data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -235,7 +235,7 @@ function changeUserRelationship(userId, relationshipState, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Unfriending user with url: " + url);
+	// console.log("# Unfriending user with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

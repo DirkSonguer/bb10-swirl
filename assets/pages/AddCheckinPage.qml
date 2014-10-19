@@ -7,6 +7,8 @@
 // License: All rights reserved
 // *************************************************** //
 
+// TODO: Refactor
+
 // import blackberry components
 import bb.cascades 1.3
 
@@ -165,7 +167,7 @@ Page {
                         preferredWidth: DisplayInfo.width
 
                         onClicked: {
-                            console.log("# Calling checkin for venue: " + venueData.venueId);
+                            // console.log("# Calling checkin for venue: " + venueData.venueId);
 
                             // build broadcast string
                             var broadcast = "";
@@ -179,7 +181,7 @@ Page {
                             if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
                             if ((addCheckinTwitter.checked) && (addCheckinTwitter.enabled)) broadcast += ",twitter";
 
-                            console.log("# Broadcast string is: " + broadcast);
+                            // console.log("# Broadcast string is: " + broadcast);
 
                             CheckinsRepository.addCheckin(venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
 
@@ -253,7 +255,7 @@ Page {
     // calling page handed over the simple venue object
     // based on that, fill first data and load full venue object
     onVenueDataChanged: {
-        console.log("# Simple venue object handed over to the page");
+        // console.log("# Simple venue object handed over to the page");
 
         // location name
         addCheckinHeader.name = venueData.name;

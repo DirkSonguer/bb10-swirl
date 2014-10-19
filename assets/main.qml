@@ -11,6 +11,8 @@
 // License: All rights reserved
 // *************************************************** //
 
+// TODO: Refactor
+
 // import blackberry components
 import bb.cascades 1.3
 import bb.system 1.2
@@ -47,9 +49,6 @@ NavigationPane {
 
         // signal if update count data loading is complete
         signal updateCountDataLoaded(variant updateCount)
-
-        // signal if update count data loading encountered an error
-        signal updateCountDataError(variant errorData)
 
         // property for the current geolocation
         // contains lat and lon
