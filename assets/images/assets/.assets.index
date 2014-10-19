@@ -1,5 +1,5 @@
 1
-101
+104
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -88,11 +88,14 @@ pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
 sheets/About.qml
+sheets/UserLogin.qml
+sheets/UserLogout.qml
 structures/checkin.js
 structures/comment.js
 structures/contact.js
 structures/errordata.js
 structures/geolocation.js
+structures/like.js
 structures/location.js
 structures/locationcategory.js
 structures/notification.js

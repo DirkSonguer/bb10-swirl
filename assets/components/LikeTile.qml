@@ -45,6 +45,27 @@ Container {
     // layout orientation
     layout: DockLayout {
     }
+    
+    // tile image
+    // this is a web image view provided by WebViewImage
+    WebImageView {
+        id: likeTileWebBackgroundImage
+        
+        // align the image in the center
+        scalingMethod: ScalingMethod.AspectFill
+        verticalAlignment: VerticalAlignment.Fill
+        horizontalAlignment: HorizontalAlignment.Fill
+        
+        // set opacity to half visible
+        opacity: 0.5
+        
+        // set initial visibility to false
+        // make image visible if text is added
+        visible: false
+        onUrlChanged: {
+            visible = true;
+        }
+    }
 
     // tile image
     // this is a local image
@@ -112,8 +133,16 @@ Container {
     onCheckinDataChanged: {
         // console.log("# Changing like state to " + checkinData.userHasLiked);
 
+        // set state and count
         likeTileComponent.likeState = checkinData.userHasLiked;
         likeTileComponent.likeCount = checkinData.likeCount;
+        
+        // check if already liked
+        // if so, show image in background
+        if (checkinData.likeCount > 0) {
+            console.log("# Found likes: " + checkinData.likeCount);
+            likeTileWebBackgroundImage.url = checkinData.likes[0].profileImageLarge;
+        }
 
         // set icon & label according to state
         if (checkinData.userHasLiked == false) {
@@ -124,6 +153,7 @@ Container {
             likeTileLocalBackgroundImage.imageSource = "asset:///images/icons/icon_liked_w.png"
         }
 
+        // set label
         likeTileBodytext.text = likeTileComponent.likeCount + " likes";
     }
 

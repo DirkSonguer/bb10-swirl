@@ -18,9 +18,6 @@ import bb.cascades 1.3
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 
-// import timer type
-import QtTimer 1.0
-
 // import image url loader component
 import WebImageView 1.0
 
@@ -40,22 +37,11 @@ Container {
     signal clicked()
 
     // property to calculate height for
-    property int calculatedHeight
+    property int calculatedHeight: 0
     signal addToCalculatedHeight(int newHeight)
     onAddToCalculatedHeight: {
         commentPreviewComponent.calculatedHeight += newHeight;
         // console.log("# Adding height: " + newHeight + ", total height is now: " + commentPreviewComponent.calculatedHeight);
-    }
-
-    // update data
-    signal update()
-    onUpdate: {
-        // clear the list in case the list was reloaded
-        commentPreviewDataModel.clear();
-
-        // start the timer
-        // this basically waits a second and then reloads the comment list
-        commentPreviewTimer.start();
     }
 
     // signal to clear the gallery contents
@@ -169,28 +155,28 @@ Container {
                         layout: StackLayout {
                             orientation: LayoutOrientation.TopToBottom
                         }
-                        
+
                         // layout definition
                         leftMargin: ui.sdu(1)
-                        
+
                         // item user name
                         Label {
                             id: itemUsername
-                            
+
                             // layout definition
                             verticalAlignment: VerticalAlignment.Center
                             bottomMargin: 0
 
                             // comment text
                             text: ListItemData.commentData.user.firstName + ", " + ListItemData.commentData.elapsedTime + " ago"
-                                                        
+
                             // text style definition
                             textStyle.base: SystemDefaults.TextStyles.SmallText
                             textStyle.fontWeight: FontWeight.W100
                             textStyle.fontSize: FontSize.XSmall
                             textStyle.textAlign: TextAlign.Left
                         }
-                        
+
                         // item caption
                         Label {
                             id: itemComment
@@ -250,19 +236,6 @@ Container {
             // items are grouped by the view and transformators
             // no need to set a behaviour by the data model
             grouping: ItemGrouping.None
-        },
-        // timer component
-        // used to delay reload after commenting
-        Timer {
-            id: commentPreviewTimer
-            interval: 1000
-            singleShot: true
-
-            // when triggered, reload the comment data
-            onTimeout: {
-                // load comments for given media item
-                // MediaRepository.getComments(commentPreviewComponent.mediaId, commentPreviewComponent);
-            }
         }
     ]
 }

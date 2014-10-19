@@ -173,10 +173,8 @@ Page {
                 visible: false
 
                 onCalculatedHeightChanged: {
-                    if (calculatedHeight > 0) {
-                        console.log("# Calculated height changed to: " + calculatedHeight);
-                        checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
-                    }
+                    // console.log("# Calculated height changed to: " + calculatedHeight);
+                    checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
                 }
             }
 
@@ -305,19 +303,19 @@ Page {
 
     // checkin detail data has been loaded
     onCheckinDataLoaded: {
-        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
         // set data loaded flag to true
         checkinDetailPage.checkinDataDetailsLoaded = true;
 
-        // fill comments list
+        // fill comments list and show it if content is available
         if (checkinData.comments.length > 0) {
             checkinDetailComments.clearList();
             checkinDetailComments.addToList(checkinData.comments);
+            checkinDetailComments.visible = true;
         }
 
-        // show comments and comment input field
-        checkinDetailComments.visible = true;
+        // show comment input field
         checkinDetailCommentInput.visible = true;
 
         // save checkinData to page object

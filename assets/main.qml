@@ -11,8 +11,6 @@
 // License: All rights reserved
 // *************************************************** //
 
-// TODO: Refactor
-
 // import blackberry components
 import bb.cascades 1.3
 import bb.system 1.2
@@ -49,6 +47,9 @@ NavigationPane {
 
         // signal if update count data loading is complete
         signal updateCountDataLoaded(variant updateCount)
+
+        // signal to load the content for the main page
+        signal loadContent();
 
         // property for the current geolocation
         // contains lat and lon
@@ -129,30 +130,37 @@ NavigationPane {
             onCreationCompleted: {
                 // console.log("# Creation of main page finished");
 
-                // enter debug user
-                // TODO: Remove for live app
-                Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
+                // load the content
+                mainPage.loadContent();
+            }
+        }
 
-                // check if user is already logged in
-                // if yes, continue with the application
-                // if not, then show login sheet first
-                if (Authentication.auth.isAuthenticated()) {
-                    // console.log("# Info: User is authenticated");
+        // load the content for the main page
+        // this is either called by the page creation or when a
+        // user login was successful
+        onLoadContent: {
+            // enter debug user
+            // TODO: Remove for live app
+            Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
-                    // show loader
-                    loadingIndicator.showLoader("Trying to fix your location");
+            // check if user is already logged in
+            // if yes, continue with the application
+            // if not, then show login sheet first
+            if (Authentication.auth.isAuthenticated()) {
+                console.log("# Info: User is authenticated");
 
-                    // start searching for the current geolocation
-                    positionSource.start();
-                } else {
-                    // console.log("# Info: User is not authenticated");
+                // show loader
+                loadingIndicator.showLoader("Trying to fix your location");
 
-                    // create and open login sheet
-                    var loginSheetPage = loginComponent.createObject();
-                    loginSheetPage.tabToReload = recentCheckinTab;
-                    loginSheet.setContent(loginSheetPage);
-                    loginSheet.open();
-                }
+                // start searching for the current geolocation
+                positionSource.start();
+            } else {
+                console.log("# Info: User is not authenticated");
+
+                // create and open login sheet
+                var loginSheetPage = loginComponent.createObject();
+                loginSheet.setContent(loginSheetPage);
+                loginSheet.open();
             }
         }
 
@@ -302,6 +310,32 @@ NavigationPane {
                 ComponentDefinition {
                     id: aboutComponent
                     source: "sheets/About.qml"
+                }
+            ]
+        },
+        // sheet for login page
+        // this is used by the main menu
+        Sheet {
+            id: loginSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: loginComponent
+                    source: "sheets/UserLogin.qml"
+                }
+            ]
+        },
+        // sheet for logout page
+        // this is used by the main menu
+        Sheet {
+            id: logoutSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: logoutComponent
+                    source: "sheets/UserLogout.qml"
                 }
             ]
         },

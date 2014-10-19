@@ -16,6 +16,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
 	Qt.include(dirPaths.assetPath + "structures/comment.js");
 	Qt.include(dirPaths.assetPath + "structures/contact.js");
+	Qt.include(dirPaths.assetPath + "structures/like.js");
 	Qt.include(dirPaths.assetPath + "structures/location.js");
 	Qt.include(dirPaths.assetPath + "structures/locationcategory.js");
 	Qt.include(dirPaths.assetPath + "structures/notification.js");
@@ -130,6 +131,12 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// this is stored as an array of FoursquarePhotoData()
 	if ((typeof checkinObject.photos !== "undefined") && (typeof checkinObject.photos.items !== "undefined")) {
 		checkinData.photos = photoTransformator.getPhotoDataFromArray(checkinObject.photos.items);
+	}
+
+	// checkin likes
+	// this is stored as an array of FoursquareLikeData()
+	if ((typeof checkinObject.likes !== "undefined") && (typeof checkinObject.likes.groups !== "undefined")) {
+		checkinData.likes = likeTransformator.getLikeDataFromGroupArray(checkinObject.likes.groups);
 	}
 
 	// console.log("# Done transforming checkin item");
@@ -748,4 +755,79 @@ VenueTransformator.prototype.getVenueDataFromGroupArray = function(venueGroupObj
 
 	// console.log("# Done transforming venue group array");
 	return venueDataArray;
+};
+
+// *************************************************** //
+// Like Transformator
+// *************************************************** //
+var likeTransformator = new LikeTransformator();
+
+// Class function that gets the prototype methods
+function LikeTransformator() {
+}
+
+// Extract all like data from a like object
+// The resulting data is stored as FoursquareLikeData()
+LikeTransformator.prototype.getLikeDataFromObject = function(likeObject) {
+	console.log("# Transforming like item with id: " + likeObject.id);
+
+	// create new data object
+	var likeData = new FoursquareLikeData();
+
+	// object id
+	likeData.likeId = likeObject.id;
+
+	// user data
+	likeData.firstName = likeObject.firstName;
+	likeData.gender = likeObject.gender;
+
+	// profile images
+	likeData.profileImageSmall = likeObject.photo.prefix + foursquareProfileImageSmall + likeObject.photo.suffix;
+	likeData.profileImageMedium = likeObject.photo.prefix + foursquareProfileImageMedium + likeObject.photo.suffix;
+	likeData.profileImageLarge = likeObject.photo.prefix + foursquareProfileImageLarge + likeObject.photo.suffix;
+
+	console.log("# Done transforming like item");
+	return likeData;
+};
+
+// Extract all venue data from an array of venue objects
+// The resulting data is stored as array of FoursquareVenueData()
+LikeTransformator.prototype.getLikeDataFromArray = function(likeObjectArray) {
+	console.log("# Transforming like array with " + likeObjectArray.length + " items");
+
+	// create new return array
+	var likeDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in likeObjectArray) {
+		// get venue data item and store it into return array
+		var likeData = new FoursquareLikeData();
+		likeData = this.getLikeDataFromObject(likeObjectArray[index]);
+		likeDataArray[index] = likeData;
+	}
+
+	console.log("# Done transforming like array");
+	return likeDataArray;
+};
+
+// Extract all like data from an array of groups that contain like objects
+// The resulting data is stored as array of FoursquareLikeData()
+LikeTransformator.prototype.getLikeDataFromGroupArray = function(likeGroupObjectArray) {
+	console.log("# Transforming like group array with " + likeGroupObjectArray.length + " groups");
+
+	// create new return array
+	var likeDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in likeGroupObjectArray) {
+		// get like data item and store it into return array
+		var likeGroupData = new Array();
+		likeGroupData = this.getLikeDataFromArray(likeGroupObjectArray[index].items);
+
+		console.log("# Extracted " + likeGroupData.length + " likes from group " + likeGroupObjectArray[index].type);
+		likeDataArray = likeDataArray.concat(likeGroupData);
+	}
+
+	console.log("# Done transforming user group array, found " + likeDataArray.length + " likes");
+	return likeDataArray;
 };

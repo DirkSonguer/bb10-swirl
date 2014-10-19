@@ -45,4 +45,7 @@ function FoursquareCheckinData() {
 		
 	// this is filled by an array of FoursquarePhotoData objects
 	this.comments = "";
+	
+	// this is filled by a FoursquareLikeData object
+	this.likes = "";
 }
