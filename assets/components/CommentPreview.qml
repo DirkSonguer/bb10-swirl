@@ -40,17 +40,12 @@ Container {
     signal clicked()
 
     // property to calculate height for
-    property int calculatedHeight: 0
+    property int calculatedHeight
     signal addToCalculatedHeight(int newHeight)
     onAddToCalculatedHeight: {
         commentPreviewComponent.calculatedHeight += newHeight;
+        // console.log("# Adding height: " + newHeight + ", total height is now: " + commentPreviewComponent.calculatedHeight);
     }
-
-    // signal if comment data loading is complete
-    // signal mediaCommentsLoaded(variant commentDataArray)
-
-    // signal if comment data loading encountered an error
-    // signal mediaCommentsError(variant errorData)
 
     // update data
     signal update()
@@ -66,6 +61,7 @@ Container {
     // signal to clear the gallery contents
     signal clearList()
     onClearList: {
+        // console.log("Clearing the list");
         commentPreviewDataModel.clear();
         commentPreviewComponent.calculatedHeight = 0;
     }
@@ -74,7 +70,7 @@ Container {
     // item is given as type InstagramCommentData
     signal addToList(variant item)
     onAddToList: {
-        // console.log("# Adding new comment items " + item.length);
+        // console.log("# Adding new comment items: " + item.length);
 
         // iterate through data objects
         for (var index in item) {
@@ -221,7 +217,7 @@ Container {
                                     onLayoutFrameChanged: {
                                         var currentCalculatedHeight = layoutFrame.height + ui.sdu(5);
                                         if (currentCalculatedHeight < ui.sdu(12)) currentCalculatedHeight = ui.sdu(12);
-                                        // console.log("# Height: " + currentCalculatedHeight);
+                                        // console.log("# Height to add: " + currentCalculatedHeight + " for comment " + ListItemData.commentData.text);
                                         Qt.addToCalculatedHeight(currentCalculatedHeight);
                                     }
                                 }

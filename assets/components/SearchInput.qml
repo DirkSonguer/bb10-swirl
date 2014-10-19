@@ -24,7 +24,7 @@ Container {
 
     // signal that search process has been reset
     signal reset()
-    
+
     // signal to focus the input field
     signal focus()
 
@@ -83,15 +83,20 @@ Container {
         // send search request if clicked
         onClicked: {
             // console.log("# Search input icon clicked");
-            
+
             // send the submit signal to the text input field
             searchInput.input.submitted(searchInput);
         }
     }
-    
+
     // requesting focus for input field
     onFocus: {
         // console.log("# Requesting focus via onFocus");
         searchInput.requestFocus();
+    }
+
+    // reset the state of the input field
+    onReset: {
+        searchInput.resetText();
     }
 }

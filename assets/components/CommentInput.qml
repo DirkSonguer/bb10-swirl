@@ -118,4 +118,9 @@ Container {
         // console.log("# Requesting focus via onFocus");
         commentInput.requestFocus();
     }
+    
+    // reset the state of the input field
+    onReset: {
+        commentInput.resetText();
+    }
 }

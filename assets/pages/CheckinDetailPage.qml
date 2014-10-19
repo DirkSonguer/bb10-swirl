@@ -42,7 +42,7 @@ Page {
     signal checkinDataError(variant errorData)
 
     // signal if comment has been added
-    signal addCommentDataLoaded()
+    signal addCommentDataLoaded(variant commentData)
 
     // signal if adding a comment encountered an error
     signal addCommentDataError(variant errorData)
@@ -170,8 +170,10 @@ Page {
                 visible: false
 
                 onCalculatedHeightChanged: {
-                    // console.log("# Calculated height changed to: " + calculatedHeight);
-                    checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
+                    if (calculatedHeight > 0) {
+                        console.log("# Calculated height changed to: " + calculatedHeight);
+                        checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
+                    }
                 }
             }
 
@@ -179,8 +181,13 @@ Page {
             CommentInput {
                 id: checkinDetailCommentInput
 
+                visible: false
+
                 // comment should be added
                 onTriggered: {
+                    checkinDetailComments.visible = false;
+                    checkinDetailCommentInput.visible = false;
+                    
                     CheckinsRepository.addComment(checkinDetailPage.checkinData.checkinId, commentText, checkinDetailPage);
                 }
             }
@@ -224,13 +231,7 @@ Page {
         // user name and image
         checkinDetailUserCheckinTile.bodytext = checkinData.user.firstName + " checked in here " + checkinData.elapsedTime + " ago";
         checkinDetailUserCheckinTile.webImage = checkinData.user.profileImageLarge;
-        /*
-         * // shout / message
-         * if (checkinData.shout != "") {
-         * checkinDetailShoutTile.bodytext = "\"" + checkinData.shout + "\"";
-         * checkinDetailShoutTile.visible = true;
-         * }
-         */
+
         // location category
         if (checkinData.venue.locationCategories != "") {
             checkinDetailHeader.category = checkinData.venue.locationCategories[0].name;
@@ -269,13 +270,6 @@ Page {
             checkinDetailPhotosTile.visible = true;
         }
 
-        // add comments to list
-        if (checkinData.comments.length > 0) {
-            checkinDetailComments.addToList(checkinData.comments);
-            // checkinDetailComments.preferredHeight = checkinData.comments.length * ui.sdu(14);
-            checkinDetailComments.visible = true;
-        }
-
         // like tile data
         checkinDetailLikesTile.checkinData = checkinData;
     }
@@ -304,7 +298,7 @@ Page {
     }
 
     onCheckinDataLoaded: {
-        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
         checkinDetailPage.checkinDataDetailsLoaded = true;
 
@@ -314,7 +308,21 @@ Page {
             // checkinDetailComments.preferredHeight = checkinData.comments.length * ui.sdu(14);
             checkinDetailComments.visible = true;
         }
-        //        checkinDetailPage.checkinData = checkinData;
+
+        // save checkinData to page object
+        checkinDetailPage.checkinData = checkinData;
+        
+        checkinDetailComments.visible = true;
+        checkinDetailCommentInput.visible = true;        
+    }
+
+    onAddCommentDataLoaded: {
+        console.log("# Comment data has been added");
+        
+        // reload full user object with updated comments
+        CheckinsRepository.getCheckinData(checkinData.checkinId, checkinDetailPage);
+        
+        checkinDetailCommentInput.reset();
     }
 
     // invocation for opening other apps

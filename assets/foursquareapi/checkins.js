@@ -17,6 +17,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "foursquareapi/transformators.js");
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
 	Qt.include(dirPaths.assetPath + "structures/score.js");
+	Qt.include(dirPaths.assetPath + "structures/comment.js");
 }
 
 // Load the recent checkin data for the currently logged in user
@@ -303,18 +304,14 @@ function addComment(checkinId, commentText, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			// console.log("# Add checkin object received. Transforming.");
-			// var checkinData = new FoursquareCheckinData();
-			// checkinData =
-			// checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
-
-			// extract notification
-			// var notificationData = new FoursquareScoreData();
-			// notificationData =
-			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
-
-			// console.log("# Done adding checkin");
-			callingPage.addCommentDataLoaded();
+			// console.log("# Add comment object received. Transforming.");
+			
+			// extract comment
+			var commentData = new FoursquareCommentData();
+			commentData = commentTransformator.getCommentDataFromObject(jsonObject.response.comment);
+			
+			// console.log("# Done adding comment");
+			callingPage.addCommentDataLoaded(commentData);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -338,13 +335,13 @@ function addComment(checkinId, commentText, callingPage) {
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
 	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/";
-	url += checkinId + "/like";
+	url += checkinId + "/addcomment";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
-	url += "&set=" + set;
+	url += "&text=" + commentText;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Setting like with url: " + url);
+	console.log("# Adding comment with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

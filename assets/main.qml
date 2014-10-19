@@ -144,9 +144,6 @@ NavigationPane {
 
                     // start searching for the current geolocation
                     positionSource.start();
-
-                    // check for new updates
-                    UpdatesRepository.checkForNewUpdates(mainPage);
                 } else {
                     // console.log("# Info: User is not authenticated");
 
@@ -357,7 +354,7 @@ NavigationPane {
 
                     // substract a day to get only the checkins for the last 24 hours
                     currentTimestamp = Math.round(currentTimestamp / 1000);
-                    currentTimestamp -= 86400;
+                    currentTimestamp -= 432000;
 
                     // load recent checkin stream with geolocation and time
                     CheckinsRepository.getRecentCheckins(mainPage.currentGeolocation, currentTimestamp, mainPage);
