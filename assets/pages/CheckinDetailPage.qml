@@ -7,8 +7,6 @@
 // License: All rights reserved
 // *************************************************** //
 
-// TODO: Refactor
-
 // import blackberry components
 import bb.cascades 1.3
 import bb.platform 1.3
@@ -69,11 +67,13 @@ Page {
             pinchToZoomEnabled: false
         }
 
+        // main container
         Container {
             layout: StackLayout {
                 orientation: LayoutOrientation.TopToBottom
             }
 
+            // venue header
             VenueHeader {
                 id: checkinDetailHeader
 
@@ -86,6 +86,7 @@ Page {
                 }
             }
 
+            // container for the info tiles
             Container {
                 id: checkinDetailTiles
 
@@ -167,6 +168,8 @@ Page {
                 // preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
                 preferredWidth: DisplayInfo.width
 
+                // set initial visibility to false
+                // will be set true if the comment data has been load
                 visible: false
 
                 onCalculatedHeightChanged: {
@@ -181,6 +184,8 @@ Page {
             CommentInput {
                 id: checkinDetailCommentInput
 
+                // set initial visibility to false
+                // will be set true if the comment data has been load
                 visible: false
 
                 // comment should be added
