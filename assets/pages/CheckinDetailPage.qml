@@ -187,7 +187,7 @@ Page {
                 onTriggered: {
                     checkinDetailComments.visible = false;
                     checkinDetailCommentInput.visible = false;
-                    
+
                     CheckinsRepository.addComment(checkinDetailPage.checkinData.checkinId, commentText, checkinDetailPage);
                 }
             }
@@ -279,6 +279,7 @@ Page {
     onVenueDetailDataLoaded: {
         // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
+        // set data loaded flag to true
         checkinDetailPage.venueDataDetailsLoaded = true;
 
         // fill header image
@@ -297,31 +298,35 @@ Page {
         }
     }
 
+    // checkin detail data has been loaded
     onCheckinDataLoaded: {
-        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
+        // set data loaded flag to true
         checkinDetailPage.checkinDataDetailsLoaded = true;
 
+        // fill comments list
         if (checkinData.comments.length > 0) {
             checkinDetailComments.clearList();
             checkinDetailComments.addToList(checkinData.comments);
-            // checkinDetailComments.preferredHeight = checkinData.comments.length * ui.sdu(14);
-            checkinDetailComments.visible = true;
         }
+
+        // show comments and comment input field
+        checkinDetailComments.visible = true;
+        checkinDetailCommentInput.visible = true;
 
         // save checkinData to page object
         checkinDetailPage.checkinData = checkinData;
-        
-        checkinDetailComments.visible = true;
-        checkinDetailCommentInput.visible = true;        
     }
 
+    // comment data has been added
     onAddCommentDataLoaded: {
-        console.log("# Comment data has been added");
-        
+        // console.log("# Comment data has been added");
+
         // reload full user object with updated comments
         CheckinsRepository.getCheckinData(checkinData.checkinId, checkinDetailPage);
-        
+
+        // reset comment input field
         checkinDetailCommentInput.reset();
     }
 
