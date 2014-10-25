@@ -29,7 +29,7 @@ Page {
     // signal if add checkin action is complete
     // note that it returns an updated venue object as well as a notification
     // containing the results of the checkin
-    signal addCheckinDataLoaded(variant checkinData, variant notificationData)
+    signal addCheckinDataLoaded(variant checkinData)
 
     // signal if popular media data loading encountered an error
     signal addCheckinDataError(variant errorData)

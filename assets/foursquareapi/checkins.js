@@ -180,15 +180,8 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 			var checkinData = new FoursquareCheckinData();
 			checkinData = checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
 
-			// TODO: Activate checkin response
-			
-			// extract notification
-			var notificationData = new FoursquareScoreData();
-			// notificationData =
-			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
-
 			// console.log("# Done adding checkin");
-			callingPage.addCheckinDataLoaded(checkinData, notificationData);
+			callingPage.addCheckinDataLoaded(checkinData);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly

@@ -46,7 +46,7 @@ Container {
     // item is given as type FoursquarescoreData
     signal addToList(variant item)
     onAddToList: {
-        // console.log("# Adding item with message " + item.message + " to score list data model");
+        console.log("# Adding item with message " + item.message + " to score list data model");
         scoreListComponent.currentItemIndex += 1;
         scoreListDataModel.insert({
                 "scoreData": item,
@@ -64,46 +64,45 @@ Container {
     // layout orientation
     layout: DockLayout {
     }
-/*
-    // list of scores
-    // this will be used once a checkin is done
-    // or to show a list of scores for a past checkin
+    
+    // list of update notifications
     ListView {
         id: scoreList
-
+        
         // associate the data model for the list view
         dataModel: scoreListDataModel
-
+        
         // layout orientation
         layout: StackListLayout {
             orientation: LayoutOrientation.TopToBottom
         }
-
+        
         // define component which will represent list item GUI appearence
         listItemComponents: [
             ListItemComponent {
                 type: "item"
-
+                
                 // define gallery view component as view for each list item
                 Container {
-                    id: scoreItemContainer
-
+                    id: scoreItem
+                    
                     // layout orientation
                     layout: DockLayout {
                     }
-
+                    
                     // item positioning
                     verticalAlignment: VerticalAlignment.Fill
                     horizontalAlignment: HorizontalAlignment.Fill
-
+                    
                     // layout definition
                     topMargin: 1
-
+                    
+                    // the actual score item
                     ScoreItem {
                         // layout definition
                         preferredWidth: Qt.scoreListFullDisplaySize
                         minWidth: Qt.scoreListFullDisplaySize
-
+                        
                         icon: ListItemData.scoreData.icon
                         message: ListItemData.scoreData.message
                         points: "+" + ListItemData.scoreData.points + " points"
@@ -116,7 +115,7 @@ Container {
                 }
             }
         ]
-
+        
         // add action for loading additional data after scrolling to bottom
         attachedObjects: [
             ListScrollStateHandler {
@@ -141,8 +140,8 @@ Container {
                 }
             }
         ]
-    }
-*/
+    }    
+
     // attached objects
     attachedObjects: [
         // this will be the data model for the popular media list view

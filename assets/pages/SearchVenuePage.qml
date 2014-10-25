@@ -80,7 +80,7 @@ Page {
                     loadingIndicator.showLoader("Searching..");
                     
                     // search call
-                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", 0, searchDistanceInMeters, searchVenuePage);
+                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
                 }
             }
 

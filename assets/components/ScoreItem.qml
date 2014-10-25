@@ -44,22 +44,32 @@ Container {
     topPadding: ui.sdu(2)
     bottomPadding: ui.sdu(2)
     leftPadding: ui.sdu(1)
-    rightPadding: ui.sdu(1)
+    rightPadding: ui.sdu(2)
 
     // profile image
     // this is a web image view provided by WebViewImage
-    WebImageView {
-        id: scoreIconImage
+    Container {
+        topPadding: ui.sdu(1)
 
-        // align the image in the center
-        verticalAlignment: VerticalAlignment.Top
-        horizontalAlignment: HorizontalAlignment.Right
+        WebImageView {
+            id: scoreIconImage
 
-        // set initial visibility to false
-        // will be set visible once a url is added
-        visible: false
-        onUrlChanged: {
-            visible = true;
+            // align the image in the center
+            verticalAlignment: VerticalAlignment.Top
+            horizontalAlignment: HorizontalAlignment.Center
+
+            // set image size to maximum icon picture size
+            preferredHeight: ui.sdu(3)
+            preferredWidth: ui.sdu(3)
+            minHeight: ui.sdu(3)
+            minWidth: ui.sdu(3)
+
+            // set initial visibility to false
+            // will be set visible once a url is added
+            visible: false
+            onUrlChanged: {
+                visible = true;
+            }
         }
     }
 
@@ -69,6 +79,10 @@ Container {
 
         // layout definition
         horizontalAlignment: HorizontalAlignment.Left
+
+        // size
+        preferredWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
+        minWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
 
         // text style definition
         textStyle.base: SystemDefaults.TextStyles.SubtitleText
@@ -85,13 +99,18 @@ Container {
         // layout definition
         horizontalAlignment: HorizontalAlignment.Right
         bottomMargin: 0
+        rightMargin: ui.sdu(1)
+
+        // size
+        preferredWidth: ui.sdu(20)
+        minWidth: ui.sdu(20)
 
         // text style definition
-        preferredWidth: ui.sdu(10)
         textStyle.base: SystemDefaults.TextStyles.SmallText
         textStyle.fontWeight: FontWeight.W100
         textStyle.fontSize: FontSize.XSmall
         textStyle.textAlign: TextAlign.Right
+        textStyle.color: Color.create(Globals.blackberryStandardBlue)
     }
 
     // handle tap on custom button

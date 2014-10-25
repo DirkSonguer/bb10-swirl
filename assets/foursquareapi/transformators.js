@@ -573,7 +573,7 @@ function ScoreTransformator() {
 // Extract all score data from a venue object
 // The resulting data is stored as FoursquareScoreData()
 ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
-	// console.log("# Transforming score item");
+	console.log("# Transforming score item");
 
 	// create new data object
 	var scoreData = new FoursquareVenueData();
@@ -587,15 +587,14 @@ ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
 	// icon attached to the score
 	if (typeof scoreObject.icon !== "undefined") scoreData.icon = scoreObject.icon;
 
-	// console.log("# Done transforming score item");
+	console.log("# Done transforming score item");
 	return scoreData;
 };
 
 // Extract all score data from an array of score objects
 // The resulting data is stored as array of FoursquareScoreData()
 ScoreTransformator.prototype.getScoreDataFromArray = function(scoreObjectArray) {
-	// console.log("# Transforming score array with " + scoreObjectArray.length
-	// + " items");
+	console.log("# Transforming score array with " + scoreObjectArray.length + " items");
 
 	// create new return array
 	var scoreDataArray = new Array();
@@ -608,7 +607,7 @@ ScoreTransformator.prototype.getScoreDataFromArray = function(scoreObjectArray) 
 		scoreDataArray[index] = scoreData;
 	}
 
-	// console.log("# Done transforming score array");
+	console.log("# Done transforming score array");
 	return scoreDataArray;
 };
 
