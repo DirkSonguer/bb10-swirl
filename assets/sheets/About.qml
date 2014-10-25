@@ -44,11 +44,51 @@ Page {
                 leftPadding: 10
                 rightPadding: 10
 
-                InfoMessage {
+                Container {
+                    // layout orientation
+                    layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
+                    // swirl title headline
+                    Label {
+                        id: swirlTitle
+
+                        // text style definition
+                        textStyle.base: SystemDefaults.TextStyles.BigText
+                        textStyle.fontWeight: FontWeight.W500
+                        textStyle.textAlign: TextAlign.Left
+                        multiline: true
+                    }
+
+                    // version number
+                    Container {
+                        // layout orientation
+                        verticalAlignment: VerticalAlignment.Bottom
+                        bottomPadding: ui.sdu(1.3)
+                        
+                        Label {
+                            id: versionMessage
+
+                            // layout definition
+
+                            // text style definition
+                            textStyle.base: SystemDefaults.TextStyles.SmallText
+                            textStyle.fontWeight: FontWeight.W100
+                            textStyle.textAlign: TextAlign.Left
+                            multiline: true
+                        }
+                    }
+                }
+
+                // the intro message text
+                Label {
                     id: infoMessage
 
-                    leftPadding: 0
-                    rightPadding: 0
+                    // text style definition
+                    textStyle.base: SystemDefaults.TextStyles.BodyText
+                    textStyle.fontWeight: FontWeight.W100
+                    textStyle.textAlign: TextAlign.Left
+                    multiline: true
                 }
 
                 // contact invocation trigger
@@ -94,7 +134,9 @@ Page {
     }
 
     onCreationCompleted: {
-        infoMessage.showMessage(Copytext.swirlAboutBody, Copytext.swirlAboutHeadline);
+        swirlTitle.text = Copytext.swirlAboutHeadline;
+        versionMessage.text = "Version " + Globals.currentApplicationVersion;
+        infoMessage.text = Copytext.swirlAboutBody;
         tosMessage.showMessage(Copytext.swirlAboutToS, "Terms of Service");
         privacyMessage.showMessage(Copytext.swirlAboutPrivacy, "Privacy");
         creditsMessage.showMessage(Copytext.swirlAboutCredits, "Third Parties");
