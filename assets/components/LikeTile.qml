@@ -139,7 +139,7 @@ Container {
         
         // check if already liked
         // if so, show image in background
-        if (checkinData.likeCount > 0) {
+        if ((checkinData.likeCount > 0) && (typeof checkinData.likes[0] !== "undefined")) {
             likeTileWebBackgroundImage.url = checkinData.likes[0].profileImageLarge;
         }
 

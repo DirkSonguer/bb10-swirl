@@ -179,8 +179,11 @@ NavigationPane {
 
             // iterate through data objects and fill lists
             for (var index in recentCheckinData) {
-                aroundYouList.addToList(recentCheckinData[index]);
-                checkinList.addToList(recentCheckinData[index]);
+                // filter checkins by current user
+                if (recentCheckinData[index].user.relationship != "self") {
+                    aroundYouList.addToList(recentCheckinData[index]);
+                    checkinList.addToList(recentCheckinData[index]);
+                }
             }
 
             // hide loader

@@ -37,55 +37,60 @@ Container {
 
     // layout orientation
     layout: StackLayout {
-        orientation: LayoutOrientation.LeftToRight
+        orientation: LayoutOrientation.TopToBottom
     }
 
-    // set initial visibility to false
-    visible: true
+    // text input field
+    Container {
+        // layout orientation
+        layout: StackLayout {
+            orientation: LayoutOrientation.LeftToRight
+        }
 
-    // comment input field
-    TextField {
-        id: searchInput
+        // comment input field
+        TextField {
+            id: searchInput
 
-        // configure text field
-        hintText: ""
-        clearButtonVisible: true
-        inputMode: TextFieldInputMode.Chat
+            // configure text field
+            hintText: ""
+            clearButtonVisible: true
+            inputMode: TextFieldInputMode.Chat
 
-        // input behaviour and handling
-        input {
-            submitKey: SubmitKey.Submit
-            onSubmitted: {
-                if (submitter.text.length > 0) {
-                    // console.log("# Search input for " + submitter.text);
+            // input behaviour and handling
+            input {
+                submitKey: SubmitKey.Submit
+                onSubmitted: {
+                    if (submitter.text.length > 0) {
+                        // console.log("# Search input for " + submitter.text);
 
-                    // store current search term
-                    searchInputComponent.currentSearchTerm = submitter.text;
+                        // store current search term
+                        searchInputComponent.currentSearchTerm = submitter.text;
 
-                    // signal that loading process has been triggered
-                    searchInputComponent.triggered(submitter.text);
-                } else {
-                    searchInputComponent.reset();
+                        // signal that loading process has been triggered
+                        searchInputComponent.triggered(submitter.text);
+                    } else {
+                        searchInputComponent.reset();
+                    }
                 }
             }
         }
-    }
 
-    // comment submit button
-    ImageButton {
-        // position and layout properties
-        verticalAlignment: VerticalAlignment.Center
+        // comment submit button
+        ImageButton {
+            // position and layout properties
+            verticalAlignment: VerticalAlignment.Center
 
-        // set button icons
-        defaultImageSource: "asset:///images/icons/icon_search.png"
-        pressedImageSource: "asset:///images/icons/icon_search_dimmed.png"
+            // set button icons
+            defaultImageSource: "asset:///images/icons/icon_search.png"
+            pressedImageSource: "asset:///images/icons/icon_search_dimmed.png"
 
-        // send search request if clicked
-        onClicked: {
-            // console.log("# Search input icon clicked");
+            // send search request if clicked
+            onClicked: {
+                // console.log("# Search input icon clicked");
 
-            // send the submit signal to the text input field
-            searchInput.input.submitted(searchInput);
+                // send the submit signal to the text input field
+                searchInput.input.submitted(searchInput);
+            }
         }
     }
 

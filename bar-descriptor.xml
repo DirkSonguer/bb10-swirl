@@ -63,7 +63,7 @@
 
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>Swirl is a Foursquare app for BlackBerry 10 that embraces the new changes in the foursquare platform. In this regard it acts much like Swarm to allow you to meet your friends and check in with them - all native for your BB10 device!</description>
+    <description>Swirl is a Foursquare app for BlackBerry 10 that embraces the new changes in the Foursquare platform. In this regard it acts much like Swarm to allow you to meet your friends and check in with them - all native for your BB10 device!</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->

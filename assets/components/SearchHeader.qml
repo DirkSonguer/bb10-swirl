@@ -25,6 +25,10 @@ Container {
 
     // signal that search component should reset itself
     signal resetSearch()
+    
+    // signal that the component should reset itself
+    // call to action is shown while search is retained
+    signal resetState()
 
     // layout orientation
     layout: DockLayout {
@@ -144,5 +148,11 @@ Container {
                 searchHeaderComponent.resetSearch();
             }
         }
+    }
+    
+    // reset to call to action state
+    onResetState: {
+        searchHeaderCallToActionContainer.visible = true;
+        searchHeaderSearchContainer.visible = false;
     }
 }

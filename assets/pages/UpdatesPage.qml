@@ -61,7 +61,7 @@ Page {
 
                 // user update item
                 if (updateData.targetType == "user") {
-                    // console.log("# User update clicked");
+                    console.log("# User update clicked");
 
                     // transform update object into user object
                     var userData = Transformators.userTransformator.getUserDataFromObject(updateData.targetObject);
@@ -74,15 +74,15 @@ Page {
 
                 // checkin update item
                 if (updateData.targetType == "checkin") {
-                    // console.log("# Checkin update clicked");
+                    console.log("# Checkin update clicked");
 
                     // transform update object into checkin object
                     var checkinData = Transformators.checkinTransformator.getCheckinDataFromObject(updateData.targetObject);
 
                     // open page with new venue object
-                    var venueDetailPage = venueDetailComponent.createObject();
-                    venueDetailPage.venueData = checkinData.venue;
-                    navigationPane.push(venueDetailPage);
+                    var checkinDetailPage = checkinDetailComponent.createObject();
+                    checkinDetailPage.checkinData = checkinData;
+                    navigationPane.push(checkinDetailPage);
                 }
             }
         }
@@ -134,11 +134,11 @@ Page {
             id: userDetailComponent
             source: "UserDetailPage.qml"
         },
-        // venue detail page
-        // will be called if user clicks on venue item
+        // checkin detail page
+        // will be called if user clicks on checkin item
         ComponentDefinition {
-            id: venueDetailComponent
-            source: "VenueDetailPage.qml"
+            id: checkinDetailComponent
+            source: "CheckinDetailPage.qml"
         }
     ]
 }

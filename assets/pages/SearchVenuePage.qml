@@ -75,8 +75,12 @@ Page {
                 onUpdateSearch: {
                     // initially clear list
                     venueList.clearList();
+                    venueListSearchHeader.visible = false;
+                    venueListSearchHeader.resetState();
                     loadingIndicator.showLoader("Searching..");
-                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
+                    
+                    // search call
+                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", 0, searchDistanceInMeters, searchVenuePage);
                 }
             }
 
@@ -181,7 +185,8 @@ Page {
                     loadingIndicator.showLoader("Checking what's around you");
 
                     // load recent checkin stream with geolocation and time
-                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", "", 0, searchVenuePage);
+                    // note initial search results are capped to a distance of 1km
+                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", "", 1000, searchVenuePage);
 
                     // stop location service
                     positionSource.stop();
