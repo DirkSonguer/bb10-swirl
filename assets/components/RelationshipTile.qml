@@ -137,6 +137,11 @@ Container {
                     if (relationshipTileComponent.currentAction == "pendingMe") {
                         UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "approve", relationshipTileComponent);
                     }
+                    
+                    // add user
+                    if (relationshipTileComponent.currentAction == "friend") {
+                        UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "request", relationshipTileComponent);
+                    }
                 }
             }
 
