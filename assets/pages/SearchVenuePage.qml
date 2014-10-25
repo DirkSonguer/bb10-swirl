@@ -63,51 +63,33 @@ Page {
                 orientation: LayoutOrientation.TopToBottom
             }
 
-            // search functionality
-            SearchHeader {
-                id: venueListSearchHeader
-
-                // set initial visibility to false during loading
-                visible: false
-
-                // search term has been entered
-                // update the search accordingly
-                onUpdateSearch: {
-                    // initially clear list
-                    venueList.clearList();
-                    venueListSearchHeader.visible = false;
-                    venueListSearchHeader.resetState();
-                    loadingIndicator.showLoader("Searching..");
-                    
-                    // search call
-                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
-                }
-            }
-
             // venue list
             // this will contain all the components and actions
             // for the venue list
             VenueList {
                 id: venueList
 
+                // set sorting
                 listSortAscending: true
 
-                onListTopReached: {
-                    if (currentItemIndex > 0) {
-                        venueListSearchHeader.visible = true;
-                    }
-                }
-
-                onListIsScrolling: {
-                    venueListSearchHeader.visible = false;
-                }
-
+                // venue has been selected
                 onItemClicked: {
                     // console.log("# Item clicked: " + venueData.userId);
                     var addCheckinPage = addCheckinComponent.createObject();
                     addCheckinPage.venueData = venueData;
                     addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
                     navigationPane.push(addCheckinPage);
+                }
+
+                // search term has been entered
+                // update the search accordingly
+                onSearchTriggered: {
+                    // initially clear list
+                    venueList.clearList();
+                    loadingIndicator.showLoader("Searching..");
+
+                    // search call
+                    VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
                 }
             }
         }
@@ -142,7 +124,7 @@ Page {
         loadingIndicator.hideLoader();
 
         //show components
-        venueListSearchHeader.visible = true;
+        // venueListSearchHeader.visible = true;
     }
 
     // recent checkin data could not be load
@@ -153,7 +135,7 @@ Page {
         loadingIndicator.hideLoader();
 
         //show components
-        venueListSearchHeader.visible = true;
+        // venueListSearchHeader.visible = true;
     }
 
     // attach components

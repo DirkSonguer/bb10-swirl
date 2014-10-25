@@ -26,6 +26,9 @@ Container {
     // signal if user was clicked
     signal profileClicked(variant userData)
 
+    // signal to refresh the list
+    signal refreshTriggered()
+
     // property that holds the current index
     // this is incremented as new items are added
     // to the list a provides the order the items were
@@ -81,6 +84,17 @@ Container {
             headerMode: ListHeaderMode.Sticky
             columnCount: 3
             cellAspectRatio: 0.75
+        }
+
+        // set refresh header as leading visual
+        leadingVisualSnapThreshold: 2.0
+        leadingVisual: RefreshHeader {
+            id: refreshHandler
+
+            // refresh triggered
+            onTriggered: {
+                aroundYouListComponent.refreshTriggered();
+            }
         }
 
         // define component which will represent list item GUI appearence

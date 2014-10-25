@@ -1,5 +1,5 @@
 1
-104
+105
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -18,6 +18,7 @@ components/InfoTile.qml
 components/LikeTile.qml
 components/LoadingIndicator.qml
 components/LocationTile.qml
+components/RefreshHeader.qml
 components/RelationshipTile.qml
 components/ScoreItem.qml
 components/ScoreList.qml

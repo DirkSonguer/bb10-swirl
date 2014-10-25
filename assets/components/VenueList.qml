@@ -24,6 +24,9 @@ Container {
 
     // signal if item was clicked
     signal itemClicked(variant venueData)
+    
+    // signal to refresh the list
+    signal searchTriggered(string searchTerm)
 
     // property that holds the current index
     // this is incremented as new items are added
@@ -75,7 +78,19 @@ Container {
         layout: StackListLayout {
             orientation: LayoutOrientation.TopToBottom
         }
-
+        
+        // set search header as leading visual
+        leadingVisualSnapThreshold: 2.0
+        leadingVisual: SearchHeader {
+            id: searchHandler
+            
+            // refresh triggered
+            onUpdateSearch: {
+                searchHandler.resetState();
+                venueListComponent.searchTriggered(searchTerm);
+            }
+        }
+        
         // define component which will represent list item GUI appearence
         listItemComponents: [
             ListItemComponent {

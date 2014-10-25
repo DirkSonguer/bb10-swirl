@@ -96,6 +96,20 @@ NavigationPane {
                     userDetailPage.userData = userData;
                     navigationPane.push(userDetailPage);
                 }
+
+                // refresh list on signal
+                onRefreshTriggered: {
+                    // hide lists because of reload
+                    aroundYouList.visible = false;
+                    checkinList.visible = false;
+                    changeCheckinViewAction.enabled = false;
+
+                    // show loader
+                    loadingIndicator.showLoader("Trying to fix your location");
+
+                    // start searching for the current geolocation
+                    positionSource.start();
+                }
             }
 
             // checkin list
@@ -122,6 +136,20 @@ NavigationPane {
                     var checkinDetailPage = checkinDetailComponent.createObject();
                     checkinDetailPage.checkinData = checkinData;
                     navigationPane.push(checkinDetailPage);
+                }
+
+                // refresh list on signal
+                onRefreshTriggered: {
+                    // hide lists because of reload
+                    aroundYouList.visible = false;
+                    checkinList.visible = false;
+                    changeCheckinViewAction.enabled = false;
+
+                    // show loader
+                    loadingIndicator.showLoader("Trying to fix your location");
+
+                    // start searching for the current geolocation
+                    positionSource.start();
                 }
             }
 
@@ -190,8 +218,16 @@ NavigationPane {
             loadingIndicator.hideLoader();
 
             // show list with results
-            // first the around you list is shown
-            aroundYouList.visible = true;
+            // list shown is according to the state of the action button
+            if (changeCheckinViewAction.title == "Recent") {
+                // show around you list
+                checkinList.visible = false;
+                aroundYouList.visible = true;
+            } else {
+                // show recent list
+                aroundYouList.visible = false;
+                checkinList.visible = true;
+            }
 
             // enable view changer
             changeCheckinViewAction.enabled = true;
