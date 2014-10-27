@@ -64,7 +64,7 @@ Page {
                     Container {
                         // layout orientation
                         verticalAlignment: VerticalAlignment.Bottom
-                        bottomPadding: ui.sdu(1.3)
+                        bottomPadding: ui.sdu(1.4)
                         
                         Label {
                             id: versionMessage

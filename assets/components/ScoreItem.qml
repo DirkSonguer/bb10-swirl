@@ -81,8 +81,8 @@ Container {
         horizontalAlignment: HorizontalAlignment.Left
 
         // size
-        preferredWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
-        minWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
+        // preferredWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
+        // minWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
 
         // text style definition
         textStyle.base: SystemDefaults.TextStyles.SubtitleText

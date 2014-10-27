@@ -1,5 +1,5 @@
 1
-105
+107
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -63,6 +63,8 @@ images/icons/icon_facebook_disabled.png
 images/icons/icon_facebook_inactive.png
 images/icons/icon_facebook_w.png
 images/icons/icon_home.png
+images/icons/icon_image_active.png
+images/icons/icon_image_inactive.png
 images/icons/icon_liked_w.png
 images/icons/icon_mail_w.png
 images/icons/icon_notification.png

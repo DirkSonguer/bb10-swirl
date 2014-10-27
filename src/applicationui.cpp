@@ -23,11 +23,17 @@
 #include <bb/cascades/LocaleHandler>
 
 // individual includes
+#include "WebImageView.h"
+#include "CommunicationInvokes.hpp"
 //#include <bb/cascades/SceneCover>
 #include <bb/device/DisplayInfo>
 #include <bb/system/phone/Phone>
-#include "WebImageView.h"
-#include "CommunicationInvokes.hpp"
+#include <bb/cascades/pickers/FilePicker>
+#include <bb/cascades/pickers/FilePickerMode>
+#include <bb/cascades/pickers/FilePickerSortFlag>
+#include <bb/cascades/pickers/FilePickerSortOrder>
+#include <bb/cascades/pickers/FilePickerViewMode>
+#include <bb/cascades/pickers/FileType>
 
 // use blackberry namespaces
 using namespace bb::device;
@@ -41,6 +47,16 @@ ApplicationUI::ApplicationUI() :
     qmlRegisterType<CommunicationInvokes>("CommunicationInvokes", 1, 0, "CommunicationInvokes");
     qmlRegisterType<bb::system::phone::Phone>("bb.system.phone", 1, 0, "Phone");
     qmlRegisterType<QTimer>("QtTimer", 1, 0, "Timer");
+    qmlRegisterType<pickers::FilePicker>("bb.cascades.pickers", 1, 0, "FilePicker");
+    qmlRegisterUncreatableType<pickers::FilePickerMode>("bb.cascades.pickers", 1, 0,
+            "FilePickerMode", "");
+    qmlRegisterUncreatableType<pickers::FilePickerSortFlag>("bb.cascades.pickers", 1, 0,
+            "FilePickerSortFlag", "");
+    qmlRegisterUncreatableType<pickers::FilePickerSortOrder>("bb.cascades.pickers", 1, 0,
+            "FilePickerSortOrder", "");
+    qmlRegisterUncreatableType<pickers::FileType>("bb.cascades.pickers", 1, 0, "FileType", "");
+    qmlRegisterUncreatableType<pickers::FilePickerViewMode>("bb.cascades.pickers", 1, 0,
+            "FilePickerViewMode", "");
 
     // prepare the localization
     m_pTranslator = new QTranslator(this);

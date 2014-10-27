@@ -4,6 +4,6 @@ CONFIG += qt warn_on cascades10
 
 QT += network
 
-LIBS += -lbb -lbbdevice -lbbplatform -lbbsystem -lbbcascadesmaps -lGLESv1_CM -lQtLocationSubset
+LIBS += -lbb -lbbdevice -lbbplatform -lbbsystem -lbbcascadesmaps -lbbcascadespickers -lGLESv1_CM -lQtLocationSubset
 
 include(config.pri)

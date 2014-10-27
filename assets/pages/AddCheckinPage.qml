@@ -11,9 +11,13 @@
 
 // import blackberry components
 import bb.cascades 1.3
+import bb.cascades.pickers 1.0
 
 // import timer type
 import QtTimer 1.0
+
+// import file io class
+import FileIO 1.0
 
 // set import directory for components
 import "../components"
@@ -37,6 +41,9 @@ Page {
     // property that holds the venue data to checkin to
     property variant venueData
 
+    // image to add to the checkin
+    property string venueImage
+
     // property for the current geolocation
     // contains lat and lon
     property variant currentGeolocation
@@ -55,7 +62,7 @@ Page {
 
             VenueHeaderShort {
                 id: addCheckinHeader
-                
+
                 onTouch: {
                     addCheckinInput.focus();
                 }
@@ -83,6 +90,53 @@ Page {
                     bottomPadding: ui.sdu(1)
                     leftPadding: ui.sdu(1)
                     rightPadding: ui.sdu(1)
+
+                    ImageToggleButton {
+                        id: addCheckinImage
+
+                        // layout definition
+                        leftMargin: ui.sdu(1)
+                        preferredWidth: ui.sdu(7)
+                        preferredHeight: ui.sdu(7)
+
+                        // set default state to checked
+                        checked: false
+
+                        // set button images
+                        imageSourceDefault: "asset:///images/icons/icon_image_inactive.png"
+                        imageSourceChecked: "asset:///images/icons/icon_image_active.png"
+                        imageSourceDisabledUnchecked: "asset:///images/icons/icon_image_inactive.png"
+                        imageSourceDisabledChecked: "asset:///images/icons/icon_image_inactive.png"
+                        imageSourcePressedUnchecked: "asset:///images/icons/icon_image_active.png"
+                        imageSourcePressedChecked: "asset:///images/icons/icon_image_active.png"
+
+                        // open file picker on tap
+                        onCheckedChanged: {
+                            imageFilePicker.open();
+                        }
+
+                        // add file picker object
+                        attachedObjects: [
+                            FilePicker {
+                                id: imageFilePicker
+                                type: FileType.Picture
+
+                                // store file in property
+                                onFileSelected: {
+                                    console.log("# Image has been selected: " + selectedFiles[0]);
+                                    addCheckinPage.venueImage = selectedFiles[0];
+                                    addCheckinImage.checked = true;
+                                }
+
+                                // file selection cancelled
+                                onCanceled: {
+                                    console.log("# Image selection has been cancelled");
+                                    addCheckinPage.venueImage = "";
+                                    addCheckinImage.checked = false;
+                                }
+                            }
+                        ]
+                    }
 
                     ImageToggleButton {
                         id: addCheckinPublic
@@ -183,7 +237,7 @@ Page {
 
                             // console.log("# Broadcast string is: " + broadcast);
 
-                            CheckinsRepository.addCheckin(venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
+                            CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
 
                             // hide input and show loader
                             addCheckinContainer.visible = false;
@@ -264,7 +318,7 @@ Page {
         if (venueData.locationCategories != "") {
             addCheckinHeader.category = venueData.locationCategories[0].name;
         }
-                
+
         addCheckinInputTimer.start();
     }
 
@@ -286,8 +340,15 @@ Page {
 
         // show container
         addCheckinResultContainer.visible = true;
+
+        // check if image should be added to checkin
+        // if so, upload the image
+        if (addCheckinPage.venueImage != "") {
+            console.log("# Trying to upload image: " + addCheckinPage.venueImage);
+            // CheckinsRepository.addImageToCheckin(checkinData.checkinId, checkinData.shout, "", fileData, addCheckinPage);
+        }
     }
-    
+
     // attached objects
     attachedObjects: [
         // timer component
@@ -296,12 +357,12 @@ Page {
             id: addCheckinInputTimer
             interval: 1000
             singleShot: true
-            
+
             // when triggered, reload the comment data
             onTimeout: {
                 // load comments for given media item
                 addCheckinInput.focus();
             }
         }
-    ]  
+    ]
 }

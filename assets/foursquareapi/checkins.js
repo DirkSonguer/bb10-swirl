@@ -41,7 +41,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 
 			// check for new notifications
 			helperMethods.checkForNotification(jsonObject);
-			
+
 			// console.log("# Recent checkins object received. Transforming.");
 			// prepare transformator and return object
 			var checkinDataArray = new Array();
@@ -218,13 +218,15 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 	req.send();
 }
 
-// Set a like status for a checkin
-// First parameter is the id of the checkin to check into
-// Second parameter is the state of the checkin
-// Third parameter the id of the calling page, which will receive the
-// likeDataLoaded() signal
-function likeCheckin(checkinId, set, callingPage) {
-	// console.log("# Setting like state to " + set + " for venue: " + checkinId);
+// Add a new checkin for a given loction
+// First parameter is the id of the checkin to add the image for
+// Second parameter is a string to add as checkin comment
+// Third parameter is the current geolocation, given as GeolocationData
+// Fourth parameter is the raw image file data
+// Fifth parameter the id of the calling page, which will receive the
+// recentCheckinDataLoaded() signal
+function addImageToCheckin(checkinId, shout, broadcast, imageData, callingPage) {
+	console.log("# Adding image to checkin: " + checkinId);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -233,9 +235,93 @@ function likeCheckin(checkinId, set, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			
+			// console.log("# Add checkin object received. Transforming.");
+			// var checkinData = new FoursquareCheckinData();
+			// checkinData =
+			// checkinTransformator.getCheckinDataFromObject(jsonObject.response.checkin);
+
+			// console.log("# Done adding checkin");
+			// callingPage.addCheckinDataLoaded(checkinData);
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// callingPage.addCheckinDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted adding image to checkin");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/photos/add";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&checkinId=" + checkinId;
+	url += "&public=1";
+	// url += "&broadcast=" + broadcast;
+	// url += "&postText=" + shout;
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	console.log("# Adding image to checkin with url: " + url);
+	req.open("POST", url, true);
+	// req.setRequestHeader("Expect", "100-continue");
+
+	var multipart = "";
+
+	var boundary = Math.random().toString().substr(2);
+	req.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary);
+		
+	multipart += "--" + boundary + "\r\n";
+	multipart += "Content-Disposition: form-data; name=\"photo\"; filename=\"test.jpg\"\r\n";
+	multipart += "Content-Type: image/jpeg\r\n";
+	//multipart += "Content-Transfer-Encoding: base64\r\n";
+	multipart += imageData + "\r\n";
+	multipart += "--" + boundary + "--\r\n";
+	req.setRequestHeader("Content-Length", multipart.length);
+	
+	req.send(multipart);
+	
+	console.log("### " + multipart.length);
+	
+/*	
+	req.setRequestHeader("Content-Type", "image/jpeg");
+	req.setRequestHeader("Content-Transfer-Encoding", "base64");
+    req.send(imageData);
+*/
+	
+ // req.setRequestHeader("content-type", "image/jpeg");
+ // req.send([{"photo":imageData}]);
+ // req.send(imageData);
+}
+
+// Set a like status for a checkin
+// First parameter is the id of the checkin to check into
+// Second parameter is the state of the checkin
+// Third parameter the id of the calling page, which will receive the
+// likeDataLoaded() signal
+function likeCheckin(checkinId, set, callingPage) {
+	// console.log("# Setting like state to " + set + " for venue: " +
+	// checkinId);
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+
 			// TODO: Activate like response
-			
+
 			// console.log("# Add checkin object received. Transforming.");
 			// var checkinData = new FoursquareCheckinData();
 			// checkinData =
@@ -298,11 +384,11 @@ function addComment(checkinId, commentText, callingPage) {
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
 			// console.log("# Add comment object received. Transforming.");
-			
+
 			// extract comment
 			var commentData = new FoursquareCommentData();
 			commentData = commentTransformator.getCommentDataFromObject(jsonObject.response.comment);
-			
+
 			// console.log("# Done adding comment");
 			callingPage.addCommentDataLoaded(commentData);
 		} else {

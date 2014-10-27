@@ -109,6 +109,9 @@
     <permission system="true">run_native</permission>
     <permission>access_location_services</permission>
     <permission>access_internet</permission>
+    <permission>access_shared</permission>
+    <permission>use_camera</permission>
+    <permission>use_camera_desktop</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
     <env var="CASCADES_THEME" value="bright"/>
 
