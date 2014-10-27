@@ -134,7 +134,7 @@ Container {
                     }
 
                     // approve user
-                    if (relationshipTileComponent.currentAction == "pendingMe") {
+                    if (relationshipTileComponent.currentAction == "confirmfriend") {
                         UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "approve", relationshipTileComponent);
                     }
                     
@@ -165,7 +165,7 @@ Container {
                 // declining the action will just reset the state and hide the buttons
                 onClicked: {
                     // deny user
-                    if (relationshipTileComponent.currentAction == "pendingMe") {
+                    if (relationshipTileComponent.currentAction == "confirmfriend") {
                         UsersRepository.changeUserRelationship(relationshipTileComponent.userData.userId, "deny", relationshipTileComponent);
                     }
 

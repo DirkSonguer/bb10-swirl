@@ -79,3 +79,51 @@ function getNotifications(callingPage) {
 	req.open("GET", url, true);
 	req.send();
 }
+
+// Mark the recent notifications as read up to a certain timestamp
+// First parameter is the timestamp as threshhold to mark notifications against
+// Second parameter is the id of the calling page, which will receive the
+// notificationDataError() signal
+function markNotificationsRead(markTimestamp, callingPage) {
+	// console.log("# Marking updates until timestamp " + markTimestamp);
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# Done marking updates");
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.notificationDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted loading updates");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/updates/marknotificationsread";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&highWatermark=" + markTimestamp;
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	console.log("# Marking updates with url: " + url);
+	req.open("POST", url, true);
+	req.send();
+}

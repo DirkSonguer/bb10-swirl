@@ -191,7 +191,8 @@ function getFriendsForUser(userId, callingPage) {
 // Third parameter is the calling page, which will receive the
 // userDetailDataLoaded() signal
 function changeUserRelationship(userId, relationshipState, callingPage) {
-	// console.log("# Unfriending user");
+	// console.log("# Changing relationship with user " + userId + " to state "
+	// + relationshipState);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -235,7 +236,7 @@ function changeUserRelationship(userId, relationshipState, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Unfriending user with url: " + url);
+	// console.log("# Changing user relationship with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

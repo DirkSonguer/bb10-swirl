@@ -98,6 +98,9 @@ Page {
                         leftMargin: ui.sdu(1)
                         preferredWidth: ui.sdu(7)
                         preferredHeight: ui.sdu(7)
+                        
+                        // hide due to incomplete feature
+                        visible: false
 
                         // set default state to checked
                         checked: false
@@ -123,14 +126,14 @@ Page {
 
                                 // store file in property
                                 onFileSelected: {
-                                    console.log("# Image has been selected: " + selectedFiles[0]);
+                                    // console.log("# Image has been selected: " + selectedFiles[0]);
                                     addCheckinPage.venueImage = selectedFiles[0];
                                     addCheckinImage.checked = true;
                                 }
 
                                 // file selection cancelled
                                 onCanceled: {
-                                    console.log("# Image selection has been cancelled");
+                                    // console.log("# Image selection has been cancelled");
                                     addCheckinPage.venueImage = "";
                                     addCheckinImage.checked = false;
                                 }
@@ -344,7 +347,7 @@ Page {
         // check if image should be added to checkin
         // if so, upload the image
         if (addCheckinPage.venueImage != "") {
-            console.log("# Trying to upload image: " + addCheckinPage.venueImage);
+            // console.log("# Trying to upload image: " + addCheckinPage.venueImage);
             // CheckinsRepository.addImageToCheckin(checkinData.checkinId, checkinData.shout, "", fileData, addCheckinPage);
         }
     }

@@ -46,7 +46,7 @@ Container {
     // item is given as type FoursquarescoreData
     signal addToList(variant item)
     onAddToList: {
-        console.log("# Adding item with message " + item.message + " to score list data model");
+        // console.log("# Adding item with message " + item.message + " to score list data model");
         scoreListComponent.currentItemIndex += 1;
         scoreListDataModel.insert({
                 "scoreData": item,

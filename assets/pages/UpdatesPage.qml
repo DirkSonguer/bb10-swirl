@@ -61,7 +61,7 @@ Page {
 
                 // user update item
                 if (updateData.targetType == "user") {
-                    console.log("# User update clicked");
+                    // console.log("# User update clicked");
 
                     // transform update object into user object
                     var userData = Transformators.userTransformator.getUserDataFromObject(updateData.targetObject);
@@ -74,7 +74,7 @@ Page {
 
                 // checkin update item
                 if (updateData.targetType == "checkin") {
-                    console.log("# Checkin update clicked");
+                    // console.log("# Checkin update clicked");
 
                     // transform update object into checkin object
                     var checkinData = Transformators.checkinTransformator.getCheckinDataFromObject(updateData.targetObject);
@@ -108,10 +108,20 @@ Page {
         // initially clear list
         updateList.clearList();
 
+        // var for latest timestamp
+        var latestTimestamp = 0;
+
         // iterate through data objects and fill list
         for (var index in updateData) {
+            // fill list
             updateList.addToList(updateData[index]);
+
+            // check for latest timestamp
+            if (latestTimestamp < updateData[index].createdAt) latestTimestamp = updateData[index].createdAt;
         }
+
+        // mark all notification read
+        UpdatesRepository.markNotificationsRead(latestTimestamp, updatesPage);
 
         // hide loader
         loadingIndicator.hideLoader();
