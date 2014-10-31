@@ -16,9 +16,6 @@ import bb.cascades.pickers 1.0
 // import timer type
 import QtTimer 1.0
 
-// import file io class
-import FileIO 1.0
-
 // set import directory for components
 import "../components"
 
