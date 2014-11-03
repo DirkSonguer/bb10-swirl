@@ -263,6 +263,7 @@ function addImageToCheckin(checkinId, shout, broadcast, imageData, callingPage) 
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
 	url = foursquarekeys.foursquareAPIUrl + "/v2/photos/add";
+	/*
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&checkinId=" + checkinId;
 	url += "&public=1";
@@ -270,9 +271,16 @@ function addImageToCheckin(checkinId, shout, broadcast, imageData, callingPage) 
 	// url += "&postText=" + shout;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
+*/
 
 	console.log("# Adding image to checkin with url: " + url);
-	req.open("POST", url, true);
+/*	
+	var returnArray = new Array();
+	returnArray.push(foursquarekeys.foursquareAPIVersion, checkinId, foursquareUserdata["access_token"], "1", url);
+	
+	return returnArray;
+*/
+	// req.open("POST", url, true);
 	// req.setRequestHeader("Expect", "100-continue");
 
 	var multipart = "";
@@ -291,7 +299,7 @@ function addImageToCheckin(checkinId, shout, broadcast, imageData, callingPage) 
 	req.send(multipart);
 	
 	console.log("### " + multipart.length);
-	
+	*/
 /*	
 	req.setRequestHeader("Content-Type", "image/jpeg");
 	req.setRequestHeader("Content-Transfer-Encoding", "base64");

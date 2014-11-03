@@ -16,6 +16,9 @@ import bb.cascades.pickers 1.0
 // import timer type
 import QtTimer 1.0
 
+// import file upload
+import FileUpload 1.0
+
 // set import directory for components
 import "../components"
 
@@ -97,7 +100,7 @@ Page {
                         preferredHeight: ui.sdu(7)
                         
                         // hide due to incomplete feature
-                        visible: false
+                        // visible: false
 
                         // set default state to checked
                         checked: false
@@ -123,7 +126,7 @@ Page {
 
                                 // store file in property
                                 onFileSelected: {
-                                    // console.log("# Image has been selected: " + selectedFiles[0]);
+                                    console.log("# Image has been selected: " + selectedFiles[0]);
                                     addCheckinPage.venueImage = selectedFiles[0];
                                     addCheckinImage.checked = true;
                                 }
@@ -344,8 +347,12 @@ Page {
         // check if image should be added to checkin
         // if so, upload the image
         if (addCheckinPage.venueImage != "") {
-            // console.log("# Trying to upload image: " + addCheckinPage.venueImage);
-            // CheckinsRepository.addImageToCheckin(checkinData.checkinId, checkinData.shout, "", fileData, addCheckinPage);
+            console.log("# Trying to upload image: " + addCheckinPage.venueImage);
+            
+            var fileContent = fileUpload.getFileData(addCheckinPage.venueImage);
+
+            var uploadArray = CheckinsRepository.addImageToCheckin(checkinData.checkinId, checkinData.shout, "", fileContent, addCheckinPage);
+//            fileUpload.uploadFile(uploadArray[0], uploadArray[1], uploadArray[2], uploadArray[3], addCheckinPage.venueImage, uploadArray[4]);
         }
     }
 
@@ -363,6 +370,9 @@ Page {
                 // load comments for given media item
                 addCheckinInput.focus();
             }
+        },
+        FileUpload {
+            id: fileUpload
         }
     ]
 }

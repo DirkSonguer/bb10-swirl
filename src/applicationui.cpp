@@ -25,6 +25,7 @@
 // individual includes
 #include "WebImageView.h"
 #include "CommunicationInvokes.hpp"
+#include "FileUpload.h"
 //#include <bb/cascades/SceneCover>
 #include <bb/device/DisplayInfo>
 #include <bb/system/phone/Phone>
@@ -45,6 +46,7 @@ ApplicationUI::ApplicationUI() :
 {
     qmlRegisterType<WebImageView>("WebImageView", 1, 0, "WebImageView");
     qmlRegisterType<CommunicationInvokes>("CommunicationInvokes", 1, 0, "CommunicationInvokes");
+    qmlRegisterType<FileUpload>("FileUpload", 1, 0, "FileUpload");
     qmlRegisterType<bb::system::phone::Phone>("bb.system.phone", 1, 0, "Phone");
     qmlRegisterType<QTimer>("QtTimer", 1, 0, "Timer");
     qmlRegisterType<pickers::FilePicker>("bb.cascades.pickers", 1, 0, "FilePicker");
