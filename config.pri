@@ -155,7 +155,7 @@ config_pri_source_group1 {
 
     HEADERS += \
         $$quote($$BASEDIR/src/CommunicationInvokes.hpp) \
-        $$quote($$BASEDIR/src/FileUpload.h) \
+        $$quote($$BASEDIR/src/FileUpload.hpp) \
         $$quote($$BASEDIR/src/WebImageView.h) \
         $$quote($$BASEDIR/src/applicationui.hpp)
 }

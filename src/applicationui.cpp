@@ -25,7 +25,7 @@
 // individual includes
 #include "WebImageView.h"
 #include "CommunicationInvokes.hpp"
-#include "FileUpload.h"
+#include "FileUpload.hpp"
 //#include <bb/cascades/SceneCover>
 #include <bb/device/DisplayInfo>
 #include <bb/system/phone/Phone>

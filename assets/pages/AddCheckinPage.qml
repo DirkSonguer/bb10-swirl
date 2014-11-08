@@ -25,7 +25,9 @@ import "../components"
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
+import "../global/foursquarekeys.js" as FoursquareKeys
 import "../foursquareapi/checkins.js" as CheckinsRepository
+import "../classes/authenticationhandler.js" as AuthenticationHandler
 
 Page {
     id: addCheckinPage
@@ -96,9 +98,9 @@ Page {
 
                         // layout definition
                         leftMargin: ui.sdu(1)
-                        preferredWidth: ui.sdu(7)
-                        preferredHeight: ui.sdu(7)
-                        
+                        preferredWidth: ui.sdu(9)
+                        preferredHeight: ui.sdu(9)
+
                         // hide due to incomplete feature
                         // visible: false
 
@@ -146,8 +148,8 @@ Page {
 
                         // layout definition
                         leftMargin: ui.sdu(1)
-                        preferredWidth: ui.sdu(7)
-                        preferredHeight: ui.sdu(7)
+                        preferredWidth: ui.sdu(9)
+                        preferredHeight: ui.sdu(9)
 
                         // set default state to checked
                         checked: true
@@ -176,8 +178,8 @@ Page {
 
                         // layout definition
                         leftMargin: ui.sdu(1)
-                        preferredWidth: ui.sdu(7)
-                        preferredHeight: ui.sdu(7)
+                        preferredWidth: ui.sdu(9)
+                        preferredHeight: ui.sdu(9)
 
                         // set default state to unchecked
                         checked: false
@@ -196,8 +198,8 @@ Page {
 
                         // layout definition
                         leftMargin: ui.sdu(1)
-                        preferredWidth: ui.sdu(7)
-                        preferredHeight: ui.sdu(7)
+                        preferredWidth: ui.sdu(9)
+                        preferredHeight: ui.sdu(9)
 
                         // set default state to unchecked
                         checked: false
@@ -238,8 +240,7 @@ Page {
                             if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
                             if ((addCheckinTwitter.checked) && (addCheckinTwitter.enabled)) broadcast += ",twitter";
 
-                            // console.log("# Broadcast string is: " + broadcast);
-
+                            // add checkin
                             CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
 
                             // hide input and show loader
@@ -347,12 +348,12 @@ Page {
         // check if image should be added to checkin
         // if so, upload the image
         if (addCheckinPage.venueImage != "") {
-            console.log("# Trying to upload image: " + addCheckinPage.venueImage);
-            
-            var fileContent = fileUpload.getFileData(addCheckinPage.venueImage);
+            // console.log("# Trying to upload image: " + addCheckinPage.venueImage);
 
-            var uploadArray = CheckinsRepository.addImageToCheckin(checkinData.checkinId, checkinData.shout, "", fileContent, addCheckinPage);
-//            fileUpload.uploadFile(uploadArray[0], uploadArray[1], uploadArray[2], uploadArray[3], addCheckinPage.venueImage, uploadArray[4]);
+            // uploading image
+            fileUpload.source = addCheckinPage.venueImage;
+            var foursquareUserdata = AuthenticationHandler.auth.getStoredFoursquareData();
+            fileUpload.upload(checkinData.checkinId, foursquareUserdata["access_token"], FoursquareKeys.foursquarekeys.foursquareAPIVersion, "1");
         }
     }
 
