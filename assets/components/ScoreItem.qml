@@ -59,10 +59,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Center
 
             // set image size to maximum icon picture size
-            preferredHeight: ui.sdu(3)
-            preferredWidth: ui.sdu(3)
-            minHeight: ui.sdu(3)
-            minWidth: ui.sdu(3)
+            preferredHeight: ui.sdu(7)
+            preferredWidth: ui.sdu(7)
+            minHeight: ui.sdu(7)
+            minWidth: ui.sdu(7)
 
             // set initial visibility to false
             // will be set visible once a url is added

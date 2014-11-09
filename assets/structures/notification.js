@@ -9,8 +9,23 @@
 // *************************************************** //
 
 // data structure for Foursquare notification
+// note: this does NOT match up with https://developer.foursquare.com/docs/responses/notifications
+// instead, the specific notification structure in the result od checkins/add is used
 function FoursquareNotificationData() {
-	
-	this.tip = "";
-	
+	// summary and title
+	// usually they are the same
+	this.summary = "";
+	this.title = "";
+
+	// flag if notification is shareable
+	this.shareable = "";
+
+	// score object associated with notification
+	this.score = "";
+
+	// image
+	this.image = "";
+
+	// type
+	this.type = "";
 }

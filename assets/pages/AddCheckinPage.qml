@@ -7,8 +7,6 @@
 // License: All rights reserved
 // *************************************************** //
 
-// TODO: Refactor
-
 // import blackberry components
 import bb.cascades 1.3
 import bb.cascades.pickers 1.0
@@ -62,17 +60,16 @@ Page {
                 orientation: LayoutOrientation.TopToBottom
             }
 
+            // header with name of the venue
             VenueHeaderShort {
                 id: addCheckinHeader
-
-                onTouch: {
-                    addCheckinInput.focus();
-                }
             }
 
+            // input field and buttons
             Container {
                 id: addCheckinContainer
 
+                // input for checkin comment
                 CheckinInput {
                     id: addCheckinInput
 
@@ -80,6 +77,7 @@ Page {
                     hintText: "What are your doing here?"
                 }
 
+                // buttons
                 Container {
                     // layout orientation
                     layout: StackLayout {
@@ -93,6 +91,7 @@ Page {
                     leftPadding: ui.sdu(1)
                     rightPadding: ui.sdu(1)
 
+                    // actual button
                     ImageToggleButton {
                         id: addCheckinImage
 
@@ -100,9 +99,6 @@ Page {
                         leftMargin: ui.sdu(1)
                         preferredWidth: ui.sdu(9)
                         preferredHeight: ui.sdu(9)
-
-                        // hide due to incomplete feature
-                        // visible: false
 
                         // set default state to checked
                         checked: false
@@ -128,7 +124,7 @@ Page {
 
                                 // store file in property
                                 onFileSelected: {
-                                    console.log("# Image has been selected: " + selectedFiles[0]);
+                                    // console.log("# Image has been selected: " + selectedFiles[0]);
                                     addCheckinPage.venueImage = selectedFiles[0];
                                     addCheckinImage.checked = true;
                                 }
@@ -143,6 +139,7 @@ Page {
                         ]
                     }
 
+                    // public / private toggle
                     ImageToggleButton {
                         id: addCheckinPublic
 
@@ -162,6 +159,7 @@ Page {
                         imageSourcePressedUnchecked: "asset:///images/icons/icon_public_active.png"
                         imageSourcePressedChecked: "asset:///images/icons/icon_public_active.png"
 
+                        // toggle public / private, which also de- / activates social shares
                         onCheckedChanged: {
                             if (! checked) {
                                 addCheckinFacebook.enabled = false;
@@ -173,6 +171,7 @@ Page {
                         }
                     }
 
+                    // facebook checkin
                     ImageToggleButton {
                         id: addCheckinFacebook
 
@@ -193,6 +192,7 @@ Page {
                         imageSourcePressedChecked: "asset:///images/icons/icon_facebook_active.png"
                     }
 
+                    // twitter checkin
                     ImageToggleButton {
                         id: addCheckinTwitter
 
@@ -214,17 +214,22 @@ Page {
                     }
                 }
 
+                // add checkin button
                 Container {
                     leftPadding: ui.sdu(1)
                     rightPadding: ui.sdu(1)
 
+                    // button
                     Button {
                         id: addCheckinConfirmation
 
-                        text: "Check In"
-
+                        // layout definition
                         preferredWidth: DisplayInfo.width
 
+                        // text
+                        text: "Check In"
+
+                        // checkin action
                         onClicked: {
                             // console.log("# Calling checkin for venue: " + venueData.venueId);
 
@@ -251,20 +256,25 @@ Page {
                 }
             }
 
+            // checkin result
             Container {
                 id: addCheckinResultContainer
 
-                visible: false
-
-                topPadding: ui.sdu(2)
-                leftPadding: ui.sdu(1)
-                rightPadding: ui.sdu(1)
-
+                // layout orientation
                 layout: StackLayout {
                     orientation: LayoutOrientation.TopToBottom
                 }
 
-                // user name label
+                // layout definition
+                topPadding: ui.sdu(2)
+                leftPadding: ui.sdu(1)
+                rightPadding: ui.sdu(1)
+
+                // set initial definition to false
+                // show container when checkin is done
+                visible: false
+
+                // result confirmation
                 Label {
                     id: addCheckinResultConfirmation
 
@@ -277,16 +287,12 @@ Page {
                     multiline: true
                 }
 
+                // score list
                 ScoreList {
                     id: scoreList
 
                     // layout definition
                     verticalAlignment: VerticalAlignment.Top
-
-                    // user was clicked, open detail page
-                    onItemClicked: {
-                        // console.log("# User clicked: " + userData.userId);
-                    }
                 }
             }
 
@@ -323,6 +329,8 @@ Page {
             addCheckinHeader.category = venueData.locationCategories[0].name;
         }
 
+        // start timer
+        // this puts the input focus on the input field
         addCheckinInputTimer.start();
     }
 
@@ -366,12 +374,13 @@ Page {
             interval: 1000
             singleShot: true
 
-            // when triggered, reload the comment data
+            // when triggered, add the input focus on the input field
             onTimeout: {
-                // load comments for given media item
                 addCheckinInput.focus();
             }
         },
+        // file upload object
+        // used to upload images to foursquare
         FileUpload {
             id: fileUpload
         }

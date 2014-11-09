@@ -103,7 +103,7 @@ Container {
                         preferredWidth: Qt.scoreListFullDisplaySize
                         minWidth: Qt.scoreListFullDisplaySize
                         
-                        icon: ListItemData.scoreData.icon
+                        icon: ListItemData.scoreData.image
                         message: ListItemData.scoreData.message
                         points: "+" + ListItemData.scoreData.points + " points"
 

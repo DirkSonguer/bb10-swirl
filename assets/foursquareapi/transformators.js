@@ -122,7 +122,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	}
 
 	// score information
-	// this is stored as FoursquareVenueData()
+	// this is stored as FoursquareScoreData()
 	if ((typeof checkinObject.score !== "undefined") && (typeof checkinObject.score.scores !== "undefined")) {
 		checkinData.scores = scoreTransformator.getScoreDataFromArray(checkinObject.score.scores);
 	}
@@ -562,6 +562,64 @@ UserTransformator.prototype.getUserDataFromGroupArray = function(userGroupObject
 };
 
 // *************************************************** //
+// Notification Transformator
+// *************************************************** //
+var notificationTransformator = new NotificationTransformator();
+
+// Class function that gets the prototype methods
+function NotificationTransformator() {
+}
+
+// Extract all notification data from a checkin object
+// The resulting data is stored as FoursquareNotificationData()
+NotificationTransformator.prototype.getNotificationDataFromObject = function(notificationObject) {
+	console.log("# Transforming notification item");
+
+	// create new data object
+	var notificationData = new FoursquareNotificationData();
+
+	// summary and title
+	// usually they are the same
+	if (typeof notificationObject.summary !== "undefined") notificationData.summary = notificationObject.summary;
+	if (typeof notificationObject.title !== "undefined") notificationData.title = notificationObject.title;
+
+	// flag if notification is shareable
+	if (typeof notificationObject.shareable !== "undefined") notificationData.shareable = notificationObject.shareable;
+
+	// score object associated with notification
+	// this.score = "";
+
+	// image
+	if (typeof notificationObject.image !== "undefined") notificationData.image = notificationObject.image;
+
+	// type
+	if (typeof notificationObject.type !== "undefined") notificationData.type = notificationObject.type;
+
+	console.log("# Done transforming notification item");
+	return notificationData;
+};
+
+// Extract all notification data from an array of notification objects
+// The resulting data is stored as array of FoursquareNotificationData()
+NotificationTransformator.prototype.getNotificationDataFromArray = function(notificationObjectArray) {
+	console.log("# Transforming notification array with " + notificationObjectArray.length + " items");
+
+	// create new return array
+	var notificationDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in notificationObjectArray) {
+		// get venue data item and store it into return array
+		var notificationData = new FoursquareNotificationData();
+		notificationData = this.getNotificationDataFromObject(notificationObjectArray[index]);
+		notificationDataArray[index] = notificationData;
+	}
+
+	console.log("# Done transforming notification array");
+	return notificationDataArray;
+};
+
+// *************************************************** //
 // Score Transformator
 // *************************************************** //
 var scoreTransformator = new ScoreTransformator();
@@ -573,10 +631,10 @@ function ScoreTransformator() {
 // Extract all score data from a venue object
 // The resulting data is stored as FoursquareScoreData()
 ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
-	console.log("# Transforming score item");
+	// console.log("# Transforming score item");
 
 	// create new data object
-	var scoreData = new FoursquareVenueData();
+	var scoreData = new FoursquareNotificationData();
 
 	// points earned for this score object
 	if (typeof scoreObject.points !== "undefined") scoreData.points = scoreObject.points;
@@ -584,17 +642,20 @@ ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
 	// string message attached to the score
 	if (typeof scoreObject.message !== "undefined") scoreData.message = scoreObject.message;
 
-	// icon attached to the score
-	if (typeof scoreObject.icon !== "undefined") scoreData.icon = scoreObject.icon;
+	// icon and image attached to the score
+	if (typeof scoreObject.icon !== "undefined") {
+		scoreData.icon = scoreObject.icon;		
+		scoreData.image = scoreObject.icon.replace(".png", "_144.png");
+	}
 
-	console.log("# Done transforming score item");
+	// console.log("# Done transforming score item");
 	return scoreData;
 };
 
 // Extract all score data from an array of score objects
 // The resulting data is stored as array of FoursquareScoreData()
 ScoreTransformator.prototype.getScoreDataFromArray = function(scoreObjectArray) {
-	console.log("# Transforming score array with " + scoreObjectArray.length + " items");
+	// console.log("# Transforming score array with " + scoreObjectArray.length + " items");
 
 	// create new return array
 	var scoreDataArray = new Array();
@@ -607,7 +668,7 @@ ScoreTransformator.prototype.getScoreDataFromArray = function(scoreObjectArray) 
 		scoreDataArray[index] = scoreData;
 	}
 
-	console.log("# Done transforming score array");
+	// console.log("# Done transforming score array");
 	return scoreDataArray;
 };
 
@@ -825,7 +886,8 @@ LikeTransformator.prototype.getLikeDataFromGroupArray = function(likeGroupObject
 		var likeGroupData = new Array();
 		likeGroupData = this.getLikeDataFromArray(likeGroupObjectArray[index].items);
 
-		// console.log("# Extracted " + likeGroupData.length + " likes from group " + likeGroupObjectArray[index].type);
+		// console.log("# Extracted " + likeGroupData.length + " likes from
+		// group " + likeGroupObjectArray[index].type);
 		likeDataArray = likeDataArray.concat(likeGroupData);
 	}
 

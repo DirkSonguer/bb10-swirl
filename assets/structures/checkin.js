@@ -39,7 +39,10 @@ function FoursquareCheckinData() {
 	
 	// this is filled by an array of FoursquareScoreData objects
 	this.scores = "";
-	
+
+	// this is filled by an array of FoursquareNotificationData objects
+	this.notifications = "";
+
 	// this is filled by an array of FoursquarePhotoData objects
 	this.photos = "";
 		

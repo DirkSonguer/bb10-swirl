@@ -18,4 +18,7 @@ function FoursquareScoreData() {
 
 	// icon attached to the score
 	this.icon = "";
+
+	// image attached to the score
+	this.image = "";
 }
