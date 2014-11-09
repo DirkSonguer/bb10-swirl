@@ -108,23 +108,29 @@ Page {
         // initially clear list
         updateList.clearList();
 
-        // var for latest timestamp
-        var latestTimestamp = 0;
-
-        // iterate through data objects and fill list
-        for (var index in updateData) {
-            // fill list
-            updateList.addToList(updateData[index]);
-
-            // check for latest timestamp
-            if (latestTimestamp < updateData[index].createdAt) latestTimestamp = updateData[index].createdAt;
-        }
-
-        // mark all notification read
-        UpdatesRepository.markNotificationsRead(latestTimestamp, updatesPage);
-
         // hide loader
         loadingIndicator.hideLoader();
+
+        // check if results are available
+        if (updateData.length > 0) {
+            // var for latest timestamp
+            var latestTimestamp = 0;
+
+            // iterate through data objects and fill list
+            for (var index in updateData) {
+                // fill list
+                updateList.addToList(updateData[index]);
+
+                // check for latest timestamp
+                if (latestTimestamp < updateData[index].createdAt) latestTimestamp = updateData[index].createdAt;
+            }
+
+            // mark all notification read
+            UpdatesRepository.markNotificationsRead(latestTimestamp, updatesPage);
+        } else {
+            // no items in results found
+            infoMessage.showMessage("You don't have any recent updates. Check in regularly and add your friends to spark conversations.", "No updates found");
+        }
     }
 
     // update data could not be load

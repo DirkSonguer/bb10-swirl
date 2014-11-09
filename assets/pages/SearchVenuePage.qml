@@ -35,6 +35,9 @@ Page {
     // property for the current geolocation
     // contains lat and lon
     property variant currentGeolocation
+    
+    // flag if unbound search is used
+    property bool unboundSearch: false;
 
     // main content container
     Container {
@@ -71,6 +74,10 @@ Page {
 
                 // set sorting
                 listSortAscending: true
+                
+                // set initial visibility to false
+                // will be set true once data is loaded
+                visible: false
 
                 // venue has been selected
                 onItemClicked: {
@@ -110,21 +117,39 @@ Page {
     // around you checkin data loaded and transformed
     // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
     onVenueDataLoaded: {
-        // console.log("# Venue data loaded. Found " + venueData.length + " items");
+        console.log("# Venue data loaded. Found " + venueData.length + " items");
 
         // initially clear list
         venueList.clearList();
 
-        // iterate through data objects
-        for (var index in venueData) {
-            venueList.addToList(venueData[index]);
+        if (venueData.length > 0) {
+            // iterate through data objects
+            for (var index in venueData) {
+                venueList.addToList(venueData[index]);
+            }
+
+            // hide loader
+            loadingIndicator.hideLoader();
+            
+            // show list
+            venueList.visible = true;
+            
+            // reset unbound flag
+            searchVenuePage.unboundSearch = false;
+        } else {
+            // check if search was already unbound
+            if (!searchVenuePage.unboundSearch) {
+                // redo search without radius restriction
+                searchVenuePage.unboundSearch = true;
+                VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", "", 0, searchVenuePage);
+            } else {
+                // hide loader and result list
+                loadingIndicator.hideLoader();
+                
+                // show error message
+                infoMessage.showMessage("Could not find any venues around you. Where are you?!", "Could not load venues around you");
+            }
         }
-
-        // hide loader
-        loadingIndicator.hideLoader();
-
-        //show components
-        // venueListSearchHeader.visible = true;
     }
 
     // recent checkin data could not be load
@@ -133,9 +158,6 @@ Page {
 
         // hide loader
         loadingIndicator.hideLoader();
-
-        //show components
-        // venueListSearchHeader.visible = true;
     }
 
     // attach components

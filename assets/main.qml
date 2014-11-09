@@ -169,7 +169,7 @@ NavigationPane {
         onLoadContent: {
             // enter debug user
             // TODO: Remove for live app
-            Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
+            // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
             // check if user is already logged in
             // if yes, continue with the application
@@ -205,32 +205,38 @@ NavigationPane {
             aroundYouList.clearList();
             checkinList.clearList();
 
-            // iterate through data objects and fill lists
-            for (var index in recentCheckinData) {
-                // filter checkins by current user
-                if (recentCheckinData[index].user.relationship != "self") {
-                    aroundYouList.addToList(recentCheckinData[index]);
-                    checkinList.addToList(recentCheckinData[index]);
-                }
-            }
-
             // hide loader
             loadingIndicator.hideLoader();
 
-            // show list with results
-            // list shown is according to the state of the action button
-            if (changeCheckinViewAction.title == "Recent") {
-                // show around you list
-                checkinList.visible = false;
-                aroundYouList.visible = true;
-            } else {
-                // show recent list
-                aroundYouList.visible = false;
-                checkinList.visible = true;
-            }
+            // check if results are available
+            if (recentCheckinData.length > 0) {
+                // iterate through data objects and fill lists
+                for (var index in recentCheckinData) {
+                    // filter checkins by current user
+                    if (recentCheckinData[index].user.relationship != "self") {
+                        aroundYouList.addToList(recentCheckinData[index]);
+                        checkinList.addToList(recentCheckinData[index]);
+                    }
+                }
 
-            // enable view changer
-            changeCheckinViewAction.enabled = true;
+                // show list with results
+                // list shown is according to the state of the action button
+                if (changeCheckinViewAction.title == "Recent") {
+                    // show around you list
+                    checkinList.visible = false;
+                    aroundYouList.visible = true;
+                } else {
+                    // show recent list
+                    aroundYouList.visible = false;
+                    checkinList.visible = true;
+                }
+
+                // enable view changer
+                changeCheckinViewAction.enabled = true;
+            } else {
+                // no items in results found
+                infoMessage.showMessage("Seems like your friends are very quiet, or that you haven't made any friends on Foursquare, yet. How about adding some?", "No checkins found");
+            }
         }
 
         // check if new updates have been found or not
