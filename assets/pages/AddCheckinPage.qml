@@ -266,13 +266,34 @@ Page {
                 }
 
                 // layout definition
-                topPadding: ui.sdu(2)
+                topPadding: ui.sdu(1)
                 leftPadding: ui.sdu(1)
                 rightPadding: ui.sdu(1)
 
                 // set initial definition to false
                 // show container when checkin is done
                 visible: false
+
+                // checkin image
+                ImageView {
+                    id: addCheckinResultImage
+
+                    // align the image in the center
+                    scalingMethod: ScalingMethod.AspectFill
+                    verticalAlignment: VerticalAlignment.Fill
+                    horizontalAlignment: HorizontalAlignment.Fill
+
+                    // layout definition
+                    preferredWidth: DisplayInfo.width
+                    preferredHeight: ui.sdu(20)
+
+                    // set initial visibility to false
+                    // make image visible if text is added
+                    visible: false
+                    onImageSourceChanged: {
+                        visible = true;
+                    }
+                }
 
                 // result confirmation
                 Label {
@@ -357,6 +378,9 @@ Page {
         // if so, upload the image
         if (addCheckinPage.venueImage != "") {
             // console.log("# Trying to upload image: " + addCheckinPage.venueImage);
+            
+            // showing image
+            addCheckinResultImage.imageSource = "file://" + addCheckinPage.venueImage;
 
             // uploading image
             fileUpload.source = addCheckinPage.venueImage;

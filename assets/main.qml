@@ -171,6 +171,9 @@ NavigationPane {
             // TODO: Remove for live app
             // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK");
 
+            // hide message in case of a previous message
+            infoMessage.hideMessage();
+
             // check if user is already logged in
             // if yes, continue with the application
             // if not, then show login sheet first

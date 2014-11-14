@@ -117,7 +117,7 @@ Page {
     // around you checkin data loaded and transformed
     // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
     onVenueDataLoaded: {
-        console.log("# Venue data loaded. Found " + venueData.length + " items");
+        // console.log("# Venue data loaded. Found " + venueData.length + " items");
 
         // initially clear list
         venueList.clearList();
