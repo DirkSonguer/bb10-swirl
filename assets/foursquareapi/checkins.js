@@ -213,7 +213,7 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Adding checkin with url: " + url);
+	// console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

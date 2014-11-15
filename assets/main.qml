@@ -105,7 +105,7 @@ NavigationPane {
                     changeCheckinViewAction.enabled = false;
 
                     // show loader
-                    loadingIndicator.showLoader("Trying to fix your location");
+                    loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
                     // start searching for the current geolocation
                     positionSource.start();
@@ -146,7 +146,7 @@ NavigationPane {
                     changeCheckinViewAction.enabled = false;
 
                     // show loader
-                    loadingIndicator.showLoader("Trying to fix your location");
+                    loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
                     // start searching for the current geolocation
                     positionSource.start();
@@ -185,7 +185,7 @@ NavigationPane {
                 checkinList.visible = false;
 
                 // show loader
-                loadingIndicator.showLoader("Trying to fix your location");
+                loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
                 // start searching for the current geolocation
                 positionSource.start();

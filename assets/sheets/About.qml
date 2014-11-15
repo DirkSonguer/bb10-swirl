@@ -49,6 +49,7 @@ Page {
                     layout: StackLayout {
                         orientation: LayoutOrientation.LeftToRight
                     }
+
                     // swirl title headline
                     Label {
                         id: swirlTitle
@@ -65,13 +66,14 @@ Page {
                         // layout orientation
                         verticalAlignment: VerticalAlignment.Bottom
                         bottomPadding: ui.sdu(1.4)
-                        
+
                         Label {
                             id: versionMessage
 
                             // layout definition
 
                             // text style definition
+                            textStyle.color: Color.create(Globals.blackberryStandardBlue)
                             textStyle.base: SystemDefaults.TextStyles.SmallText
                             textStyle.fontWeight: FontWeight.W100
                             textStyle.textAlign: TextAlign.Left
@@ -106,6 +108,7 @@ Page {
                     }
                 }
 
+                // terms of service
                 InfoMessage {
                     id: tosMessage
 
@@ -114,6 +117,7 @@ Page {
                     rightPadding: 0
                 }
 
+                // privacy
                 InfoMessage {
                     id: privacyMessage
 
@@ -122,6 +126,7 @@ Page {
                     rightPadding: 0
                 }
 
+                // credits
                 InfoMessage {
                     id: creditsMessage
 

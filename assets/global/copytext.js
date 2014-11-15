@@ -11,6 +11,7 @@
 
 // general
 var swirlWorking = "Working..";
+var swirlLocationWorking = "Trying to fix your location";
 
 // about
 var swirlAboutHeadline = "Swirl";
@@ -36,6 +37,8 @@ var swirlAroundYouDistances = new Array("0#Around you", "1#Around the block", "2
 var swirlSearchCallToAction = "Search for venues";
 var swirlSearchInputLabel = "Enter venue name";
 var swirlSearchDistances = new Array("Around you", "Around the block", "Somewhat near", "Somewhere else");
+var swirlSearchNoResultsTitle = "Could not load venues around you";
+var swirlSearchNoResultsMessage = "Could not find any venues around you. Where are you?!";
 
 // checkin
 var swirlCheckinConfirmation = "We got you at ";

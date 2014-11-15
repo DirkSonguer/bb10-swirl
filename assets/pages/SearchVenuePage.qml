@@ -147,7 +147,7 @@ Page {
                 loadingIndicator.hideLoader();
                 
                 // show error message
-                infoMessage.showMessage("Could not find any venues around you. Where are you?!", "Could not load venues around you");
+                infoMessage.showMessage(Copytext.swirlSearchNoResultsMessage, Copytext.swirlSearchNoResultsTitle);
             }
         }
     }

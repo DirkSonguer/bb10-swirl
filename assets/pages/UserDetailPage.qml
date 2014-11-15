@@ -115,8 +115,6 @@ Page {
                     preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
-                    // localImage: "asset:///images/icons/icon_facebook_w.png"
-                    // imageScaling: ScalingMethod.None
                     headline: "Facebook"
 
                     // set initial visibility to false
@@ -139,8 +137,6 @@ Page {
                     preferredWidth: DisplayInfo.width / userDetailPage.columnCount
 
                     // set icon & label
-                    // localImage: "asset:///images/icons/icon_twitter_w.png"
-                    // imageScaling: ScalingMethod.None
                     headline: "Twitter"
 
                     // set initial visibility to false
@@ -149,7 +145,6 @@ Page {
 
                     // define twitter invocation
                     onClicked: {
-                        // communicationInvokes.sendTwitterMessage("@" + userDetailPage.userData.contactTwitter + ": ");
                         communicationInvokes.openTwitterProfile(userDetailPage.userData.contact.twitter);
                     }
                 }

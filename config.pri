@@ -78,14 +78,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/assets/blue_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/mask_blue_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
-        $$quote($$BASEDIR/assets/images/assets/triangle_down.png) \
         $$quote($$BASEDIR/assets/images/assets/white_squircle.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_190.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_191.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_195.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_196.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_197.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_198.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_aroundyou.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
@@ -97,8 +90,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_inactive.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_facebook_w.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_home.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_image_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_image_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \
@@ -116,7 +107,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
-        $$quote($$BASEDIR/assets/images/icons/icon_twitter_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \

@@ -1,5 +1,5 @@
 1
-107
+97
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -42,14 +42,7 @@ global/globals.js
 images/assets/blue_squircle.png
 images/assets/mask_blue_squircle.png
 images/assets/mask_squircle.png
-images/assets/triangle_down.png
 images/assets/white_squircle.png
-images/icons/icon_190.png
-images/icons/icon_191.png
-images/icons/icon_195.png
-images/icons/icon_196.png
-images/icons/icon_197.png
-images/icons/icon_198.png
 images/icons/icon_about.png
 images/icons/icon_aroundyou.png
 images/icons/icon_bbworld.png
@@ -61,8 +54,6 @@ images/icons/icon_comments_dimmed.png
 images/icons/icon_facebook_active.png
 images/icons/icon_facebook_disabled.png
 images/icons/icon_facebook_inactive.png
-images/icons/icon_facebook_w.png
-images/icons/icon_home.png
 images/icons/icon_image_active.png
 images/icons/icon_image_inactive.png
 images/icons/icon_liked_w.png
@@ -80,7 +71,6 @@ images/icons/icon_sms_w.png
 images/icons/icon_twitter_active.png
 images/icons/icon_twitter_disabled.png
 images/icons/icon_twitter_inactive.png
-images/icons/icon_twitter_w.png
 images/icons/icon_unliked_w.png
 main.qml
 pages/AddCheckinPage.qml
