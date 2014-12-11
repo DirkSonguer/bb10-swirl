@@ -238,7 +238,7 @@ NavigationPane {
                 changeCheckinViewAction.enabled = true;
             } else {
                 // no items in results found
-                infoMessage.showMessage("Seems like your friends are very quiet, or that you haven't made any friends on Foursquare, yet. How about adding some?", "No checkins found");
+                infoMessage.showMessage(Copytext.swirlNoRecentMessage, Copytext.swirlNoRecentTitle);
             }
         }
 
@@ -443,6 +443,7 @@ NavigationPane {
                 // check if location was really fixed
                 if (! mainPage.currentGeolocation) {
                     // console.log("# Location could not be fixed");
+                    infoMessage.showMessage(Copytext.swirlNoLocationMessage, Copytext.swirlNoLocationTitle);
                 } else {
                     // console.debug("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
 

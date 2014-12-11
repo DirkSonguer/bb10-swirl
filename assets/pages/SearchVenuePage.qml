@@ -38,6 +38,9 @@ Page {
     
     // flag if unbound search is used
     property bool unboundSearch: false;
+    
+    // property to hold current search term
+    property string searchTerm: ""
 
     // main content container
     Container {
@@ -97,6 +100,7 @@ Page {
 
                     // search call
                     VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 0, searchVenuePage);
+                    searchVenuePage.searchTerm = searchTerm;
                 }
             }
         }
@@ -117,7 +121,7 @@ Page {
     // around you checkin data loaded and transformed
     // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
     onVenueDataLoaded: {
-        // console.log("# Venue data loaded. Found " + venueData.length + " items");
+        console.log("# Venue data loaded. Found " + venueData.length + " items");
 
         // initially clear list
         venueList.clearList();
@@ -134,14 +138,15 @@ Page {
             // show list
             venueList.visible = true;
             
-            // reset unbound flag
+            // reset unbound flag and searchTerm
             searchVenuePage.unboundSearch = false;
+            searchVenuePage.searchTerm = "";
         } else {
             // check if search was already unbound
             if (!searchVenuePage.unboundSearch) {
                 // redo search without radius restriction
                 searchVenuePage.unboundSearch = true;
-                VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", "", 0, searchVenuePage);
+                VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchVenuePage.searchTerm, 0, searchVenuePage);
             } else {
                 // hide loader and result list
                 loadingIndicator.hideLoader();
@@ -182,6 +187,7 @@ Page {
                 // check if location was really fixed
                 if (! searchVenuePage.currentGeolocation) {
                     // console.log("# Location could not be fixed");
+                    infoMessage.showMessage(Copytext.swirlNoLocationMessage, Copytext.swirlNoLocationTitle);
                 } else {
                     // console.debug("# Location found: " + searchVenuePage.currentGeolocation.latitude + ", " + searchVenuePage.currentGeolocation.longitude);
 
