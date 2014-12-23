@@ -36,48 +36,6 @@ simulator {
 
 config_pri_assets {
     OTHER_FILES += \
-        $$quote($$BASEDIR/_data/1.jpg) \
-        $$quote($$BASEDIR/_data/BBWorld/logo_480.png) \
-        $$quote($$BASEDIR/_data/BBWorld/stage_1920.png) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/4squpload.html) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/foursquare/checkins_recent.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/foursquare/users_self.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/foursquare/users_self_friends.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/checkins_add.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/checkins_recent.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/updates_notifications.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/users_113429.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/users_self_checkins.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/users_self_friends.json) \
-        $$quote($$BASEDIR/_data/Foursquare API Responses/swarm/venues.json) \
-        $$quote($$BASEDIR/_data/Logo/20140719-102759-37679944.jpg) \
-        $$quote($$BASEDIR/_data/Logo/3029960-inline-i-1-swarm-by-foursquare.png) \
-        $$quote($$BASEDIR/_data/Logo/IMG_4998.png) \
-        $$quote($$BASEDIR/_data/Logo/Screenshot 2014-08-18 11.06.22.png) \
-        $$quote($$BASEDIR/_data/Logo/Swarm-2.jpg) \
-        $$quote($$BASEDIR/_data/Logo/Swarm-Foursquare.jpg) \
-        $$quote($$BASEDIR/_data/Logo/Swarm-logo-by-Foursquare 2.png) \
-        $$quote($$BASEDIR/_data/Logo/Swirl-logo.png) \
-        $$quote($$BASEDIR/_data/Logo/Swirl-logo.pxm) \
-        $$quote($$BASEDIR/_data/Logo/facebook-icon.png) \
-        $$quote($$BASEDIR/_data/Logo/swarm1b.png-w=300&h=300.jpg) \
-        $$quote($$BASEDIR/_data/Logo/swarm_bee_logo.png) \
-        $$quote($$BASEDIR/_data/Logo/swarm_blue_squircle icon.pxm) \
-        $$quote($$BASEDIR/_data/Logo/swarm_blue_squircle.pxm) \
-        $$quote($$BASEDIR/_data/Logo/swarm_orange_squircle.png) \
-        $$quote($$BASEDIR/_data/Logo/swarm_orange_squircle.pxm) \
-        $$quote($$BASEDIR/_data/Logo/swarm_squircle.png) \
-        $$quote($$BASEDIR/_data/Logo/swirl_icon_blue.png) \
-        $$quote($$BASEDIR/_data/Logo/swirl_icon_orange.png) \
-        $$quote($$BASEDIR/_data/Logo/twitter_button1.png) \
-        $$quote($$BASEDIR/_data/Swarm Screenshots/swarm-foursquare-checkins-100339646-orig.jpg) \
-        $$quote($$BASEDIR/_data/Swarm Screenshots/swarm-iphone-screenshots.jpg) \
-        $$quote($$BASEDIR/_data/Swarm Screenshots/swarm_iphone_review_screens_1.jpg) \
-        $$quote($$BASEDIR/_data/Swarm Screenshots/swarm_iphone_review_screens_2.jpg) \
-        $$quote($$BASEDIR/_data/Swarm Screenshots/swarm_iphone_review_screens_3.jpg) \
-        $$quote($$BASEDIR/_data/Swarm Splashscreens/Swirl_Splash_720x1280.pxm) \
-        $$quote($$BASEDIR/_data/Swarm Splashscreens/Swirl_Splash_720x720.pxm) \
-        $$quote($$BASEDIR/_data/Swarm Splashscreens/Swirl_Splash_768x1280.pxm) \
         $$quote($$BASEDIR/assets/classes/authenticationhandler.js) \
         $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
         $$quote($$BASEDIR/assets/classes/helpermethods.js) \
@@ -174,12 +132,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/score.js) \
         $$quote($$BASEDIR/assets/structures/update.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
-        $$quote($$BASEDIR/assets/structures/venue.js) \
-        $$quote($$BASEDIR/releases/SwirlBB10-1_0_0_1.bar) \
-        $$quote($$BASEDIR/releases/SwirlBB10-1_0_0_2.bar) \
-        $$quote($$BASEDIR/releases/SwirlBB10-1_1_1_1.bar) \
-        $$quote($$BASEDIR/releases/SwirlBB10-1_1_2_1.bar) \
-        $$quote($$BASEDIR/releases/SwirlBB10-1_2_1_1.bar)
+        $$quote($$BASEDIR/assets/structures/venue.js)
 }
 
 config_pri_source_group1 {
@@ -208,33 +161,6 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../src/*.cc) \
         $$quote($$BASEDIR/../src/*.cpp) \
         $$quote($$BASEDIR/../src/*.cxx) \
-        $$quote($$BASEDIR/..//*.qml) \
-        $$quote($$BASEDIR/..//*.js) \
-        $$quote($$BASEDIR/..//*.qs) \
-        $$quote($$BASEDIR/../_data/*.qml) \
-        $$quote($$BASEDIR/../_data/*.js) \
-        $$quote($$BASEDIR/../_data/*.qs) \
-        $$quote($$BASEDIR/../_data/BBWorld/*.qml) \
-        $$quote($$BASEDIR/../_data/BBWorld/*.js) \
-        $$quote($$BASEDIR/../_data/BBWorld/*.qs) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/*.qml) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/*.js) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/*.qs) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/foursquare/*.qml) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/foursquare/*.js) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/foursquare/*.qs) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/swarm/*.qml) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/swarm/*.js) \
-        $$quote($$BASEDIR/../_data/Foursquare API Responses/swarm/*.qs) \
-        $$quote($$BASEDIR/../_data/Logo/*.qml) \
-        $$quote($$BASEDIR/../_data/Logo/*.js) \
-        $$quote($$BASEDIR/../_data/Logo/*.qs) \
-        $$quote($$BASEDIR/../_data/Swarm Screenshots/*.qml) \
-        $$quote($$BASEDIR/../_data/Swarm Screenshots/*.js) \
-        $$quote($$BASEDIR/../_data/Swarm Screenshots/*.qs) \
-        $$quote($$BASEDIR/../_data/Swarm Splashscreens/*.qml) \
-        $$quote($$BASEDIR/../_data/Swarm Splashscreens/*.js) \
-        $$quote($$BASEDIR/../_data/Swarm Splashscreens/*.qs) \
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \
@@ -270,10 +196,7 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/sheets/*.qs) \
         $$quote($$BASEDIR/../assets/structures/*.qml) \
         $$quote($$BASEDIR/../assets/structures/*.js) \
-        $$quote($$BASEDIR/../assets/structures/*.qs) \
-        $$quote($$BASEDIR/../releases/*.qml) \
-        $$quote($$BASEDIR/../releases/*.js) \
-        $$quote($$BASEDIR/../releases/*.qs)
+        $$quote($$BASEDIR/../assets/structures/*.qs)
 
     HEADERS += \
         $$quote($$BASEDIR/../src/*.h) \

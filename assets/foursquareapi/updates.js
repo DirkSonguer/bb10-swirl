@@ -119,7 +119,7 @@ function markNotificationsRead(markTimestamp, callingPage) {
 	var foursquareUserdata = auth.getStoredFoursquareData();
 	url = foursquarekeys.foursquareAPIUrl + "/v2/updates/marknotificationsread";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
-	url += "&highWatermark=" + markTimestamp;
+	url += "&highWatermark=" + (markTimestamp+1);
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
