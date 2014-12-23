@@ -31,9 +31,6 @@ Container {
     // user bio, shown below username
     property alias bio: userHeaderBio.text
 
-    // last checkin of user
-    property alias lastCheckin: userHeaderLastCheckin.text
-
     // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
@@ -133,23 +130,6 @@ Container {
             onTextChanged: {
                 visible = true;
             }
-        }
-
-        // last user checkin label
-        Label {
-            id: userHeaderLastCheckin
-
-            // layout definition
-            horizontalAlignment: HorizontalAlignment.Center
-            topMargin: 0
-            bottomMargin: 0
-
-            // text style definition
-            textStyle.base: SystemDefaults.TextStyles.SmallText
-            textStyle.fontWeight: FontWeight.Bold
-            textStyle.fontSize: FontSize.XSmall
-            textStyle.textAlign: TextAlign.Center
-            textStyle.color: Color.White
         }
     }
 }

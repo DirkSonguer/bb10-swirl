@@ -344,7 +344,7 @@ NavigationPane {
                     aboutSheet.setContent(aboutSheetPage);
                     aboutSheet.open();
                 }
-            },
+            },           
             ActionItem {
                 id: mainMenuLogout
                 title: "Logout"
@@ -357,6 +357,15 @@ NavigationPane {
                     var logoutSheetPage = logoutComponent.createObject();
                     logoutSheet.setContent(logoutSheetPage);
                     logoutSheet.open();
+                }
+            },
+            // action for rate sheet
+            ActionItem {
+                id: mainMenuRate
+                title: "Update & Rate"
+                imageSource: "asset:///images/icons/icon_bbworld.png"
+                onTriggered: {
+                    rateAppLink.trigger("bb.action.OPEN");
                 }
             }
         ]
@@ -428,6 +437,15 @@ NavigationPane {
         ComponentDefinition {
             id: addCheckinComponent
             source: "pages/SearchVenuePage.qml"
+        },
+        // invocation for bb world
+        // used by the action menu to switch to bb world
+        Invocation {
+            id: rateAppLink
+            query {
+                mimeType: "application/x-bb-appworld"
+                uri: "appworld://content/59947364"
+            }
         },
         // position source object and logic
         PositionSource {

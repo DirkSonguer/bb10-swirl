@@ -10,6 +10,7 @@
 
 // import blackberry components
 import bb.cascades 1.3
+import bb.platform 1.3
 import bb.system.phone 1.0
 
 // set import directory for components
@@ -44,7 +45,7 @@ Page {
     // property for the friend image slideshow
     // a timer will update this to swap through the images
     property int currentFriendImage: 0
-    
+
     // column count
     property int columnCount: 2
 
@@ -83,6 +84,28 @@ Page {
                     // set initial visibility to false
                     // will be set if the user is not "self"
                     visible: false
+                }
+
+                // address tile
+                LocationTile {
+                    id: userDetailAddressTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
+
+                    // set initial visibility to false
+                    // will be set if the venue has a given address
+                    visible: false
+
+                    // call checkin detail on click
+                    onClicked: {
+                        // open page with new venue object
+                        var checkinDetailPage = checkinDetailComponent.createObject();
+                        checkinDetailPage.checkinData = userDetailPage.userData.checkins[0];
+                        navigationPane.push(checkinDetailPage);
+                    }
                 }
 
                 // friends tile
@@ -253,7 +276,7 @@ Page {
             // if not, load full user object
             UsersRepository.getUserData(userData.userId, userDetailPage);
         }
-        
+
         // check for passport
         if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
             // change column count to 3 to account for wider display
@@ -273,20 +296,22 @@ Page {
         // fill header data based on full user object
         userDetailHeader.bio = userData.bio;
 
-        // get name of last venue the user checked in
-        if (userData.checkins.length > 0) {
-            // console.log("# Found " + userData.checkins.length + " checkins");
-
-            // fill header
-            userDetailHeader.lastCheckin = userData.checkins[0].venue.name;
-        }
-
         // set relationship status
         // respective state and action will be set by tile
         if (userData.relationship != "self") {
             userDetailRelationshipTile.userData = userData;
             userDetailRelationshipTile.visible = true;
         }
+
+        // venue map
+        userDetailAddressTile.zoom = "15";
+        userDetailAddressTile.size = "400";
+        userDetailAddressTile.venueLocation = userData.checkins[0].venue.location;
+        userDetailAddressTile.webImage = userData.checkins[0].venue.locationCategories[0].iconLarge;
+
+        // show venue name
+        userDetailAddressTile.headline = "Last seen at: " + userData.checkins[0].venue.name;
+        userDetailAddressTile.visible = true;
 
         // check if user has friends
         if (userData.friends.length > 0) {
@@ -338,6 +363,12 @@ Page {
         ComponentDefinition {
             id: friendsListComponent
             source: "FriendsPage.qml"
+        },
+        // checkin detail page
+        // will be called if user clicks on checkin item
+        ComponentDefinition {
+            id: checkinDetailComponent
+            source: "CheckinDetailPage.qml"
         }
     ]
 }
