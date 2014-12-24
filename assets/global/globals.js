@@ -10,7 +10,7 @@
 // *************************************************** //
 
 // application version
-var currentApplicationVersion = "1.2.1";
+var currentApplicationVersion = "1.3.0";
 
 // image sizes
 var foursquareProfileImageSmall = "100x100";

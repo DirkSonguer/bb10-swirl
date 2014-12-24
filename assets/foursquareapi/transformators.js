@@ -831,7 +831,7 @@ function ReasonTransformator() {
 // Extract all venue data from a venue object
 // The resulting data is stored as FoursquareVenueData()
 ReasonTransformator.prototype.getReasonDataFromObject = function(reasonObject) {
-	console.log("# Transforming reason of type " + reasonObject.type);
+	// console.log("# Transforming reason of type " + reasonObject.type);
 
 	// create new data object
 	var reasonData = new FoursquareReasonData();
@@ -848,14 +848,15 @@ ReasonTransformator.prototype.getReasonDataFromObject = function(reasonObject) {
 	// reason count
 	if (typeof reasonObject.count !== "undefined") reasonData.count = reasonObject.count;
 
-	console.log("# Done transforming reason item");
+	// console.log("# Done transforming reason item");
 	return reasonData;
 };
 
 // Extract all reason data from an array of venue objects
 // The resulting data is stored as array of FoursquareReasonData()
 ReasonTransformator.prototype.getReasonDataFromArray = function(reasonObjectArray) {
-	console.log("# Transforming reason array with " + reasonObjectArray.length + " items");
+	// console.log("# Transforming reason array with " +
+	// reasonObjectArray.length + " items");
 
 	// create new return array
 	var reasonDataArray = new Array();
@@ -868,14 +869,15 @@ ReasonTransformator.prototype.getReasonDataFromArray = function(reasonObjectArra
 		reasonDataArray[index] = reasonData;
 	}
 
-	console.log("# Done transforming reason array");
+	// console.log("# Done transforming reason array");
 	return venueDataArray;
 };
 
 // Extract all reason data from an array of groups that contain reason objects
 // The resulting data is stored as array of FoursquareReasonData()
 ReasonTransformator.prototype.getReasonDataFromGroupArray = function(reasonGroupObjectArray) {
-	console.log("# Transforming reson group array with " + reasonGroupObjectArray.length + " items");
+	// console.log("# Transforming reson group array with " +
+	// reasonGroupObjectArray.length + " items");
 
 	// create new return array
 	var reasonDataArray = new Array();
@@ -888,7 +890,7 @@ ReasonTransformator.prototype.getReasonDataFromGroupArray = function(reasonGroup
 		reasonDataArray[index] = reasonData;
 	}
 
-	console.log("# Done transforming reason group array");
+	// console.log("# Done transforming reason group array");
 	return reasonDataArray;
 };
 

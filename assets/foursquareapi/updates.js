@@ -123,7 +123,7 @@ function markNotificationsRead(markTimestamp, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Marking updates with url: " + url);
+	// console.log("# Marking updates with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }
