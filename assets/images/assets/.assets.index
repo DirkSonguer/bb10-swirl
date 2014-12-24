@@ -1,5 +1,5 @@
 1
-97
+99
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -93,7 +93,9 @@ structures/location.js
 structures/locationcategory.js
 structures/notification.js
 structures/photo.js
+structures/reason.js
 structures/score.js
+structures/search.js
 structures/update.js
 structures/user.js
 structures/venue.js

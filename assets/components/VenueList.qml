@@ -46,12 +46,13 @@ Container {
 
     // signal to add a new item
     // item is given as type FoursquareVenueData
-    signal addToList(variant item)
+    signal addToList(variant item, variant reasons)
     onAddToList: {
         // console.log("# Adding item with ID " + item.venueId + " to venue list data model");
         venueListComponent.currentItemIndex += 1;
         venueListDataModel.insert({
                 "venueData": item,
+                "venueReasons": reasons,
                 "currentIndex": venueListComponent.currentItemIndex
             });
     }
@@ -119,6 +120,7 @@ Container {
 
                         // set data
                         name: ListItemData.venueData.name
+                        reason: ListItemData.venueReasons.summary;
                         address: ListItemData.venueData.location.address
                         distance: ListItemData.venueData.location.distanceInKm + " km away"
                         venueImage: ListItemData.venueData.locationCategories[0].iconLarge

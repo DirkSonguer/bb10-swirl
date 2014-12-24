@@ -21,6 +21,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "structures/locationcategory.js");
 	Qt.include(dirPaths.assetPath + "structures/notification.js");
 	Qt.include(dirPaths.assetPath + "structures/photo.js");
+	Qt.include(dirPaths.assetPath + "structures/reason.js");
 	Qt.include(dirPaths.assetPath + "structures/score.js");
 	Qt.include(dirPaths.assetPath + "structures/update.js");
 	Qt.include(dirPaths.assetPath + "structures/user.js");
@@ -644,7 +645,7 @@ ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
 
 	// icon and image attached to the score
 	if (typeof scoreObject.icon !== "undefined") {
-		scoreData.icon = scoreObject.icon;		
+		scoreData.icon = scoreObject.icon;
 		scoreData.image = scoreObject.icon.replace(".png", "_144.png");
 	}
 
@@ -655,7 +656,8 @@ ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
 // Extract all score data from an array of score objects
 // The resulting data is stored as array of FoursquareScoreData()
 ScoreTransformator.prototype.getScoreDataFromArray = function(scoreObjectArray) {
-	// console.log("# Transforming score array with " + scoreObjectArray.length + " items");
+	// console.log("# Transforming score array with " + scoreObjectArray.length
+	// + " items");
 
 	// create new return array
 	var scoreDataArray = new Array();
@@ -815,6 +817,79 @@ VenueTransformator.prototype.getVenueDataFromGroupArray = function(venueGroupObj
 
 	// console.log("# Done transforming venue group array");
 	return venueDataArray;
+};
+
+// *************************************************** //
+// Reason Transformator
+// *************************************************** //
+var reasonTransformator = new ReasonTransformator();
+
+// Class function that gets the prototype methods
+function ReasonTransformator() {
+}
+
+// Extract all venue data from a venue object
+// The resulting data is stored as FoursquareVenueData()
+ReasonTransformator.prototype.getReasonDataFromObject = function(reasonObject) {
+	console.log("# Transforming reason of type " + reasonObject.type);
+
+	// create new data object
+	var reasonData = new FoursquareReasonData();
+
+	// reason summary
+	if (typeof reasonObject.summary !== "undefined") reasonData.summary = reasonObject.summary;
+
+	// reason type
+	if (typeof reasonObject.type !== "undefined") reasonData.type = reasonObject.type;
+
+	// reason name
+	if (typeof reasonObject.reasonName !== "undefined") reasonData.reasonName = reasonObject.reasonName;
+
+	// reason count
+	if (typeof reasonObject.count !== "undefined") reasonData.count = reasonObject.count;
+
+	console.log("# Done transforming reason item");
+	return reasonData;
+};
+
+// Extract all reason data from an array of venue objects
+// The resulting data is stored as array of FoursquareReasonData()
+ReasonTransformator.prototype.getReasonDataFromArray = function(reasonObjectArray) {
+	console.log("# Transforming reason array with " + reasonObjectArray.length + " items");
+
+	// create new return array
+	var reasonDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in reasonObjectArray) {
+		// get venue data item and store it into return array
+		var reasonData = new FoursquareReasonData();
+		reasonData = this.getReasonDataFromObject(reasonObjectArray[index]);
+		reasonDataArray[index] = reasonData;
+	}
+
+	console.log("# Done transforming reason array");
+	return venueDataArray;
+};
+
+// Extract all reason data from an array of groups that contain reason objects
+// The resulting data is stored as array of FoursquareReasonData()
+ReasonTransformator.prototype.getReasonDataFromGroupArray = function(reasonGroupObjectArray) {
+	console.log("# Transforming reson group array with " + reasonGroupObjectArray.length + " items");
+
+	// create new return array
+	var reasonDataArray = new Array();
+
+	// iterate through all media items
+	for ( var index in reasonGroupObjectArray) {
+		// get venue data item and store it into return array
+		var reasonData = new FoursquareReasonData();
+		reasonData = this.getReasonDataFromObject(reasonGroupObjectArray[index].reasons.items[0]);
+		reasonDataArray[index] = reasonData;
+	}
+
+	console.log("# Done transforming reason group array");
+	return reasonDataArray;
 };
 
 // *************************************************** //

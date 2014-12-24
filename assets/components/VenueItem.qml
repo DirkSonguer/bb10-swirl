@@ -29,6 +29,9 @@ Container {
     // property for the venue name, given as string
     property alias name: venueItemName.text
 
+    // property for the venue reason, given as string
+    property alias reason: venueItemReason.text
+
     // property for the venue image, given as url
     property alias venueImage: venueItemImage.url
 
@@ -97,7 +100,7 @@ Container {
     // venue meta data container
     Container {
         // layout definition
-        topPadding: ui.sdu(1)
+        topPadding: ui.sdu(0.5)
         leftMargin: ui.sdu(1)
 
         // layout orientation
@@ -120,7 +123,24 @@ Container {
             textStyle.textAlign: TextAlign.Left
             textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
-
+        
+        // venue reason label
+        Label {
+            id: venueItemReason
+            
+            // layout definition
+            horizontalAlignment: HorizontalAlignment.Left
+            topMargin: 0
+            bottomMargin: 0
+            
+            // text style definition
+            textStyle.color: Color.create(Globals.blackberryStandardBlue)
+            textStyle.base: SystemDefaults.TextStyles.SmallText
+            textStyle.fontWeight: FontWeight.W100
+            textStyle.fontSize: FontSize.XSmall
+            textStyle.textAlign: TextAlign.Left
+        }
+        
         // venue address label
         Label {
             id: venueItemAddress
@@ -159,12 +179,14 @@ Container {
         if (event.touchType == TouchType.Down) {
             venueItemComponent.background = Color.create(Globals.blackberryStandardBlue);
             venueItemName.textStyle.color = Color.White;
+            venueItemReason.textStyle.color = Color.White;
         }
 
         // user released or is moving
         if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
             venueItemComponent.background = Color.Transparent;
             venueItemName.textStyle.color = Color.create(Globals.blackberryStandardBlue);
+            venueItemReason.textStyle.color = Color.create(Globals.blackberryStandardBlue);
         }
     }
 

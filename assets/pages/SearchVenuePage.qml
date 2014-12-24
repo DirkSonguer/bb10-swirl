@@ -27,7 +27,7 @@ Page {
     id: searchVenuePage
 
     // signal if popular media data loading is complete
-    signal venueDataLoaded(variant venueData)
+    signal venueDataLoaded(variant venueData, variant venueReasons)
 
     // signal if popular media data loading encountered an error
     signal venueDataError(variant errorData)
@@ -121,7 +121,7 @@ Page {
     // around you checkin data loaded and transformed
     // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
     onVenueDataLoaded: {
-        console.log("# Venue data loaded. Found " + venueData.length + " items");
+        console.log("# Venue data loaded. Found " + venueData.length + " items and " + venueReasons.length + " reasons");
 
         // initially clear list
         venueList.clearList();
@@ -129,7 +129,7 @@ Page {
         if (venueData.length > 0) {
             // iterate through data objects
             for (var index in venueData) {
-                venueList.addToList(venueData[index]);
+                venueList.addToList(venueData[index], venueReasons[index]);
             }
 
             // hide loader

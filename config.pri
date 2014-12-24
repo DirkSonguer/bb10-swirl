@@ -129,7 +129,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/locationcategory.js) \
         $$quote($$BASEDIR/assets/structures/notification.js) \
         $$quote($$BASEDIR/assets/structures/photo.js) \
+        $$quote($$BASEDIR/assets/structures/reason.js) \
         $$quote($$BASEDIR/assets/structures/score.js) \
+        $$quote($$BASEDIR/assets/structures/search.js) \
         $$quote($$BASEDIR/assets/structures/update.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)

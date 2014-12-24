@@ -145,9 +145,10 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 		if (jsonObject) {
 			// prepare transformator and return object
 			var venueDataArray = venueTransformator.getVenueDataFromGroupArray(jsonObject.response.groups[0].items);
+			var venueReasonArray = reasonTransformator.getReasonDataFromGroupArray(jsonObject.response.groups[0].items);
 
 			// console.log("# Done loading venue data");
-			callingPage.venueDataLoaded(venueDataArray);
+			callingPage.venueDataLoaded(venueDataArray, venueReasonArray);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
