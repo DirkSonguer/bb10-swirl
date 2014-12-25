@@ -272,7 +272,7 @@ Container {
     // user has liked the checkin
     onUserHasLikedChanged: {
         // console.log("Setting like state of checkin to: " + userHasLiked);
-        if (checkinItemComponent.userHasLiked.indexOf("#true") > -1) {
+        if (userHasLiked == "true") {
             checkinUserIconImage.visible = true;
             checkinLikeAction.title = "Unlike checkin";
             checkinLikeAction.imageSource = "asset:///images/icons/icon_unliked_w.png";

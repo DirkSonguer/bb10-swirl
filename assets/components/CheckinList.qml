@@ -131,7 +131,7 @@ Container {
 
                         // set data
                         username: ListItemData.checkinData.user.fullName
-                        userHasLiked: ListItemData.checkinData.user.fullName + "#" + ListItemData.checkinData.userHasLiked
+                        userHasLiked: ListItemData.checkinData.userHasLiked
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country
@@ -166,10 +166,10 @@ Container {
                                 if (childItem.checkinData.checkinId == ListItemData.checkinData.checkinId) {
                                     // console.log("# Child item checkinItemListDataModel: " + childItem.checkinData.checkinId);
                                     if (childItem.checkinData.userHasLiked == true) {
-                                        CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 0, 0);
+                                        // CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 0, 0);
                                         childItem.checkinData.userHasLiked = false;
                                     } else {
-                                        CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 1, 0);                                        
+                                        // CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 1, 0);                                        
                                         childItem.checkinData.userHasLiked = true;
                                     }
                                     checkinItemListDataModel.updateItem(indexPath, childItem);
