@@ -33,6 +33,9 @@ Container {
     // property for the user profile image, given as url
     property alias profileImage: checkinUserProfileImage.url
 
+    // property if the current user has liked the checkin
+    property bool userHasLiked: false
+
     // property for the user name, given as string
     property alias username: checkinUsername.text
 
@@ -99,6 +102,22 @@ Container {
 
             // mask image
             imageSource: "asset:///images/assets/mask_squircle.png"
+        }
+
+        // mask the profile image to make it round
+        ImageView {
+            id: checkinUserIconImage
+
+            // position and layout properties
+            verticalAlignment: VerticalAlignment.Top
+            horizontalAlignment: HorizontalAlignment.Right
+
+            // mask image
+            imageSource: "asset:///images/icons/icon_foursquare_like.png"
+
+            // set initial visibility to false
+            // this will be set true when an image is set
+            visible: false
         }
 
         // handle tap on profile picture
@@ -216,6 +235,13 @@ Container {
                 }
             }
         ]
+    }
+
+    // user has liked the checkin
+    onUserHasLikedChanged: {
+        if (userHasLiked == true) {
+            checkinUserIconImage.visible = true;
+        }
     }
 
     // handle ui touch elements

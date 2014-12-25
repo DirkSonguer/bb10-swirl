@@ -54,6 +54,7 @@ images/icons/icon_comments_dimmed.png
 images/icons/icon_facebook_active.png
 images/icons/icon_facebook_disabled.png
 images/icons/icon_facebook_inactive.png
+images/icons/icon_foursquare_like.png
 images/icons/icon_image_active.png
 images/icons/icon_image_inactive.png
 images/icons/icon_liked_w.png
@@ -95,7 +96,6 @@ structures/notification.js
 structures/photo.js
 structures/reason.js
 structures/score.js
-structures/search.js
 structures/update.js
 structures/user.js
 structures/venue.js

@@ -90,6 +90,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_inactive.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_foursquare_like.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_image_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_image_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \

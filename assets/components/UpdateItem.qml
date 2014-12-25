@@ -92,8 +92,7 @@ Container {
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
 
-        // profile image
-        // this is a web image view provided by WebViewImage
+        // status icon
         WebImageView {
             id: updateIconImage
 
@@ -101,8 +100,9 @@ Container {
             verticalAlignment: VerticalAlignment.Top
             horizontalAlignment: HorizontalAlignment.Right
 
+            // set initial visibility to false
+            // this will be set true when an image is set
             visible: false
-
             onUrlChanged: {
                 visible = true;
             }
