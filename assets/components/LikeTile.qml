@@ -26,10 +26,10 @@ Container {
     // signal that button has been clicked
     signal clicked()
 
-    // signal if user profile data loading is complete
+    // signal if like data action loading is complete
     signal likeDataLoaded()
 
-    // signal if user profile data loading encountered an error
+    // signal if like data action loading encountered an error
     signal likeDataError(variant errorData)
 
     // checkin object containing the like data

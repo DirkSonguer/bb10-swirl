@@ -13,6 +13,7 @@ import bb.cascades 1.3
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
+import "../foursquareapi/checkins.js" as CheckinsRepository
 
 Container {
     id: checkinListComponent
@@ -27,9 +28,15 @@ Container {
 
     // signal if user was clicked
     signal profileClicked(variant userData)
-    
+
     // signal to refresh the list
     signal refreshTriggered()
+
+    // signal if like data action loading is complete
+    signal likeDataLoaded()
+    
+    // signal if like data action loading encountered an error
+    signal likeDataError(variant errorData)
 
     // property that holds the current index
     // this is incremented as new items are added
@@ -63,6 +70,7 @@ Container {
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
+        Qt.checkinListDataModel = checkinListDataModel;
         Qt.checkinListFullDisplaySize = DisplayInfo.width;
         Qt.checkinListItemClicked = checkinListComponent.itemClicked;
         Qt.checkinListProfileClicked = checkinListComponent.profileClicked;
@@ -88,13 +96,13 @@ Container {
         leadingVisualSnapThreshold: 2.0
         leadingVisual: RefreshHeader {
             id: refreshHandler
-            
+
             // refresh triggered
             onTriggered: {
                 checkinListComponent.refreshTriggered();
             }
         }
-        
+
         // define component which will represent list item GUI appearence
         listItemComponents: [
             ListItemComponent {
@@ -123,7 +131,7 @@ Container {
 
                         // set data
                         username: ListItemData.checkinData.user.fullName
-                        userHasLiked: ListItemData.checkinData.userHasLiked
+                        userHasLiked: ListItemData.checkinData.user.fullName + "#" + ListItemData.checkinData.userHasLiked
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country
@@ -139,6 +147,37 @@ Container {
                         onItemClicked: {
                             // send item clicked event
                             Qt.checkinListItemClicked(ListItemData.checkinData);
+                        }
+
+                        // like / unlike item
+                        onChangeLikeState: {
+                            // console.log("Liking checkin via action menu with id: " + ListItemData.checkinData.checkinId + ", current state: " + ListItemData.checkinData.userHasLiked);
+
+                            var checkinItemListDataModel = Qt.checkinListDataModel;
+                            
+                            // iterate through all data items
+                            for (var i = 0; i < checkinItemListDataModel.size(); i ++) {
+                                // get current child food item
+                                var indexPath = new Array();
+                                indexPath[0] = i;
+                                var childItem = checkinItemListDataModel.data(indexPath);
+                                
+                                // check if checkin item in list is the selected one
+                                if (childItem.checkinData.checkinId == ListItemData.checkinData.checkinId) {
+                                    // console.log("# Child item checkinItemListDataModel: " + childItem.checkinData.checkinId);
+                                    if (childItem.checkinData.userHasLiked == true) {
+                                        CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 0, 0);
+                                        childItem.checkinData.userHasLiked = false;
+                                    } else {
+                                        CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 1, 0);                                        
+                                        childItem.checkinData.userHasLiked = true;
+                                    }
+                                    checkinItemListDataModel.updateItem(indexPath, childItem);
+                                    break;
+                                }
+                            }
+
+                            // console.log("Id: " + ListItemData.checkinData.checkinId + " has now current state: " + ListItemData.checkinData.userHasLiked);       
                         }
                     }
                 }
@@ -169,7 +208,7 @@ Container {
                 }
             }
         ]
-    }
+    }   
 
     // attached objects
     attachedObjects: [

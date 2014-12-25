@@ -248,7 +248,7 @@ function likeCheckin(checkinId, set, callingPage) {
 			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
 
 			// console.log("# Done adding checkin");
-			callingPage.likeDataLoaded();
+			if (callingPage != 0) callingPage.likeDataLoaded();
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly

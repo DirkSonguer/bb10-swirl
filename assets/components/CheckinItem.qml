@@ -24,17 +24,20 @@ import WebImageView 1.0
 Container {
     id: checkinItemComponent
 
-    // signal that user data has been clicked
+    // signal that user has been clicked
     signal userClicked()
 
     // signal that location data has been clicked
     signal itemClicked()
 
+    // signal to like and unlike the current item
+    signal changeLikeState()
+
     // property for the user profile image, given as url
     property alias profileImage: checkinUserProfileImage.url
 
     // property if the current user has liked the checkin
-    property bool userHasLiked: false
+    property string userHasLiked: ""
 
     // property for the user name, given as string
     property alias username: checkinUsername.text
@@ -226,6 +229,35 @@ Container {
             }
         }
 
+        // context menu for image
+        // this will be deactivated based on login state on creation
+        contextActions: [
+            ActionSet {
+                id: checkinActionSet
+                title: "Checkin Actions"
+
+                // like checkin action
+                ActionItem {
+                    id: checkinLikeAction
+                    imageSource: "asset:///images/icons/icon_liked_w.png"
+                    title: "Like checkin"
+
+                    // click action
+                    onTriggered: {
+                        console.log("Changing like state via action menu called");
+                        checkinItemComponent.changeLikeState();
+                    }
+
+                    // shortcut for action
+                    shortcuts: [
+                        Shortcut {
+                            key: "l"
+                        }
+                    ]
+                }
+            }
+        ]
+
         // handle tap on custom button
         gestureHandlers: [
             TapHandler {
@@ -239,8 +271,15 @@ Container {
 
     // user has liked the checkin
     onUserHasLikedChanged: {
-        if (userHasLiked == true) {
+        // console.log("Setting like state of checkin to: " + userHasLiked);
+        if (checkinItemComponent.userHasLiked.indexOf("#true") > -1) {
             checkinUserIconImage.visible = true;
+            checkinLikeAction.title = "Unlike checkin";
+            checkinLikeAction.imageSource = "asset:///images/icons/icon_unliked_w.png";
+        } else {
+            checkinUserIconImage.visible = false;
+            checkinLikeAction.title = "Like checkin";
+            checkinLikeAction.imageSource = "asset:///images/icons/icon_liked_w.png";
         }
     }
 
