@@ -90,7 +90,7 @@ function explore(currentGeoLocation, searchQuery, searchRadius, callingPage) {
 			var venueDataArray = venueTransformator.getVenueDataFromGroupArray(jsonObject.response.groups[0].items);
 
 			// console.log("# Done loading venue data");
-			callingPage.venueDataLoaded(venueDataArray);
+			callingPage.venueDataLoaded(venueDataArray, "");
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly

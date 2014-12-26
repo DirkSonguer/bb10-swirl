@@ -100,7 +100,7 @@ Container {
     // venue meta data container
     Container {
         // layout definition
-        topPadding: ui.sdu(0.5)
+        topPadding: ui.sdu(0.25)
         leftMargin: ui.sdu(1)
 
         // layout orientation
