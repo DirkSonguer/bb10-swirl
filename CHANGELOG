@@ -8,6 +8,7 @@ v 1.3.0
 * Added: Improved search order for nearby venues and added reasons
 * Added: Recent checkin list has action on long press now
 * Fixed: Notifications are now marked as read correctly when notification tab is opened
+* Fixed: Checkins with hashtags or mentions work now
 
 
 v 1.2.1

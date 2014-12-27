@@ -187,9 +187,7 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " +
-				// network.errorData.errorCode + " and message " +
-				// network.errorData.errorMessage);
+				console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
 				callingPage.addCheckinDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -208,7 +206,7 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&venueId=" + venueId;
 	url += "&broadcast=" + broadcast;
-	url += "&shout=" + shout;
+	url += "&shout=" + encodeURIComponent(shout);
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
