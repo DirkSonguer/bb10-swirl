@@ -161,12 +161,14 @@ function getCheckinData(checkinId, callingPage) {
 // Add a new checkin for a given loction
 // First parameter is the id of the venue to check into
 // Second parameter is a string to add as checkin comment
-// Third parameter is the current geolocation, given as GeolocationData
+// Third parameter is the mentions string, containing the mentions encoded in
+// the shout
 // Fourth parameter is a string with broadcast ids: private / public, facebook,
 // twitter, followers
-// Fifth parameter the id of the calling page, which will receive the
+// Fifth parameter is the current geolocation, given as GeolocationData
+// Sixth parameter is the id of the calling page, which will receive the
 // recentCheckinDataLoaded() signal
-function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) {
+function addCheckin(venueId, shout, mentions, broadcast, currentGeoLocation, callingPage) {
 	// console.log("# Adding checkin for venue: " + venueId);
 
 	var req = new XMLHttpRequest();
@@ -205,13 +207,14 @@ function addCheckin(venueId, shout, broadcast, currentGeoLocation, callingPage) 
 	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/add";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&venueId=" + venueId;
-	url += "&broadcast=" + broadcast;
 	url += "&shout=" + encodeURIComponent(shout);
+	url += "&mentions=" + encodeURIComponent(mentions);
+	url += "&broadcast=" + broadcast;
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Adding checkin with url: " + url);
+	console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

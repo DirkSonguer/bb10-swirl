@@ -79,19 +79,26 @@ Container {
 
     // signal to add a new item
     // item is given as type FoursquareCheckinData
-    signal addToList(variant item)
+    signal addToList(variant item, bool selected)
     onAddToList: {
         // console.log("# Adding item with ID " + item.checkinId + " to around you list data model");
         friendsListMultiselectComponent.currentItemIndex += 1;
         friendsListDataModel.insert({
                 "friendData": item,
+                "friendSelected": selected,
                 "currentIndex": friendsListMultiselectComponent.currentItemIndex
             });
+
+        // if the item is selected, call the respective signal
+        if (selected) {
+            friendsListMultiselectComponent.selectItem(item);
+        }
     }
 
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
+        Qt.friendsListDataModel = friendsListDataModel;
         friendsListMultiselectComponent.selectedItems = new Array();
         Qt.selectedItems = friendsListMultiselectComponent.selectedItems;
         Qt.selectItem = friendsListMultiselectComponent.selectItem;
@@ -149,17 +156,35 @@ Container {
                         username: ListItemData.friendData.fullName
                         profileImage: ListItemData.friendData.profileImageMedium
                         locationName: ListItemData.friendData.homeCity
+                        itemSelected: ListItemData.friendSelected
 
                         // user profile was clicked
                         onUserClicked: {
                             // console.log("# Trigger from user " + ListItemData.friendData.fullName + " with id " + ListItemData.friendData.userId);
 
-                            if (itemSelected) {
-                                Qt.deselectItem(ListItemData.friendData);
-                                itemSelected = false;
-                            } else {
-                                Qt.selectItem(ListItemData.friendData);
-                                itemSelected = true;
+                            // copy data model
+                            var friendsListDataModel = Qt.friendsListDataModel;
+
+                            // iterate through all data items
+                            for (var i = 0; i < friendsListDataModel.size(); i ++) {
+                                // get current child food item
+                                var indexPath = new Array();
+                                indexPath[0] = i;
+                                var childItem = friendsListDataModel.data(indexPath);
+
+                                // check if checkin item in list is the selected one
+                                if (childItem.friendData.userId == ListItemData.friendData.userId) {
+                                    // console.log("# Child item: " + childItem.friendData.fullName + " has selected status: " + childItem.friendSelected);
+                                    if (ListItemData.friendSelected == true) {
+                                        Qt.deselectItem(ListItemData.friendData);
+                                        childItem.friendSelected = false;
+                                    } else {
+                                        Qt.selectItem(ListItemData.friendData);
+                                        childItem.friendSelected = true;
+                                    }
+                                    friendsListDataModel.updateItem(indexPath, childItem);
+                                    break;
+                                }
                             }
                         }
                     }

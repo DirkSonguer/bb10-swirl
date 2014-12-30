@@ -34,7 +34,7 @@ Container {
 
     // signal if like data action loading is complete
     signal likeDataLoaded()
-    
+
     // signal if like data action loading encountered an error
     signal likeDataError(variant errorData)
 
@@ -153,23 +153,24 @@ Container {
                         onChangeLikeState: {
                             // console.log("Liking checkin via action menu with id: " + ListItemData.checkinData.checkinId + ", current state: " + ListItemData.checkinData.userHasLiked);
 
+                            // copy data model
                             var checkinItemListDataModel = Qt.checkinListDataModel;
-                            
+
                             // iterate through all data items
                             for (var i = 0; i < checkinItemListDataModel.size(); i ++) {
                                 // get current child food item
                                 var indexPath = new Array();
                                 indexPath[0] = i;
                                 var childItem = checkinItemListDataModel.data(indexPath);
-                                
+
                                 // check if checkin item in list is the selected one
                                 if (childItem.checkinData.checkinId == ListItemData.checkinData.checkinId) {
                                     // console.log("# Child item checkinItemListDataModel: " + childItem.checkinData.checkinId);
                                     if (childItem.checkinData.userHasLiked == true) {
-                                        // CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 0, 0);
+                                        CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 0, 0);
                                         childItem.checkinData.userHasLiked = false;
                                     } else {
-                                        // CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 1, 0);                                        
+                                        CheckinsRepository.likeCheckin(ListItemData.checkinData.checkinId, 1, 0);
                                         childItem.checkinData.userHasLiked = true;
                                     }
                                     checkinItemListDataModel.updateItem(indexPath, childItem);
@@ -177,7 +178,7 @@ Container {
                                 }
                             }
 
-                            // console.log("Id: " + ListItemData.checkinData.checkinId + " has now current state: " + ListItemData.checkinData.userHasLiked);       
+                            // console.log("Id: " + ListItemData.checkinData.checkinId + " has now current state: " + ListItemData.checkinData.userHasLiked);
                         }
                     }
                 }
@@ -208,7 +209,7 @@ Container {
                 }
             }
         ]
-    }   
+    }
 
     // attached objects
     attachedObjects: [

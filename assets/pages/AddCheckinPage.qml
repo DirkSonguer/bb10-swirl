@@ -84,6 +84,11 @@ Page {
                     // the added friends
                     onCurrentTextLengthChanged: {
                         textCounter.text = 140 - (currentTextLength + addedFriendsLabel.text.length);
+
+                        // note that we add 3 to include " - "
+                        if (addedFriendsLabel.text.length > 0) {
+                            textCounter.text -= 3;
+                        }
                     }
                 }
 
@@ -146,11 +151,14 @@ Page {
                         textStyle.fontSize: FontSize.Default
                         textStyle.textAlign: TextAlign.Left
 
+                        // react accordingly to updated count
                         onTextChanged: {
                             if (text < 0) {
                                 textStyle.color = Color.Red;
+                                addCheckinConfirmation.enabled = false;
                             } else {
                                 textStyle.color = Color.DarkGray;
+                                addCheckinConfirmation.enabled = true;
                             }
                         }
                     }
@@ -180,6 +188,7 @@ Page {
                             // create add friend sheet
                             var addFriendPage = addFriendComponent.createObject();
                             addFriendPage.callingPage = addCheckinPage;
+                            addFriendPage.initiallySelected = addCheckinPage.addFriendList;
                             addFriendSheet.setContent(addFriendPage);
                             addFriendSheet.open();
                         }
@@ -339,8 +348,37 @@ Page {
                             if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
                             if ((addCheckinTwitter.checked) && (addCheckinTwitter.enabled)) broadcast += ",twitter";
 
+                            // stitch together shout text
+                            var shout = addCheckinInput.text;
+                            var mentions = "";
+
+                            // add friends to shout if available
+                            if (addedFriendsLabel.text.length > 0) {
+                                // add prefix
+                                shout += " - with ";
+
+                                // iterate through friend list
+                                for (var index in addFriendList) {
+                                    // add name to shout, remember length before and after
+                                    var iFrom = shout.length;
+                                    shout += addFriendList[index].firstName;
+                                    var iTo = shout.length;
+
+                                    // build up mentions
+                                    // iFrom is the index of the first character in the shout representing the mention
+                                    // iTo is the index of the first character in the shout after the mention
+                                    mentions += iFrom + "," + iTo + "," + addFriendList[index].userId + ";";
+
+                                    // add delimiter
+                                    shout += ", "
+                                }
+
+                                // remove last delimiter
+                                shout = shout.substring(0, (shout.length - 2));
+                            }
+
                             // add checkin
-                            CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, addCheckinInput.text, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
+                            CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, shout, mentions, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
 
                             // hide input and show loader
                             addCheckinContainer.visible = false;
@@ -486,7 +524,7 @@ Page {
     // friends list has been changed
     // update friends label to reflect changes
     onAddFriendListChanged: {
-        console.log("# Found " + addFriendList.length + " friends to add to checkin");
+        // console.log("# Found " + addFriendList.length + " friends to add to checkin");
 
         // reset label
         addedFriendsLabel.text = "";
@@ -494,7 +532,7 @@ Page {
 
         // check if friends should be added
         if (addFriendList.length > 0) {
-            addedFriendsLabel.text = " - with ";
+            addedFriendsLabel.text = "with ";
 
             // iterate through friend objects
             for (var index in addFriendList) {
@@ -506,7 +544,8 @@ Page {
             addedFriendsLabel.visible = true;
 
             // update counter to reflect new value
-            textCounter.text = 140 - (addCheckinInput.currentTextLength + addedFriendsLabel.text.length);
+            // note that we add 3 to include " - "
+            textCounter.text = 140 - (addCheckinInput.currentTextLength + addedFriendsLabel.text.length + 3);
         }
     }
 

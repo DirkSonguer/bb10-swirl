@@ -41,7 +41,7 @@ Container {
 
     // flag if item is selected
     // this is only used when multiselectMode is true
-    property bool itemSelected: false
+    property alias itemSelected: selectionConfirmationImage.visible
 
     // layout orientation
     layout: StackLayout {
@@ -173,16 +173,16 @@ Container {
             }
         }
     }
-
+/*
     // set item state as selected
     onItemSelectedChanged: {
-        if (itemSelected) {
+        if (itemSelected == 1) {
             selectionConfirmationImage.visible = true;
         } else {
             selectionConfirmationImage.visible = false;
         }
     }
-
+*/
     // handle tap on profile picture
     gestureHandlers: [
         TapHandler {

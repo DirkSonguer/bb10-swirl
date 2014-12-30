@@ -31,6 +31,9 @@ Page {
     // property to hold the calling page
     // this will receive the list of selected items when the sheet is closed
     property variant callingPage
+    
+    // property that holds the initially selected items
+    property variant initiallySelected
 
     Container {
         layout: DockLayout {
@@ -78,7 +81,17 @@ Page {
 
         // iterate through data objects and fill list
         for (var index in friendsData) {
-            friendList.addToList(friendsData[index]);
+            // iterating through currently known items
+            var bSelected = false;
+            for (var iSelected in addFriendsListPage.initiallySelected) {
+                if (addFriendsListPage.initiallySelected[iSelected].userId == friendsData[index].userId) {
+                    // console.log("# Match found, flagging user " + friendsData[index].userId + " as selected");
+                    bSelected = true;
+                }
+            }
+            
+            // add item to list
+            friendList.addToList(friendsData[index], bSelected);
         }
 
         // hide loader
