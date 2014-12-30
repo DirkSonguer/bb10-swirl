@@ -241,7 +241,7 @@ Page {
                             }
                         ]
                     }
-
+/*
                     // public / private toggle
                     ImageToggleButton {
                         id: addCheckinPublic
@@ -273,7 +273,7 @@ Page {
                             }
                         }
                     }
-
+*/
                     // facebook checkin
                     ImageToggleButton {
                         id: addCheckinFacebook
@@ -335,7 +335,7 @@ Page {
                         // checkin action
                         onClicked: {
                             // console.log("# Calling checkin for venue: " + venueData.venueId);
-
+/*
                             // build broadcast string
                             var broadcast = "";
                             if (addCheckinPublic.checked) {
@@ -343,6 +343,8 @@ Page {
                             } else {
                                 broadcast += "private";
                             }
+*/
+                            broadcast += "public";
 
                             // add facebook and twitter broadcast options
                             if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
@@ -526,12 +528,15 @@ Page {
     onAddFriendListChanged: {
         // console.log("# Found " + addFriendList.length + " friends to add to checkin");
 
-        // reset label
+        // reset labels
+        textCounter.text = 140 - addCheckinInput.currentTextLength;
         addedFriendsLabel.text = "";
         addedFriendsLabel.visible = false;
+        addCheckinFriends.checked = false;
 
         // check if friends should be added
         if (addFriendList.length > 0) {
+            addCheckinFriends.checked = true;
             addedFriendsLabel.text = "with ";
 
             // iterate through friend objects

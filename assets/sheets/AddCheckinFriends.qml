@@ -101,7 +101,7 @@ Page {
     // close action for the sheet
     actions: [
         ActionItem {
-            title: "Cancel"
+            title: "Add none"
             imageSource: "asset:///images/icons/icon_close.png"
 
             ActionBar.placement: ActionBarPlacement.OnBar
@@ -114,7 +114,7 @@ Page {
             }
         },
         ActionItem {
-            title: "Add to Checkin"
+            title: "Add selected"
             imageSource: "asset:///images/icons/icon_ok.png"
 
             ActionBar.placement: ActionBarPlacement.OnBar
