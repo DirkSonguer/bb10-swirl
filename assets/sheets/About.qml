@@ -19,7 +19,6 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 
 Page {
-
     ScrollView {
         // only vertical scrolling is needed
         scrollViewProperties {

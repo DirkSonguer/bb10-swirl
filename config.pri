@@ -48,6 +48,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/CommentInput.qml) \
         $$quote($$BASEDIR/assets/components/CommentPreview.qml) \
         $$quote($$BASEDIR/assets/components/FriendsList.qml) \
+        $$quote($$BASEDIR/assets/components/FriendsListMultiselect.qml) \
         $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
@@ -80,6 +81,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/assets/mask_squircle.png) \
         $$quote($$BASEDIR/assets/images/assets/white_squircle.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_about.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_addfriends_active.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_addfriends_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_aroundyou.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_bbworld.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_call_w.png) \
@@ -97,6 +100,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification_available.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_ok.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_ok_color.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_public_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_public_inactive.png) \
@@ -118,6 +123,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
+        $$quote($$BASEDIR/assets/sheets/AddCheckinFriends.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogout.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \

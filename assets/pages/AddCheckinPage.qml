@@ -48,6 +48,9 @@ Page {
     // contains lat and lon
     property variant currentGeolocation
 
+    // list of friends to add to checkin
+    property variant addFriendList
+
     ScrollView {
         // only vertical scrolling is needed
         scrollViewProperties {
@@ -75,6 +78,44 @@ Page {
 
                     // hint text
                     hintText: "What are your doing here?"
+
+                    // current text length changed, update length counter
+                    // max length of a message is 140 char, this includes
+                    // the added friends
+                    onCurrentTextLengthChanged: {
+                        textCounter.text = 140 - (currentTextLength + addedFriendsLabel.text.length);
+                    }
+                }
+
+                // added friends label
+                Container {
+                    // layout definition
+                    topMargin: ui.sdu(1)
+                    bottomMargin: ui.sdu(2)
+                    leftPadding: ui.sdu(1)
+                    rightPadding: ui.sdu(1)
+
+                    Label {
+                        id: addedFriendsLabel
+
+                        // layout definition
+                        horizontalAlignment: HorizontalAlignment.Left
+
+                        // set initial visibility to false
+                        // will be set true if friends are added
+                        visible: false
+
+                        // make label grow multiline
+                        multiline: true
+                        autoSize.maxLineCount: 5
+
+                        // text style definition
+                        textStyle.base: SystemDefaults.TextStyles.BodyText
+                        textStyle.fontWeight: FontWeight.W100
+                        textStyle.fontStyle: FontStyle.Italic
+                        textStyle.fontSize: FontSize.Default
+                        textStyle.textAlign: TextAlign.Left
+                    }
                 }
 
                 // buttons
@@ -90,6 +131,59 @@ Page {
                     bottomPadding: ui.sdu(1)
                     leftPadding: ui.sdu(1)
                     rightPadding: ui.sdu(1)
+
+                    // text counter showing the current text length
+                    Label {
+                        id: textCounter
+
+                        // layout definition
+                        horizontalAlignment: HorizontalAlignment.Left
+                        bottomMargin: 0
+
+                        // text style definition
+                        textStyle.base: SystemDefaults.TextStyles.BigText
+                        textStyle.fontWeight: FontWeight.W100
+                        textStyle.fontSize: FontSize.Default
+                        textStyle.textAlign: TextAlign.Left
+
+                        onTextChanged: {
+                            if (text < 0) {
+                                textStyle.color = Color.Red;
+                            } else {
+                                textStyle.color = Color.DarkGray;
+                            }
+                        }
+                    }
+
+                    // add friends to checkin
+                    ImageToggleButton {
+                        id: addCheckinFriends
+
+                        // layout definition
+                        leftMargin: ui.sdu(1)
+                        preferredWidth: ui.sdu(9)
+                        preferredHeight: ui.sdu(9)
+
+                        // set default state to checked
+                        checked: false
+
+                        // set button images
+                        imageSourceDefault: "asset:///images/icons/icon_addfriends_inactive.png"
+                        imageSourceChecked: "asset:///images/icons/icon_addfriends_active.png"
+                        imageSourceDisabledUnchecked: "asset:///images/icons/icon_addfriends_inactive.png"
+                        imageSourceDisabledChecked: "asset:///images/icons/icon_addfriends_inactive.png"
+                        imageSourcePressedUnchecked: "asset:///images/icons/icon_addfriends_active.png"
+                        imageSourcePressedChecked: "asset:///images/icons/icon_addfriends_active.png"
+
+                        // toggle public / private, which also de- / activates social shares
+                        onCheckedChanged: {
+                            // create add friend sheet
+                            var addFriendPage = addFriendComponent.createObject();
+                            addFriendPage.callingPage = addCheckinPage;
+                            addFriendSheet.setContent(addFriendPage);
+                            addFriendSheet.open();
+                        }
+                    }
 
                     // actual button
                     ImageToggleButton {
@@ -378,7 +472,7 @@ Page {
         // if so, upload the image
         if (addCheckinPage.venueImage != "") {
             // console.log("# Trying to upload image: " + addCheckinPage.venueImage);
-            
+
             // showing image
             addCheckinResultImage.imageSource = "file://" + addCheckinPage.venueImage;
 
@@ -386,6 +480,33 @@ Page {
             fileUpload.source = addCheckinPage.venueImage;
             var foursquareUserdata = AuthenticationHandler.auth.getStoredFoursquareData();
             fileUpload.upload(checkinData.checkinId, foursquareUserdata["access_token"], FoursquareKeys.foursquarekeys.foursquareAPIVersion, "1");
+        }
+    }
+
+    // friends list has been changed
+    // update friends label to reflect changes
+    onAddFriendListChanged: {
+        console.log("# Found " + addFriendList.length + " friends to add to checkin");
+
+        // reset label
+        addedFriendsLabel.text = "";
+        addedFriendsLabel.visible = false;
+
+        // check if friends should be added
+        if (addFriendList.length > 0) {
+            addedFriendsLabel.text = " - with ";
+
+            // iterate through friend objects
+            for (var index in addFriendList) {
+                addedFriendsLabel.text += addFriendList[index].firstName + ", ";
+            }
+
+            // update label
+            addedFriendsLabel.text = addedFriendsLabel.text.substring(0, (addedFriendsLabel.text.length - 2));
+            addedFriendsLabel.visible = true;
+
+            // update counter to reflect new value
+            textCounter.text = 140 - (addCheckinInput.currentTextLength + addedFriendsLabel.text.length);
         }
     }
 
@@ -407,6 +528,18 @@ Page {
         // used to upload images to foursquare
         FileUpload {
             id: fileUpload
+        },
+        // sheet for adding friends page
+        Sheet {
+            id: addFriendSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: addFriendComponent
+                    source: "../sheets/AddCheckinFriends.qml"
+                }
+            ]
         }
     ]
 }

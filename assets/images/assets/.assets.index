@@ -1,5 +1,5 @@
 1
-99
+105
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -12,6 +12,7 @@ components/CheckinList.qml
 components/CommentInput.qml
 components/CommentPreview.qml
 components/FriendsList.qml
+components/FriendsListMultiselect.qml
 components/GalleryTile.qml
 components/InfoMessage.qml
 components/InfoTile.qml
@@ -44,6 +45,8 @@ images/assets/mask_blue_squircle.png
 images/assets/mask_squircle.png
 images/assets/white_squircle.png
 images/icons/icon_about.png
+images/icons/icon_addfriends_active.png
+images/icons/icon_addfriends_inactive.png
 images/icons/icon_aroundyou.png
 images/icons/icon_bbworld.png
 images/icons/icon_call_w.png
@@ -61,6 +64,8 @@ images/icons/icon_liked_w.png
 images/icons/icon_mail_w.png
 images/icons/icon_notification.png
 images/icons/icon_notification_available.png
+images/icons/icon_ok.png
+images/icons/icon_ok_color.png
 images/icons/icon_profile.png
 images/icons/icon_public_active.png
 images/icons/icon_public_inactive.png
@@ -82,6 +87,7 @@ pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
 sheets/About.qml
+sheets/AddCheckinFriends.qml
 sheets/UserLogin.qml
 sheets/UserLogout.qml
 structures/checkin.js

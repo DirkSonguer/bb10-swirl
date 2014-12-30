@@ -36,12 +36,19 @@ Container {
     // property for the aroundYou location, given as string
     property alias locationName: aroundYouLocationName.text
 
+    // flag to set list item in multiselect mode
+    property bool multiselectMode: false
+
+    // flag if item is selected
+    // this is only used when multiselectMode is true
+    property bool itemSelected: false
+
     // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
     }
 
-// layout definition
+    // layout definition
     horizontalAlignment: HorizontalAlignment.Center
     topPadding: ui.sdu(2)
     bottomPadding: ui.sdu(2)
@@ -90,6 +97,23 @@ Container {
             // mask image
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
+
+        // status icon
+        ImageView {
+            id: selectionConfirmationImage
+
+            // align the image in the center
+            verticalAlignment: VerticalAlignment.Top
+            horizontalAlignment: HorizontalAlignment.Right
+
+            // confirmation image
+            imageSource: "asset:///images/icons/icon_ok_color.png"
+
+            // set initial visibility to false
+            // this will be set true when item is selected
+            // only used in multiselect mode
+            visible: false
+        }
     }
 
     // aroundYou meta data container
@@ -133,22 +157,32 @@ Container {
 
     // handle ui touch elements
     onTouch: {
-        // user interaction
-        if (event.touchType == TouchType.Down) {
-            aroundYouItemComponent.background = Color.create(Globals.blackberryStandardBlue);
-            aroundYouUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
-            aroundYouUsername.textStyle.color = Color.White;
-        }
+        if (! multiselectMode) {
+            // user interaction
+            if (event.touchType == TouchType.Down) {
+                aroundYouItemComponent.background = Color.create(Globals.blackberryStandardBlue);
+                aroundYouUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
+                aroundYouUsername.textStyle.color = Color.White;
+            }
 
-        // user released or is moving
-        if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
-            aroundYouItemComponent.background = Color.Transparent;
-            aroundYouUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
-            aroundYouUsername.textStyle.color = Color.create(Globals.blackberryStandardBlue);
+            // user released or is moving
+            if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+                aroundYouItemComponent.background = Color.Transparent;
+                aroundYouUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
+                aroundYouUsername.textStyle.color = Color.create(Globals.blackberryStandardBlue);
+            }
         }
     }
-    
-    
+
+    // set item state as selected
+    onItemSelectedChanged: {
+        if (itemSelected) {
+            selectionConfirmationImage.visible = true;
+        } else {
+            selectionConfirmationImage.visible = false;
+        }
+    }
+
     // handle tap on profile picture
     gestureHandlers: [
         TapHandler {
@@ -157,5 +191,5 @@ Container {
                 aroundYouItemComponent.userClicked();
             }
         }
-    ]    
+    ]
 }
