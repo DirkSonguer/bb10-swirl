@@ -183,8 +183,8 @@ Page {
                         imageSourcePressedUnchecked: "asset:///images/icons/icon_addfriends_active.png"
                         imageSourcePressedChecked: "asset:///images/icons/icon_addfriends_active.png"
 
-                        // toggle public / private, which also de- / activates social shares
-                        onCheckedChanged: {
+                        // open respective friend sheet
+                        onTouch: {
                             // create add friend sheet
                             var addFriendPage = addFriendComponent.createObject();
                             addFriendPage.callingPage = addCheckinPage;
@@ -215,7 +215,7 @@ Page {
                         imageSourcePressedChecked: "asset:///images/icons/icon_image_active.png"
 
                         // open file picker on tap
-                        onCheckedChanged: {
+                        onTouch: {
                             imageFilePicker.open();
                         }
 
@@ -241,39 +241,7 @@ Page {
                             }
                         ]
                     }
-/*
-                    // public / private toggle
-                    ImageToggleButton {
-                        id: addCheckinPublic
 
-                        // layout definition
-                        leftMargin: ui.sdu(1)
-                        preferredWidth: ui.sdu(9)
-                        preferredHeight: ui.sdu(9)
-
-                        // set default state to checked
-                        checked: true
-
-                        // set button images
-                        imageSourceDefault: "asset:///images/icons/icon_public_inactive.png"
-                        imageSourceChecked: "asset:///images/icons/icon_public_active.png"
-                        imageSourceDisabledUnchecked: "asset:///images/icons/icon_public_inactive.png"
-                        imageSourceDisabledChecked: "asset:///images/icons/icon_public_inactive.png"
-                        imageSourcePressedUnchecked: "asset:///images/icons/icon_public_active.png"
-                        imageSourcePressedChecked: "asset:///images/icons/icon_public_active.png"
-
-                        // toggle public / private, which also de- / activates social shares
-                        onCheckedChanged: {
-                            if (! checked) {
-                                addCheckinFacebook.enabled = false;
-                                addCheckinTwitter.enabled = false;
-                            } else {
-                                addCheckinFacebook.enabled = true;
-                                addCheckinTwitter.enabled = true;
-                            }
-                        }
-                    }
-*/
                     // facebook checkin
                     ImageToggleButton {
                         id: addCheckinFacebook
@@ -335,15 +303,8 @@ Page {
                         // checkin action
                         onClicked: {
                             // console.log("# Calling checkin for venue: " + venueData.venueId);
-/*
-                            // build broadcast string
-                            var broadcast = "";
-                            if (addCheckinPublic.checked) {
-                                broadcast += "public";
-                            } else {
-                                broadcast += "private";
-                            }
-*/
+
+                            // set broadcast to public per default
                             broadcast += "public";
 
                             // add facebook and twitter broadcast options
