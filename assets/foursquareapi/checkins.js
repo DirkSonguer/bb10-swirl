@@ -214,7 +214,7 @@ function addCheckin(venueId, shout, mentions, broadcast, currentGeoLocation, cal
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Adding checkin with url: " + url);
+	// console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }
@@ -336,7 +336,7 @@ function addComment(checkinId, commentText, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Adding comment with url: " + url);
+	// console.log("# Adding comment with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

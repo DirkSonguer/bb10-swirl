@@ -305,7 +305,7 @@ Page {
                             // console.log("# Calling checkin for venue: " + venueData.venueId);
 
                             // set broadcast to public per default
-                            broadcast += "public";
+                            var broadcast = "public";
 
                             // add facebook and twitter broadcast options
                             if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
