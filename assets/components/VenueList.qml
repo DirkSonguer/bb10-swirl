@@ -85,6 +85,12 @@ Container {
         leadingVisual: SearchHeader {
             id: searchHandler
             
+            // call to action text
+            title: Copytext.swirlSearchCallToAction
+            
+            // hint text shown in input field
+            hintText: Copytext.swirlSearchInputLabel
+
             // refresh triggered
             onUpdateSearch: {
                 searchHandler.resetState();

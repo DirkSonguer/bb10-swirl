@@ -169,7 +169,7 @@ NavigationPane {
         onLoadContent: {
             // enter debug user
             // TODO: Remove for live app
-            // Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK"); // Dirk
+            Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK"); // Dirk
             // Authentication.auth.storeFoursquareData("6625189", "DQN0L1NNII54EAPFWZ0DSL0ORIHITNI3ZTX1VTFPGWHIY303"); // Delax
 
             // hide message in case of a previous message
