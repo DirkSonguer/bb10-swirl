@@ -1,4 +1,9 @@
 
+v 1.4.0
+---------
+
+* Changed: Venues can be searched directly without call to action in checkin page
+
 
 v 1.3.0
 ---------

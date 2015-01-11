@@ -75,7 +75,7 @@ function getVenueData(venueId, callingPage) {
 // Third parameter is the radius in meters to search in
 // Forth parameter is the id of the calling page, which will receive the
 // venueDataLoaded() signal
-function explore(currentGeoLocation, searchQuery, searchRadius, callingPage) {
+function explore(currentGeoLocation, searchQuery, searchSection, searchFriendsVisited, searchRadius, callingPage) {
 	// console.log("# Loading venue data for location: " +
 	// currentGeoLocation.latitude + "," + currentGeoLocation.longitude);
 
@@ -88,9 +88,10 @@ function explore(currentGeoLocation, searchQuery, searchRadius, callingPage) {
 		if (jsonObject) {
 			// prepare transformator and return object
 			var venueDataArray = venueTransformator.getVenueDataFromGroupArray(jsonObject.response.groups[0].items);
+			var venueReasonArray = reasonTransformator.getReasonDataFromGroupArray(jsonObject.response.groups[0].items);
 
 			// console.log("# Done loading venue data");
-			callingPage.venueDataLoaded(venueDataArray, "");
+			callingPage.venueDataLoaded(venueDataArray, venueReasonArray);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -118,10 +119,12 @@ function explore(currentGeoLocation, searchQuery, searchRadius, callingPage) {
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	if (searchQuery != "") url += "&query=" + searchQuery;
 	if (searchRadius > 0) url += "&radius=" + searchRadius;
+	if (searchSection != 0) url += "&section=" + searchSection;
+	if (searchFriendsVisited > 0) url += "&friendVisits=visited";
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=foursquare";
 
-	// console.log("# Loading venue data with url: " + url);
+	console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

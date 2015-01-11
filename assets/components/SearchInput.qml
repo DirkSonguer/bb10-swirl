@@ -84,6 +84,10 @@ Container {
             defaultImageSource: "asset:///images/icons/icon_search.png"
             pressedImageSource: "asset:///images/icons/icon_search_dimmed.png"
 
+            // set fixed size according to input field
+            preferredHeight: 62
+            preferredWidth: 62
+
             // send search request if clicked
             onClicked: {
                 // console.log("# Search input icon clicked");

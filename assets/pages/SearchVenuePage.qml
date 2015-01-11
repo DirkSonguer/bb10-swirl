@@ -32,13 +32,16 @@ Page {
     // signal if popular media data loading encountered an error
     signal venueDataError(variant errorData)
 
+    // signal to reset the search results
+    signal resetSearchResults()
+
     // property for the current geolocation
     // contains lat and lon
     property variant currentGeolocation
-    
+
     // flag if unbound search is used
     property bool unboundSearch: false;
-    
+
     // property to hold current search term
     property string searchTerm: ""
 
@@ -77,7 +80,7 @@ Page {
 
                 // set sorting
                 listSortAscending: true
-                
+
                 // set initial visibility to false
                 // will be set true once data is loaded
                 visible: false
@@ -118,10 +121,22 @@ Page {
         positionSource.start();
     }
 
+    // reset search results
+    // This is used by other pages and sheets to reset the list
+    onResetSearchResults: {
+        // console.log("# Resetting search results");
+        
+        // reset search list
+        venueList.clearList();
+
+        // show loader
+        loadingIndicator.showLoader("Loading search results");
+    }
+
     // around you checkin data loaded and transformed
     // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
     onVenueDataLoaded: {
-        console.log("# Venue data loaded. Found " + venueData.length + " items and " + venueReasons.length + " reasons");
+        // console.log("# Venue data loaded. Found " + venueData.length + " items and " + venueReasons.length + " reasons");
 
         // initially clear list
         venueList.clearList();
@@ -134,23 +149,23 @@ Page {
 
             // hide loader
             loadingIndicator.hideLoader();
-            
+
             // show list
             venueList.visible = true;
-            
+
             // reset unbound flag and searchTerm
             searchVenuePage.unboundSearch = false;
             searchVenuePage.searchTerm = "";
         } else {
             // check if search was already unbound
-            if (!searchVenuePage.unboundSearch) {
+            if (! searchVenuePage.unboundSearch) {
                 // redo search without radius restriction
                 searchVenuePage.unboundSearch = true;
                 VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchVenuePage.searchTerm, 0, searchVenuePage);
             } else {
                 // hide loader and result list
                 loadingIndicator.hideLoader();
-                
+
                 // show error message
                 infoMessage.showMessage(Copytext.swirlSearchNoResultsMessage, Copytext.swirlSearchNoResultsTitle);
             }
@@ -165,8 +180,42 @@ Page {
         loadingIndicator.hideLoader();
     }
 
+    // main page action menu bar (bottom menu)
+    actions: [
+        ActionItem {
+            id: advancedSearchAction
+
+            // title and image
+            title: "Advanced Search"
+            imageSource: "asset:///images/icons/icon_advancedsearch.png"
+
+            // action position
+            ActionBar.placement: ActionBarPlacement.OnBar
+
+            // action
+            onTriggered: {
+                // create advanced search sheet
+                var advancedSearchSheetPage = advancedSearchComponent.createObject();
+                advancedSearchSheet.setContent(advancedSearchSheetPage);
+                advancedSearchSheet.open();
+            }
+        }
+    ]
+
     // attach components
     attachedObjects: [
+        // sheet for advanced search page
+        Sheet {
+            id: advancedSearchSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: advancedSearchComponent
+                    source: "../sheets/AdvancedVenueSearch.qml"
+                }
+            ]
+        },
         // venue detail page
         // will be called if user clicks on venue item
         ComponentDefinition {

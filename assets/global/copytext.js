@@ -45,6 +45,9 @@ var swirlSearchInputLabel = "Enter venue name";
 var swirlSearchDistances = new Array("Around you", "Around the block", "Somewhat near", "Somewhere else");
 var swirlSearchNoResultsTitle = "Could not load venues around you";
 var swirlSearchNoResultsMessage = "Could not find any venues around you. Where are you?!";
+var swirlSearchRadius = "Search radius";
+var swirlSearchRadiusLabels = new Array("Around you (100m)", "Around the block (1km)", "Somewhat near (5km)", "Somewhere else (no limit)");
+var swirlSearchRadiusValues = new Array("100", "1000", "5000", "0");
 
 // checkin
 var swirlCheckinConfirmation = "We got you at ";
