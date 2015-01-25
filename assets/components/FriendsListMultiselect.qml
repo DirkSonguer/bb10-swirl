@@ -71,34 +71,72 @@ Container {
     property alias listSortAscending: friendsListDataModel.sortedAscending
 
     // signal to clear the gallery contents
-    signal clearList()
+    signal clearList(bool initial)
     onClearList: {
-        friendsListDataModel.clear();
-        friendsListMultiselectComponent.selectedItems = new Array();
+        if (initial) {
+            friendsListDataModel.clear();
+            friendsListMultiselectComponent.selectedItems = new Array();
+        }
+
+        friendsListProxyDataModel.clear();
     }
 
     // signal to add a new item
     // item is given as type FoursquareCheckinData
-    signal addToList(variant item, bool selected)
+    signal addToList(variant item, bool selected, bool initial)
     onAddToList: {
-        // console.log("# Adding item with ID " + item.checkinId + " to around you list data model");
-        friendsListMultiselectComponent.currentItemIndex += 1;
-        friendsListDataModel.insert({
+        if (initial) {
+            // console.log("# Adding item with ID " + item.checkinId + " to around you list data model");
+            friendsListMultiselectComponent.currentItemIndex += 1;
+            friendsListDataModel.insert({
+                    "friendData": item,
+                    "friendSelected": selected,
+                    "currentIndex": friendsListMultiselectComponent.currentItemIndex
+                });
+
+            // if the item is selected, call the respective signal
+            if (selected) {
+                friendsListMultiselectComponent.selectItem(item);
+            }
+        }
+
+        friendsListProxyDataModel.insert({
                 "friendData": item,
                 "friendSelected": selected,
                 "currentIndex": friendsListMultiselectComponent.currentItemIndex
             });
+    }
 
-        // if the item is selected, call the respective signal
-        if (selected) {
-            friendsListMultiselectComponent.selectItem(item);
+    signal filterList(string filterTerm)
+    onFilterList: {
+        // console.log("# Filtering friends list for term: " + filterTerm);
+        friendsListMultiselectComponent.clearList(false);
+
+        // iterate through all data items
+        for (var i = 0; i < friendsListDataModel.size(); i ++) {
+            // get current child food item
+            var indexPath = new Array();
+            indexPath[0] = i;
+            var childItem = friendsListDataModel.data(indexPath);
+
+            // check if item matches current search term
+            var currentName = childItem.friendData.firstName.toLowerCase();
+            if (currentName.indexOf(filterTerm.toLowerCase()) > -1) {
+                // fill proxy data model
+                friendsListMultiselectComponent.addToList(childItem.friendData, childItem.friendSelected, false);
+            }
         }
+
+        // make input header visible after update
+        friendsList.scrollToPosition(0, ScrollAnimation.None);
+        friendsList.scroll(-145, ScrollAnimation.None);
     }
 
     // this is a workaround to make the signals visible inside the listview item scope
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
         Qt.friendsListDataModel = friendsListDataModel;
+        Qt.friendsListProxyDataModel = friendsListProxyDataModel;
         friendsListMultiselectComponent.selectedItems = new Array();
         Qt.selectedItems = friendsListMultiselectComponent.selectedItems;
         Qt.selectItem = friendsListMultiselectComponent.selectItem;
@@ -114,12 +152,29 @@ Container {
         id: friendsList
 
         // associate the data model for the list view
-        dataModel: friendsListDataModel
+        dataModel: friendsListProxyDataModel
 
         // layout definition
         layout: GridListLayout {
             columnCount: 3
-            cellAspectRatio: 0.75
+            cellAspectRatio: 0.8
+        }
+
+        // set search header as leading visual
+        leadingVisualSnapThreshold: 2.0
+        leadingVisual: SearchHeader {
+            id: searchHandler
+
+            // call to action text
+            title: Copytext.swirlFriendSearchCallToAction
+
+            // hint text shown in input field
+            hintText: Copytext.swirlFriendSearchInputLabel
+
+            // search term changed
+            onCurrentSearchTermChanged: {
+                friendsListMultiselectComponent.filterList(currentSearchTerm);
+            }
         }
 
         // define component which will represent list item GUI appearence
@@ -186,6 +241,29 @@ Container {
                                     break;
                                 }
                             }
+
+                            // copy data model
+                            var friendsListProxyDataModel = Qt.friendsListProxyDataModel;
+
+                            // iterate through all data items
+                            for (var i = 0; i < friendsListProxyDataModel.size(); i ++) {
+                                // get current child food item
+                                var indexPath = new Array();
+                                indexPath[0] = i;
+                                var childItem = friendsListProxyDataModel.data(indexPath);
+
+                                // check if checkin item in list is the selected one
+                                if (childItem.friendData.userId == ListItemData.friendData.userId) {
+                                    // console.log("# Child item: " + childItem.friendData.fullName + " has selected status: " + childItem.friendSelected);
+                                    if (ListItemData.friendSelected == true) {
+                                        childItem.friendSelected = false;
+                                    } else {
+                                        childItem.friendSelected = true;
+                                    }
+                                    friendsListProxyDataModel.updateItem(indexPath, childItem);
+                                    break;
+                                }
+                            }
                         }
                     }
                 }
@@ -223,6 +301,15 @@ Container {
         // this will be the data model for the popular media list view
         GroupDataModel {
             id: friendsListDataModel
+            sortedAscending: false
+            sortingKeys: [ listSortingKey ]
+
+            // items are grouped by the view and transformators
+            // no need to set a behaviour by the data model
+            grouping: ItemGrouping.None
+        },
+        GroupDataModel {
+            id: friendsListProxyDataModel
             sortedAscending: false
             sortingKeys: [ listSortingKey ]
 

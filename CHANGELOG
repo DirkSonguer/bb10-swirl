@@ -2,7 +2,9 @@
 v 1.4.0
 ---------
 
+* Added: Friends list can now be searched while adding to checkin
 * Changed: Venues can be searched directly without call to action in checkin page
+* Fixed: Text height should not be cut off anymore in various components
 
 
 v 1.3.0

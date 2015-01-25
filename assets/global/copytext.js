@@ -49,6 +49,10 @@ var swirlSearchRadius = "Search radius";
 var swirlSearchRadiusLabels = new Array("Around you (100m)", "Around the block (1km)", "Somewhat near (5km)", "Somewhere else (no limit)");
 var swirlSearchRadiusValues = new Array("100", "1000", "5000", "0");
 
+// friends search
+var swirlFriendSearchCallToAction = "Search for friends";
+var swirlFriendSearchInputLabel = "Enter friend name";
+
 // checkin
 var swirlCheckinConfirmation = "We got you at ";
 

@@ -55,6 +55,11 @@ Container {
             hintText: ""
             clearButtonVisible: true
             inputMode: TextFieldInputMode.Chat
+            
+            // update current text property
+            onTextChanging: {
+                searchInputComponent.currentSearchTerm = text;
+            }
 
             // input behaviour and handling
             input {

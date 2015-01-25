@@ -62,7 +62,7 @@ Container {
         Qt.aroundYouListProfileClicked = aroundYouListComponent.profileClicked;
 
         // check for passport
-        if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.height == 1440)) {
             // change column count to 4 to account for wider display
             aroundYouList.layout.columnCount = 4;
         }
@@ -83,7 +83,7 @@ Container {
         layout: GridListLayout {
             headerMode: ListHeaderMode.Sticky
             columnCount: 3
-            cellAspectRatio: 0.75
+            cellAspectRatio: 0.78
         }
 
         // set refresh header as leading visual

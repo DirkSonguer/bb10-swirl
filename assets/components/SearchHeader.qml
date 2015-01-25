@@ -35,6 +35,9 @@ Container {
     
     // hin text label
     property alias hintText: searchHeaderInputField.hintText
+    
+    // property that contains the current search term
+    property alias currentSearchTerm: searchHeaderInputField.currentSearchTerm
 
     // layout orientation
     layout: DockLayout {

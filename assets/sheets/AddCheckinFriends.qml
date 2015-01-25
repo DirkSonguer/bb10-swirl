@@ -77,7 +77,7 @@ Page {
     // fill friends list with user objects
     onUserFriendsDataLoaded: {
         // initially clear list
-        friendList.clearList();
+        friendList.clearList(true);
 
         // iterate through data objects and fill list
         for (var index in friendsData) {
@@ -91,7 +91,7 @@ Page {
             }
             
             // add item to list
-            friendList.addToList(friendsData[index], bSelected);
+            friendList.addToList(friendsData[index], bSelected, true);
         }
 
         // hide loader

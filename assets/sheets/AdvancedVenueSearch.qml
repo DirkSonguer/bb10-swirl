@@ -187,10 +187,11 @@ Page {
                     if (typeof searchType == "undefined") searchType = 0;
                     var searchRadius = Copytext.swirlSearchRadiusValues[advancedSearchRadius.value];
                     var friendsVisited = advancedSearchFriendsCheck.checked;
+                    var searchQuery = advancedSearchInput.currentSearchTerm;
 
-                    // load searcg results
+                    // load search results
                     // note that we hand over searchVenuePage as calling page, not the sheet
-                    VenueRepository.explore(searchVenuePage.currentGeolocation, "", searchType, friendsVisited, searchRadius, searchVenuePage);
+                    VenueRepository.explore(searchVenuePage.currentGeolocation, searchQuery, searchType, friendsVisited, searchRadius, searchVenuePage);
                 }
             }
 

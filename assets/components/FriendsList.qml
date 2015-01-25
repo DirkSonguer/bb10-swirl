@@ -73,7 +73,7 @@ Container {
         // layout definition
         layout: GridListLayout {
             columnCount: 3
-            cellAspectRatio: 0.75
+            cellAspectRatio: 0.8
         }
 
         // define component which will represent list item GUI appearence

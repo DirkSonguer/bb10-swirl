@@ -173,16 +173,7 @@ Container {
             }
         }
     }
-/*
-    // set item state as selected
-    onItemSelectedChanged: {
-        if (itemSelected == 1) {
-            selectionConfirmationImage.visible = true;
-        } else {
-            selectionConfirmationImage.visible = false;
-        }
-    }
-*/
+
     // handle tap on profile picture
     gestureHandlers: [
         TapHandler {
