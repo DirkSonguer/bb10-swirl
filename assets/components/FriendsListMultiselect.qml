@@ -129,7 +129,7 @@ Container {
 
         // make input header visible after update
         friendsList.scrollToPosition(0, ScrollAnimation.None);
-        friendsList.scroll(-145, ScrollAnimation.None);
+        friendsList.scroll(-ui.sdu(18), ScrollAnimation.None);
     }
 
     // this is a workaround to make the signals visible inside the listview item scope
@@ -141,6 +141,12 @@ Container {
         Qt.selectedItems = friendsListMultiselectComponent.selectedItems;
         Qt.selectItem = friendsListMultiselectComponent.selectItem;
         Qt.deselectItem = friendsListMultiselectComponent.deselectItem;
+
+        // check for passport
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.height == 1440)) {
+            // change column count to 4 to account for wider display
+            friendsList.layout.columnCount = 4;
+        }
     }
 
     // layout orientation

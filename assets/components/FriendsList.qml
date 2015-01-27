@@ -57,6 +57,12 @@ Container {
     // see here for details: http://supportforums.blackberry.com/t5/Cascades-Development/QML-Accessing-variables-defined-outside-a-list-component-from/m-p/1786265#M641
     onCreationCompleted: {
         Qt.friendsListProfileClicked = friendsListComponent.profileClicked;
+        
+        // check for passport
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.height == 1440)) {
+            // change column count to 4 to account for wider display
+            friendsList.layout.columnCount = 4;
+        }        
     }
 
     // layout orientation
