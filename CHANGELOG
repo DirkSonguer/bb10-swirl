@@ -3,6 +3,8 @@ v 1.4.0
 ---------
 
 * Added: Friends list can now be searched while adding to checkin
+* Added: Checkin comment is now shown in the recent checkins list
+* Added: Lots of optimizations for Passport
 * Changed: Venues can be searched directly without call to action in checkin page
 * Fixed: Text height should not be cut off anymore in various components
 

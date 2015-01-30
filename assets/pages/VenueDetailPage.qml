@@ -41,6 +41,9 @@ Page {
     // flag to chek if venue data detail object has been loaded
     property bool venueDataDetailsLoaded: false
 
+    // column count
+    property int columnCount: 2
+
     ScrollView {
         // only vertical scrolling is needed
         scrollViewProperties {
@@ -61,7 +64,7 @@ Page {
 
                 // layout orientation
                 layout: GridLayout {
-                    columnCount: 2
+                    columnCount: venueDetailPage.columnCount
                 }
 
                 // address tile
@@ -70,8 +73,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / venueDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / venueDetailPage.columnCount
 
                     // set initial visibility to false
                     // will be set if the venue has a given address
@@ -93,8 +96,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / venueDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / venueDetailPage.columnCount
 
                     // set initial visibility to false
                     // will be set if the venue has tips
@@ -107,8 +110,8 @@ Page {
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / 2
-                    preferredWidth: DisplayInfo.width / 2
+                    preferredHeight: DisplayInfo.width / venueDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / venueDetailPage.columnCount
 
                     // set initial visibility to false
                     // will be set if the venue has photos
@@ -154,6 +157,12 @@ Page {
         // fill header image
         if (venueData.locationCategories != "") {
             venueDetailHeader.image = venueData.locationCategories[0].iconLarge
+        }
+
+        // check for passport
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
+            // change column count to 3 to account for wider display
+            venueDetailPage.columnCount = 3;
         }
     }
 

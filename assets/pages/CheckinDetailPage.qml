@@ -92,7 +92,7 @@ Page {
 
                 // layout orientation
                 layout: GridLayout {
-                    columnCount: 2
+                    columnCount: checkinDetailPage.columnCount
                 }
 
                 // user checkin details tile
@@ -275,6 +275,12 @@ Page {
 
         // like tile data
         checkinDetailLikesTile.checkinData = checkinData;
+        
+        // check for passport
+        if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
+            // change column count to 3 to account for wider display
+            checkinDetailPage.columnCount = 3;
+        }        
     }
 
     // full user object has been loaded

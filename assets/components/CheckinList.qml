@@ -136,6 +136,7 @@ Container {
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country
                         elapsedTime: ListItemData.checkinData.elapsedTime
+                        comments: ListItemData.checkinData.comments
 
                         // user profile was clicked
                         onUserClicked: {

@@ -51,6 +51,9 @@ Container {
     // property for the elapsed time since checkin, given as string
     property alias elapsedTime: checkinElapsedTime.text
 
+    // checkin comment
+    property variant comments
+
     // hand over preferred width to subcontainers
     onPreferredWidthChanged: {
         usernameAndElapsedTimeContainer.preferredWidth = (preferredWidth - 150);
@@ -172,6 +175,7 @@ Container {
                 textStyle.fontWeight: FontWeight.Bold
                 textStyle.fontSize: FontSize.XSmall
                 textStyle.textAlign: TextAlign.Left
+
             }
 
             // user name label
@@ -204,6 +208,23 @@ Container {
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.Large
             textStyle.textAlign: TextAlign.Left
+            textStyle.color: Color.create(Globals.blackberryStandardBlue)
+        }
+
+        // checkin comment name label
+        Label {
+            id: checkinComment
+
+            // layout definition
+            topMargin: 0
+            bottomMargin: 0
+
+            // text style definition
+            textStyle.base: SystemDefaults.TextStyles.SubtitleText
+            textStyle.fontWeight: FontWeight.W100
+            textStyle.fontSize: FontSize.Small
+            textStyle.textAlign: TextAlign.Left
+            textStyle.fontStyle: FontStyle.Italic
             textStyle.color: Color.create(Globals.blackberryStandardBlue)
         }
 
@@ -280,6 +301,18 @@ Container {
             checkinUserIconImage.visible = false;
             checkinLikeAction.title = "Like checkin";
             checkinLikeAction.imageSource = "asset:///images/icons/icon_liked_w.png";
+        }
+    }
+
+    // check if checkin comment is available
+    onCommentsChanged: {
+        if (comments.length > 0) {
+            // show comment
+            checkinComment.text = "\"" + comments[0].text + "\"";
+            checkinComment.visible = true;
+        } else {
+            // hide element
+            checkinComment.visible = false;
         }
     }
 
