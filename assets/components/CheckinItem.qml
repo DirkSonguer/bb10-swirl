@@ -218,6 +218,7 @@ Container {
             // layout definition
             topMargin: 0
             bottomMargin: 0
+            multiline: true
 
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.SubtitleText
@@ -308,6 +309,7 @@ Container {
     onCommentsChanged: {
         if (comments.length > 0) {
             // show comment
+            // console.log("# Comment " + comments[0].text + " from user " + comments[0].user.fullName);
             checkinComment.text = "\"" + comments[0].text + "\"";
             checkinComment.visible = true;
         } else {
@@ -323,6 +325,7 @@ Container {
             checkinItemComponent.background = Color.create(Globals.blackberryStandardBlue);
             checkinUserProfileImageMask.imageSource = "asset:///images/assets/mask_blue_squircle.png";
             checkinLocationName.textStyle.color = Color.White;
+            checkinComment.textStyle.color = Color.White;
         }
 
         // user released or is moving
@@ -330,6 +333,7 @@ Container {
             checkinItemComponent.background = Color.Transparent;
             checkinUserProfileImageMask.imageSource = "asset:///images/assets/mask_squircle.png";
             checkinLocationName.textStyle.color = Color.create(Globals.blackberryStandardBlue);
+            checkinComment.textStyle.color = Color.create(Globals.blackberryStandardBlue);
         }
     }
 }

@@ -50,6 +50,8 @@ NavigationPane {
 
         // signal to load the content for the main page
         signal loadContent();
+        
+        signal updateCover();
 
         // property for the current geolocation
         // contains lat and lon
@@ -237,6 +239,14 @@ NavigationPane {
 
                 // enable view changer
                 changeCheckinViewAction.enabled = true;
+
+                // enable scene cover
+                var recentCheckinCoverPage = recentCheckinCoverComponent.createObject();
+                recentCheckinCoverPage.recentCheckinData = recentCheckinData;
+                recentCheckinCover.setContent(recentCheckinCoverPage);
+                Application.setCover(recentCheckinCover);
+                Application.thumbnail.connect(updateCover);
+
             } else {
                 // no items in results found
                 infoMessage.showMessage(Copytext.swirlNoRecentMessage, Copytext.swirlNoRecentTitle);
@@ -249,6 +259,11 @@ NavigationPane {
                 // change icon to notifiation version
                 updatesPageAction.imageSource = "asset:///images/icons/icon_notification_available.png"
             }
+        }
+        
+        // send the update signal to the scene cover component
+        onUpdateCover: {
+            recentCheckinCover.content.updateCover();
         }
 
         // main page action menu bar (bottom menu)
@@ -345,7 +360,7 @@ NavigationPane {
                     aboutSheet.setContent(aboutSheetPage);
                     aboutSheet.open();
                 }
-            },           
+            },
             ActionItem {
                 id: mainMenuLogout
                 title: "Logout"
@@ -412,6 +427,18 @@ NavigationPane {
                 ComponentDefinition {
                     id: logoutComponent
                     source: "sheets/UserLogout.qml"
+                }
+            ]
+        },
+        // default scene cover
+        SceneCover {
+            id: recentCheckinCover
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: recentCheckinCoverComponent
+                    source: "covers/RecentCheckins.qml"
                 }
             ]
         },

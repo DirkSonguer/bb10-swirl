@@ -41,6 +41,8 @@ Container {
     }
 
     // layout definition
+    topPadding: ui.sdu(1)
+    bottomPadding: ui.sdu(2)
     leftPadding: ui.sdu(2)
     rightPadding: ui.sdu(1)
 

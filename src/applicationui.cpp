@@ -26,9 +26,10 @@
 #include "WebImageView.h"
 #include "CommunicationInvokes.hpp"
 #include "FileUpload.hpp"
-//#include <bb/cascades/SceneCover>
 #include <bb/device/DisplayInfo>
 #include <bb/system/phone/Phone>
+#include <bb/cascades/SceneCover>
+#include <bb/cascades/AbstractCover>
 #include <bb/cascades/pickers/FilePicker>
 #include <bb/cascades/pickers/FilePickerMode>
 #include <bb/cascades/pickers/FilePickerSortFlag>
@@ -49,6 +50,8 @@ ApplicationUI::ApplicationUI() :
     qmlRegisterType<FileUpload>("FileUpload", 1, 0, "FileUpload");
     qmlRegisterType<bb::system::phone::Phone>("bb.system.phone", 1, 0, "Phone");
     qmlRegisterType<QTimer>("QtTimer", 1, 0, "Timer");
+    qmlRegisterType<SceneCover>("bb.cascades", 1, 2, "SceneCover");
+    qmlRegisterUncreatableType<AbstractCover>("bb.cascades", 1, 2, "AbstractCover", "");
     qmlRegisterType<pickers::FilePicker>("bb.cascades.pickers", 1, 0, "FilePicker");
     qmlRegisterUncreatableType<pickers::FilePickerMode>("bb.cascades.pickers", 1, 0,
             "FilePickerMode", "");

@@ -69,6 +69,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/VenueHeaderShort.qml) \
         $$quote($$BASEDIR/assets/components/VenueItem.qml) \
         $$quote($$BASEDIR/assets/components/VenueList.qml) \
+        $$quote($$BASEDIR/assets/covers/RecentCheckins.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
         $$quote($$BASEDIR/assets/foursquareapi/transformators.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
