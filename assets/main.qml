@@ -51,6 +51,7 @@ NavigationPane {
         // signal to load the content for the main page
         signal loadContent();
         
+        // signal to update the cover
         signal updateCover();
 
         // property for the current geolocation

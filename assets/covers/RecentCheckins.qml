@@ -65,6 +65,7 @@ Container {
         // layout definition
         leftPadding: ui.sdu(1)
         rightPadding: ui.sdu(1)
+        bottomPadding: ui.sdu(1)
 
         // layout definition
         horizontalAlignment: HorizontalAlignment.Left
