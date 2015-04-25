@@ -153,7 +153,7 @@ function getCheckinData(checkinId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading checkin with url: " + url);
+	console.log("# Loading checkin with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

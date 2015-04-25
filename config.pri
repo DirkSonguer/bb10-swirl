@@ -42,6 +42,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
         $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinHeader.qml) \
         $$quote($$BASEDIR/assets/components/CheckinInput.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \

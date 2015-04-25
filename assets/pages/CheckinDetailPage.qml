@@ -74,16 +74,25 @@ Page {
             }
 
             // venue header
-            VenueHeader {
+            CheckinHeader {
                 id: checkinDetailHeader
 
-                // header was clicked
-                onClicked: {
-                    // open page with new venue object
+                // venue was clicked, open detail page
+                onVenueClicked: {
+                    // console.log("# Venue clicked: " + checkinDetailPage.checkinData.venue);
                     var venueDetailPage = venueDetailComponent.createObject();
                     venueDetailPage.venueData = checkinDetailPage.checkinData.venue;
                     navigationPane.push(venueDetailPage);
                 }
+
+                // user was clicked, open detail page
+                onUserClicked: {
+                    // console.log("# User clicked: " + checkinDetailPage.checkinData.user);
+                    var userDetailPage = userDetailComponent.createObject();
+                    userDetailPage.userData = checkinDetailPage.checkinData.user;
+                    navigationPane.push(userDetailPage);
+                }
+
             }
 
             // container for the info tiles
@@ -93,24 +102,6 @@ Page {
                 // layout orientation
                 layout: GridLayout {
                     columnCount: checkinDetailPage.columnCount
-                }
-
-                // user checkin details tile
-                InfoTile {
-                    id: checkinDetailUserCheckinTile
-
-                    // layout definition
-                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
-                    preferredWidth: DisplayInfo.width / checkinDetailPage.columnCount
-
-                    // user was clicked, open detail page
-                    onClicked: {
-                        // console.log("# User clicked: " + userData.userId);
-                        var userDetailPage = userDetailComponent.createObject();
-                        userDetailPage.userData = checkinDetailPage.checkinData.user;
-                        navigationPane.push(userDetailPage);
-                    }
                 }
 
                 // address tile
@@ -228,23 +219,17 @@ Page {
             CheckinsRepository.getCheckinData(checkinData.checkinId, checkinDetailPage);
         }
 
-        // location name
-        checkinDetailHeader.name = checkinData.venue.name;
-
-        // user name and image
-        checkinDetailUserCheckinTile.bodytext = checkinData.user.firstName + " checked in here " + checkinData.elapsedTime + " ago";
-        checkinDetailUserCheckinTile.webImage = checkinData.user.profileImageLarge;
-
-        // location category
-        if (checkinData.venue.locationCategories != "") {
-            checkinDetailHeader.category = checkinData.venue.locationCategories[0].name;
-        }
+        // checkin venue and user
+        checkinDetailHeader.userImage = checkinData.user.profileImageLarge;
+        checkinDetailHeader.userData = checkinData.user.firstName + " checked in at";
+        checkinDetailHeader.venueData = checkinData.venue.name;
+        checkinDetailHeader.timeData = checkinData.elapsedTime + " ago";
 
         // fill header image
         if (checkinData.venue.locationCategories != "") {
-            checkinDetailHeader.image = checkinData.venue.locationCategories[0].iconLarge
+            checkinDetailHeader.venueImage = checkinData.venue.locationCategories[0].iconLarge
         }
-
+        
         // venue map
         checkinDetailAddressTile.zoom = "15";
         checkinDetailAddressTile.size = "400";
