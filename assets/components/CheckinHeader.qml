@@ -65,9 +65,14 @@ Container {
 
         // user image container
         Container {
+            id: checkinHeaderUserContainer
+
             // layout orientation
             layout: DockLayout {
             }
+
+            // set initial visibility to false
+            visible: false
 
             // layout definition
             horizontalAlignment: HorizontalAlignment.Center
@@ -86,6 +91,11 @@ Container {
                 preferredWidth: ui.sdu(20)
                 minHeight: ui.sdu(20)
                 minWidth: ui.sdu(20)
+
+                // when url is added, show component
+                onUrlChanged: {
+                    checkinHeaderUserContainer.visible = true;
+                }
             }
 
             // create the squircle mask around the image
@@ -118,9 +128,14 @@ Container {
 
         // venue image container
         Container {
+            id: checkinHeaderVenueContainer
+
             // layout orientation
             layout: DockLayout {
             }
+
+            // set initial visibility to false
+            visible: false
 
             // layout definition
             horizontalAlignment: HorizontalAlignment.Center
@@ -139,6 +154,11 @@ Container {
                 preferredWidth: ui.sdu(20)
                 minHeight: ui.sdu(20)
                 minWidth: ui.sdu(20)
+
+                // when url is added, show component
+                onUrlChanged: {
+                    checkinHeaderVenueContainer.visible = true;
+                }
             }
 
             // create the squircle mask around the image

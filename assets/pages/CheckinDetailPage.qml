@@ -202,10 +202,12 @@ Page {
         }
     }
 
-    // calling page handed over the simple venue object
+    // calling page handed over the checkin object
     // based on that, fill first data and load full venue object
+    // note that this is a simplified checkin object without comments,
+    // so we reload the full one as well
     onCheckinDataChanged: {
-        // console.log("# Simple venue object handed over to the page");
+        console.log("# Checkin object handed over to the page");
 
         // check if full venue object has been loaded
         if (! checkinDetailPage.venueDataDetailsLoaded) {
@@ -225,11 +227,12 @@ Page {
         checkinDetailHeader.venueData = checkinData.venue.name;
         checkinDetailHeader.timeData = checkinData.elapsedTime + " ago";
 
-        // fill header image
+        // fill venue header image with venue category icon
+        // this will later be overwritten if a venue photo is found
         if (checkinData.venue.locationCategories != "") {
             checkinDetailHeader.venueImage = checkinData.venue.locationCategories[0].iconLarge
         }
-        
+
         // venue map
         checkinDetailAddressTile.zoom = "15";
         checkinDetailAddressTile.size = "400";
@@ -260,27 +263,28 @@ Page {
 
         // like tile data
         checkinDetailLikesTile.checkinData = checkinData;
-        
+
         // check for passport
         if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
             // change column count to 3 to account for wider display
             checkinDetailPage.columnCount = 3;
-        }        
+        }
     }
 
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
         // set data loaded flag to true
         checkinDetailPage.venueDataDetailsLoaded = true;
 
-        // fill header image
+        // check if the venue has a photo
+        // if so fill venue header image
         if (venueData.photos != "") {
-            checkinDetailHeader.image = venueData.photos[(venueData.photos.length - 1)].imageFull;
+            checkinDetailHeader.venueImage = venueData.photos[(venueData.photos.length - 1)].imageMedium;
         } else if (venueData.locationCategories != "") {
-            checkinDetailHeader.image = venueData.locationCategories[0].iconLarge
+            checkinDetailHeader.venueImage = venueData.locationCategories[0].iconLarge
         }
 
         // location name
@@ -294,7 +298,7 @@ Page {
 
     // checkin detail data has been loaded
     onCheckinDataLoaded: {
-        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
         // set data loaded flag to true
         checkinDetailPage.checkinDataDetailsLoaded = true;
