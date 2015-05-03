@@ -47,11 +47,14 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
         $$quote($$BASEDIR/assets/components/CommentInput.qml) \
-        $$quote($$BASEDIR/assets/components/CommentPreview.qml) \
+        $$quote($$BASEDIR/assets/components/CommentItem.qml) \
+        $$quote($$BASEDIR/assets/components/CommentList.qml) \
+        $$quote($$BASEDIR/assets/components/CommentTile.qml) \
         $$quote($$BASEDIR/assets/components/CustomSlider.qml) \
         $$quote($$BASEDIR/assets/components/FriendsList.qml) \
         $$quote($$BASEDIR/assets/components/FriendsListMultiselect.qml) \
         $$quote($$BASEDIR/assets/components/GalleryTile.qml) \
+        $$quote($$BASEDIR/assets/components/ImageGalleryList.qml) \
         $$quote($$BASEDIR/assets/components/InfoMessage.qml) \
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
         $$quote($$BASEDIR/assets/components/LikeTile.qml) \
@@ -121,11 +124,13 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
+        $$quote($$BASEDIR/assets/pages/CommentDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
         $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
+        $$quote($$BASEDIR/assets/pages/VenuePhotosPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/AddCheckinFriends.qml) \
         $$quote($$BASEDIR/assets/sheets/AdvancedVenueSearch.qml) \

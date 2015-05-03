@@ -64,10 +64,14 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 		checkinData.distance = checkinObject.distance;
 
 		// define distance category according to absolute distance
-		if (checkinData.distance <= 5000) checkinData.categorisedDistance = swirlAroundYouDistances[0];
-		if ((checkinData.distance > 5000) && (checkinData.distance <= 10000)) checkinData.categorisedDistance = swirlAroundYouDistances[1];
-		if ((checkinData.distance > 10000) && (checkinData.distance <= 30000)) checkinData.categorisedDistance = swirlAroundYouDistances[2];
-		if (checkinData.distance > 30000) checkinData.categorisedDistance = swirlAroundYouDistances[3];
+		if (checkinData.distance <= 5000)
+			checkinData.categorisedDistance = swirlAroundYouDistances[0];
+		if ((checkinData.distance > 5000) && (checkinData.distance <= 10000))
+			checkinData.categorisedDistance = swirlAroundYouDistances[1];
+		if ((checkinData.distance > 10000) && (checkinData.distance <= 30000))
+			checkinData.categorisedDistance = swirlAroundYouDistances[2];
+		if (checkinData.distance > 30000)
+			checkinData.categorisedDistance = swirlAroundYouDistances[3];
 
 		// console.log("# Found distance " + checkinData.distance + " so it's in
 		// category " + checkinData.categorisedDistance);
@@ -77,9 +81,12 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	checkinData.userHasLiked = checkinObject.like;
 
 	// current interaction counts
-	if (typeof checkinObject.likes !== "undefined") checkinData.likeCount = checkinObject.likes.count;
-	if (typeof checkinObject.comments !== "undefined") checkinData.commentCount = checkinObject.comments.count;
-	if (typeof checkinObject.photos !== "undefined") checkinData.photoCount = checkinObject.photos.count;
+	if (typeof checkinObject.likes !== "undefined")
+		checkinData.likeCount = checkinObject.likes.count;
+	if (typeof checkinObject.comments !== "undefined")
+		checkinData.commentCount = checkinObject.comments.count;
+	if (typeof checkinObject.photos !== "undefined")
+		checkinData.photoCount = checkinObject.photos.count;
 
 	// general user information
 	// this is stored as FoursquareUserData()
@@ -186,7 +193,8 @@ CommentTransformator.prototype.getCommentDataFromObject = function(commentObject
 	commentData.venueId = commentObject.id;
 
 	// the actual comment text
-	if (typeof commentObject.text !== "undefined") commentData.text = commentObject.text;
+	if (typeof commentObject.text !== "undefined")
+		commentData.text = commentObject.text;
 
 	// timestamps
 	if (typeof commentObject.createdAt !== "undefined") {
@@ -242,11 +250,16 @@ ContactTransformator.prototype.getContactDataFromObject = function(contactObject
 	// create new data object
 	var contactData = new FoursquareContactData();
 
-	if (typeof contactObject.twitter !== "undefined") contactData.twitter = contactObject.twitter;
-	if (typeof contactObject.facebook !== "undefined") contactData.facebook = contactObject.facebook;
-	if (typeof contactObject.phone !== "undefined") contactData.phone = contactObject.phone;
-	if (typeof contactObject.formattedPhone !== "undefined") contactData.formattedPhone = contactObject.formattedPhone;
-	if (typeof contactObject.email !== "undefined") contactData.email = contactObject.email;
+	if (typeof contactObject.twitter !== "undefined")
+		contactData.twitter = contactObject.twitter;
+	if (typeof contactObject.facebook !== "undefined")
+		contactData.facebook = contactObject.facebook;
+	if (typeof contactObject.phone !== "undefined")
+		contactData.phone = contactObject.phone;
+	if (typeof contactObject.formattedPhone !== "undefined")
+		contactData.formattedPhone = contactObject.formattedPhone;
+	if (typeof contactObject.email !== "undefined")
+		contactData.email = contactObject.email;
 
 	// console.log("# Done transforming contact item");
 	return contactData;
@@ -284,7 +297,8 @@ LocationCategoryTransformator.prototype.getLocationCategoryDataFromObject = func
 	locationCategoryData.iconLarge = locationCategoryObject.icon.prefix + "88" + locationCategoryObject.icon.suffix;
 
 	// primary flag
-	if (typeof locationCategoryObject.primary !== "undefined") locationCategoryData.primary = locationCategoryObject.primary;
+	if (typeof locationCategoryObject.primary !== "undefined")
+		locationCategoryData.primary = locationCategoryObject.primary;
 
 	// console.log("# Done transforming location category item");
 	return locationCategoryData;
@@ -330,14 +344,20 @@ LocationTransformator.prototype.getLocationDataFromObject = function(locationObj
 	var locationData = new FoursquareLocationData();
 
 	// street and cross street
-	if (typeof locationObject.address !== "undefined") locationData.address = locationObject.address;
-	if (typeof locationObject.crossStreet !== "undefined") locationData.crossStreet = locationObject.crossStreet;
+	if (typeof locationObject.address !== "undefined")
+		locationData.address = locationObject.address;
+	if (typeof locationObject.crossStreet !== "undefined")
+		locationData.crossStreet = locationObject.crossStreet;
 
 	// city data
-	if (typeof locationObject.postalCode !== "undefined") locationData.postalCode = locationObject.postalCode;
-	if (typeof locationObject.cc !== "undefined") locationData.cc = locationObject.cc;
-	if (typeof locationObject.city !== "undefined") locationData.city = locationObject.city;
-	if (typeof locationObject.country !== "undefined") locationData.country = locationObject.country;
+	if (typeof locationObject.postalCode !== "undefined")
+		locationData.postalCode = locationObject.postalCode;
+	if (typeof locationObject.cc !== "undefined")
+		locationData.cc = locationObject.cc;
+	if (typeof locationObject.city !== "undefined")
+		locationData.city = locationObject.city;
+	if (typeof locationObject.country !== "undefined")
+		locationData.country = locationObject.country;
 
 	// formatted address data
 	if (typeof locationObject.formattedAddress !== "undefined") {
@@ -346,7 +366,8 @@ LocationTransformator.prototype.getLocationDataFromObject = function(locationObj
 
 		// iterate through all location items and add them to the address line
 		for ( var index in locationObject.formattedAddress) {
-			if (locationData.formattedAddress != "") locationData.formattedAddress += ", ";
+			if (locationData.formattedAddress != "")
+				locationData.formattedAddress += ", ";
 			locationData.formattedAddress += locationObject.formattedAddress[index];
 		}
 	}
@@ -409,8 +430,7 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 // Extract all photo data from an array of photo objects
 // The resulting data is stored as array of FoursquarePhotoData()
 PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) {
-	// console.log("# Transforming photo array with " + photoObjectArray.length
-	// + " items");
+	// console.log("# Transforming photo array with " + photoObjectArray.length + " items");
 
 	// create new return array
 	var photoDataArray = new Array();
@@ -423,8 +443,7 @@ PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) 
 		photoDataArray[index] = photoData;
 	}
 
-	// console.log("# Done transforming photo array, found " +
-	// photoDataArray.length + " items");
+	// console.log("# Done transforming photo array, found " + photoDataArray.length + " items");
 	return photoDataArray;
 };
 
@@ -450,15 +469,18 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 
 	// user name
 	// note, first and last name might be not set, thus the node would not exist
-	if (typeof userObject.firstName !== "undefined") userData.firstName = userObject.firstName;
-	if (typeof userObject.lastName !== "undefined") userData.lastName = userObject.lastName;
+	if (typeof userObject.firstName !== "undefined")
+		userData.firstName = userObject.firstName;
+	if (typeof userObject.lastName !== "undefined")
+		userData.lastName = userObject.lastName;
 	userData.fullName = userData.firstName + " " + userData.lastName;
 
 	// user gender
 	userData.gender = userObject.gender;
 
 	// home city
-	if (typeof userObject.homeCity !== "undefined") userData.homeCity = userObject.homeCity;
+	if (typeof userObject.homeCity !== "undefined")
+		userData.homeCity = userObject.homeCity;
 
 	// user relationship to the currently active user
 	userData.relationship = userObject.relationship;
@@ -471,7 +493,8 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	}
 
 	// user bio
-	if (typeof userObject.bio !== "undefined") userData.bio = userObject.bio;
+	if (typeof userObject.bio !== "undefined")
+		userData.bio = userObject.bio;
 
 	// user contact points
 	if (typeof userObject.contact !== "undefined") {
@@ -479,10 +502,14 @@ UserTransformator.prototype.getUserDataFromObject = function(userObject) {
 	}
 
 	// current interaction counts
-	if (typeof userObject.checkins !== "undefined") userData.checkinCount = userObject.checkins.count;
-	if (typeof userObject.photos !== "undefined") userData.photoCount = userObject.photos.count;
-	if (typeof userObject.friends !== "undefined") userData.friendCount = userObject.friends.count;
-	if (typeof userObject.tips !== "undefined") userData.tipCount = userObject.tips.count;
+	if (typeof userObject.checkins !== "undefined")
+		userData.checkinCount = userObject.checkins.count;
+	if (typeof userObject.photos !== "undefined")
+		userData.photoCount = userObject.photos.count;
+	if (typeof userObject.friends !== "undefined")
+		userData.friendCount = userObject.friends.count;
+	if (typeof userObject.tips !== "undefined")
+		userData.tipCount = userObject.tips.count;
 
 	// last checkins
 	// this is stored as array of FoursquareVenueData()
@@ -581,20 +608,25 @@ NotificationTransformator.prototype.getNotificationDataFromObject = function(not
 
 	// summary and title
 	// usually they are the same
-	if (typeof notificationObject.summary !== "undefined") notificationData.summary = notificationObject.summary;
-	if (typeof notificationObject.title !== "undefined") notificationData.title = notificationObject.title;
+	if (typeof notificationObject.summary !== "undefined")
+		notificationData.summary = notificationObject.summary;
+	if (typeof notificationObject.title !== "undefined")
+		notificationData.title = notificationObject.title;
 
 	// flag if notification is shareable
-	if (typeof notificationObject.shareable !== "undefined") notificationData.shareable = notificationObject.shareable;
+	if (typeof notificationObject.shareable !== "undefined")
+		notificationData.shareable = notificationObject.shareable;
 
 	// score object associated with notification
 	// this.score = "";
 
 	// image
-	if (typeof notificationObject.image !== "undefined") notificationData.image = notificationObject.image;
+	if (typeof notificationObject.image !== "undefined")
+		notificationData.image = notificationObject.image;
 
 	// type
-	if (typeof notificationObject.type !== "undefined") notificationData.type = notificationObject.type;
+	if (typeof notificationObject.type !== "undefined")
+		notificationData.type = notificationObject.type;
 
 	console.log("# Done transforming notification item");
 	return notificationData;
@@ -638,10 +670,12 @@ ScoreTransformator.prototype.getScoreDataFromObject = function(scoreObject) {
 	var scoreData = new FoursquareNotificationData();
 
 	// points earned for this score object
-	if (typeof scoreObject.points !== "undefined") scoreData.points = scoreObject.points;
+	if (typeof scoreObject.points !== "undefined")
+		scoreData.points = scoreObject.points;
 
 	// string message attached to the score
-	if (typeof scoreObject.message !== "undefined") scoreData.message = scoreObject.message;
+	if (typeof scoreObject.message !== "undefined")
+		scoreData.message = scoreObject.message;
 
 	// icon and image attached to the score
 	if (typeof scoreObject.icon !== "undefined") {
@@ -746,7 +780,8 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 	venueData.name = venueObject.name;
 
 	// url associated with the venue
-	if (typeof venueObject.url !== "undefined") venueData.url = venueObject.url;
+	if (typeof venueObject.url !== "undefined")
+		venueData.url = venueObject.url;
 
 	// location data
 	if (typeof venueObject.location !== "undefined") {
@@ -765,8 +800,10 @@ VenueTransformator.prototype.getVenueDataFromObject = function(venueObject) {
 	}
 
 	// other interaction counts
-	if (typeof venueObject.photos !== "undefined") venueData.photoCount = venueObject.photos.count;
-	if (typeof venueObject.likes !== "undefined") venueData.likeCount = venueObject.likes.count;
+	if (typeof venueObject.photos !== "undefined")
+		venueData.photoCount = venueObject.photos.count;
+	if (typeof venueObject.likes !== "undefined")
+		venueData.likeCount = venueObject.likes.count;
 
 	// venue photos
 	if ((typeof venueObject.photos !== "undefined") && (typeof venueObject.photos.groups !== "undefined") && (typeof venueObject.photos.groups[0] !== "undefined")) {
@@ -837,16 +874,20 @@ ReasonTransformator.prototype.getReasonDataFromObject = function(reasonObject) {
 	var reasonData = new FoursquareReasonData();
 
 	// reason summary
-	if (typeof reasonObject.summary !== "undefined") reasonData.summary = reasonObject.summary;
+	if (typeof reasonObject.summary !== "undefined")
+		reasonData.summary = reasonObject.summary;
 
 	// reason type
-	if (typeof reasonObject.type !== "undefined") reasonData.type = reasonObject.type;
+	if (typeof reasonObject.type !== "undefined")
+		reasonData.type = reasonObject.type;
 
 	// reason name
-	if (typeof reasonObject.reasonName !== "undefined") reasonData.reasonName = reasonObject.reasonName;
+	if (typeof reasonObject.reasonName !== "undefined")
+		reasonData.reasonName = reasonObject.reasonName;
 
 	// reason count
-	if (typeof reasonObject.count !== "undefined") reasonData.count = reasonObject.count;
+	if (typeof reasonObject.count !== "undefined")
+		reasonData.count = reasonObject.count;
 
 	// console.log("# Done transforming reason item");
 	return reasonData;

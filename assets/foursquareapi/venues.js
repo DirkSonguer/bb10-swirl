@@ -18,7 +18,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "structures/venue.js");
 }
 
-// Load the full vanue object for a given venue
+// Load the full venue object for a given venue
 // First parameter is the Foursquare venue id
 // Second parameter is the id of the calling page, which will receive the
 // venueDetailDataLoaded() signal
@@ -64,7 +64,58 @@ function getVenueData(venueId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading venue data with url: " + url);
+	// console.log("# Loading venue photo data with url: " + url);
+	req.open("GET", url, true);
+	req.send();
+}
+
+// Load the full photo list for a given venue
+// First parameter is the Foursquare venue id
+// Second parameter is the id of the calling page, which will receive the
+// venuePhotoDataLoaded() signal
+function getVenuePhotos(venueId, callingPage) {
+	// console.log("# Loading venue photo data for id: " + venueId);
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// prepare transformator and return object
+			var photoData = photoTransformator.getPhotoDataFromArray(jsonObject.response.photos.items);
+
+			// console.log("# Done loading venue data");
+			callingPage.venuePhotosDataLoaded(photoData);
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.venuePhotosDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted loading venue data");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/" + venueId + "/photos";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	// console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -117,14 +168,18 @@ function explore(currentGeoLocation, searchQuery, searchSection, searchFriendsVi
 	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/explore";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
-	if (searchQuery != "") url += "&query=" + searchQuery;
-	if (searchRadius > 0) url += "&radius=" + searchRadius;
-	if (searchSection != 0) url += "&section=" + searchSection;
-	if (searchFriendsVisited > 0) url += "&friendVisits=visited";
+	if (searchQuery != "")
+		url += "&query=" + searchQuery;
+	if (searchRadius > 0)
+		url += "&radius=" + searchRadius;
+	if (searchSection != 0)
+		url += "&section=" + searchSection;
+	if (searchFriendsVisited > 0)
+		url += "&friendVisits=visited";
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=foursquare";
 
-	console.log("# Loading venue data with url: " + url);
+	// console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -177,9 +232,12 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/explore";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
-	if (searchIntent != "") url += "&intent=" + searchIntent;
-	if (searchQuery != "") url += "&query=" + searchQuery;
-	if (searchRadius > 0) url += "&radius=" + searchRadius;
+	if (searchIntent != "")
+		url += "&intent=" + searchIntent;
+	if (searchQuery != "")
+		url += "&query=" + searchQuery;
+	if (searchRadius > 0)
+		url += "&radius=" + searchRadius;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 

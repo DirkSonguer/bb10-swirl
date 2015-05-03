@@ -150,22 +150,44 @@ Page {
                     preferredWidth: DisplayInfo.width / checkinDetailPage.columnCount
                 }
             }
+            /*
+             * // comment preview
+             * CommentPreview {
+             * id: checkinDetailComments
+             * 
+             * // layout definition
+             * // preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
+             * preferredWidth: DisplayInfo.width
+             * 
+             * // set initial visibility to false
+             * // will be set true if the comment data has been load
+             * visible: false
+             * 
+             * onCalculatedHeightChanged: {
+             * // console.log("# Calculated height changed to: " + calculatedHeight);
+             * checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
+             * }
+             * }
+             */
 
             // comment preview
-            CommentPreview {
+            CommentTile {
                 id: checkinDetailComments
 
                 // layout definition
-                // preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
+                preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
                 preferredWidth: DisplayInfo.width
 
                 // set initial visibility to false
                 // will be set true if the comment data has been load
                 visible: false
 
-                onCalculatedHeightChanged: {
-                    // console.log("# Calculated height changed to: " + calculatedHeight);
-                    checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
+                // open comment page on click
+                onClicked: {
+                    // console.log("# Comment tile clicked");
+                    var commentDetailPage = commentDetailComponent.createObject();
+                    commentDetailPage.commentData = checkinDetailPage.checkinData.comments;
+                    navigationPane.push(commentDetailPage);
                 }
             }
 
@@ -207,7 +229,7 @@ Page {
     // note that this is a simplified checkin object without comments,
     // so we reload the full one as well
     onCheckinDataChanged: {
-        console.log("# Checkin object handed over to the page");
+        // console.log("# Checkin object handed over to the page");
 
         // check if full venue object has been loaded
         if (! checkinDetailPage.venueDataDetailsLoaded) {
@@ -274,7 +296,7 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
         // set data loaded flag to true
         checkinDetailPage.venueDataDetailsLoaded = true;
@@ -284,29 +306,25 @@ Page {
         if (venueData.photos != "") {
             checkinDetailHeader.venueImage = venueData.photos[(venueData.photos.length - 1)].imageMedium;
         } else if (venueData.locationCategories != "") {
-            checkinDetailHeader.venueImage = venueData.locationCategories[0].iconLarge
-        }
-
-        // location name
-        checkinDetailHeader.name = venueData.name;
-
-        // location category
-        if (venueData.locationCategories != "") {
-            checkinDetailHeader.category = venueData.locationCategories[0].name;
+            // only set icon if it has not been set already
+            if (checkinDetailHeader.venueImage != venueData.locationCategories[0].iconLarge) {
+                checkinDetailHeader.venueImage = venueData.locationCategories[0].iconLarge;
+            }
         }
     }
 
     // checkin detail data has been loaded
     onCheckinDataLoaded: {
-        console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
+        // console.log("# Checkin detail data loaded for checkin " + checkinData.checkinId);
 
         // set data loaded flag to true
         checkinDetailPage.checkinDataDetailsLoaded = true;
 
         // fill comments list and show it if content is available
         if (checkinData.comments.length > 0) {
-            checkinDetailComments.clearList();
-            checkinDetailComments.addToList(checkinData.comments);
+            checkinDetailComments.backgroundImage = checkinData.comments[0].user.profileImageLarge;
+            checkinDetailComments.count = checkinData.comments.length + " comments";
+            checkinDetailComments.bodytext = "\"" + checkinData.comments[0].text + "\"";
             checkinDetailComments.visible = true;
         }
 
@@ -341,6 +359,12 @@ Page {
         ComponentDefinition {
             id: userDetailComponent
             source: "UserDetailPage.qml"
+        },
+        // comment detail page
+        // will be called if user clicks on comment item
+        ComponentDefinition {
+            id: commentDetailComponent
+            source: "CommentDetailPage.qml"
         },
         // venue detail page
         // will be called if user clicks on venue item

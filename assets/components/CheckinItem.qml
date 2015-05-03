@@ -284,7 +284,7 @@ Container {
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    // console.log("# Checkin location name clicked");
+                    console.log("# Checkin location name clicked");
                     checkinItemComponent.itemClicked();
                 }
             }

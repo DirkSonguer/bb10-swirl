@@ -1,5 +1,5 @@
 1
-110
+115
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -11,11 +11,14 @@ components/CheckinInput.qml
 components/CheckinItem.qml
 components/CheckinList.qml
 components/CommentInput.qml
-components/CommentPreview.qml
+components/CommentItem.qml
+components/CommentList.qml
+components/CommentTile.qml
 components/CustomSlider.qml
 components/FriendsList.qml
 components/FriendsListMultiselect.qml
 components/GalleryTile.qml
+components/ImageGalleryList.qml
 components/InfoMessage.qml
 components/InfoTile.qml
 components/LikeTile.qml
@@ -85,11 +88,13 @@ images/icons/icon_unliked_w.png
 main.qml
 pages/AddCheckinPage.qml
 pages/CheckinDetailPage.qml
+pages/CommentDetailPage.qml
 pages/FriendsPage.qml
 pages/SearchVenuePage.qml
 pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
+pages/VenuePhotosPage.qml
 sheets/About.qml
 sheets/AddCheckinFriends.qml
 sheets/AdvancedVenueSearch.qml
