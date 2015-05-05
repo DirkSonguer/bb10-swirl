@@ -410,6 +410,9 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 	// timestamps
 	photoData.createdAt = photoObject.createdAt;
 	photoData.elapsedTime = helperMethods.calculateElapsedTime(photoObject.createdAt);
+	
+	// source
+	photoData.source = photoObject.source.name;
 
 	// images
 	photoData.aspectRatio = photoObject.width / photoObject.height;

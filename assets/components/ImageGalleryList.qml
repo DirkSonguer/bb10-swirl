@@ -119,6 +119,34 @@ Container {
                         verticalAlignment: VerticalAlignment.Center
                         horizontalAlignment: HorizontalAlignment.Fill
                     }
+
+                    Container {
+                        id: imageGalleryCaptionContainer
+
+                        // position to bottom
+                        verticalAlignment: VerticalAlignment.Bottom
+
+                        // layout definition
+                        leftPadding: ui.sdu(1.5)
+                        rightPadding: ui.sdu(1.5)
+                        bottomPadding: ui.sdu(1.5)
+
+                        // the actual caption text
+                        Label {
+                            id: imageGalleryCaption
+
+                            // text style definition
+                            textStyle.base: SystemDefaults.TextStyles.BodyText
+                            textStyle.fontWeight: FontWeight.W100
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle.fontSize: FontSize.Medium
+                            textStyle.color: Color.White
+                            multiline: true
+
+                            // caption text
+                            text: "<html>Added " + ListItemData.imageData.elapsedTime + " ago by <b>" + ListItemData.imageData.user.fullName + "</b> via " + ListItemData.imageData.source + "</html>"
+                        }
+                    }
                 }
             }
         ]

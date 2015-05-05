@@ -22,6 +22,9 @@ function FoursquarePhotoData() {
 	this.createdAt = "";
 	this.elapsedTime = "";
 	
+	// source
+	this.source = "";
+	
 	// image information
 	this.aspectRatio = "";
 	this.imageSmall = "";

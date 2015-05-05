@@ -150,25 +150,6 @@ Page {
                     preferredWidth: DisplayInfo.width / checkinDetailPage.columnCount
                 }
             }
-            /*
-             * // comment preview
-             * CommentPreview {
-             * id: checkinDetailComments
-             * 
-             * // layout definition
-             * // preferredHeight: DisplayInfo.width / checkinDetailPage.columnCount
-             * preferredWidth: DisplayInfo.width
-             * 
-             * // set initial visibility to false
-             * // will be set true if the comment data has been load
-             * visible: false
-             * 
-             * onCalculatedHeightChanged: {
-             * // console.log("# Calculated height changed to: " + calculatedHeight);
-             * checkinDetailComments.preferredHeight = calculatedHeight + ui.sdu(2);
-             * }
-             * }
-             */
 
             // comment preview
             CommentTile {
@@ -229,7 +210,7 @@ Page {
     // note that this is a simplified checkin object without comments,
     // so we reload the full one as well
     onCheckinDataChanged: {
-        // console.log("# Checkin object handed over to the page");
+        console.log("# Checkin object handed over to the page");
 
         // check if full venue object has been loaded
         if (! checkinDetailPage.venueDataDetailsLoaded) {
@@ -251,7 +232,7 @@ Page {
 
         // fill venue header image with venue category icon
         // this will later be overwritten if a venue photo is found
-        if (checkinData.venue.locationCategories != "") {
+        if ((checkinData.venue.locationCategories != "") && (checkinDetailHeader.venueImage == "")) {
             checkinDetailHeader.venueImage = checkinData.venue.locationCategories[0].iconLarge
         }
 
@@ -279,7 +260,7 @@ Page {
 
         // check if checkin has photos
         if ((checkinData.photoCount > 0) && (checkinData.photos !== "")) {
-            checkinDetailPhotosTile.webImage = checkinData.photos[0].imageFull;
+            checkinDetailPhotosTile.webImage = checkinData.photos[0].imageMedium;
             checkinDetailPhotosTile.visible = true;
         }
 
@@ -296,14 +277,14 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
         // set data loaded flag to true
         checkinDetailPage.venueDataDetailsLoaded = true;
 
         // check if the venue has a photo
         // if so fill venue header image
-        if (venueData.photos != "") {
+        if ((venueData.photoCount > 0) && (venueData.photos !== "")) {
             checkinDetailHeader.venueImage = venueData.photos[(venueData.photos.length - 1)].imageMedium;
         } else if (venueData.locationCategories != "") {
             // only set icon if it has not been set already

@@ -100,7 +100,7 @@ Container {
             // layout definition
             leftMargin: 5
 
-            // text style defintion
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.BigText
             textStyle.fontWeight: FontWeight.W100
             textStyle.textAlign: TextAlign.Left
@@ -122,7 +122,7 @@ Container {
             // layout definition
             leftMargin: 5
 
-            // text style defintion
+            // text style definition
             textStyle.base: SystemDefaults.TextStyles.BodyText
             textStyle.fontWeight: FontWeight.W100
             textStyle.textAlign: TextAlign.Left
