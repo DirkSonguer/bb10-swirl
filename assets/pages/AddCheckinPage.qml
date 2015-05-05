@@ -345,7 +345,7 @@ Page {
 
                             // hide input and show loader
                             addCheckinContainer.visible = false;
-                            loadingIndicator.showLoader("Adding Checkin");
+                            loadingIndicator.showLoader(Copytext.swirlAddingCheckin);
                         }
                     }
                 }

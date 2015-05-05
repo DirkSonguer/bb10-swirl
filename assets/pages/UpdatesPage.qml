@@ -94,7 +94,7 @@ Page {
         // console.log("# Creation of update page finished");
 
         // show loader
-        loadingIndicator.showLoader("Loading your updates");
+        loadingIndicator.showLoader(Copytext.swirlLoaderUpdates);
 
         // load update stream
         UpdatesRepository.getNotifications(updatesPage);

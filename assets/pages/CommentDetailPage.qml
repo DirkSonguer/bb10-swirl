@@ -77,13 +77,13 @@ Page {
         // console.log("# Creation of comment detail page finished");
 
         // show loader
-        loadingIndicator.showLoader("Loading comments");
+        loadingIndicator.showLoader(Copytext.swirlLoaderComments);
     }
 
     // comments loaded
     // populate comment list
     onCommentDataChanged: {
-        console.log("# Comment data changed, found " + commentData.length + " items");
+        // console.log("# Comment data changed, found " + commentData.length + " items");
 
         // initially clear list
         commentList.clearList();

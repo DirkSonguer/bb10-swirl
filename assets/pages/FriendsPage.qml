@@ -80,7 +80,7 @@ Page {
         UsersRepository.getFriendsForUser(userData.userId, friendListPage);
 
         // show loader
-        loadingIndicator.showLoader("Loading friend data");
+        loadingIndicator.showLoader(Copytext.swirlLoaderFriendData);
     }
 
     // friends list has been loaded

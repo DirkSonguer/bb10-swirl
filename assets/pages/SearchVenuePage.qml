@@ -99,7 +99,7 @@ Page {
                 onSearchTriggered: {
                     // initially clear list
                     venueList.clearList();
-                    loadingIndicator.showLoader("Searching..");
+                    loadingIndicator.showLoader(Copytext.swirlSearchAction);
 
                     // search call
                     VenueRepository.search(searchVenuePage.currentGeolocation, "checkin", searchTerm, 15000, searchVenuePage);
@@ -115,7 +115,7 @@ Page {
         // console.log("# Creation of add checkin page finished");
 
         // show loader
-        loadingIndicator.showLoader("Trying to fix your location");
+        loadingIndicator.showLoader(Copytext.swirlSearchFixLocation);
 
         // start searching for the current geolocation
         positionSource.start();
@@ -130,7 +130,7 @@ Page {
         venueList.clearList();
 
         // show loader
-        loadingIndicator.showLoader("Loading search results");
+        loadingIndicator.showLoader(Copytext.swirlSearchLoading);
     }
 
     // around you checkin data loaded and transformed
@@ -241,7 +241,7 @@ Page {
                     // console.debug("# Location found: " + searchVenuePage.currentGeolocation.latitude + ", " + searchVenuePage.currentGeolocation.longitude);
 
                     // show loader
-                    loadingIndicator.showLoader("Checking what's around you");
+                    loadingIndicator.showLoader(Copytext.swirlSearchAroundYou);
 
                     // load recent checkin stream with geolocation and time
                     // note initial search results are capped to a distance of 1km

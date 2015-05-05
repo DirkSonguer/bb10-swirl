@@ -1,7 +1,8 @@
 // *************************************************** //
 // Venue Photos Page
 //
-// The venue photos page.
+// Displays a gallery of venue photos as horizontal
+// scroller.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -10,7 +11,6 @@
 // import blackberry components
 import bb.cascades 1.3
 import bb.platform 1.3
-import bb.system.phone 1.0
 
 // set import directory for components
 import "../components"
@@ -19,9 +19,6 @@ import "../components"
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../foursquareapi/venues.js" as VenueRepository
-
-// import image url loader component
-import CommunicationInvokes 1.0
 
 Page {
     id: venuePhotosPage
@@ -71,7 +68,7 @@ Page {
         VenueRepository.getVenuePhotos(venueData.venueId, venuePhotosPage);
 
         // show loader
-        loadingIndicator.showLoader("Loading venue photos");
+        loadingIndicator.showLoader(Copytext.swirlLoaderVenuePhotos);
     }
 
     // venue photos loaded

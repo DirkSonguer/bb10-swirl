@@ -13,6 +13,12 @@
 var swirlWorking = "Working..";
 var swirlLocationWorking = "Trying to fix your location";
 
+// loaders
+var swirlLoaderVenuePhotos = "Loading venue photos";
+var swirlLoaderComments = "Loading comments";
+var swirlLoaderFriendData = "Loading friend data";
+var swirlLoaderUpdates = "Loading your updates";
+	
 // recent checkins
 var swirlNoRecentTitle = "No checkins found";
 var swirlNoRecentMessage = "Seems like your friends are very quiet, or that you haven't made any friends on Foursquare, yet. How about adding some?";
@@ -40,11 +46,15 @@ var swirlAroundYouDistances = new Array("0#Around you", "1#Around the block", "2
 // venue search
 var swirlNoLocationTitle = "Could not lock your location";
 var swirlNoLocationMessage = "We're having trouble finding your location. Where are you?!";
+var swirlSearchAction = "Searching..";
+var swirlSearchFixLocation = "Trying to fix your location";
 var swirlSearchCallToAction = "Search for venues";
 var swirlSearchInputLabel = "Enter venue name";
 var swirlSearchDistances = new Array("Around you", "Around the block", "Somewhat near", "Somewhere else");
+var swirlSearchLoading = "Loading search results";
 var swirlSearchNoResultsTitle = "Could not load venues around you";
 var swirlSearchNoResultsMessage = "Could not find any venues around you. Where are you?!";
+var swirlSearchAroundYou = "Checking what's around you";
 var swirlSearchRadius = "Search radius";
 var swirlSearchRadiusLabels = new Array("Around you (100m)", "Around the block (1km)", "Somewhat near (5km)", "Somewhere else (no limit)");
 var swirlSearchRadiusValues = new Array("100", "1000", "5000", "0");
@@ -55,6 +65,7 @@ var swirlFriendSearchInputLabel = "Enter friend name";
 
 // checkin
 var swirlCheckinConfirmation = "We got you at ";
+var swirlAddingCheckin = "Adding Checkin";
 
 // checkin comment
 var swirlCommentCallToAction = "Add comment to checkin";
