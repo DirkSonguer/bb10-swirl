@@ -417,10 +417,16 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 	photoData.imageMedium = photoObject.prefix + foursquareProfileImageMedium + photoObject.suffix;
 	photoData.imageFull = photoObject.prefix + photoObject.width + "x" + photoObject.height + photoObject.suffix;
 
-	// general venue information
+	// venue information
 	// this is stored as FoursquareVenueData()
 	if (typeof photoObject.venue !== "undefined") {
-		photoData.lastCheckinVenue = venueTransformator.getVenueDataFromObject(photoObject.venue);
+		photoData.venue = venueTransformator.getVenueDataFromObject(photoObject.venue);
+	}
+
+	// user information
+	// this is stored as FoursquareUserData()
+	if (typeof photoObject.user !== "undefined") {
+		photoData.user = userTransformator.getUserDataFromObject(photoObject.user);
 	}
 
 	// console.log("# Done transforming photo item");

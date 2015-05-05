@@ -33,11 +33,11 @@ Page {
     // this is filled by the calling page
     // contains only a limited object when filled
     property variant venueData
-    
+
     Container {
         layout: DockLayout {
         }
-        
+
         // photo gallery list
         // this will contain all the photos
         ImageGalleryList {

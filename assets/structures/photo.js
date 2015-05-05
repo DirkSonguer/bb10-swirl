@@ -31,7 +31,9 @@ function FoursquarePhotoData() {
 	// visibility
 	this.visibility = "";
 	
-	// the venue the photo is associated with
 	// this is filled by a FoursquareVenueData object
-	this.associatedVenue = "";	
+	this.venue = "";
+	
+	// this is filled by a FoursquareUserData object
+	this.user = "";
 }
