@@ -18,6 +18,7 @@ var swirlLoaderVenuePhotos = "Loading venue photos";
 var swirlLoaderComments = "Loading comments";
 var swirlLoaderFriendData = "Loading friend data";
 var swirlLoaderUpdates = "Loading your updates";
+var swirlLoaderLogin = "Loading login process";
 	
 // recent checkins
 var swirlNoRecentTitle = "No checkins found";
@@ -60,6 +61,7 @@ var swirlSearchRadiusLabels = new Array("Around you (100m)", "Around the block (
 var swirlSearchRadiusValues = new Array("100", "1000", "5000", "0");
 
 // friends search
+var swirlFriendSearch = "Checking where your friends are";
 var swirlFriendSearchCallToAction = "Search for friends";
 var swirlFriendSearchInputLabel = "Enter friend name";
 

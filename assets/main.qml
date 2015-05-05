@@ -495,7 +495,7 @@ NavigationPane {
                     // console.debug("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
 
                     // show loader
-                    loadingIndicator.showLoader("Checking where your friends are");
+                    loadingIndicator.showLoader(Copytext.swirlFriendSearch);
 
                     // get the current timestamp
                     var currentTimestamp = new Date().getTime();

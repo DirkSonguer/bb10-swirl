@@ -70,7 +70,7 @@ Page {
         UsersRepository.getFriendsForUser("self", addFriendsListPage);
 
         // show loader
-        loadingIndicator.showLoader("Loading friend data");
+        loadingIndicator.showLoader(Copytext.swirlLoaderFriendData);
     }
 
     // friends list has been loaded

@@ -69,7 +69,7 @@ Page {
                     if ((loadProgress < 100) && (! loadingIndicator.loaderActive)) {
                         // console.log("# Loading process started");
                         loginFoursquareWebView.visible = false
-                        loadingIndicator.showLoader("Loading login process");
+                        loadingIndicator.showLoader(Copytext.swirlLoaderLogin);
                     }
                 }
 
@@ -128,7 +128,7 @@ Page {
 
     // show loading message
     onCreationCompleted: {
-        loadingIndicator.showLoader("Loading login process");
+        loadingIndicator.showLoader(Copytext.swirlLoaderLogin);
     }
 
     // attached objects
