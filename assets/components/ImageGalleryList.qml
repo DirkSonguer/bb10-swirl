@@ -136,6 +136,8 @@ Container {
                         Label {
                             id: imageGalleryCaption
 
+                            property string updateFlag
+
                             // text style definition
                             textStyle.base: SystemDefaults.TextStyles.BodyText
                             textStyle.fontWeight: FontWeight.W100
@@ -145,7 +147,19 @@ Container {
                             multiline: true
 
                             // caption text
-                            text: "<html>Added " + ListItemData.imageData.elapsedTime + " ago by <b>" + ListItemData.imageData.user.fullName + "</b> via " + ListItemData.imageData.source + "</html>"
+                            updateFlag: ListItemData.imageData.elapsedTime
+                            onUpdateFlagChanged: {
+                                var tempText = "";
+                                tempText = "<html>Added " + ListItemData.imageData.elapsedTime + " ago";
+                                
+                                // only add user name if defined
+                                if (typeof ListItemData.imageData.user.fullName !== "undefined") {
+                                    tempText += " by <b>" + ListItemData.imageData.user.fullName + "</b>";
+                                }
+
+                                tempText += " via " + ListItemData.imageData.source + "</html>"
+                                text = tempText;
+                            }
                         }
                     }
                 }
