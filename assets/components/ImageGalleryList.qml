@@ -120,6 +120,7 @@ Container {
                         horizontalAlignment: HorizontalAlignment.Fill
                     }
 
+                    // caption container
                     Container {
                         id: imageGalleryCaptionContainer
 

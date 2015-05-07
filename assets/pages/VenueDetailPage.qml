@@ -119,9 +119,9 @@ Page {
                     
                     onClicked: {
                         // console.log("# Photo tile clicked");
-                        var venuePhotosPage = venuePhotosComponent.createObject();
-                        venuePhotosPage.venueData = venueDetailPage.venueData;
-                        navigationPane.push(venuePhotosPage);
+                        var photoGalleryPage = photoGalleryComponent.createObject();
+                        photoGalleryPage.venueData = venueDetailPage.venueData;
+                        navigationPane.push(photoGalleryPage);
                     }
                 }
             }
@@ -229,11 +229,11 @@ Page {
 
     // invocation for opening other apps
     attachedObjects: [
-        // venue photos page
+        // photo gallery page
         // will be called if user clicks on photo info tile
         ComponentDefinition {
-            id: venuePhotosComponent
-            source: "VenuePhotosPage.qml"
+            id: photoGalleryComponent
+            source: "PhotoGalleryPage.qml"
         },
         Phone {
             id: phoneDialer

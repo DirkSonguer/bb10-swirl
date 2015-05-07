@@ -33,14 +33,27 @@ Page {
     // signal if user profile data loading encountered an error
     signal userDetailDataError(variant errorData)
 
+    // signal if user photo data loading is complete
+    signal userPhotoDataLoaded(variant photoData)
+
+    // signal if user photo data loading encountered an error
+    signal userPhotoDataError(variant errorData)
+
     // property that holds the user data to load
     // this is filled by the calling page
     // contains only a limited object when filled
     // will be extended once the full data is loaded
     property variant userData
 
-    // flag to chek if user data detail object has been loaded
+    // property that holds the photo data
+    // will be filled once the full data is loaded
+    property variant photoData
+
+    // flag to check if user data detail object has been loaded
     property bool userDataDetailsLoaded: false
+
+    // flag to check if user photos have been loaded
+    property bool userPhotosLoaded: false
 
     // property for the friend image slideshow
     // a timer will update this to swap through the images
@@ -88,7 +101,7 @@ Page {
 
                 // address tile
                 LocationTile {
-                    id: userDetailAddressTile
+                    id: userDetailLastCheckinTile
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
@@ -125,6 +138,31 @@ Page {
                         var friendsListPage = friendsListComponent.createObject();
                         friendsListPage.userData = userDetailPage.userData;
                         navigationPane.push(friendsListPage);
+                    }
+                }
+
+                // user photos tile
+                InfoTile {
+                    id: userDetailPhotosTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / userDetailPage.columnCount
+                    preferredWidth: DisplayInfo.width / userDetailPage.columnCount
+
+                    // set icon & label
+                    headline: "Photos"
+
+                    // set initial visibility to false
+                    // will be set if the user has stored twitter contacts
+                    visible: false
+
+                    // open photo gallery page
+                    onClicked: {
+                        // console.log("# Photo tile clicked");
+                        var photoGalleryPage = photoGalleryComponent.createObject();
+                        photoGalleryPage.photoData = userDetailPage.photoData;
+                        navigationPane.push(photoGalleryPage);
                     }
                 }
 
@@ -277,6 +315,12 @@ Page {
             UsersRepository.getUserData(userData.userId, userDetailPage);
         }
 
+        // check if user photos have been loaded
+        if (! userDetailPage.userPhotosLoaded) {
+            // if not, load full user object
+            UsersRepository.getPhotosForUser(userData.userId, userDetailPage);
+        }
+
         // check for passport
         if ((DisplayInfo.width == 1440) && (DisplayInfo.width == 1440)) {
             // change column count to 3 to account for wider display
@@ -304,14 +348,14 @@ Page {
         }
 
         // venue map
-        userDetailAddressTile.zoom = "15";
-        userDetailAddressTile.size = "400";
-        userDetailAddressTile.venueLocation = userData.checkins[0].venue.location;
-        userDetailAddressTile.webImage = userData.checkins[0].venue.locationCategories[0].iconLarge;
+        userDetailLastCheckinTile.zoom = "15";
+        userDetailLastCheckinTile.size = "400";
+        userDetailLastCheckinTile.venueLocation = userData.checkins[0].venue.location;
+        userDetailLastCheckinTile.webImage = userData.checkins[0].venue.locationCategories[0].iconLarge;
 
         // show venue name
-        userDetailAddressTile.headline = "Last seen at: " + userData.checkins[0].venue.name;
-        userDetailAddressTile.visible = true;
+        userDetailLastCheckinTile.headline = "Last seen at: " + userData.checkins[0].venue.name;
+        userDetailLastCheckinTile.visible = true;
 
         // check if user has friends
         if (userData.friends.length > 0) {
@@ -348,6 +392,29 @@ Page {
         }
     }
 
+    // user photos have been loaded
+    // fill tile with data
+    onUserPhotoDataLoaded: {
+        // console.log("# User detail data loaded for user " + userData.userId);
+
+        // store the full object and set flag to true
+        userDetailPage.userPhotosLoaded = true;
+        
+        // fill global object
+        userDetailPage.photoData = photoData;
+
+        if (photoData.length > 0) {
+            // show image
+            userDetailPhotosTile.webImage = photoData[0].imageMedium;
+
+            // set headline
+            userDetailPhotosTile.headline = photoData.length + " Photos";
+            
+            // set tile visible
+            userDetailPhotosTile.visible = true;
+        }
+    }
+
     // attach components
     attachedObjects: [
         // invocation for dialer
@@ -358,11 +425,17 @@ Page {
         CommunicationInvokes {
             id: communicationInvokes
         },
-        // venue detail page
-        // will be called if user clicks on venue item
+        // friends list page
+        // will be called if user clicks on friends tile
         ComponentDefinition {
             id: friendsListComponent
             source: "FriendsPage.qml"
+        },
+        // photo gallery page
+        // will be called if user clicks on photo info tile
+        ComponentDefinition {
+            id: photoGalleryComponent
+            source: "PhotoGalleryPage.qml"
         },
         // checkin detail page
         // will be called if user clicks on checkin item

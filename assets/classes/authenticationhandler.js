@@ -67,7 +67,7 @@ AuthenticationHandler.prototype.checkFoursquareAuthenticationUrl = function(url)
 		// split the error messages into an array
 		var errorMessageList = new Array();
 		errorMessageList = errorString.split("&");
-
+		
 		// go through the list of messages and put them into the return array
 		for ( var index in errorMessageList) {
 			var errorMessage = new Array();

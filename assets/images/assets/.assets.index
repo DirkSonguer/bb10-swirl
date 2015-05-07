@@ -90,11 +90,11 @@ pages/AddCheckinPage.qml
 pages/CheckinDetailPage.qml
 pages/CommentDetailPage.qml
 pages/FriendsPage.qml
+pages/PhotoGalleryPage.qml
 pages/SearchVenuePage.qml
 pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
-pages/VenuePhotosPage.qml
 sheets/About.qml
 sheets/AddCheckinFriends.qml
 sheets/AdvancedVenueSearch.qml

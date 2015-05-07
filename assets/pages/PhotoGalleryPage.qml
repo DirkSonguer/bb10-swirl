@@ -21,7 +21,7 @@ import "../global/copytext.js" as Copytext
 import "../foursquareapi/venues.js" as VenueRepository
 
 Page {
-    id: venuePhotosPage
+    id: photoGalleryPage
 
     // signal if venue data loading is complete
     signal venuePhotosDataLoaded(variant photoData)
@@ -34,6 +34,11 @@ Page {
     // contains only a limited object when filled
     property variant venueData
 
+    // property that holds photo items
+    // this is filled by the calling page
+    // note that this contains the full image array
+    property variant photoData
+
     Container {
         layout: DockLayout {
         }
@@ -41,7 +46,7 @@ Page {
         // photo gallery list
         // this will contain all the photos
         ImageGalleryList {
-            id: venuePhotosList
+            id: photoGalleryList
         }
 
         // standard loading indicator
@@ -65,24 +70,33 @@ Page {
         // console.log("# Simple venue object handed over to the page");
 
         // load gallery data for respective venue
-        VenueRepository.getVenuePhotos(venueData.venueId, venuePhotosPage);
+        VenueRepository.getVenuePhotos(venueData.venueId, photoGalleryPage);
 
         // show loader
-        loadingIndicator.showLoader(Copytext.swirlLoaderVenuePhotos);
+        loadingIndicator.showLoader(Copytext.swirlLoaderphotoGallery);
+    }
+
+    // the photo data object has been changed
+    // this is either by the calling page or because the venue photos have been loaded
+    onPhotoDataChanged: {
+        // console.log("# Photo data has been updated");
+        
+        // initially clear list
+        photoGalleryList.clearList();
+        
+        // iterate through data objects and fill list
+        for (var index in photoGalleryPage.photoData) {
+            photoGalleryList.addToList(photoGalleryPage.photoData[index]);
+        }
+        
+        // hide loader
+        loadingIndicator.hideLoader();
     }
 
     // venue photos loaded
     // populate gallery list
     onVenuePhotosDataLoaded: {
-        // initially clear list
-        venuePhotosList.clearList();
-
-        // iterate through data objects and fill list
-        for (var index in photoData) {
-            venuePhotosList.addToList(photoData[index]);
-        }
-
-        // hide loader
-        loadingIndicator.hideLoader();
+        // update global photo data object
+        photoGalleryPage.photoData = photoData;
     }
 }
