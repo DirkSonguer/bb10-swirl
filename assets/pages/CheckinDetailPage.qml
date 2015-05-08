@@ -139,6 +139,14 @@ Page {
                     // set initial visibility to false
                     // will be set if the venue has photos
                     visible: false
+
+                    // open photo gallery page
+                    onClicked: {
+                        // console.log("# Photo tile clicked");
+                        var photoGalleryPage = photoGalleryComponent.createObject();
+                        photoGalleryPage.photoData = checkinDetailPage.checkinData.photos;
+                        navigationPane.push(photoGalleryPage);
+                    }
                 }
 
                 // likes tile
@@ -340,6 +348,12 @@ Page {
         ComponentDefinition {
             id: userDetailComponent
             source: "UserDetailPage.qml"
+        },
+        // photo gallery page
+        // will be called if user clicks on photo info tile
+        ComponentDefinition {
+            id: photoGalleryComponent
+            source: "PhotoGalleryPage.qml"
         },
         // comment detail page
         // will be called if user clicks on comment item

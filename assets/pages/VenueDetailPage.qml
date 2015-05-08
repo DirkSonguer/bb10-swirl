@@ -116,7 +116,8 @@ Page {
                     // set initial visibility to false
                     // will be set if the venue has photos
                     visible: false
-                    
+
+                    // open photo gallery page
                     onClicked: {
                         // console.log("# Photo tile clicked");
                         var photoGalleryPage = photoGalleryComponent.createObject();

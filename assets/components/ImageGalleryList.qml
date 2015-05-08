@@ -147,17 +147,25 @@ Container {
                             multiline: true
 
                             // caption text
+                            // note that we use the update flag to initially build the caption string
+                            // based on available data
                             updateFlag: ListItemData.imageData.elapsedTime
                             onUpdateFlagChanged: {
                                 var tempText = "";
                                 tempText = "<html>Added " + ListItemData.imageData.elapsedTime + " ago";
-                                
+
                                 // only add user name if defined
                                 if (typeof ListItemData.imageData.user.fullName !== "undefined") {
                                     tempText += " by <b>" + ListItemData.imageData.user.fullName + "</b>";
                                 }
 
-                                tempText += " via " + ListItemData.imageData.source + "</html>"
+                                // only add image source if defined
+                                if ((typeof ListItemData.imageData.source !== "undefined") && (ListItemData.imageData.source != "")) {
+                                    tempText += " via " + ListItemData.imageData.source;
+                                }
+
+                                // finish and show caption
+                                tempText += "</html>";
                                 text = tempText;
                             }
                         }
