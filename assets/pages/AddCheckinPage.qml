@@ -25,6 +25,7 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../global/foursquarekeys.js" as FoursquareKeys
 import "../foursquareapi/checkins.js" as CheckinsRepository
+import "../foursquareapi/users.js" as UsersRepository
 import "../classes/authenticationhandler.js" as AuthenticationHandler
 
 Page {
@@ -37,6 +38,12 @@ Page {
 
     // signal if popular media data loading encountered an error
     signal addCheckinDataError(variant errorData)
+
+    // signal if user profile data loading is complete
+    signal userDetailDataLoaded(variant userData)
+
+    // signal if user profile data loading encountered an error
+    signal userDetailDataError(variant errorData)
 
     // property that holds the venue data to checkin to
     property variant venueData
@@ -254,6 +261,10 @@ Page {
                         // set default state to unchecked
                         checked: false
 
+                        // set initial visibility to false
+                        // will be set true if user has connected the social account
+                        visible: false
+
                         // set button images
                         imageSourceDefault: "asset:///images/icons/icon_facebook_inactive.png"
                         imageSourceChecked: "asset:///images/icons/icon_facebook_active.png"
@@ -274,6 +285,10 @@ Page {
 
                         // set default state to unchecked
                         checked: false
+
+                        // set initial visibility to false
+                        // will be set true if user has connected the social account
+                        visible: false
 
                         // set button images
                         imageSourceDefault: "asset:///images/icons/icon_twitter_inactive.png"
@@ -445,9 +460,28 @@ Page {
             addCheckinHeader.category = venueData.locationCategories[0].name;
         }
 
+        // load user data to verify connected social accounts
+        UsersRepository.getUserData("self", addCheckinPage);
+
         // start timer
         // this puts the input focus on the input field
         addCheckinInputTimer.start();
+    }
+
+    // user data object loaded
+    // activate social sharing accounts accordingly
+    onUserDetailDataLoaded: {
+        // console.log("# User detail data loaded for user " + userData.userId);
+
+        // check and activate facebook
+        if (userData.contact.facebook != "") {
+            addCheckinFacebook.visible = true;
+        }
+
+        // check and activate twitter
+        if (userData.contact.twitter != "") {
+            addCheckinTwitter.visible = true;
+        }
     }
 
     // checkin successfull
