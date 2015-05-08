@@ -36,7 +36,7 @@ Container {
     property int currentItemIndex: 0
 
     // properties to define how the list should be sorted
-    property string listSortingKey: "currentIndex"
+    property string listSortingKey: "timestamp"
     property alias listSortAscending: imageGalleryListDataModel.sortedAscending
 
     // signal to clear the gallery contents
@@ -53,7 +53,8 @@ Container {
         imageGalleryListComponent.currentItemIndex += 1;
         imageGalleryListDataModel.insert({
                 "imageData": item,
-                "currentIndex": imageGalleryListComponent.currentItemIndex
+                "currentIndex": imageGalleryListComponent.currentItemIndex,
+                "timestamp": item.createdAt
             });
     }
 

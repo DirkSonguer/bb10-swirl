@@ -6,7 +6,7 @@ v 1.5.0
 * Added: Photo gallery for user photos
 * Added: Photo gallery for venue photos
 * Changed: Updated and improved checkin detail page
-
+* Fixed: Social share options are only shown if the user is connected
 
 v 1.4.0
 ---------
