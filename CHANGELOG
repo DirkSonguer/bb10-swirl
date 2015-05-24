@@ -5,6 +5,7 @@ v 1.5.0
 * Added: Detail view for checkin photos
 * Added: Photo gallery for user photos
 * Added: Photo gallery for venue photos
+* Added: Comment page with comment list and input
 * Changed: Updated and improved checkin detail page
 * Fixed: Social share options are only shown if the user is connected
 
