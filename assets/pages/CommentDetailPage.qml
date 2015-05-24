@@ -34,6 +34,10 @@ Page {
     // will be extended once the full data is loaded
     property variant commentData
 
+    // property that holds the checkin id
+    // the checkin id is needed to update the comment data
+    property string checkinId
+
     // main content container
     Container {
         // layout orientation
@@ -66,7 +70,15 @@ Page {
             // for the comment list
             CommentList {
                 id: commentList
-
+                
+                // comment list has been updated
+                onUpdated: {                    
+                    // go up one page in the stack
+                    // this effectively back to the checkin detail page                    
+                    var tempCheckinData;
+                    checkinDetailPage.addCommentDataLoaded(tempCheckinData);
+                    navigationPane.pop();
+                }
             }
         }
     }
@@ -95,5 +107,11 @@ Page {
 
         // hide loader
         loadingIndicator.hideLoader();
+    }
+    
+    // checkin id loaded
+    // hand over to comment list
+    onCheckinIdChanged: {
+        commentList.checkinId = checkinId;
     }
 }

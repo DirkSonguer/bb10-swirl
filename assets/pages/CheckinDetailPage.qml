@@ -176,6 +176,7 @@ Page {
                     // console.log("# Comment tile clicked");
                     var commentDetailPage = commentDetailComponent.createObject();
                     commentDetailPage.commentData = checkinDetailPage.checkinData.comments;
+                    commentDetailPage.checkinId = checkinDetailPage.checkinData.checkinId;
                     navigationPane.push(commentDetailPage);
                 }
             }

@@ -17,6 +17,7 @@ import bb.cascades 1.3
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
+import "../foursquareapi/checkins.js" as CheckinsRepository
 
 // import image url loader component
 import WebImageView 1.0
@@ -24,17 +25,26 @@ import WebImageView 1.0
 Container {
     id: commentListComponent
 
+    // signal if comment has been added
+    signal addCommentDataLoaded(variant commentData)
+
+    // signal if adding a comment encountered an error
+    signal addCommentDataError(variant errorData)
+
     // property that holds the current index
     // this is incremented as new items are added
     // to the list a provides the order the items were
     // added to the data model
     property int currentItemIndex: 0
 
-    // the media id is needed to update the comment data
-    property string mediaId
+    // the checkin id is needed to update the comment data
+    property string checkinId
 
     // signal to show that component has been clicked
     signal clicked()
+    
+    // signal to show that comments have been updated
+    signal updated()
 
     // property to calculate height for
     property int calculatedHeight: 0
@@ -78,6 +88,17 @@ Container {
         // associate the data model for the list view
         dataModel: commentListDataModel
 
+        // set refresh header as leading visual
+        leadingVisualSnapThreshold: 2.0
+        leadingVisual: CommentInput {
+            id: commentInput
+
+            // comment should be added
+            onTriggered: {
+                CheckinsRepository.addComment(commentListComponent.checkinId, commentText, commentListComponent);
+            }
+        }
+
         // define component which will represent the list items in the UI
         listItemComponents: [
             ListItemComponent {
@@ -113,7 +134,15 @@ Container {
             }
         ]
     }
-
+    
+    // comment data has been added
+    onAddCommentDataLoaded: {
+        // console.log("# Comment data has been added");
+        
+        // send update signal to parent page
+        commentListComponent.updated();
+    }
+    
     // attached objects
     attachedObjects: [
         // this will be the data model for the popular media list view
