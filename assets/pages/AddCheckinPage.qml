@@ -84,7 +84,7 @@ Page {
                     id: addCheckinInput
 
                     // hint text
-                    hintText: "What are your doing here?"
+                    hintText: Copytext.swirlCheckinHintText
 
                     // current text length changed, update length counter
                     // max length of a message is 140 char, this includes

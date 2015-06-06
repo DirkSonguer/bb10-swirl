@@ -147,7 +147,7 @@ Page {
                 Label {
                     id: advancedSearchFriendsLabel
 
-                    text: "Only venues friends have visited already"
+                    text: Copytext.swirlSearchFriendsOnly
 
                     // layout definition
                     horizontalAlignment: HorizontalAlignment.Left
@@ -174,7 +174,7 @@ Page {
                 preferredWidth: DisplayInfo.width
 
                 // text
-                text: "Search"
+                text: Copytext.swirlSearchCallToAction
 
                 // checkin action
                 onClicked: {

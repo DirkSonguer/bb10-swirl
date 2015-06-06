@@ -27,9 +27,12 @@ var swirlNoRecentMessage = "Seems like your friends are very quiet, or that you 
 // about
 var swirlAboutHeadline = "Swirl";
 var swirlAboutBody = "<html>Swirl is a Foursquare client that embraces the new changes in the Foursquare platform. In this regard it acts much like Swarm to allow you to meet your friends and check in with them.<br /><br />Code &amp; UI: Dirk Songuer (dirk@songuer.de).</html>";
-var swirlAboutToS = "<html>Swirl is made available for your personal use. I take great care that the application is as good as it can be, however I can't guarantee that it is bug-free and works flawlessly on every BlackBerry 10 device. If you encounter any problems, please feel free to contact me.<br /><br />Services are provided by Foursquare and I do not make any guarantees on their quality or performance. This app uses the Foursquare API but is not affiliated with or endorsed by Foursquare Labs, Inc.</html>";
-var swirlAboutPrivacy = "<html>User privacy and anonymity are extremely important to me so this application does not retain any personal data about you. Your login is handled via oAuth by Foursquare directly, which means this application does not need to store nor use your personal data at any given time. Hence I can absolutely never disclose any personally identifiable information to outside parties since no private data is stored on your device or globally.</html>";
-var swirlAboutCredits = "<html>Swirl uses the following libraries and services:<br /># <a href='http://www.foursquare.com'>Foursquare</a> (obviously)<br /># <a href='http://maps.google.com'>Google Maps</a> (for map tiles)<br /># <a href='http://www.avatars.io'>Avatars.io</a> (for Twitter profiles)<br /># <a href='http://subway.pixle.pl'>Subway Icon Set</a> (for all in-app icons)<br /></html>";
+var swirlAboutToSHeadline = "Terms of Service";
+var swirlAboutToSBody = "<html>Swirl is made available for your personal use. I take great care that the application is as good as it can be, however I can't guarantee that it is bug-free and works flawlessly on every BlackBerry 10 device. If you encounter any problems, please feel free to contact me.<br /><br />Services are provided by Foursquare and I do not make any guarantees on their quality or performance. This app uses the Foursquare API but is not affiliated with or endorsed by Foursquare Labs, Inc.</html>";
+var swirlAboutPrivacyHeadline = "Privacy";
+var swirlAboutPrivacyBody = "<html>User privacy and anonymity are extremely important to me so this application does not retain any personal data about you. Your login is handled via oAuth by Foursquare directly, which means this application does not need to store nor use your personal data at any given time. Hence I can absolutely never disclose any personally identifiable information to outside parties since no private data is stored on your device or globally.</html>";
+var swirlAboutCreditsHeadline = "Third Parties";
+var swirlAboutCreditsBody = "<html>Swirl uses the following libraries and services:<br /># <a href='http://www.foursquare.com'>Foursquare</a> (obviously)<br /># <a href='http://maps.google.com'>Google Maps</a> (for map tiles)<br /># <a href='http://www.avatars.io'>Avatars.io</a> (for Twitter profiles)<br /># <a href='http://subway.pixle.pl'>Subway Icon Set</a> (for all in-app icons)<br /></html>";
 
 // login related
 var swirlLoginSuccessTitle = "Thank you for authenticating";
@@ -47,6 +50,7 @@ var swirlAroundYouDistances = new Array("0#Around you", "1#Around the block", "2
 // venue search
 var swirlNoLocationTitle = "Could not lock your location";
 var swirlNoLocationMessage = "We're having trouble finding your location. Where are you?!";
+var swirlSearchCallToAction = "Search";
 var swirlSearchAction = "Searching..";
 var swirlSearchFixLocation = "Trying to fix your location";
 var swirlSearchCallToAction = "Search for venues";
@@ -59,6 +63,7 @@ var swirlSearchAroundYou = "Checking what's around you";
 var swirlSearchRadius = "Search radius";
 var swirlSearchRadiusLabels = new Array("Around you (100m)", "Around the block (1km)", "Somewhat near (5km)", "Somewhere else (no limit)");
 var swirlSearchRadiusValues = new Array("100", "1000", "5000", "0");
+var swirlSearchFriendsOnly = "Only venues friends have visited already";
 
 // friends search
 var swirlFriendSearch = "Checking where your friends are";
@@ -66,6 +71,7 @@ var swirlFriendSearchCallToAction = "Search for friends";
 var swirlFriendSearchInputLabel = "Enter friend name";
 
 // checkin
+var swirlCheckinHintText = "What are your doing here?";
 var swirlCheckinConfirmation = "We got you at ";
 var swirlAddingCheckin = "Adding Checkin";
 

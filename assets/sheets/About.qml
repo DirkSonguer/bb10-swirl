@@ -141,9 +141,9 @@ Page {
         swirlTitle.text = Copytext.swirlAboutHeadline;
         versionMessage.text = "Version " + Globals.currentApplicationVersion;
         infoMessage.text = Copytext.swirlAboutBody;
-        tosMessage.showMessage(Copytext.swirlAboutToS, "Terms of Service");
-        privacyMessage.showMessage(Copytext.swirlAboutPrivacy, "Privacy");
-        creditsMessage.showMessage(Copytext.swirlAboutCredits, "Third Parties");
+        tosMessage.showMessage(Copytext.swirlAboutToSBody, Copytext.swirlAboutToSHeadline);
+        privacyMessage.showMessage(Copytext.swirlAboutPrivacyBody, Copytext.swirlAboutPrivacyHeadline);
+        creditsMessage.showMessage(Copytext.swirlAboutCreditsBody, Copytext.swirlAboutCreditsHeadline);
     }
 
     // close action for the sheet
