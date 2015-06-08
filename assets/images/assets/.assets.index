@@ -34,7 +34,7 @@ components/UpdateItem.qml
 components/UpdateList.qml
 components/UserHeader.qml
 components/VenueHeader.qml
-components/VenueHeaderShort.qml
+components/VenueHeaderInteractive.qml
 components/VenueItem.qml
 components/VenueList.qml
 covers/RecentCheckins.qml

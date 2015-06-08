@@ -64,7 +64,7 @@ function getVenueData(venueId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading venue photo data with url: " + url);
+	console.log("# Loading venue photo data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -115,7 +115,7 @@ function getVenuePhotos(venueId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading venue data with url: " + url);
+	console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

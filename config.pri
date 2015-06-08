@@ -70,7 +70,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/UpdateList.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
         $$quote($$BASEDIR/assets/components/VenueHeader.qml) \
-        $$quote($$BASEDIR/assets/components/VenueHeaderShort.qml) \
+        $$quote($$BASEDIR/assets/components/VenueHeaderInteractive.qml) \
         $$quote($$BASEDIR/assets/components/VenueItem.qml) \
         $$quote($$BASEDIR/assets/components/VenueList.qml) \
         $$quote($$BASEDIR/assets/covers/RecentCheckins.qml) \

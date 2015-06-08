@@ -9,6 +9,7 @@
 
 // import blackberry components
 import bb.cascades 1.3
+import bb.platform 1.3
 import bb.cascades.pickers 1.0
 
 // import timer type
@@ -25,6 +26,7 @@ import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
 import "../global/foursquarekeys.js" as FoursquareKeys
 import "../foursquareapi/checkins.js" as CheckinsRepository
+import "../foursquareapi/venues.js" as VenueRepository
 import "../foursquareapi/users.js" as UsersRepository
 import "../classes/authenticationhandler.js" as AuthenticationHandler
 
@@ -45,6 +47,12 @@ Page {
     // signal if user profile data loading encountered an error
     signal userDetailDataError(variant errorData)
 
+    // signal if venue data loading is complete
+    signal venueDetailDataLoaded(variant venueData)
+
+    // signal if venue data loading encountered an error
+    signal venueDetailDataError(variant errorData)
+
     // property that holds the venue data to checkin to
     property variant venueData
 
@@ -57,6 +65,9 @@ Page {
 
     // list of friends to add to checkin
     property variant addFriendList
+
+    // flag to check if venue data detail object has been loaded
+    property bool venueDataDetailsLoaded: false
 
     ScrollView {
         // only vertical scrolling is needed
@@ -71,8 +82,19 @@ Page {
             }
 
             // header with name of the venue
-            VenueHeaderShort {
+            VenueHeaderInteractive {
                 id: addCheckinHeader
+                
+                onLocationClicked: {
+                    locationBBMapsInvoker.go();
+                }
+                
+                onPhotosClicked: {
+                    // console.log("# Photo tile clicked");
+                    var photoGalleryPage = photoGalleryComponent.createObject();
+                    photoGalleryPage.photoData = addCheckinPage.venueData.photos;
+                    navigationPane.push(photoGalleryPage);                    
+                }
             }
 
             // input field and buttons
@@ -452,20 +474,46 @@ Page {
     onVenueDataChanged: {
         // console.log("# Simple venue object handed over to the page");
 
-        // location name
-        addCheckinHeader.name = venueData.name;
+        // check if venue detail data has been loaded yet
+        if (! addCheckinPage.venueDataDetailsLoaded) {
+            // location name
+            addCheckinHeader.name = venueData.name;
 
-        // location category
-        if (venueData.locationCategories != "") {
-            addCheckinHeader.category = venueData.locationCategories[0].name;
+            // location category
+            if (venueData.locationCategories != "") {
+                addCheckinHeader.category = venueData.locationCategories[0].name;
+            }
+
+            // load venau detail data
+            VenueRepository.getVenueData(venueData.venueId, addCheckinPage);
+
+            // load user data to verify connected social accounts
+            UsersRepository.getUserData("self", addCheckinPage);
+
+            // start timer
+            // this puts the input focus on the input field
+            addCheckinInputTimer.start();
         }
+    }
 
-        // load user data to verify connected social accounts
-        UsersRepository.getUserData("self", addCheckinPage);
+    // full user object has been loaded
+    // fill entire page components with data
+    onVenueDetailDataLoaded: {
+        console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        
+        addCheckinPage.venueDataDetailsLoaded = true;
+        addCheckinPage.venueData = venueData;
 
-        // start timer
-        // this puts the input focus on the input field
-        addCheckinInputTimer.start();
+        // venue map
+        addCheckinHeader.venueLocation = venueData.location;
+        addCheckinHeader.venueIcon = venueData.locationCategories[0].iconLarge;
+
+        console.log("# Photos: " + venueData.photoCount);
+
+        // check if checkin has photos
+        if ((venueData.photoCount > 0) && (venueData.photos !== "")) {
+            addCheckinHeader.photoImage = venueData.photos[0].imageMedium;
+        }
     }
 
     // user data object loaded
@@ -562,6 +610,17 @@ Page {
             onTimeout: {
                 addCheckinInput.focus();
             }
+        },
+        // photo gallery page
+        // will be called if user clicks on photo info tile
+        ComponentDefinition {
+            id: photoGalleryComponent
+            source: "PhotoGalleryPage.qml"
+        },
+        // map invoker
+        // used to hand over location data to bb maps
+        LocationMapInvoker {
+            id: locationBBMapsInvoker
         },
         // file upload object
         // used to upload images to foursquare
