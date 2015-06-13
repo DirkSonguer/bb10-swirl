@@ -1,0 +1,47 @@
+
+
+Endpoint: stickers/STICKER_ID
+
+Example Sticker ID: 554149287b28d289d6e8e7df
+
+Example Call: https://api.foursquare.com/v2/stickers/554149287b28d289d6e8e7df
+
+Response:
+
+{
+meta: {
+code: 200
+}
+notifications: [
+{
+type: "notificationTray"
+item: {
+unreadCount: 0
+}
+}
+]
+response: {
+	sticker: {
+		id: "554149287b28d289d6e8e7df"
+		name: "Swarm"
+		image: {
+			prefix: "https://irs0.4sqi.net/img/sticker/"
+			sizes: [
+			60
+			94
+			]
+			name: "/swarm_0b9d6d.png"
+		}
+		stickerType: "unlockable"
+		group: {
+			name: "collectible"
+			index: 37
+		}
+		pickerPosition: {
+			page: 1
+			index: 13
+		}
+	}
+}
+}
+

@@ -23,6 +23,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "structures/photo.js");
 	Qt.include(dirPaths.assetPath + "structures/reason.js");
 	Qt.include(dirPaths.assetPath + "structures/score.js");
+	Qt.include(dirPaths.assetPath + "structures/sticker.js");
 	Qt.include(dirPaths.assetPath + "structures/update.js");
 	Qt.include(dirPaths.assetPath + "structures/user.js");
 	Qt.include(dirPaths.assetPath + "structures/venue.js");
@@ -135,6 +136,12 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 		checkinData.scores = scoreTransformator.getScoreDataFromArray(checkinObject.score.scores);
 	}
 
+	// checkin sticker
+	// this is stored as FoursquareStickerData()
+	if (typeof checkinObject.sticker !== "undefined") {
+		checkinData.sticker = stickerTransformator.getStickerDataFromObject(checkinObject.sticker);
+	}
+
 	// checkin photos
 	// this is stored as an array of FoursquarePhotoData()
 	if ((typeof checkinObject.photos !== "undefined") && (typeof checkinObject.photos.items !== "undefined")) {
@@ -231,6 +238,58 @@ CommentTransformator.prototype.getCommentDataFromArray = function(commentObjectA
 
 	// console.log("# Done transforming comment array");
 	return commentDataArray;
+};
+
+// *************************************************** //
+// Sticker Transformator
+// *************************************************** //
+var stickerTransformator = new StickerTransformator();
+
+// Class function that gets the prototype methods
+function StickerTransformator() {
+}
+
+// Extract all contact data from a sticker object
+// The resulting data is stored as FoursquareStickerData()
+StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject) {
+	// console.log("# Transforming sticker item");
+
+	// create new data object
+	var stickerData = new FoursquareStickerData();
+
+	// sticker id
+	stickerData.stickerId = stickerObject.id;
+
+	// sticker name
+	stickerData.name = stickerObject.name;
+
+	// sticker type
+	stickerData.type = stickerObject.stickerType;
+	
+	// unlock text
+	stickerData.unlockText = stickerObject.unlockText;
+
+	// sticker images
+	if (typeof stickerObject.image != 'undefined') {
+		stickerData.imageSmall = stickerObject.image.prefix + stickerObject.image.sizes[0] + stickerObject.image.name;
+		stickerData.imageFull = stickerObject.image.prefix + stickerObject.image.sizes[1] + stickerObject.image.name;
+	}
+
+	// sticker effect
+	if ( (typeof stickerObject.effects !== "undefined") && (typeof stickerObject.effects[0] !== "undefined") && (typeof stickerObject.effects[0].detail !== "undefined") ) {
+		stickerData.imageEffect = stickerObject.effects[0].detail.prefix + stickerObject.effects[0].detail.sizes[0] + stickerObject.effects[0].detail.name;
+	}
+
+	// picker position
+	stickerData.pickerPositionIndex = stickerObject.pickerPosition.index;
+	stickerData.pickerPositionPage = stickerObject.pickerPosition.page;
+
+	// sticker group
+	stickerData.stickerGroupIndex = stickerObject.group.index;
+	stickerData.stickerGroupName = stickerObject.group.name;	
+	
+	// console.log("# Done transforming sticker item");
+	return stickerData;
 };
 
 // *************************************************** //
@@ -410,7 +469,7 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 	// timestamps
 	photoData.createdAt = photoObject.createdAt;
 	photoData.elapsedTime = helperMethods.calculateElapsedTime(photoObject.createdAt);
-	
+
 	// source
 	if (typeof photoObject.source !== "undefined") {
 		photoData.source = photoObject.source.name;
@@ -441,7 +500,8 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 // Extract all photo data from an array of photo objects
 // The resulting data is stored as array of FoursquarePhotoData()
 PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) {
-	// console.log("# Transforming photo array with " + photoObjectArray.length + " items");
+	// console.log("# Transforming photo array with " + photoObjectArray.length
+	// + " items");
 
 	// create new return array
 	var photoDataArray = new Array();
@@ -454,7 +514,8 @@ PhotoTransformator.prototype.getPhotoDataFromArray = function(photoObjectArray) 
 		photoDataArray[index] = photoData;
 	}
 
-	// console.log("# Done transforming photo array, found " + photoDataArray.length + " items");
+	// console.log("# Done transforming photo array, found " +
+	// photoDataArray.length + " items");
 	return photoDataArray;
 };
 

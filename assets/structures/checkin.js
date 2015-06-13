@@ -7,6 +7,10 @@
 // License: All rights reserved
 // *************************************************** //
 
+if (typeof dirPaths !== "undefined") {
+	Qt.include(dirPaths.assetPath + "structures/sticker.js");
+}
+
 // data structure for Foursquare checkin
 function FoursquareCheckinData() {
 	// checkin id
@@ -40,6 +44,9 @@ function FoursquareCheckinData() {
 	// this is filled by an array of FoursquareScoreData objects
 	this.scores = "";
 
+	// this is filled by an array of FoursquareStickerData objects
+	this.sticker = new FoursquareStickerData();
+	
 	// this is filled by an array of FoursquareNotificationData objects
 	this.notifications = "";
 

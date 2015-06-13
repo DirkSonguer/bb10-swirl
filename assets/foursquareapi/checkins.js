@@ -168,7 +168,7 @@ function getCheckinData(checkinId, callingPage) {
 // Fifth parameter is the current geolocation, given as GeolocationData
 // Sixth parameter is the id of the calling page, which will receive the
 // recentCheckinDataLoaded() signal
-function addCheckin(venueId, shout, mentions, broadcast, currentGeoLocation, callingPage) {
+function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLocation, callingPage) {
 	// console.log("# Adding checkin for venue: " + venueId);
 
 	var req = new XMLHttpRequest();
@@ -209,6 +209,7 @@ function addCheckin(venueId, shout, mentions, broadcast, currentGeoLocation, cal
 	url += "&venueId=" + venueId;
 	url += "&shout=" + encodeURIComponent(shout);
 	url += "&mentions=" + encodeURIComponent(mentions);
+	url += "&stickerId=" + stickerId;
 	url += "&broadcast=" + broadcast;
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;

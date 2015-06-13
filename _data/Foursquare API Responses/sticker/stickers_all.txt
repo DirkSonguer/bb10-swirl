@@ -1,0 +1,2281 @@
+
+
+Endpoint: stickers/all/
+
+Example Call: https://api.foursquare.com/v2/stickers/all/
+
+Response:
+
+{
+meta: {
+code: 200
+}
+notifications: [
+{
+type: "notificationTray"
+item: {
+unreadCount: 0
+}
+}
+]
+response: {
+checksum: "312f741492d97e1bad09d927a63f8310c025420b"
+stickers: [
+{
+id: "52a65980000000000000000e"
+name: "mayor"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/mayor_9be7d3.png"
+}
+restricted: true
+stickerType: "venueMayor"
+}
+{
+id: "54c6a1b1e5086476d5885473"
+name: "Oh Hey"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/hi_e31743.png"
+}
+stickerType: "messageOnly"
+group: {
+name: "special"
+index: 22
+}
+pickerPosition: {
+page: 3
+index: 22
+}
+}
+{
+id: "54c6a1b5e5086476d5885474"
+name: "Yea"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/in_0e2de5.png"
+}
+stickerType: "messageOnly"
+group: {
+name: "special"
+index: 27
+}
+pickerPosition: {
+page: 4
+index: 3
+}
+}
+{
+id: "54deabe37b281c13f4372938"
+name: "Beer mug with question mark"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/beer_question_d6c39d.png"
+}
+stickerType: "messageOnly"
+}
+{
+id: "54c6a1abe5086476d5885472"
+name: "ETA?"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/eta_bd96c9.png"
+}
+stickerType: "messageOnly"
+group: {
+name: "special"
+index: 26
+}
+pickerPosition: {
+page: 4
+index: 2
+}
+}
+{
+id: "54c6a1bce5086476d5885475"
+name: "Vroom Vroom"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/otw_car_f4af0a.png"
+}
+stickerType: "messageOnly"
+group: {
+name: "special"
+index: 25
+}
+pickerPosition: {
+page: 4
+index: 1
+}
+}
+{
+id: "54c6a1c1e5086476d5885476"
+name: "Cabbie"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/otw_taxi_bbc0c1.png"
+}
+stickerType: "messageOnly"
+group: {
+name: "special"
+index: 23
+}
+pickerPosition: {
+page: 3
+index: 23
+}
+}
+{
+id: "54c6a1c5e5086476d5885477"
+name: "Metro"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/otw_train_afcb76.png"
+}
+stickerType: "messageOnly"
+group: {
+name: "special"
+index: 24
+}
+pickerPosition: {
+page: 4
+index: 0
+}
+}
+{
+id: "52a659800000000000000013"
+name: "Sneaks"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/running_ffa981.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 11
+}
+pickerPosition: {
+page: 3
+index: 11
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a65980000000000000001b"
+name: "16 Candles"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/birthday_b191f4.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 39
+}
+pickerPosition: {
+page: 1
+index: 15
+}
+}
+{
+id: "52a659800000000000000006"
+name: "Joey Beans"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/coffee_f4b66b.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 6
+}
+pickerPosition: {
+page: 0
+index: 6
+}
+}
+{
+id: "52a659800000000000000009"
+name: "Suds McGee"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/drunk_9978e9.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 5
+}
+pickerPosition: {
+page: 0
+index: 5
+}
+unlockText: "Du hast diesen Sticker bei Bars freigeschaltet"
+}
+{
+id: "52a65980000000000000001f"
+name: "Earl of Sandwich"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/sub_55cff8.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 63
+}
+pickerPosition: {
+page: 2
+index: 15
+}
+unlockText: "Du hast diesen Sticker bei Sandwich Shops freigeschaltet"
+}
+{
+id: "52a65980000000000000000b"
+name: "Buttons"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/gameboy_7e0dc1.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 10
+}
+pickerPosition: {
+page: 3
+index: 10
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a65980000000000000000c"
+name: "Rip Van Benchy"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/gym_e85262.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 14
+}
+pickerPosition: {
+page: 0
+index: 14
+}
+unlockText: "Du hast diesen Sticker bei Fitnessstudios freigeschaltet"
+}
+{
+id: "52a65980000000000000001d"
+name: "Fixie"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/bike_d2363b.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 60
+}
+pickerPosition: {
+page: 2
+index: 12
+}
+unlockText: "Du hast diesen Sticker bei Bike Shops and Cycle Studios freigeschaltet"
+}
+{
+id: "52a659800000000000000004"
+name: "Sunny Side"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/brunch_bd54b0.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 61
+}
+pickerPosition: {
+page: 2
+index: 13
+}
+unlockText: "Du hast diesen Sticker bei Frühstücksplätze freigeschaltet"
+}
+{
+id: "52a65980000000000000000a"
+name: "Small Fry"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/fastfood_111d43.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 50
+}
+pickerPosition: {
+page: 2
+index: 2
+}
+unlockText: "Du hast diesen Sticker bei Fastfood-Restaurants freigeschaltet"
+}
+{
+id: "52a659800000000000000011"
+name: "Famous Ray"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/pizza_61927f.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 16
+}
+pickerPosition: {
+page: 0
+index: 16
+}
+unlockText: "Du hast diesen Sticker bei Pizzerien freigeschaltet"
+}
+{
+id: "52a659800000000000000018"
+name: "Hot Tamale"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/taco_54602b.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 18
+}
+pickerPosition: {
+page: 0
+index: 18
+}
+unlockText: "Du hast diesen Sticker bei Mexikanische Restaurants freigeschaltet"
+}
+{
+id: "52a65980000000000000001e"
+name: "Fried Check-in"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/chicken_41e7cd.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 51
+}
+pickerPosition: {
+page: 2
+index: 3
+}
+unlockText: "Du hast diesen Sticker bei Brathähnchen-Imbisse freigeschaltet"
+}
+{
+id: "52a65980000000000000001c"
+name: "Toro"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/sushi_3098cc.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 17
+}
+pickerPosition: {
+page: 0
+index: 17
+}
+unlockText: "Du hast diesen Sticker bei Japanese or Sushi Restaurants freigeschaltet"
+}
+{
+id: "52a659800000000000000015"
+name: "Shades"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/sunglasses_e8c362.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 5
+}
+pickerPosition: {
+page: 3
+index: 5
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a659800000000000000017"
+name: "Beach Bum"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/surfer_ed6932.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 32
+}
+pickerPosition: {
+page: 1
+index: 8
+}
+unlockText: "Du hast diesen Sticker bei Strände freigeschaltet"
+}
+{
+id: "53ee547e4b90856d390bb745"
+name: "Wino"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/wine_37e62d.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 42
+}
+pickerPosition: {
+page: 1
+index: 18
+}
+unlockText: "Du hast diesen Sticker bei Wine Bars, Wine Shops or Vineyards freigeschaltet"
+}
+{
+id: "53f28bf14b90933f78c3a699"
+name: "007"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/cosmo_bd4373.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 8
+}
+pickerPosition: {
+page: 3
+index: 8
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "53fe77d24b9048855b3648b4"
+name: "Tasty"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/knifefork_593ff6.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 4
+}
+pickerPosition: {
+page: 0
+index: 4
+}
+unlockText: "Du hast diesen Sticker bei Restaurants freigeschaltet"
+}
+{
+id: "52a65980000000000000000f"
+name: "Groupie"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/music_3aa223.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 26
+}
+pickerPosition: {
+page: 1
+index: 2
+}
+unlockText: "Du hast diesen Sticker bei Musikvenue freigeschaltet"
+}
+{
+id: "53f2863b4b90933f78c3a694"
+name: "Retail Therapy"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/shopping_866748.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 15
+}
+pickerPosition: {
+page: 0
+index: 15
+}
+unlockText: "Du hast diesen Sticker bei various Shopping Places freigeschaltet"
+}
+{
+id: "53f28c414b90933f78c3a69a"
+name: "Proud Mary"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/bloodymary_fdfe47.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 62
+}
+pickerPosition: {
+page: 2
+index: 14
+}
+unlockText: "Du hast diesen Sticker bei Brunch Spots freigeschaltet"
+}
+{
+id: "53f28c7d4b90933f78c3a69b"
+name: "Big Poppy"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/clapper_7c0fc6.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 25
+}
+pickerPosition: {
+page: 1
+index: 1
+}
+unlockText: "Du hast diesen Sticker bei Kinos freigeschaltet"
+}
+{
+id: "53f28ce24b90933f78c3a69c"
+name: "Commuter"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/suitcase_1574d1.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 8
+}
+pickerPosition: {
+page: 0
+index: 8
+}
+unlockText: "Du hast diesen Sticker bei Train or Bus Stations freigeschaltet"
+}
+{
+id: "53f28d184b90933f78c3a69d"
+name: "Dark & Swarmy"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/whiskey_9a2940.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 41
+}
+pickerPosition: {
+page: 1
+index: 17
+}
+unlockText: "Du hast diesen Sticker bei Cocktailbars freigeschaltet"
+}
+{
+id: "53f637554b901073877d7613"
+name: "Life Aquatic"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/hungry_d2d75a.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 21
+}
+pickerPosition: {
+page: 0
+index: 21
+}
+unlockText: "Du hast diesen Sticker bei Fischrestaurants freigeschaltet"
+}
+{
+id: "53fe77894b9048855b3648b2"
+name: "Fanatic"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/foamhand_17b201.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 27
+}
+pickerPosition: {
+page: 1
+index: 3
+}
+unlockText: "Du hast diesen Sticker bei Sports Stadiums freigeschaltet"
+}
+{
+id: "53fe77df4b9048855b3648b5"
+name: "Bookworm"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/book_523213.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 36
+}
+pickerPosition: {
+page: 1
+index: 12
+}
+unlockText: "Du hast diesen Sticker bei Bookstores and Libraries freigeschaltet"
+}
+{
+id: "53fe77e54b9048855b3648b6"
+name: "Lappy Toppy"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/laptop_4d7599.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 29
+}
+pickerPosition: {
+page: 1
+index: 5
+}
+unlockText: "Du hast diesen Sticker bei Büros freigeschaltet"
+}
+{
+id: "54b59bd0e50851c96b4e8c8a"
+name: "Jetsetter"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/airplane_cff7ac.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 7
+}
+pickerPosition: {
+page: 0
+index: 7
+}
+unlockText: "Du hast diesen Sticker bei Flughäfen freigeschaltet"
+}
+{
+id: "52a659800000000000000002"
+name: "Lisa"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/art_142b5b.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 28
+}
+pickerPosition: {
+page: 1
+index: 4
+}
+unlockText: "Du hast diesen Sticker bei Museums or Art Galleries freigeschaltet"
+}
+{
+id: "53fe76324b9048855b3648b1"
+name: "Rack Overflow"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/money_af0a95.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 66
+}
+pickerPosition: {
+page: 2
+index: 18
+}
+}
+{
+id: "52a659800000000000000008"
+name: "Dog’s Best Friend"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/dog_4e9932.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 12
+}
+pickerPosition: {
+page: 0
+index: 12
+}
+unlockText: "Du hast diesen Sticker bei Dog Runs or Pet Stores freigeschaltet"
+}
+{
+id: "52a65980000000000000001a"
+name: "Napster"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/zzz_ecaf9e.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 67
+}
+pickerPosition: {
+page: 2
+index: 19
+}
+}
+{
+id: "52a659800000000000000010"
+name: "9 to 5"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/office_a436b1.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 9
+}
+pickerPosition: {
+page: 0
+index: 9
+}
+unlockText: "Du hast diesen Sticker bei Büros freigeschaltet"
+}
+{
+id: "52a659800000000000000014"
+name: "Superuser"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/superuser_a1c009.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 15
+}
+pickerPosition: {
+page: 3
+index: 15
+}
+teaseText: "Um diesen Sticker freizuschalten, musst du Superuser werden!"
+}
+{
+id: "543d52d9c2e6112f23b382d9"
+name: "Homie"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/underpants_98e3ea.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 11
+}
+pickerPosition: {
+page: 0
+index: 11
+}
+unlockText: "Du hast diesen Sticker bei Homes freigeschaltet"
+}
+{
+id: "54651f44e508898fa4176816"
+name: "Gym Rat"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/bicep_baa9e3.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 30
+}
+pickerPosition: {
+page: 1
+index: 6
+}
+unlockText: "Du hast diesen Sticker bei Fitnessstudios freigeschaltet"
+}
+{
+id: "552d50a66aca8831b5c0ddc4"
+name: "Foursquare Day"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/foursquare_day_2015_bc2588.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 19
+}
+pickerPosition: {
+page: 3
+index: 19
+}
+}
+{
+id: "52a659800000000000000005"
+name: "Kupo"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/cat_8f6005.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 13
+}
+pickerPosition: {
+page: 0
+index: 13
+}
+unlockText: "Du hast diesen Sticker bei Tierhandlungen freigeschaltet"
+}
+{
+id: "52a659800000000000000020"
+name: "iScream"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/icecream_be20f9.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 54
+}
+pickerPosition: {
+page: 2
+index: 6
+}
+unlockText: "Du hast diesen Sticker bei Eisdielen freigeschaltet"
+}
+{
+id: "543847324b909c2fb9aae4c0"
+name: "Newbie"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/partyhat_726832.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 0
+}
+pickerPosition: {
+page: 0
+index: 0
+}
+}
+{
+id: "54948197e5080d09529abdad"
+name: "Snowy"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/hatmittens_8ec36b.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 7
+}
+pickerPosition: {
+page: 3
+index: 7
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a659800000000000000001"
+name: "Fiery"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/angry_42766d.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 3
+}
+pickerPosition: {
+page: 3
+index: 3
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a65980000000000000000d"
+name: "Heart Container"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/heart_c46f7a.png"
+}
+effects: [
+{
+type: "supersize"
+detail: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+150
+]
+name: "/heart_c323a2.png"
+}
+}
+]
+stickerType: "default"
+group: {
+name: "special"
+index: 0
+}
+pickerPosition: {
+page: 3
+index: 0
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a659800000000000000012"
+name: "Stormy"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/rain_74bf6a.png"
+}
+effects: [
+{
+type: "supersize"
+detail: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+150
+]
+name: "/rain_812af6.png"
+}
+}
+]
+stickerType: "default"
+group: {
+name: "special"
+index: 2
+}
+pickerPosition: {
+page: 3
+index: 2
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a659800000000000000016"
+name: "Sunny"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/sunshine_d58144.png"
+}
+effects: [
+{
+type: "supersize"
+detail: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+150
+]
+name: "/sunshine_b0bc83.png"
+}
+}
+]
+stickerType: "default"
+group: {
+name: "special"
+index: 1
+}
+pickerPosition: {
+page: 3
+index: 1
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "52a659800000000000000019"
+name: "Bessie"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/unicorn_f5b188.png"
+}
+effects: [
+{
+type: "supersize"
+detail: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+150
+]
+name: "/unicorn_859bd0.png"
+}
+}
+]
+stickerType: "default"
+group: {
+name: "special"
+index: 4
+}
+pickerPosition: {
+page: 3
+index: 4
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "53fe75874b9048855b3648b0"
+name: "Deuce"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/poopface_21c710.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 22
+}
+pickerPosition: {
+page: 0
+index: 22
+}
+}
+{
+id: "5489f152e508c175773cbeb9"
+name: "Nerd"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/nerdglasses_deaad2.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 6
+}
+pickerPosition: {
+page: 3
+index: 6
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "5489f15de508c175773cbebb"
+name: "Apollo"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/spaceshuttle_472912.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 9
+}
+pickerPosition: {
+page: 3
+index: 9
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "54b59bd5e50851c96b4e8c8b"
+name: "Freie Natur"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/tree_bb9e7a.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 58
+}
+pickerPosition: {
+page: 2
+index: 10
+}
+unlockText: "Du hast diesen Sticker bei Outdoor Places freigeschaltet"
+}
+{
+id: "54b59bdfe50851c96b4e8c8c"
+name: "Baked"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/croissant_e21bc6.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 55
+}
+pickerPosition: {
+page: 2
+index: 7
+}
+unlockText: "Du hast diesen Sticker bei Bäckereien freigeschaltet"
+}
+{
+id: "54b59d7de50827cdc0f45206"
+name: "Clippy"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/scissors_74b12e.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 65
+}
+pickerPosition: {
+page: 2
+index: 17
+}
+unlockText: "Du hast diesen Sticker bei Salons or Barber Shops freigeschaltet"
+}
+{
+id: "54de43737b28934ff8a9f083"
+name: "Rosey"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/roses_16c84e.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 18
+}
+pickerPosition: {
+page: 3
+index: 18
+}
+}
+{
+id: "550763886acaba7c2294245e"
+name: "Sláinte"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/green_beer_b3edb9.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 12
+}
+pickerPosition: {
+page: 3
+index: 12
+}
+}
+{
+id: "55258434a0ca7e8d1fc2c274"
+name: "Drogon"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/got_dragon_5665e4.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 14
+}
+pickerPosition: {
+page: 3
+index: 14
+}
+}
+{
+id: "553522fdd2cad5de228962d1"
+name: "Purple Haze"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/420_4cc441.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 20
+}
+pickerPosition: {
+page: 3
+index: 20
+}
+}
+{
+id: "554147027b28d289d6e8e7b7"
+name: "Pizza Owl"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/pizzaowl_482e1e.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 48
+}
+pickerPosition: {
+page: 2
+index: 0
+}
+}
+{
+id: "554149287b28d289d6e8e7d6"
+name: "Adventurer"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/adventurer_dbfad4.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 1
+}
+pickerPosition: {
+page: 0
+index: 1
+}
+}
+{
+id: "554149287b28d289d6e8e7d7"
+name: "Explorer"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/vikinghelmet_1f7497.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 2
+}
+pickerPosition: {
+page: 0
+index: 2
+}
+}
+{
+id: "554149287b28d289d6e8e7d8"
+name: "Ten Hundred"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/crane_ed0e01.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 64
+}
+pickerPosition: {
+page: 2
+index: 16
+}
+}
+{
+id: "554149287b28d289d6e8e7d9"
+name: "Local"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/local_b7a98e.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 3
+}
+pickerPosition: {
+page: 0
+index: 3
+}
+}
+{
+id: "554149287b28d289d6e8e7da"
+name: "Overshare"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/overshare_94f216.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 68
+}
+pickerPosition: {
+page: 2
+index: 20
+}
+}
+{
+id: "554149287b28d289d6e8e7db"
+name: "Bender"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/bender_c5c1b6.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 46
+}
+pickerPosition: {
+page: 1
+index: 22
+}
+}
+{
+id: "554149287b28d289d6e8e7dc"
+name: "Bar Crawl"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/barcrawl_c93a86.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 44
+}
+pickerPosition: {
+page: 1
+index: 20
+}
+}
+{
+id: "554149287b28d289d6e8e7dd"
+name: "Mr. Jitters"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/toomuchcoffee_8a2b6c.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 34
+}
+pickerPosition: {
+page: 1
+index: 10
+}
+}
+{
+id: "554149287b28d289d6e8e7de"
+name: "Besties"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/twins_e11aff.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 23
+}
+pickerPosition: {
+page: 0
+index: 23
+}
+}
+{
+id: "554149287b28d289d6e8e7df"
+name: "Swarm"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/swarm_0b9d6d.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 37
+}
+pickerPosition: {
+page: 1
+index: 13
+}
+}
+{
+id: "554149287b28d289d6e8e7e1"
+name: "Friendly"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/cassette_5bdaa9.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 24
+}
+pickerPosition: {
+page: 1
+index: 0
+}
+}
+{
+id: "554149287b28d289d6e8e7e2"
+name: "Do Not Disturb"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/donotdisturb_ca4748.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 10
+}
+pickerPosition: {
+page: 0
+index: 10
+}
+unlockText: "Du hast diesen Sticker bei Hotels freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7e3"
+name: "Spaghetti Monster"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/spaghettimonster_abc4d4.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 19
+}
+pickerPosition: {
+page: 0
+index: 19
+}
+unlockText: "Du hast diesen Sticker bei Italienische Restaurants freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7e4"
+name: "Patty"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/burger_95a993.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 49
+}
+pickerPosition: {
+page: 2
+index: 1
+}
+unlockText: "Du hast diesen Sticker bei Burger-Imbisse freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7e5"
+name: "Mall Rat"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/mallrat_707b3e.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 31
+}
+pickerPosition: {
+page: 1
+index: 7
+}
+unlockText: "Du hast diesen Sticker bei Einkaufszentren freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7e8"
+name: "Flap Jack"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/pancakes_5dac3f.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 57
+}
+pickerPosition: {
+page: 2
+index: 9
+}
+unlockText: "Du hast diesen Sticker bei Diners freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7e9"
+name: "Porky"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/pig_fde539.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 52
+}
+pickerPosition: {
+page: 2
+index: 4
+}
+unlockText: "Du hast diesen Sticker bei Grill-Imbisse freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7ea"
+name: "General Tso"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/chinesetakeout_189fdf.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 56
+}
+pickerPosition: {
+page: 2
+index: 8
+}
+unlockText: "Du hast diesen Sticker bei Chinesische Restaurants freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7eb"
+name: "Swimmies"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/lifering_434aea.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 59
+}
+pickerPosition: {
+page: 2
+index: 11
+}
+unlockText: "Du hast diesen Sticker bei Beaches, Lakes or Pools freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7ec"
+name: "Chippy"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/cookie_47f0af.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 53
+}
+pickerPosition: {
+page: 2
+index: 5
+}
+unlockText: "Du hast diesen Sticker bei Konditoreien freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7ed"
+name: "Dom"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/champagne_518113.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 40
+}
+pickerPosition: {
+page: 1
+index: 16
+}
+}
+{
+id: "554149287b28d289d6e8e7ee"
+name: "Hangover"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/hangover_b1f0fc.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 47
+}
+pickerPosition: {
+page: 1
+index: 23
+}
+}
+{
+id: "554149287b28d289d6e8e7ef"
+name: "Crunked"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/crunked_354d44.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 45
+}
+pickerPosition: {
+page: 1
+index: 21
+}
+}
+{
+id: "554149287b28d289d6e8e7f1"
+name: "Mic Drop"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/microphone_de7de0.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 17
+}
+pickerPosition: {
+page: 3
+index: 17
+}
+unlockText: "Du hast diesen Sticker bei Karaoke-Bars freigeschaltet"
+}
+{
+id: "554149287b28d289d6e8e7f2"
+name: "I'm on a Boat"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/boat_51da11.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 16
+}
+pickerPosition: {
+page: 3
+index: 16
+}
+}
+{
+id: "554163ba7b28cbfc2359965d"
+name: "Droid"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/droid_5d93c9.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 13
+}
+pickerPosition: {
+page: 3
+index: 13
+}
+}
+{
+id: "5542604d7b2899aaa467be3f"
+name: "Maxed Out"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/creditcard_00c016.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 33
+}
+pickerPosition: {
+page: 1
+index: 9
+}
+}
+{
+id: "5547a5437b28e712c2f05efa"
+name: "Nay"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/thumbsdown_c44946.png"
+}
+stickerType: "default"
+group: {
+name: "special"
+index: 28
+}
+pickerPosition: {
+page: 4
+index: 4
+}
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+}
+{
+id: "5553cec67b283f1ac7315143"
+name: "Young and Sporty"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/turkish_torch_d7427b.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 29
+}
+pickerPosition: {
+page: 4
+index: 5
+}
+}
+{
+id: "55563a0d2beaa0fbc4d1dc3d"
+name: "T-Bone"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/cow_476493.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 20
+}
+pickerPosition: {
+page: 0
+index: 20
+}
+}
+{
+id: "55563bc12beaa0fbc4d1dc3e"
+name: "Hops"
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/hops_460cab.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 43
+}
+pickerPosition: {
+page: 1
+index: 19
+}
+}
+{
+id: "55563bd52beaa0fbc4d1dc3f"
+name: "Baggs"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/groceries_2a2425.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 69
+}
+pickerPosition: {
+page: 2
+index: 21
+}
+}
+{
+id: "556ca564a7c872b6ca2fbd11"
+name: "Streaky"
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/streaky_c12d20.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 35
+}
+pickerPosition: {
+page: 1
+index: 11
+}
+}
+{
+id: "556ca858a7c872b6ca2fbd12"
+name: "7-10 Split"
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/bowling_40e1ce.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 70
+}
+pickerPosition: {
+page: 2
+index: 22
+}
+}
+{
+id: "556cb834a7c872b6ca2fbd13"
+name: "Let it Ride"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/casino_f2962a.png"
+}
+stickerType: "unlockable"
+group: {
+name: "collectible"
+index: 71
+}
+pickerPosition: {
+page: 2
+index: 23
+}
+}
+{
+id: "55720553a7c803d24645d620"
+name: "Gooooooal"
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/"
+sizes: [
+60
+94
+]
+name: "/sticker_football_300_799c76.png"
+}
+stickerType: "unlockable"
+group: {
+name: "special"
+index: 21
+}
+pickerPosition: {
+page: 3
+index: 21
+}
+}
+]
+totalCollectible: 100
+}
+}

@@ -1,0 +1,85 @@
+
+So Swarm introduced stickers (http://blog.foursquare.com/post/118142264388/your-old-foursquare-badges-and-mayorships-evolved) and brought back some fun we had once there were mayors and rankings. Cool! However the official documentation (https://developer.foursquare.com/) does not mention anything about the new stickers yet.
+
+However it's not that hard to find out how they work from an API perspective and I thought I share what I came up with.
+
+
+Getting sticker information
+
+There is a new endpoint called /stickers that can be called either with a specific sticker id or "all" to request a list of all available stickers.
+
+Example 1: https://api.foursquare.com/v2/stickers/54c6a1b5e5086476d5885474/
+
+Example 2: https://api.foursquare.com/v2/stickers/all/
+
+
+Getting stickers for a specific user
+
+You can request all stickers that are available for a specific user. This workds for "self" (the currently logged in user) and for any user id.
+
+Example 1: https://api.foursquare.com/v2/users/self/stickers
+
+Example 2: https://api.foursquare.com/v2/users/6625189/stickers
+
+
+Stickers in a checkin
+
+Each checkin for which the user added a checkin will contain a sticker object.
+
+
+Add a sticker to a checkin
+
+
+
+
+The sticker object
+
+The sticker object looks a little something like this:
+
+"id": The id of the respective sticker (integer)
+"name": The localised name of the sticker (string)
+"image": A foursquare image object, contains prefix (string), sizes (array of integer) and name (string)
+"effects": This also contains also a foursquare image object in the detail node, with a type "supersize"
+"stickerType": Defines the sticker type (list of string). Allowed values are "venueMayor" (special sticker for old mayor status), "messageOnly" (can only be used in direct messages), default (publicly available) and "unlockable" (needs to be unlocked)
+"group": Object defining the group the sticker is in. Currently there are "collectible" and "special" as name (list of string) with an index (integer) for the sticker within the group
+"pickerPosition": Object defining the position of the sticker within the sticker album, containing the page (integer) and index (integer)
+"teaseText": Localised text how you obtained the sticker (string)
+"restricted": Flag if sticker can be used or not (boolean, optional)
+
+Example:
+
+sticker: {
+	id: "52a659800000000000000019",
+	name: "Bessie",
+	image: {
+		prefix: "https://irs0.4sqi.net/img/sticker/",
+		sizes: [
+			60,
+			94
+		],
+		name: "/unicorn_f5b188.png"
+	},
+	effects: [
+	{
+		type: "supersize",
+		detail: {
+			prefix: "https://irs0.4sqi.net/img/sticker/",
+			sizes: [
+				150
+			],
+			name: "/unicorn_859bd0.png"
+		}
+	}
+	],
+	stickerType: "default",
+	group: {
+		name: "special",
+		index: 4
+	},
+	pickerPosition: {
+		page: 3,
+		index: 4
+	},
+	unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+},
+

@@ -569,7 +569,7 @@ Page {
     // friends list has been changed
     // update friends label to reflect changes
     onAddFriendListChanged: {
-        // console.log("# Found " + addFriendList.length + " friends to add to checkin");
+        console.log("# Found " + addFriendList.length + " friends to add to checkin");
 
         // reset labels
         textCounter.text = 140 - addCheckinInput.currentTextLength;

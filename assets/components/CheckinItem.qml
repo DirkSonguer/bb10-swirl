@@ -38,6 +38,9 @@ Container {
 
     // property if the current user has liked the checkin
     property string userHasLiked: ""
+    
+    // property for the checkin sticker image, given as url
+    property alias stickerImage: checkinStickerImage.url
 
     // property for the user name, given as string
     property alias username: checkinUsername.text
@@ -110,22 +113,45 @@ Container {
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
 
-        // mask the profile image to make it round
+        // like icon
         ImageView {
-            id: checkinUserIconImage
+            id: checkinLikeIconImage
 
             // position and layout properties
             verticalAlignment: VerticalAlignment.Top
-            horizontalAlignment: HorizontalAlignment.Right
+            horizontalAlignment: HorizontalAlignment.Left
 
             // mask image
             imageSource: "asset:///images/icons/icon_foursquare_like.png"
 
             // set initial visibility to false
-            // this will be set true when an image is set
+            // this will be set when the checkin was liked
             visible: false
         }
-
+        
+        // checkin sticker image
+        // this is a web image view provided by WebViewImage
+        WebImageView {
+            id: checkinStickerImage
+            
+            // position and layout properties
+            verticalAlignment: VerticalAlignment.Bottom
+            horizontalAlignment: HorizontalAlignment.Right
+            
+            // set image size to maximum profile picture size
+            preferredHeight: ui.sdu(7)
+            preferredWidth: ui.sdu(7)
+            minHeight: ui.sdu(7)
+            minWidth: ui.sdu(7)
+                        
+            // set initial visibility to false
+            // this will be set true when an image is set
+            visible: false
+            onUrlChanged: {
+                visible = true;
+            }
+        }
+        
         // handle tap on profile picture
         gestureHandlers: [
             TapHandler {
@@ -295,11 +321,11 @@ Container {
     onUserHasLikedChanged: {
         // console.log("Setting like state of checkin to: " + userHasLiked);
         if (userHasLiked == "true") {
-            checkinUserIconImage.visible = true;
+            checkinLikeIconImage.visible = true;
             checkinLikeAction.title = "Unlike checkin";
             checkinLikeAction.imageSource = "asset:///images/icons/icon_unliked_w.png";
         } else {
-            checkinUserIconImage.visible = false;
+            checkinLikeIconImage.visible = false;
             checkinLikeAction.title = "Like checkin";
             checkinLikeAction.imageSource = "asset:///images/icons/icon_liked_w.png";
         }

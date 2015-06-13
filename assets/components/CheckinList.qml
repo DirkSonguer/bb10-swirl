@@ -132,6 +132,7 @@ Container {
                         // set data
                         username: ListItemData.checkinData.user.fullName
                         userHasLiked: ListItemData.checkinData.userHasLiked
+                        stickerImage: ListItemData.checkinData.sticker.imageSmall
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country

@@ -148,6 +148,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/photo.js) \
         $$quote($$BASEDIR/assets/structures/reason.js) \
         $$quote($$BASEDIR/assets/structures/score.js) \
+        $$quote($$BASEDIR/assets/structures/sticker.js) \
         $$quote($$BASEDIR/assets/structures/update.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \
         $$quote($$BASEDIR/assets/structures/venue.js)

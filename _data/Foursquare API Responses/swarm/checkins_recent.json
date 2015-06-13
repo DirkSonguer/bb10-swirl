@@ -1,93 +1,4211 @@
 {
-"meta":{"code":200},
-"notifications":[{
-	"type":"notificationTray",
-	"item":{"unreadCount":0}
-}],
-"response":{
-"recent":[{
-	"id":"53e46de4498e77453d04349b",
-	"createdAt":1407479268,
-	"type":"checkin",
-	"timeZoneOffset":120,
-	"displayGeo":{
-		"id":"72057594040853469",
-		"name":"Frankfurt am Main"
+meta: {
+code: 200
+},
+notifications: [
+{
+type: "notificationTray",
+item: {
+unreadCount: 0
+}
+}
+],
+response: {
+recent: [
+{
+id: "557c5320498ec143d9aa2d2e",
+createdAt: 1434211104,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040853469",
+name: "Frankfurt am Main"
+},
+exactContextLine: "Frankfurt am Main",
+user: {
+id: "119329",
+firstName: "Tom",
+lastName: "Noeding",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/5CU34RT41K45SYKQ.jpg"
+}
+},
+venue: {
+id: "4c1654958aedd13a5aff5137",
+name: "Mitscherlich-Haus",
+contact: { },
+location: {
+isFuzzed: true,
+lat: 50.11147483950404,
+lng: 8.542056606613347,
+distance: 27689,
+cc: "DE",
+city: "Frankfurt am Main",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Windthorststr.",
+"65929 Frankfurt am Main"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d103941735",
+name: "Zuhause (privat)",
+pluralName: "Zuhause (privat)",
+shortName: "Zuhause",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/building/home_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 2203,
+usersCount: 7,
+tipCount: 1
+},
+url: "http://www.my-way-of-living.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Simple Check-in",
+url: "http://matthewrathbone.com/simple-checkin"
+},
+distance: 27563,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "557c4c6c498eef6618bca70c",
+createdAt: 1434209388,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040838767",
+name: "Hannover"
+},
+exactContextLine: "Hannover",
+user: {
+id: "133215",
+firstName: "Axel",
+lastName: "Neuhaus",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/FAN1CPT1MEOAVIJG.jpg"
+}
+},
+venue: {
+id: "4b5361c5f964a520d79927e3",
+name: "SUBWAY",
+contact: {
+phone: "05114379518",
+formattedPhone: "0511 4379518",
+twitter: "subway_de"
+},
+location: {
+address: "Karl-Wiechert-Allee 70-76",
+crossStreet: "Bürocenter Weidetor",
+lat: 52.39365973954015,
+lng: 9.79480504989624,
+distance: 291755,
+postalCode: "30625",
+cc: "DE",
+city: "Hannover",
+state: "Niedersachsen",
+country: "Deutschland",
+formattedAddress: [
+"Karl-Wiechert-Allee 70-76 (Bürocenter Weidetor)",
+"30625 Hannover"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1c5941735",
+name: "Sandwich-Imbiss",
+pluralName: "Sandwich-Imbisse",
+shortName: "Sandwiches",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 430,
+usersCount: 98,
+tipCount: 1
+},
+url: "http://www.subway-sandwiches.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 291750,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+	sticker: {
+		id: "52a65980000000000000001f",
+		name: "Earl of Sandwich",
+		image: {
+			prefix: "https://irs0.4sqi.net/img/sticker/",
+			sizes: [
+			60,
+			94
+			],
+			name: "/sub_55cff8.png"
+		},
+		stickerType: "unlockable",
+			group: {
+			name: "collectible",
+			index: 63
+		},
+		pickerPosition: {
+			page: 2,
+			index: 15
+		},
+		unlockText: "Du hast diesen Sticker bei Sandwich Shops freigeschaltet"
 	},
-	"exactContextLine":"Frankfurt am Main",
-	"user":{
-		"id":"7086612",
-		"firstName":"Sebastian",
-		"lastName":"Nell",
-		"gender":"male",
-		"relationship":"friend",
-		"photo":{
-			"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/",
-			"suffix":"\/CL3MB5CBWZNXL4W5.jpg"
+isMayor: false
+},
+{
+id: "557c410a498ed5961a8fb182",
+createdAt: 1434206474,
+type: "checkin",
+timeZoneOffset: 180,
+displayGeo: {
+id: "72057594038226731",
+name: "Türkei"
+},
+exactContextLine: "Türkei",
+createdBy: {
+id: "7083736",
+firstName: "Monica",
+lastName: "Zaldivar",
+gender: "female",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/7083736-NFQU2Q5IW4HSXYDC.jpg"
+}
+},
+user: {
+id: "231595",
+firstName: "Cihan",
+lastName: "Boz",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/LFOMF4XJAKCAFRLQ.jpg"
+}
+},
+venue: {
+id: "516eef84e4b06ef9e5a48454",
+name: "Meşhur Sarıyer Börekçisi",
+contact: { },
+location: {
+lat: 40.87702399377492,
+lng: 29.100593342927723,
+distance: 1877408,
+cc: "TR",
+country: "Türkei",
+formattedAddress: [
+"Türkei"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d16a941735",
+name: "Bäckerei",
+pluralName: "Bäckereien",
+shortName: "Bäckerei",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 234,
+usersCount: 194,
+tipCount: 3
+},
+hasMenu: true,
+menu: {
+type: "Menu",
+label: "Menü",
+anchor: "Menü anzeigen",
+url: "https://foursquare.com/v/me%C5%9Fhur-sar%C4%B1yer-b%C3%B6rek%C3%A7isi/516eef84e4b06ef9e5a48454/menu",
+mobileUrl: "https://foursquare.com/v/516eef84e4b06ef9e5a48454/device_menu"
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 1877471,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557c3d7d498ed6b8e1954105",
+createdAt: 1434205565,
+type: "checkin",
+shout: "Lecker Kaffee und Kuchen.",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040837166",
+name: "Hattingen"
+},
+exactContextLine: "Hattingen",
+user: {
+id: "119644062",
+firstName: "Vrorosa",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/119644062-GYH01LFUE25IZJAH.jpg"
+}
+},
+venue: {
+id: "4c66a281e1da1b8db3659bc3",
+name: "Café Adele",
+contact: {
+phone: "0232425479",
+formattedPhone: "02324 25479",
+facebook: "162301853805230",
+facebookUsername: "cafe.adele",
+facebookName: "Café Adele"
+},
+location: {
+address: "Steinhagen 1",
+lat: 51.397552299987446,
+lng: 7.185015678405762,
+distance: 198798,
+postalCode: "45525",
+cc: "DE",
+city: "Hattingen",
+state: "Nordrhein-Westfalen",
+country: "Deutschland",
+formattedAddress: [
+"Steinhagen 1",
+"45525 Hattingen"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d16d941735",
+name: "Café",
+pluralName: "Cafés",
+shortName: "Café",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 75,
+usersCount: 31,
+tipCount: 1
+},
+url: "http://www.cafe-adele.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 198798,
+photos: {
+count: 1,
+items: [
+{
+id: "557c3daf498e25306f12001b",
+createdAt: 1434205615,
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+prefix: "https://irs3.4sqi.net/img/general/",
+suffix: "/119644062_6LnWQNVNRApzkD-9rexgwnH7LEwymAl9WHq809YqoYU.jpg",
+width: 1440,
+height: 1920,
+user: {
+id: "119644062",
+firstName: "Vrorosa",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/119644062-GYH01LFUE25IZJAH.jpg"
+}
+},
+visibility: "friends"
+}
+]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "52a659800000000000000006",
+name: "Joey Beans",
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/coffee_f4b66b.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 6
+},
+pickerPosition: {
+page: 0,
+index: 6
+}
+},
+isMayor: false
+},
+{
+id: "557c3b47498ea96d3b9527e1",
+createdAt: 1434204999,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040878095",
+name: "Berlin"
+},
+exactContextLine: "Berlin",
+user: {
+id: "4104243",
+firstName: "Nico",
+lastName: "Zimmermann",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/IRZYYQHJWFPDHMCY.jpg"
+}
+},
+venue: {
+id: "4afae713f964a520771922e3",
+name: "Sammlung Boros",
+contact: { },
+location: {
+address: "Reinhardtstr. 20",
+lat: 52.523381168352785,
+lng: 13.384263013818234,
+distance: 442623,
+postalCode: "10117",
+cc: "DE",
+city: "Berlin",
+state: "Berlin",
+country: "Deutschland",
+formattedAddress: [
+"Reinhardtstr. 20",
+"10117 Berlin"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1e2931735",
+name: "Kunstgalerie",
+pluralName: "Kunstgalerien",
+shortName: "Kunstgalerie",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/artgallery_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 852,
+usersCount: 771,
+tipCount: 42
+},
+url: "http://www.sammlung-boros.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 442627,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "554149287b28d289d6e8e7d8",
+name: "Ten Hundred",
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/crane_ed0e01.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 64
+},
+pickerPosition: {
+page: 2,
+index: 16
+}
+},
+isMayor: false
+},
+{
+id: "557c3952498ee0aa80b9356d",
+createdAt: 1434204498,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040737282",
+name: "Wiesbaden"
+},
+exactContextLine: "Wiesbaden",
+user: {
+id: "113429",
+firstName: "Peter",
+lastName: "Krause",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/K0W3TFC4JZPS1L0J.png"
+}
+},
+venue: {
+id: "4b98b77cf964a520b54c35e3",
+name: "ZooPalast",
+contact: {
+phone: "061171670",
+formattedPhone: "0611 71670"
+},
+location: {
+address: "Äppelallee 33",
+lat: 50.04857804921282,
+lng: 8.230228394089103,
+distance: 35938,
+postalCode: "65203",
+cc: "DE",
+city: "Wiesbaden",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Äppelallee 33",
+"65203 Wiesbaden"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d100951735",
+name: "Tierhandlung",
+pluralName: "Tierhandlungen",
+shortName: "Tierhandlung",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/shops/pet_store_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 106,
+usersCount: 40,
+tipCount: 1
+},
+url: "http://www.zoopalast-wiesbaden.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 35924,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557c2823498efefecdd2dc4d",
+createdAt: 1434200099,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040866849",
+name: "Darmstadt"
+},
+exactContextLine: "Darmstadt",
+user: {
+id: "6625189",
+firstName: "Dirk",
+lastName: "Songuer",
+gender: "none",
+relationship: "self",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/IFRWMUV31RGN2TVI.jpg"
+}
+},
+venue: {
+id: "4b1e1d98f964a5207b1724e3",
+name: "Salve!",
+contact: {
+phone: "061511362543",
+formattedPhone: "06151 1362543"
+},
+location: {
+address: "Wilhelminenstr. 2",
+lat: 49.870292,
+lng: 8.6516736,
+distance: 284,
+postalCode: "64283",
+cc: "DE",
+city: "Darmstadt",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Wilhelminenstr. 2",
+"64283 Darmstadt"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d16d941735",
+name: "Café",
+pluralName: "Cafés",
+shortName: "Café",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 497,
+usersCount: 209,
+tipCount: 13
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 236,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "52a659800000000000000006",
+name: "Joey Beans",
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/coffee_f4b66b.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 6
+},
+pickerPosition: {
+page: 0,
+index: 6
+}
+},
+isMayor: true
+},
+{
+id: "557c27af498e0f9468e843a6",
+createdAt: 1434199983,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040814178",
+name: "Köln"
+},
+exactContextLine: "Köln",
+user: {
+id: "1038939",
+firstName: "Jan",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/DEQXTQ4NQKVTZTAU.jpg"
+}
+},
+venue: {
+id: "4bca0278fb84c9b60e261c3e",
+name: "Beef Brothers",
+contact: {
+phone: "022129834736",
+formattedPhone: "0221 29834736",
+facebook: "108664069176941",
+facebookUsername: "beefbrothers",
+facebookName: "Beef Brothers"
+},
+location: {
+address: "Aachener Str. 12",
+lat: 50.936454677549044,
+lng: 6.937218090371885,
+distance: 169718,
+postalCode: "50674",
+cc: "DE",
+city: "Köln",
+state: "Nordrhein-Westfalen",
+country: "Deutschland",
+formattedAddress: [
+"Aachener Str. 12",
+"50674 Köln"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d16c941735",
+name: "Burger-Imbiss",
+pluralName: "Burger-Imbisse",
+shortName: "Burger",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 2669,
+usersCount: 1347,
+tipCount: 108
+},
+url: "http://www.beef-brothers.de",
+menu: {
+type: "Menu",
+label: "Menü",
+anchor: "Menü anzeigen",
+url: "http://www.beef-brothers.de/#speisekarte.php",
+mobileUrl: "http://www.beef-brothers.de/#speisekarte.php",
+externalUrl: "http://www.beef-brothers.de/#speisekarte.php"
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 169723,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557c22bf498e132a466d060a",
+createdAt: 1434198719,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040878095",
+name: "Berlin"
+},
+exactContextLine: "Berlin",
+user: {
+id: "30100638",
+firstName: "Nils",
+lastName: "Hocke",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/30100638-C4DTWOXDHTBAI0LG.jpg"
+}
+},
+venue: {
+id: "4c0e28a998102d7f6824e306",
+name: "Sportbad Britz",
+contact: { },
+location: {
+address: "Kleiberweg 3",
+lat: 52.439962623106105,
+lng: 13.473937511444092,
+distance: 441471,
+postalCode: "12359",
+cc: "DE",
+city: "Berlin",
+state: "Berlin",
+country: "Deutschland",
+formattedAddress: [
+"Kleiberweg 3",
+"12359 Berlin"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d15e941735",
+name: "Freibad",
+pluralName: "Freibäder",
+shortName: "Freibad",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/pool_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 74,
+usersCount: 20,
+tipCount: 1
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 441533,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "52a659800000000000000015",
+name: "Shades",
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/sunglasses_e8c362.png"
+},
+stickerType: "default",
+group: {
+name: "special",
+index: 5
+},
+pickerPosition: {
+page: 3,
+index: 5
+},
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+},
+isMayor: false
+},
+{
+id: "557c1e40498eb1ed6c589742",
+createdAt: 1434197568,
+type: "checkin",
+timeZoneOffset: 180,
+displayGeo: {
+id: "72057594038586161",
+name: "Helsinki, Finnland"
+},
+exactContextLine: "Helsinki, Finnland",
+user: {
+id: "3498714",
+firstName: "Andreas",
+lastName: "Neukoetter",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/POBWJJXVFS1MZGZ2.jpg"
+}
+},
+venue: {
+id: "54326c2f498ec4159f45b2bd",
+name: "Thai Orchid",
+contact: { },
+location: {
+address: "Tallinnanaukio",
+lat: 60.210735479828216,
+lng: 25.080399452939538,
+distance: 1547949,
+cc: "FI",
+city: "Helsinki",
+state: "Etelä-Suomen Lääni",
+country: "Finnland",
+formattedAddress: [
+"Tallinnanaukio",
+"Helsinki",
+"Finnland"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d142941735",
+name: "Asiatisches Restaurant",
+pluralName: "Asiatische Restaurants",
+shortName: "Asiatisch",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/asian_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 132,
+usersCount: 80,
+tipCount: 4
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 1547958,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "557c0592498eb805c1a42c0d",
+createdAt: 1434191250,
+type: "checkin",
+shout: "Back home",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040878095",
+name: "Berlin"
+},
+exactContextLine: "Berlin",
+user: {
+id: "2477181",
+firstName: "Miika",
+lastName: "Puputti",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/TUNRG05YO3SGFYEH.png"
+}
+},
+venue: {
+id: "4a1c8506f964a520457b1fe3",
+name: "Berlin Hauptbahnhof",
+contact: {
+phone: "01805996633",
+formattedPhone: "0180 5 996633"
+},
+location: {
+address: "Europaplatz 1",
+crossStreet: "Washingtonplatz",
+lat: 52.52490343170594,
+lng: 13.3693528175354,
+distance: 441958,
+postalCode: "10557",
+cc: "DE",
+city: "Berlin",
+state: "Berlin",
+country: "Deutschland",
+formattedAddress: [
+"Europaplatz 1 (Washingtonplatz)",
+"10557 Berlin"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d129951735",
+name: "Bahnhof",
+pluralName: "Bahnhöfe",
+shortName: "Bahnhof",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/trainstation_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 127266,
+usersCount: 33808,
+tipCount: 323
+},
+url: "http://www.bahnhof.de",
+specials: {
+count: 0
+},
+storeId: ""
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 441975,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 2,
+groups: [
+{
+type: "friends",
+count: 1,
+items: [
+{
+id: "119644062",
+firstName: "Vrorosa",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/119644062-GYH01LFUE25IZJAH.jpg"
+}
+}
+]
+},
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "6299924",
+firstName: "Prinzessin",
+lastName: "Lina",
+gender: "female",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/6299924-T55WAIQAKE5VUNWD.jpg"
+}
+}
+]
+}
+],
+summary: "Vrorosa & Prinzessin Lina"
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "53f28ce24b90933f78c3a69c",
+name: "Commuter",
+image: {
+prefix: "https://irs3.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/suitcase_1574d1.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 8
+},
+pickerPosition: {
+page: 0,
+index: 8
+},
+unlockText: "Du hast diesen Sticker bei Train or Bus Stations freigeschaltet"
+},
+isMayor: false
+},
+{
+id: "557bfdc0498ec16cca6e8f2d",
+createdAt: 1434189248,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040839234",
+name: "Hamburg"
+},
+exactContextLine: "Hamburg",
+user: {
+id: "143263",
+firstName: "Sven",
+lastName: "Weisbrich",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/WT11ISNLXGIIFQBT.jpg"
+}
+},
+venue: {
+id: "4b27daaef964a520378b24e3",
+name: "Golf Lounge e.V.",
+contact: {
+phone: "04081978790",
+formattedPhone: "040 81978790"
+},
+location: {
+address: "Billwerder Neuer Deich 40",
+lat: 53.5334050969236,
+lng: 10.034276927912693,
+distance: 418491,
+postalCode: "20539",
+cc: "DE",
+city: "Hamburg",
+state: "Hamburg",
+country: "Deutschland",
+formattedAddress: [
+"Billwerder Neuer Deich 40",
+"20539 Hamburg"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1e6941735",
+name: "Golfplatz",
+pluralName: "Golfplätze",
+shortName: "Golfplatz",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/golfcourse_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 913,
+usersCount: 429,
+tipCount: 13
+},
+specials: {
+count: 0
+},
+venuePage: {
+id: "46513898"
+},
+storeId: "3392"
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 418514,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557bd9d6498e415b0ee20349",
+createdAt: 1434180054,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040878095",
+name: "Berlin"
+},
+exactContextLine: "Berlin",
+user: {
+id: "306409",
+firstName: "Alina",
+lastName: "Hueckelkamp",
+gender: "female",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/YZGPD2CGWRIXGMLO.jpg"
+}
+},
+venue: {
+id: "4a1c8506f964a520457b1fe3",
+name: "Berlin Hauptbahnhof",
+contact: {
+phone: "01805996633",
+formattedPhone: "0180 5 996633"
+},
+location: {
+address: "Europaplatz 1",
+crossStreet: "Washingtonplatz",
+lat: 52.52490343170594,
+lng: 13.3693528175354,
+distance: 441958,
+postalCode: "10557",
+cc: "DE",
+city: "Berlin",
+state: "Berlin",
+country: "Deutschland",
+formattedAddress: [
+"Europaplatz 1 (Washingtonplatz)",
+"10557 Berlin"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d129951735",
+name: "Bahnhof",
+pluralName: "Bahnhöfe",
+shortName: "Bahnhof",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/trainstation_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 127266,
+usersCount: 33808,
+tipCount: 323
+},
+url: "http://www.bahnhof.de",
+specials: {
+count: 0
+},
+storeId: ""
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 442031,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "6299924",
+firstName: "Prinzessin",
+lastName: "Lina",
+gender: "female",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/6299924-T55WAIQAKE5VUNWD.jpg"
+}
+}
+]
+}
+],
+summary: "Prinzessin Lina"
+},
+like: false,
+comments: {
+count: 0
+	},
+		sticker: {
+		id: "52a659800000000000000019",
+		name: "Bessie",
+		image: {
+			prefix: "https://irs0.4sqi.net/img/sticker/",
+			sizes: [
+				60,
+				94
+			],
+			name: "/unicorn_f5b188.png"
+		},
+		effects: [
+		{
+			type: "supersize",
+			detail: {
+				prefix: "https://irs0.4sqi.net/img/sticker/",
+				sizes: [
+					150
+				],
+				name: "/unicorn_859bd0.png"
+			}
 		}
+		],
+		stickerType: "default",
+		group: {
+			name: "special",
+			index: 4
+		},
+		pickerPosition: {
+			page: 3,
+			index: 4
+		},
+		unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
 	},
-	"venue":{
-		"id":"4b4cab96f964a520afb926e3",
-		"name":"Triplesense Reply GmbH",
-		"contact":{
-			"phone":"0699043010",
-			"formattedPhone":"069 9043010",
-			"twitter":"triplesense"
-		},
-		"location":{
-			"address":"Hanauer Landstr. 184",
-			"crossStreet":"Schwedlerstraße",
-			"lat":50.11455166968731,
-			"lng":8.722511529922485,
-			"postalCode":"60314",
-			"cc":"DE",
-			"city":"Frankfurt am Main",
-			"state":"Hessen",
-			"country":"Deutschland",
-			"formattedAddress":[
-				"Hanauer Landstr. 184 (Schwedlerstraße)",
-				"60314 Frankfurt am Main"
-			]},
-			"categories":[{
-				"id":"4bf58dd8d48988d124941735",
-				"name":"Büro",
-				"pluralName":"Büros",
-				"shortName":"Büro",
-				"icon":{
-					"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/default_",
-					"suffix":".png"
-				},
-				"primary":true
-			}],
-			"verified":false,
-			"stats":{
-				"checkinsCount":1424,
-				"usersCount":54,
-				"tipCount":2
-			},
-			"url":"http:\/\/www.triplesense.de",
-			"specials":{"count":0}
-		},
-		"source":{
-			"name":"Swarm for iOS",
-			"url":"https:\/\/www.swarmapp.com"
-		},
-		"photos":{
-			"count":0,
-			"items":[
-		]},
-		"posts":{
-			"count":0,
-			"textCount":0
-		},
-		"likes":{
-			"count":0,
-			"groups":[
-		]},
-		"like":false,
-		"comments":{
-			"count":0
-		}
-	},
-	
-	{"id":"53e3e3e5498e532a9de19b17","createdAt":1407443941,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040737282","name":"Wiesbaden"},"exactContextLine":"Wiesbaden","user":{"id":"200074","firstName":"Silke","lastName":"Berz","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/Y0HWO4NXNC0OVHTL.jpg"}},"venue":{"id":"4c0a860a7e3fc9284eb8f382","name":"Amadeus \u2013 2 Zimmer, Küche, Bar","contact":{"phone":"06119881330","formattedPhone":"0611 9881330"},"location":{"address":"Rauenthalerstr. 24","crossStreet":"Hallgarter Str. \/ Wallufer Platz","lat":50.07443632067857,"lng":8.228644418720187,"postalCode":"65197","cc":"DE","city":"Wiesbaden","state":"Hessen","country":"Deutschland","formattedAddress":["Rauenthalerstr. 24 (Hallgarter Str. \/ Wallufer Platz)","65197 Wiesbaden"]},"categories":[{"id":"4bf58dd8d48988d10d941735","name":"Deutsches Restaurant","pluralName":"Deutsche Restaurants","shortName":"German","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/german_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":275,"usersCount":100,"tipCount":9},"url":"http:\/\/www.amadeus-2zkb.de","specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e3c8ec498e7fa5662e60a4","createdAt":1407437036,"type":"checkin","shout":"#speedminton federball auf koks #sachengibts http:\/\/instagram.com\/p\/raFWEFzFe8\/ (video)","entities":[{"indices":[45,79],"type":"url","object":{"url":"http:\/\/instagram.com\/p\/raFWEFzFe8\/"}}],"timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":""},"exactContextLine":"","user":{"id":"19533","firstName":"florian","lastName":"krakau","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/19533-VAWF0XL2CYYDBXI4.jpg"}},"venue":{"id":"4d726b205f003704ccb5dfa0","name":"Offenburg","contact":{},"location":{"lat":48.47090115767937,"lng":7.940711975097656,"postalCode":"77652","cc":"DE","country":"Deutschland","formattedAddress":["77652"]},"categories":[{"id":"530e33ccbcbc57f1066bbff3","name":"Stadt","pluralName":"Städte","shortName":"Stadt","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/neighborhood_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":833,"usersCount":453,"tipCount":0},"specials":{"count":0}},"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"photos":{"count":1,"items":[{"id":"53e3ca51498e5e3871711329","createdAt":1407437393,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs1.4sqi.net\/img\/general\/","suffix":"\/19533_zip1_6Nj9DcPtWSDN-mq5HBucFgUeL73ABvap4xzPr0.jpg","width":640,"height":640,"user":{"id":"19533","firstName":"florian","lastName":"krakau","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/19533-VAWF0XL2CYYDBXI4.jpg"}},"visibility":"public"}]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"2484655","firstName":"Florian","gender":"male","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/LFV1UXGDF5H445GT.jpg"}}]}],"summary":"Florian"},"like":false,"comments":{"count":0,"items":[]}},{"id":"53e3c58c498e7a9a15a07862","createdAt":1407436172,"type":"checkin","shout":"Fab Four Night :-)","timeZoneOffset":180,"displayGeo":{"id":"72057594038192307","name":"Athen, Griechenland"},"exactContextLine":"Athen, Attika, Griechenland","user":{"id":"379486","firstName":"ThirdEye","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/379486-1T2H41XIQOEHYY34.jpg"}},"venue":{"id":"5328ab7c498e5a9ab58123a4","name":"favela","contact":{"phone":"+302103412413","formattedPhone":"+30 21 0341 2413","facebook":"399468136862148","facebookName":"Favela cafe μεζεδοπωλείο"},"location":{"address":"Αρτεμισίου 4","crossStreet":"Κεραμεικού","lat":37.98019577340724,"lng":23.71485859676547,"postalCode":"104 35","cc":"GR","city":"Athen","state":"Attika","country":"Griechenland","formattedAddress":["Αρτεμισίου 4 (Κεραμεικού)","104 35, Athen Attika","Griechenland"]},"categories":[{"id":"4bf58dd8d48988d1c4941735","name":"Restaurant","pluralName":"Restaurants","shortName":"Restaurant","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":70,"usersCount":48,"tipCount":3},"specials":{"count":0}},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000009","name":"drunk","image":{"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/drunk_ad846e.png"},"displayName":"drunk"}},{"id":"53e3bad311d201b98808fd92","createdAt":1407433427,"type":"checkin","shout":"More beers than I'll have in the whole year. :D","timeZoneOffset":120,"displayGeo":{"id":"72057594041071180","name":"Oslo, Norwegen"},"exactContextLine":"Oslo, Norwegen","user":{"id":"24271860","firstName":"Ge","lastName":"Strahm","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/YN4P5VE2KR11K540.jpg"}},"venue":{"id":"506af514e4b0ab9925e8b8c0","name":"Øltorget","contact":{},"location":{"address":"Mathallen Oslo","crossStreet":"Maridalsveien 17A","lat":59.92216677167947,"lng":10.752123489290861,"cc":"NO","city":"Oslo","state":"Oslo","country":"Norwegen","formattedAddress":["Mathallen Oslo (Maridalsveien 17A)","Oslo","Norwegen"]},"categories":[{"id":"4bf58dd8d48988d11b941735","name":"Kneipe","pluralName":"Kneipe","shortName":"Kneipe","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/pub_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":415,"usersCount":246,"tipCount":9},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":2,"items":[{"id":"53e3bad5498e6c8bde838086","createdAt":1407433429,"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"prefix":"https:\/\/irs1.4sqi.net\/img\/general\/","suffix":"\/24271860_VFWVID2S4rYV2DySCo1xzx12as1hyb7NJoBah0Fq1r0.jpg","width":720,"height":960,"user":{"id":"24271860","firstName":"Ge","lastName":"Strahm","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/YN4P5VE2KR11K540.jpg"}},"visibility":"public"},{"id":"53e3c446498e6608a15c30c4","createdAt":1407435846,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs2.4sqi.net\/img\/general\/","suffix":"\/24271860_Octk6U22eEdXqzsSQLk8WDKS-jP5Q2MpZUNSSpU7uoI.jpg","width":640,"height":640,"user":{"id":"24271860","firstName":"Ge","lastName":"Strahm","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/YN4P5VE2KR11K540.jpg"}},"visibility":"friends"}]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"840124","firstName":"Luke","lastName":"LRSA","gender":"male","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/KOB0YR325H4S1XGJ.jpg"}}]}],"summary":"Luke LRSA"},"like":false,"comments":{"count":0,"items":[]}},{"id":"53e3b942498e3d5d8ec31f69","createdAt":1407433026,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040710049","name":"Österreich"},"exactContextLine":"Österreich","user":{"id":"2914284","firstName":"Christoph","lastName":"Pippert","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/ZAXU4L123BO2H0XX.jpg"}},"venue":{"id":"4e104df8a809291902ac92bb","name":"Winzerhaus Kogelberg","contact":{},"location":{"lat":46.78339141363933,"lng":15.511656374435788,"cc":"AT","country":"Österreich","formattedAddress":["","Österreich"]},"categories":[{"id":"4d4b7105d754a06374d81259","name":"Essen","pluralName":"Essen","shortName":"Essen","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":36,"usersCount":22,"tipCount":0},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e3b765498e7a9a159f56ef","createdAt":1407432549,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040785743","name":"Offenbach"},"exactContextLine":"Offenbach","user":{"id":"12260725","firstName":"Julien","lastName":"Koenen","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/KYYITOOTLEWOAWRC.jpg"}},"venue":{"id":"518652a8498ed380b9327f97","name":"Hafen 2","contact":{},"location":{"address":"Nordring 129","crossStreet":"Goethering","lat":50.11234251934438,"lng":8.740713814406568,"postalCode":"63067","cc":"DE","city":"Offenbach","state":"Hessen","country":"Deutschland","formattedAddress":["Nordring 129 (Goethering)","63067 Offenbach"]},"categories":[{"id":"4bf58dd8d48988d16d941735","name":"Café","pluralName":"Cafés","shortName":"Café","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/cafe_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":531,"usersCount":231,"tipCount":4},"specials":{"count":0}},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000009","name":"drunk","image":{"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/drunk_ad846e.png"},"displayName":"drunk"}},{"id":"53e3b5dc11d2221d9f3d3665","createdAt":1407432156,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040823928","name":"Ingolstadt"},"exactContextLine":"Ingolstadt","user":{"id":"6625189","firstName":"Dirk","lastName":"Songuer","gender":"none","relationship":"self","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/IFRWMUV31RGN2TVI.jpg"}},"venue":{"id":"4ceae83f9f776ea86b3a6b22","name":"Ara Hotel","contact":{"phone":"084195430","formattedPhone":"0841 95430"},"location":{"address":"Schollstraße 10a","lat":48.777397,"lng":11.459810599999999,"postalCode":"85055","cc":"DE","city":"Ingolstadt","state":"Bayern","country":"Deutschland","formattedAddress":["Schollstraße 10a","85055 Ingolstadt"]},"categories":[{"id":"4bf58dd8d48988d1fa931735","name":"Hotel","pluralName":"Hotels","shortName":"Hotel","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/hotel_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":245,"usersCount":122,"tipCount":1},"specials":{"count":0}},"source":{"name":"Foursquare for BlackBerry 10","url":"https:\/\/foursquare.com\/download\/#\/blackberry"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"replies":{"count":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e3b526498e7a9a159f2734","createdAt":1407431974,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"350572","firstName":"macmenace","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/JRM00EIKYBBXXN2C.jpg"}},"venue":{"id":"5287d4a411d28a9f72fdfe65","name":"Cantatesaal","contact":{},"location":{"lat":50.11116532529514,"lng":8.677585307248659,"cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d1f1931735","name":"Allgemeine Unterhaltung","pluralName":"Allgemeine Unterhaltung","shortName":"Unterhaltung","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/arts_entertainment\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":20,"usersCount":15,"tipCount":0},"specials":{"count":0}},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":1,"items":[{"id":"53e3ba05498e0a514550ba50","createdAt":1407433221,"source":{"name":"EyeEm","url":"http:\/\/www.eyeem.com"},"prefix":"https:\/\/irs3.4sqi.net\/img\/general\/","suffix":"\/350572_NkIJpXbcTBgFY0IPyH3dyNtyra2ccaXCot0Ul3wLiRc.jpg","width":1200,"height":658,"user":{"id":"350572","firstName":"macmenace","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/JRM00EIKYBBXXN2C.jpg"}},"visibility":"public"}]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0,"items":[]}},{"id":"53e3ad2111d2e7c6bae58db3","createdAt":1407429921,"type":"checkin","shout":"fremden Wetteinsatz einlösen.","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"113429","firstName":"Peter","lastName":"Krause","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/K0W3TFC4JZPS1L0J.png"}},"venue":{"id":"4bef15c9d1b7d13a8f4ecdec","name":"Schwedler See","contact":{},"location":{"address":"Schwedlerweg","lat":50.11242039169068,"lng":8.721629738432446,"cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Schwedlerweg","Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d161941735","name":"See","pluralName":"Seen","shortName":"See","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/lake_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":316,"usersCount":127,"tipCount":0},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e3a2ae11d2e7c6bae4c65f","createdAt":1407427246,"type":"checkin","timeZoneOffset":180,"displayGeo":{"id":"72057594038381669","name":"Estland"},"exactContextLine":"Estland","user":{"id":"3558474","firstName":"Matthias","lastName":"L","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/A2BYBFDYL2FM2CCC.jpg"}},"venue":{"id":"4eedfc609adf257d67668fc8","name":"Kaarna tänav","contact":{},"location":{"address":"Tallinn","crossStreet":"Kaarna","lat":59.415048781951725,"lng":24.700051224887062,"cc":"EE","country":"Estland","formattedAddress":["Tallinn (Kaarna)","","Estland"]},"categories":[{"id":"4bf58dd8d48988d162941735","name":"Andere Naturgebiete","pluralName":"Andere Naturgebiete","shortName":"Andere Natur","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/outdoors_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":27,"usersCount":18,"tipCount":0},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e39697498e7a9a159c6052","createdAt":1407424151,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853113","name":"Freiburg im Breisgau"},"exactContextLine":"Freiburg im Breisgau","user":{"id":"133215","firstName":"Axel","lastName":"Neuhaus","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/FAN1CPT1MEOAVIJG.jpg"}},"venue":{"id":"4c0d2309336220a19a3fca77","name":"Colombi Hotel","contact":{},"location":{"address":"Rotteckring 16","lat":47.997109,"lng":7.847725,"postalCode":"79098","cc":"DE","city":"Freiburg im Breisgau","state":"Baden-Württemberg","country":"Deutschland","formattedAddress":["Rotteckring 16","79098 Freiburg im Breisgau"]},"categories":[{"id":"4bf58dd8d48988d1fa931735","name":"Hotel","pluralName":"Hotels","shortName":"Hotel","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/hotel_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":373,"usersCount":167,"tipCount":3},"url":"http:\/\/www.colombi.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e38d53498e3d5d8ebfdd5f","createdAt":1407421779,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":""},"exactContextLine":"","user":{"id":"119329","firstName":"Tom","lastName":"Noeding","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/5CU34RT41K45SYKQ.jpg"}},"venue":{"id":"5368a381498e245c84c5c45d","name":"Eiscafe Venezia","contact":{},"location":{"address":"Königsteiner St. 102","lat":50.10899379042034,"lng":8.53941795884346,"cc":"DE","state":"Frankfurt Am Main","country":"Deutschland","formattedAddress":["Königsteiner St. 102"]},"categories":[{"id":"4bf58dd8d48988d1c9941735","name":"Eisdiele","pluralName":"Eisdielen","shortName":"Eiskrem","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/icecream_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":8,"usersCount":3,"tipCount":0},"specials":{"count":0}},"source":{"name":"Simple Check-in","url":"http:\/\/matthewrathbone.com\/simple-checkin"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":2,"groups":[{"type":"others","count":2,"items":[{"id":"18957786","firstName":"Daniel","lastName":"Serrano","gender":"male","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/1BN3CCMDDM30PF0F.jpg"}},{"id":"769517","firstName":"Parker","gender":"female","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/769517-5XNJNYHUSLZFPKV5.jpg"}}]}],"summary":"Daniel Serrano & Parker"},"like":false,"comments":{"count":0}},{"id":"53e38667498e7fa566281033","createdAt":1407420007,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"99214","firstName":"Carsten","lastName":"L","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/99214_1258820530621.jpg"}},"venue":{"id":"53bd886c498e2fa434682510","name":"iCradle HQ","contact":{},"location":{"address":"Schleusenstr. 17","lat":50.102378,"lng":8.661748,"cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Schleusenstr. 17","Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d125941735","name":"Startup-Unternehmen","pluralName":"Startup-Unternehmen","shortName":"Startup-Unternehmen","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/technology_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":10,"usersCount":3,"tipCount":0},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000009","name":"drunk","image":{"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/drunk_ad846e.png"},"displayName":"drunk"}},{"id":"53e3607d498e67f3f62d2764","createdAt":1407410301,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040914556","name":"Plozévet, Frankreich"},"exactContextLine":"Plozévet, Frankreich","user":{"id":"109556","firstName":"Joachim","lastName":"Fieß","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/RTJMHFMRCVEU45SV.jpg"}},"venue":{"id":"4be989b2b3352d7f291354d2","name":"OT du Haut Pays Bigouden - Plozevet","contact":{"phone":"+33298914515","formattedPhone":"+33 2 98 91 45 15","twitter":"othpb"},"location":{"address":"place Henri Normant","lat":47.98600281810058,"lng":-4.4262054562568665,"postalCode":"29710","cc":"FR","city":"Plozévet","state":"Bretagne","country":"Frankreich","formattedAddress":["place Henri Normant","29710 Plozevet","Frankreich"]},"categories":[{"id":"4f4530164b9074f6e4fb00ff","name":"Touristeninformation","pluralName":"Touristeninformationen","shortName":"Touristeninformation","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/touristinformation_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":22,"usersCount":10,"tipCount":2},"url":"http:\/\/www.hautpaysbigouden.com","specials":{"count":0},"storeId":""},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e35eb8498e8dd5fdf27754","createdAt":1407409848,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"20835139","firstName":"Christoph","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/U103I3ROTKL3URNG.jpg"}},"venue":{"id":"4b0666e4f964a52086eb22e3","name":"Die Kuh die lacht","contact":{"phone":"06927290171","formattedPhone":"069 27290171"},"location":{"address":"Schillerstr. 28","lat":50.1159707,"lng":8.679041,"postalCode":"60313","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Schillerstr. 28","60313 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d16c941735","name":"Burger-Imbiss","pluralName":"Burger-Imbisse","shortName":"Burger","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/burger_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":1893,"usersCount":1060,"tipCount":55},"url":"http:\/\/www.diekuhdielacht.com","specials":{"count":0}},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e35612498e6b81a9a27412","createdAt":1407407634,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"30100638","firstName":"Nils","lastName":"Hocke","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/DGRONYEBGFA01BJO.jpg"}},"venue":{"id":"4dbe8c2a1e72b351cae2cda5","name":"Green Bamboo","contact":{"phone":"03088625879","formattedPhone":"030 88625879"},"location":{"address":"Falkensteinstr. 5","lat":52.49965322,"lng":13.443653,"postalCode":"10997","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Falkensteinstr. 5","10997 Berlin"]},"categories":[{"id":"4bf58dd8d48988d14a941735","name":"Vietnamesisches Restaurant","pluralName":"Vietnamesische Restaurants","shortName":"Vietnamesisch","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/vietnamese_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":703,"usersCount":376,"tipCount":9},"url":"http:\/\/greenbamboo-berlin.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e3249c498e8dd5fdeef7a6","createdAt":1407394972,"type":"checkin","isMayor":true,"timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":""},"exactContextLine":"","user":{"id":"143263","firstName":"Sven","lastName":"Weisbrich","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/WT11ISNLXGIIFQBT.jpg"}},"venue":{"id":"4c7560b8c219224b6d59a228","name":"Krabbelstube Rumpelstilzchen","contact":{},"location":{"lat":50.004884,"lng":8.78446,"cc":"DE","country":"Deutschland","formattedAddress":[""]},"categories":[{"id":"4bf58dd8d48988d1e7941735","name":"Spielplatz","pluralName":"Spielplätze","shortName":"Spielplatz","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/playground_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":43,"usersCount":1,"tipCount":1},"specials":{"count":0}},"source":{"name":"Windows Phone 8","url":"http:\/\/claritycon.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"4756897","firstName":"Matthias","lastName":"Krause","gender":"male","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/OE53RH5E1YHVSZAT.jpg"}}]}],"summary":"Matthias Krause"},"like":false,"comments":{"count":0}},{"id":"53e3120b11d2e7c6badb12a8","createdAt":1407390219,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040440925","name":"Palma de Mallorca, Spanien"},"exactContextLine":"Palma de Mallorca, Balearische Inseln, Spanien","user":{"id":"1698071","firstName":"Anna","lastName":"Jobin","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/UTXPVAS3NSFWBPJG.jpg"}},"venue":{"id":"4b658091f964a52095f22ae3","name":"Aeroport de Palma de Mallorca (PMI)","contact":{"phone":"+34902404704","formattedPhone":"+34 902 40 47 04","twitter":"aenaaeropuertos"},"location":{"address":"Aeroport de Palma","lat":39.548646,"lng":2.732677,"postalCode":"07610","cc":"ES","city":"Palma de Mallorca","state":"Balearische Inseln","country":"Spanien","formattedAddress":["Aeroport de Palma","07610 Palma de Mallorca Balearische Inseln","Spanien"]},"categories":[{"id":"4bf58dd8d48988d1ed931735","name":"Flughafen","pluralName":"Flughäfen","shortName":"Flughafen","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/airport_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":60586,"usersCount":23433,"tipCount":230},"url":"http:\/\/www.aena-aeropuertos.es\/csee\/satellite\/aeropuerto-palma-mallorca","specials":{"count":0}},"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"photos":{"count":1,"items":[{"id":"53e3120d498ef96e17bce46d","createdAt":1407390221,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs1.4sqi.net\/img\/general\/","suffix":"\/1698071_AfDtiErt-TvOJT32xR1xDWuFUXS2vJTubRdKMLuL4Uw.jpg","width":640,"height":640,"user":{"id":"1698071","firstName":"Anna","lastName":"Jobin","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/UTXPVAS3NSFWBPJG.jpg"}},"visibility":"public"}]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0,"items":[]}},{"id":"53e30760498e103d5fe0f7ee","createdAt":1407387488,"type":"checkin","shout":"Flying with Bono","timeZoneOffset":180,"displayGeo":{"id":"72057594038560389","name":"Vantaa, Finnland"},"exactContextLine":"Vantaa, Finnland","user":{"id":"2477181","firstName":"Miika","lastName":"Puputti","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/TUNRG05YO3SGFYEH.png"}},"venue":{"id":"4d346bb2eefa8cfa7e8e4ab3","name":"Gate 23","contact":{},"location":{"address":"Terminal 2","crossStreet":"HEL Airport","lat":60.319585,"lng":24.968233,"postalCode":"01530","cc":"FI","city":"Vantaa","state":"Etelä-Suomen Lääni","country":"Finnland","formattedAddress":["Terminal 2 (HEL Airport)","01530 Vantaa","Finnland"]},"categories":[{"id":"4bf58dd8d48988d1f0931735","name":"Flughafen-Gate","pluralName":"Flughafen-Gates","shortName":"Gate","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/airport_gate_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":990,"usersCount":769,"tipCount":1},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":2,"groups":[{"type":"others","count":2,"items":[{"id":"31665701","firstName":"Jesse","lastName":"Pitkänen","gender":"male","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/31665701-YGFZOGYUO2GO4K2Z.jpg"}},{"id":"668422","firstName":"Petri","lastName":"Järvinen","gender":"male","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/PQVYVFQXE0NFTZCA.jpg"}}]}],"summary":"Jesse Pitkänen & Petri Järvinen"},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000016","name":"sunshine","image":{"prefix":"https:\/\/irs1.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/sunshine_7c0edd.png"},"displayName":"sunshine","effects":[{"type":"supersize","detail":{"prefix":"https:\/\/irs1.4sqi.net\/img\/sticker\/","sizes":[150],"name":"\/sunshine_021e44.png"}}],"pickerPosition":{"page":0,"index":6}}},{"id":"53e289a9498e9b9766957090","createdAt":1407355305,"type":"checkin","isMayor":true,"timeZoneOffset":120,"displayGeo":{"id":"72057594040795479","name":"Münster"},"exactContextLine":"Münster","user":{"id":"888067","firstName":"Ingomar","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/MD5UFBYPAYU2EPNL.jpg"}},"venue":{"id":"4da9c5928154abafc29c0f4e","name":"OtterHQ","contact":{},"location":{"isFuzzed":true,"lat":51.97019181852889,"lng":7.6390707373311795,"cc":"DE","city":"Münster","state":"Nordrhein-Westfalen","country":"Deutschland","formattedAddress":["Münster"]},"categories":[{"id":"4bf58dd8d48988d103941735","name":"Zuhause (privat)","pluralName":"Zuhause (privat)","shortName":"Zuhause","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/home_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":250,"usersCount":2,"tipCount":1},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53e27d6c498ed6d559dfae9d","createdAt":1407352172,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"5035844","firstName":"Max","lastName":"Wenzlaff","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/5035844-3KLLQGB5WNH0UMSL.jpg"}},"venue":{"id":"4f3aa8ebe4b024185c3522ef","name":"Bonfini","contact":{"phone":"03095614848","formattedPhone":"030 95614848"},"location":{"address":"Chausseestr. 15","lat":52.52956154605852,"lng":13.384443830354423,"postalCode":"10115","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Chausseestr. 15","10115 Berlin"]},"categories":[{"id":"4bf58dd8d48988d110941735","name":"Italienisches Restaurant","pluralName":"Italienische Restaurants","shortName":"Italienisch","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/italian_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":686,"usersCount":253,"tipCount":9},"url":"http:\/\/www.bonfini.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000011","name":"pizza","image":{"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/pizza_05ff42.png"},"displayName":"pizza","pickerPosition":{"page":1,"index":23}}},{"id":"53df3584498ea7f92c4f4ded","createdAt":1407137156,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040839234","name":"Hamburg"},"exactContextLine":"Hamburg","user":{"id":"1035084","firstName":"Jacques","lastName":"Pense","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/1035084-TNI5CA3XQYT53UOL.jpg"}},"venue":{"id":"4b4dab1ff964a5207cd526e3","name":"Interone","contact":{"phone":"0404329690","formattedPhone":"040 4329690","twitter":"interone"},"location":{"address":"Zirkusweg 1","lat":53.547497293241584,"lng":9.966688527880143,"postalCode":"20359","cc":"DE","city":"Hamburg","state":"Hamburg","country":"Deutschland","formattedAddress":["Zirkusweg 1","20359 Hamburg"]},"categories":[{"id":"52e81612bcbc57f1066b7a3d","name":"Werbeagentur","pluralName":"Werbeagenturen","shortName":"Werbeagentur","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":7945,"usersCount":181,"tipCount":1},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53dbba48498e27597347acd8","createdAt":1406909000,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":"Deutschland"},"exactContextLine":"Deutschland","user":{"id":"4223116","firstName":"Norman","lastName":"Rockmann","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/2SPKQZMNI5HC5JGW.jpg"}},"venue":{"id":"4dea0bf4e4cdc079f4789aed","name":"Insel Reiswerder","contact":{},"location":{"lat":52.56784172466263,"lng":13.252667447168648,"cc":"DE","country":"Deutschland","formattedAddress":[""]},"categories":[{"id":"50aaa4314b90af0d42d5de10","name":"Insel","pluralName":"Inseln","shortName":"Insel","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/neighborhood_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":42,"usersCount":8,"tipCount":1},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000016","name":"sunshine","image":{"prefix":"https:\/\/irs1.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/sunshine_7c0edd.png"},"displayName":"sunshine","effects":[{"type":"supersize","detail":{"prefix":"https:\/\/irs1.4sqi.net\/img\/sticker\/","sizes":[150],"name":"\/sunshine_021e44.png"}}],"pickerPosition":{"page":0,"index":6}}},{"id":"53db92c011d2b32fc73cc54e","createdAt":1406898880,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"306409","firstName":"Alina","lastName":"Hueckelkamp","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/YZGPD2CGWRIXGMLO.jpg"}},"venue":{"id":"4af7d34ff964a520640a22e3","name":"Razorfish","contact":{"phone":"03029363880","formattedPhone":"030 29363880","twitter":"razorfish_de"},"location":{"address":"Stralauer Allee 2b","lat":52.50175362169215,"lng":13.44859826833146,"postalCode":"10245","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Stralauer Allee 2b","10245 Berlin"]},"categories":[{"id":"52e81612bcbc57f1066b7a3d","name":"Werbeagentur","pluralName":"Werbeagenturen","shortName":"Werbeagentur","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":7651,"usersCount":213,"tipCount":3},"url":"http:\/\/www.razorfish.de","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53db48e7498e6d9c6895570e","createdAt":1406879975,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":""},"exactContextLine":"","user":{"id":"839827","firstName":"Dominik","lastName":"Sommer","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/1UI3UUFZ3YG2FIRD.jpg"}},"venue":{"id":"4da0465d4977236a3c3fbf96","name":"Volvo Amthauer","contact":{"phone":"0618191050","formattedPhone":"06181 91050"},"location":{"lat":50.150798,"lng":8.925178,"cc":"DE","country":"Deutschland","formattedAddress":[""]},"categories":[{"id":"4eb1c1623b7b52c0e1adc2ec","name":"Autohaus","pluralName":"Autohäuser","shortName":"Autohändler","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/automotive_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":2,"usersCount":2,"tipCount":0},"url":"http:\/\/www.auto-amthauer.de","specials":{"count":0}},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53da7073498e66278e644c9a","createdAt":1406824563,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"231595","firstName":"Cihan","lastName":"Boz","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/LFOMF4XJAKCAFRLQ.jpg"}},"venue":{"id":"4adcda73f964a520584521e3","name":"Café am Neuen See","contact":{"phone":"0302544930","formattedPhone":"030 2544930"},"location":{"address":"Lichtensteinallee 2","lat":52.510544538133125,"lng":13.344399652374515,"postalCode":"10787","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Lichtensteinallee 2","10787 Berlin"]},"categories":[{"id":"4bf58dd8d48988d117941735","name":"Biergarten","pluralName":"Biergärten ","shortName":"Biergarten","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/beergarden_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":5011,"usersCount":2996,"tipCount":78},"url":"http:\/\/www.cafeamneuensee.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":3,"groups":[{"type":"others","count":3,"items":[{"id":"8749436","firstName":"antje","lastName":"koeppen","gender":"female","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/W4RFAU40WMYGVWST.jpg"}},{"id":"34166819","firstName":"Kristin","gender":"female","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/FOL2A1GCG5WTA0YK.jpg"}},{"id":"115042","firstName":"Dagger ☀","gender":"male","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/3UTL4YTI2SCHQQP1.jpg"}}]}],"summary":"antje koeppen, Kristin & Dagger ☀"},"like":false,"comments":{"count":0},"sticker":{"id":"52a659800000000000000009","name":"drunk","image":{"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/drunk_ad846e.png"},"displayName":"drunk"}},{"id":"53da1e29498e30f5f40d28be","createdAt":1406803497,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040883208","name":"Aschaffenburg"},"exactContextLine":"Aschaffenburg","user":{"id":"5270759","firstName":"Michael","lastName":"Manger","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/2KLEZH1SHCHWNPYK.jpg"}},"venue":{"id":"4e2d5854d4c0e5c89ad7be04","name":"Daniel's American Corner","contact":{"phone":"060215846232","formattedPhone":"06021 5846232"},"location":{"address":"Treibgasse 9","lat":49.97661481201906,"lng":9.145482687312375,"postalCode":"63739","cc":"DE","city":"Aschaffenburg","state":"Bayern","country":"Deutschland","formattedAddress":["Treibgasse 9","63739 Aschaffenburg"]},"categories":[{"id":"4d4b7105d754a06378d81259","name":"Geschäft & Dienstleistungen","pluralName":"Geschäft & Dienstleistungen","shortName":"Geschäfte","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":41,"usersCount":8,"tipCount":1},"url":"http:\/\/www.dac-ab.de","specials":{"count":0}},"source":{"name":"Swarm for Android","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":3,"groups":[{"type":"friends","count":1,"items":[{"id":"5270759","firstName":"Michael","lastName":"Manger","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/2KLEZH1SHCHWNPYK.jpg"}}]},{"type":"others","count":2,"items":[{"id":"39592392","firstName":"Benyamin","lastName":"Rezaie","gender":"male","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/3NTEVI5VEFSGTOOM.jpg"}},{"id":"20034938","firstName":"da","lastName":"gnome","gender":"male","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/LNTYQUQN0DDC5TOZ.jpg"}}]}],"summary":"Michael Manger, Benyamin Rezaie & da gnome"},"like":false,"comments":{"count":0}},{"id":"53da1ba8498e0971ddda267f","createdAt":1406802856,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040795479","name":"Münster"},"exactContextLine":"Münster","user":{"id":"1038939","firstName":"Jan","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/DEQXTQ4NQKVTZTAU.jpg"}},"venue":{"id":"507181a8e4b0cff8623f363b","name":"WDR Münster","contact":{},"location":{"address":"Mondstr.","lat":51.95781192037752,"lng":7.675819719257336,"cc":"DE","city":"Münster","state":"Nordrhein-Westfalen","country":"Deutschland","formattedAddress":["Mondstr.","Münster"]},"categories":[{"id":"5032856091d4c4b30a586d63","name":"Radiosender","pluralName":"Radiosender","shortName":"Radiosender","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":21,"usersCount":7,"tipCount":0},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53d813a7498e3c3b90871baf","createdAt":1406669735,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040839234","name":"Hamburg"},"exactContextLine":"Hamburg","user":{"id":"61111894","firstName":"Valla","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/JQUJOLWVEUITLDCB.jpg"}},"venue":{"id":"4b011362f964a520ab4122e3","name":"Café Paris","contact":{"phone":"04032527777","formattedPhone":"040 32527777"},"location":{"address":"Rathausstr. 4","lat":53.55013806974978,"lng":9.994351736464395,"postalCode":"20095","cc":"DE","city":"Hamburg","state":"Hamburg","country":"Deutschland","formattedAddress":["Rathausstr. 4","20095 Hamburg"]},"categories":[{"id":"4bf58dd8d48988d16d941735","name":"Café","pluralName":"Cafés","shortName":"Café","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/cafe_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":3560,"usersCount":1951,"tipCount":78},"url":"http:\/\/www.cafeparis.net","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"18266497","firstName":"Joerg","lastName":"Iversen","gender":"male","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/QPWGEGHIIGWSW00W.jpg"}}]}],"summary":"Joerg Iversen"},"like":false,"comments":{"count":0},"sticker":{"id":"52a65980000000000000001f","name":"sub","image":{"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/","sizes":[60,94],"name":"\/sub_86b5ad.png"},"displayName":"sub"}},{"id":"53d75715498e6c36b1451934","createdAt":1406621461,"type":"checkin","shout":"#outofoffice","timeZoneOffset":120,"displayGeo":{"id":"72057594040839234","name":"Hamburg"},"exactContextLine":"Hamburg","user":{"id":"31752025","firstName":"Silke","lastName":"S","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/KEYL3BV1QICGNH2Y.jpg"}},"venue":{"id":"4b0a6aabf964a520e22323e3","name":"Starbucks","contact":{"phone":"04030069862","formattedPhone":"040 30069862","twitter":"starbucks"},"location":{"address":"Großer Burstah 50-52","lat":53.548757,"lng":9.9874082,"postalCode":"20457","cc":"DE","city":"Hamburg","state":"Hamburg","country":"Deutschland","formattedAddress":["Großer Burstah 50-52","20457 Hamburg"]},"categories":[{"id":"4bf58dd8d48988d1e0931735","name":"Coffee Shop","pluralName":"Coffee Shops","shortName":"Coffee Shop","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/coffeeshop_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":3050,"usersCount":1154,"tipCount":20},"url":"http:\/\/www.starbucks.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":3,"groups":[{"type":"others","count":3,"items":[{"id":"20034938","firstName":"da","lastName":"gnome","gender":"male","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/LNTYQUQN0DDC5TOZ.jpg"}},{"id":"90403511","firstName":"Mitch","lastName":"I","gender":"male","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/-B1JJF3MQSKBZZHUQ.jpg"}},{"id":"2611521","firstName":"Oceanwide","lastName":"Julia Jung","gender":"female","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/BMZU5V0QDJPGQJSD.jpg"}}]}],"summary":"da gnome, Mitch I & Oceanwide Julia Jung"},"like":false,"comments":{"count":0}},{"id":"53d5131f498efbe06df44563","createdAt":1406472991,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040585832","name":"Zuerich, Schweiz"},"exactContextLine":"Zuerich, Schweiz","user":{"id":"38799518","firstName":"Danny","lastName":"Thuering","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/CRQLHFYIHASWNZKB.jpg"}},"venue":{"id":"4b03a460f964a520f34f22e3","name":"Zürich Airport (ZRH)","contact":{"phone":"+41900300313","formattedPhone":"+41 900 300 313","twitter":"zrh_airport"},"location":{"address":"Flughafenstr.","lat":47.45358356183455,"lng":8.55809211730957,"postalCode":"8058","cc":"CH","city":"Zuerich","state":"Zürich","country":"Schweiz","formattedAddress":["Flughafenstr.","8058 Zuerich","Schweiz"]},"categories":[{"id":"4bf58dd8d48988d1ed931735","name":"Flughafen","pluralName":"Flughäfen","shortName":"Flughafen","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/airport_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":155447,"usersCount":55296,"tipCount":506},"url":"http:\/\/www.flughafen-zuerich.ch","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53d1394d498e7cc6a97b9bcc","createdAt":1406220621,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040601666","name":"Stockholm, Schweden"},"exactContextLine":"Stockholm, Schweden","user":{"id":"75076285","firstName":"Concept-Peter","lastName":"Roosdorp","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/75076285-OB3L35FF0GXBBC5G.jpg"}},"venue":{"id":"4bb08898f964a520434a3ce3","name":"Reimersholme","contact":{},"location":{"lat":59.31823612350244,"lng":18.020904064178467,"postalCode":"117 50","cc":"SE","city":"Stockholm","state":"Storstockholm","country":"Schweden","formattedAddress":["117 50 Stockholm","Schweden"]},"categories":[{"id":"4f2a25ac4b909258e854f55f","name":"Wohngegend","pluralName":"Wohngegenden","shortName":"Wohngegend","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/neighborhood_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":1442,"usersCount":231,"tipCount":4},"specials":{"count":0}},"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"photos":{"count":1,"items":[{"id":"53d1394e498ee76694bb4480","createdAt":1406220622,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs1.4sqi.net\/img\/general\/","suffix":"\/75076285_HKofcxAYhMv7V7Y9xd4VRFqEPstHcjkQCgfkMASXG3A.jpg","width":640,"height":640,"user":{"id":"75076285","firstName":"Concept-Peter","lastName":"Roosdorp","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/75076285-OB3L35FF0GXBBC5G.jpg"}},"visibility":"public"}]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0,"items":[]}},{"id":"53cfe97c498e0e2d1a3781f5","createdAt":1406134652,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040814178","name":"Köln"},"exactContextLine":"Köln","user":{"id":"2771287","firstName":"Marko","lastName":"Dietrich","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/OFH2TWHL4TNE2D1I.jpg"}},"venue":{"id":"4b4f9f39f964a520f30d27e3","name":"Kamasutra","contact":{"phone":"022134892828","formattedPhone":"0221 34892828"},"location":{"address":"Weyerstr. 114","lat":50.929745,"lng":6.942378,"postalCode":"50676","cc":"DE","city":"Köln","state":"Nordrhein-Westfalen","country":"Deutschland","formattedAddress":["Weyerstr. 114","50676 Köln"]},"categories":[{"id":"4bf58dd8d48988d10f941735","name":"Indisches Restaurant","pluralName":"Indische Restaurants","shortName":"Indisch","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/indian_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":121,"usersCount":110,"tipCount":6},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53ccea71498eb219dac8cafd","createdAt":1405938289,"type":"checkin","shout":"RE um 15 Sekunden verpasst, weil dumme Menschen 10 Minuten wegen einem 1.30\u20ac Busticket mit dem Fahrer diskutieren. #hass","timeZoneOffset":120,"displayGeo":{"id":"72057594040875380","name":"Böblingen"},"exactContextLine":"Böblingen","user":{"id":"3498714","firstName":"Andreas","lastName":"Neukoetter","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/POBWJJXVFS1MZGZ2.jpg"}},"venue":{"id":"4bceb1ebb6c49c7441929791","name":"Bahnhof Böblingen","contact":{"facebook":"298026420216364","facebookUsername":"deutschebahn","facebookName":"Deutsche Bahn Konzern"},"location":{"address":"Bahnhofsplatz 1","lat":48.6877960346716,"lng":9.004622553247547,"postalCode":"71034","cc":"DE","city":"Böblingen","state":"Baden-Württemberg","country":"Deutschland","formattedAddress":["Bahnhofsplatz 1","71034 Böblingen"]},"categories":[{"id":"4bf58dd8d48988d129951735","name":"Bahnhof","pluralName":"Bahnhöfe","shortName":"Bahnhof","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/trainstation_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":3376,"usersCount":623,"tipCount":8},"url":"http:\/\/www.bahnhof.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53ca3891498eeb35a09a3c5b","createdAt":1405761681,"type":"checkin","isMayor":true,"timeZoneOffset":120,"displayGeo":{"id":"72057594040689305","name":"Wien, Österreich"},"exactContextLine":"Wien, Österreich","user":{"id":"13911860","firstName":"Maggie","lastName":"Jam","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/SJVCXPR3HZORNDEP.jpg"}},"venue":{"id":"4dfb72ad45dd0d640c67baa0","name":"M&M Base","contact":{},"location":{"isFuzzed":true,"lat":48.196121325922064,"lng":16.364130534706256,"cc":"AT","city":"Wien","state":"Wien","country":"Österreich","formattedAddress":["Faulmangasse","1040 Wien","Österreich"]},"categories":[{"id":"4bf58dd8d48988d103941735","name":"Zuhause (privat)","pluralName":"Zuhause (privat)","shortName":"Zuhause","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/home_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":438,"usersCount":2,"tipCount":1},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53c98ffe498e6d4bd0b8b234","createdAt":1405718526,"type":"checkin","shout":"with Maggie","entities":[{"id":"13911860","type":"user","indices":[5,11]}],"timeZoneOffset":120,"displayGeo":{"id":"72057594040689305","name":"Wien, Österreich"},"exactContextLine":"Wien, Österreich","with":[{"id":"13911860","firstName":"Maggie","lastName":"Jam","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/SJVCXPR3HZORNDEP.jpg"}}],"user":{"id":"33799","firstName":"Mark A.M.","lastName":"Kramer","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/1PP4VBL5M3OG4E2F.png"}},"venue":{"id":"4dfb72ad45dd0d640c67baa0","name":"M&M Base","contact":{},"location":{"isFuzzed":true,"lat":48.196121325922064,"lng":16.364130534706256,"cc":"AT","city":"Wien","state":"Wien","country":"Österreich","formattedAddress":["Faulmangasse","1040 Wien","Österreich"]},"categories":[{"id":"4bf58dd8d48988d103941735","name":"Zuhause (privat)","pluralName":"Zuhause (privat)","shortName":"Zuhause","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/home_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":438,"usersCount":2,"tipCount":1},"specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":1,"items":[{"id":"53ddec77498e7fd9b3c7b550","createdAt":1407052919,"user":{"id":"76041762","firstName":"Makaila","lastName":"Barton","gender":"female","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/76041762-33IT5CUKXXZFKRC5"}},"text":"heya hottie, my K I K is babefunn44, feel free to kikme if you like what you see ;) p.s. I'm looking for no strings attached haha"}]}},{"id":"53c986b8498e4d039f4dade1","createdAt":1405716152,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":""},"exactContextLine":"","user":{"id":"2810036","firstName":"Frank","lastName":"Lazik","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/PPWRL3RDJOGLGOHP.jpg"}},"venue":{"id":"53c9837a498ea26c6efada3e","name":"Traffic Jam Festival","contact":{},"location":{"lat":49.905120849609375,"lng":8.842975616455078,"cc":"DE","country":"Deutschland","formattedAddress":[""]},"categories":[{"id":"5267e4d9e4b0ec79466e48d1","name":"Musikfestival","pluralName":"Musikfestivals","shortName":"Musikfestival","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/arts_entertainment\/musicvenue_rockclub_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":2,"usersCount":2,"tipCount":0},"closed":true,"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53c961ad498ee723a5bed0bf","createdAt":1405706669,"type":"checkin","shout":"Kino","timeZoneOffset":120,"displayGeo":{"id":"72057594040839234","name":"Hamburg"},"exactContextLine":"Hamburg","user":{"id":"153341","firstName":"Alexander","lastName":"Czernay","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/153341-IGPJTN2G5WGEWELU.jpg"}},"venue":{"id":"4b05885ef964a52054c122e3","name":"Sternschanzenpark","contact":{},"location":{"address":"Sternschanze","crossStreet":"Schröderstiftstr.","lat":53.56515252646624,"lng":9.969942569732666,"postalCode":"20357","cc":"DE","city":"Hamburg","state":"Hamburg","country":"Deutschland","formattedAddress":["Sternschanze (Schröderstiftstr.)","20357 Hamburg"]},"categories":[{"id":"4bf58dd8d48988d163941735","name":"Park","pluralName":"Parks","shortName":"Park","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/park_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":3438,"usersCount":1107,"tipCount":6},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":2,"items":[{"id":"53c97220498e0261e4439c22","createdAt":1405710880,"user":{"id":"127493","firstName":"Monte","lastName":"Zemolo","gender":"male","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/NIU1IW1X42Y3CREZ.jpg"}},"text":"Fuck you, is nich Euer Ernst? ;-)"},{"id":"53c9795c498e9011f6ba15ae","createdAt":1405712732,"user":{"id":"153341","firstName":"Alexander","lastName":"Czernay","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/153341-IGPJTN2G5WGEWELU.jpg"}},"text":"Na klar! ;)"}]}},{"id":"53c709b2498ed8e762b3287d","createdAt":1405553074,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"1652456","firstName":"Chris","lastName":"Herzberger","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/blank_boy.png","default":true}},"venue":{"id":"50dd851ae889d46b55b1e61f","name":"City Kiosk Yok-Yok","contact":{"phone":"06924249330","formattedPhone":"069 24249330"},"location":{"address":"Münchenerstr. 32","lat":50.1075886871639,"lng":8.668513298034668,"postalCode":"60329","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Münchenerstr. 32","60329 Frankfurt am Main"]},"categories":[{"id":"4d954b0ea243a5684a65b473","name":"Kiosk","pluralName":"Kiosks","shortName":"Kiosks","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/conveniencestore_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":101,"usersCount":53,"tipCount":2},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53bec9b1498e8df281d36cbd","createdAt":1405012401,"type":"checkin","isMayor":true,"timeZoneOffset":120,"displayGeo":{"id":"72057594040847561","name":"Goch"},"exactContextLine":"Goch","user":{"id":"1697511","firstName":"Alex","lastName":"Drebs","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/1697511-RGPVIU22AENX3DPQ.jpg"}},"venue":{"id":"4de268ad52b1d38d296cc771","name":"Orient","contact":{},"location":{"address":"Kastelstr. 2","lat":51.674420561263055,"lng":6.161669861782754,"cc":"DE","city":"Goch","state":"Nordrhein-Westfalen","country":"Deutschland","formattedAddress":["Kastelstr. 2","Goch"]},"categories":[{"id":"5283c7b4e4b094cb91ec88d8","name":"Döner-Imbiss","pluralName":"Döner-Imbisse","shortName":"Döner","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/turkish_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":28,"usersCount":11,"tipCount":0},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"63196100","firstName":"David","lastName":"Krystof","gender":"male","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/-KQA0Q3X1I2BGW5IE.jpg"}}]}],"summary":"David Krystof"},"like":false,"comments":{"count":1,"items":[{"id":"53bec9e111d23d86e73698b3","createdAt":1405012449,"user":{"id":"63196100","firstName":"David","lastName":"Krystof","gender":"male","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/-KQA0Q3X1I2BGW5IE.jpg"}},"text":"Haha, bin ich gleich auch"}]}},{"id":"53b983b0498ecb9aebdeeefe","createdAt":1404666800,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"176240","firstName":"Markus","lastName":"Soelter","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/LWGNRGBRBDFGWYUZ.jpg"}},"venue":{"id":"51bb4f27498e97d527279e48","name":"FLETCHER'S","contact":{"phone":"06978079514","formattedPhone":"069 78079514"},"location":{"address":"Ohmstr. 57","lat":50.11724858712827,"lng":8.635109300720327,"postalCode":"60486","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Ohmstr. 57","60486 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d16c941735","name":"Burger-Imbiss","pluralName":"Burger-Imbisse","shortName":"Burger","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/burger_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":161,"usersCount":80,"tipCount":3},"url":"http:\/\/www.fletchers-frankfurt.de","specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"15296720","firstName":"kratzdistel","gender":"female","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/JYUWUQQLY0HICWAR.jpg"}}]}],"summary":"kratzdistel"},"like":false,"comments":{"count":0}},{"id":"53b96aa7498e4dd5f1c1eed3","createdAt":1404660391,"type":"checkin","shout":"Breakfast with Nik","entities":[{"id":"773239764","type":"facebookUser","indices":[15,18]}],"timeZoneOffset":-300,"displayGeo":{"id":"72057594042262981","name":"New Orleans, USA"},"exactContextLine":"New Orleans, LA, USA","user":{"id":"71286491","firstName":"Martin","lastName":"Preiß","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/71286491-YDT1VTTC30LQUZUU.jpg"}},"venue":{"id":"4aec6a63f964a520cec621e3","name":"Ruby Slipper","contact":{"phone":"+15043095531","formattedPhone":"+1 504-309-5531"},"location":{"address":"139 S Cortez St","lat":29.971687690419433,"lng":-90.09848810262733,"postalCode":"70119","cc":"US","city":"New Orleans","state":"LA","country":"USA","formattedAddress":["139 S Cortez St","New Orleans, LA 70119","USA"]},"categories":[{"id":"4bf58dd8d48988d143941735","name":"Frühstücksplatz","pluralName":"Frühstücksplätze","shortName":"Frühstück","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/breakfast_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":2194,"usersCount":1393,"tipCount":27},"url":"http:\/\/www.therubyslippercafe.net","menu":{"type":"Menu","label":"Menü","anchor":"Menü anzeigen","url":"https:\/\/foursquare.com\/v\/ruby-slipper\/4aec6a63f964a520cec621e3\/menu","mobileUrl":"https:\/\/foursquare.com\/v\/4aec6a63f964a520cec621e3\/device_menu"},"specials":{"count":0}},"source":{"name":"Swarm for iOS","url":"https:\/\/www.swarmapp.com"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53b939ff498e04522edeeb2c","createdAt":1404647935,"type":"checkin","shout":"Definitely not the worst of London's airports. It's 50 minutes from Liverpool Street, airport itself is quick & small","timeZoneOffset":60,"displayGeo":{"id":"72057594040577825","name":"Essex, Vereinigtes Königreich"},"exactContextLine":"Essex, Vereinigtes Königreich","user":{"id":"108387","firstName":"Gerald","lastName":"Hensel","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/108387_1258712108959.jpg"}},"venue":{"id":"4c2eff2ca0ced13aadd20f6e","name":"London Southend Airport (SEN)","contact":{"phone":"+441702608100","formattedPhone":"+44 1702 608100","twitter":"southendairport"},"location":{"address":"Eastwoodbury Crescent","lat":51.56701374875038,"lng":0.7035541534423828,"postalCode":"SS2 6YF","cc":"GB","city":"Essex","state":"Essex","country":"Vereinigtes Königreich","formattedAddress":["Eastwoodbury Crescent","Essex","Essex","SS2 6YF","Vereinigtes Königreich"]},"categories":[{"id":"4bf58dd8d48988d1ed931735","name":"Flughafen","pluralName":"Flughäfen","shortName":"Flughafen","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/airport_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":3674,"usersCount":2304,"tipCount":47},"url":"http:\/\/www.southendairport.com","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53b445ed498e916d1a4c2af8","createdAt":1404323309,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"582862","firstName":"Marco","lastName":"Köppel","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/SS5PI5Q4QQUSHPBY.jpg"}},"venue":{"id":"4bcb0d76511f952175acb0c7","name":"Mainufer","contact":{},"location":{"lat":50.107227526039495,"lng":8.681437529407663,"postalCode":"60594","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["60594 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d1e2941735","name":"Strand","pluralName":"Strände","shortName":"Strand","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/beach_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":4332,"usersCount":2005,"tipCount":29},"specials":{"count":0}},"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"photos":{"count":2,"items":[{"id":"53b445ee498e7a5be1166b2d","createdAt":1404323310,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs3.4sqi.net\/img\/general\/","suffix":"\/582862_mwlN0W7s34VfS0sm44La5vqYIXSng3AzRlBK36CATCo.jpg","width":640,"height":640,"user":{"id":"582862","firstName":"Marco","lastName":"Köppel","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/SS5PI5Q4QQUSHPBY.jpg"}},"visibility":"public"},{"id":"53b44c11498e02e71598796e","createdAt":1404324881,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs3.4sqi.net\/img\/general\/","suffix":"\/582862_WaIFDW0WL3ugpR3CNsIiYKHldBnTWysjIhjI-3z6QDQ.jpg","width":640,"height":640,"user":{"id":"582862","firstName":"Marco","lastName":"Köppel","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/SS5PI5Q4QQUSHPBY.jpg"}},"visibility":"public"}]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"16358444","firstName":"Sedat","lastName":"Gergin","gender":"male","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/DICMJ2NL22L3XZ40.jpg"}}]}],"summary":"Sedat Gergin"},"like":false,"comments":{"count":0,"items":[]}},{"id":"53a3fe00498e23a2f00234ba","createdAt":1403256320,"type":"checkin","shout":"Hoffentlich hält das Wetter. Besuch im Kölner Zoo: auf gehts","timeZoneOffset":120,"displayGeo":{"id":"72057594040814178","name":"Köln"},"exactContextLine":"Köln","user":{"id":"42116387","firstName":"Martin","lastName":"Songür","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/EMAKTHWG3GJNZSU1.jpg"}},"venue":{"id":"4b05886df964a5204ac522e3","name":"Kölner Zoo","contact":{"phone":"022156799100","formattedPhone":"0221 56799100","facebook":"202475489772030","facebookUsername":"zoo.koeln","facebookName":"Kölner Zoo"},"location":{"address":"Riehler Str. 173","lat":50.95825597589597,"lng":6.97376238254389,"postalCode":"50735","cc":"DE","city":"Köln","state":"Nordrhein-Westfalen","country":"Deutschland","formattedAddress":["Riehler Str. 173","50735 Köln"]},"categories":[{"id":"4bf58dd8d48988d17b941735","name":"Zoo","pluralName":"Zoos","shortName":"Zoo","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/arts_entertainment\/zoo_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":2834,"usersCount":1962,"tipCount":32},"url":"http:\/\/www.koelnerzoo.de","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"539d7cfa498edd32d217e8b3","createdAt":1402830074,"type":"checkin","timeZoneOffset":60,"displayGeo":{"id":"72057594040571275","name":"Luton, Vereinigtes Königreich"},"exactContextLine":"Luton, Vereinigtes Königreich","user":{"id":"3070382","firstName":"Achim","lastName":"Schauerte","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/3070382-5QRHZNQRAABNJBH4.jpg"}},"venue":{"id":"4ac6158cf964a520c9b220e3","name":"London Luton Airport (LTN)","contact":{"phone":"+441582405100","formattedPhone":"+44 1582 405100","twitter":"ldnlutonairport"},"location":{"address":"Airport Way","lat":51.87932352857161,"lng":-0.3761360410544903,"cc":"GB","city":"Luton","state":"Luton","country":"Vereinigtes Königreich","formattedAddress":["Airport Way","Luton","Luton","","Vereinigtes Königreich"]},"categories":[{"id":"4bf58dd8d48988d1ed931735","name":"Flughafen","pluralName":"Flughäfen","shortName":"Flughafen","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/airport_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":54118,"usersCount":25385,"tipCount":307},"url":"http:\/\/www.london-luton.co.uk","specials":{"count":0},"venuePage":{"id":"34677057"}},"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"photos":{"count":1,"items":[{"id":"539d7cfc498e986745c7dea2","createdAt":1402830076,"source":{"name":"Instagram","url":"http:\/\/instagram.com"},"prefix":"https:\/\/irs0.4sqi.net\/img\/general\/","suffix":"\/3070382_2zXkBYmdIws--ciTQMeCWyrZRiOrcKtdyZQocShZkdo.jpg","width":640,"height":640,"user":{"id":"3070382","firstName":"Achim","lastName":"Schauerte","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/3070382-5QRHZNQRAABNJBH4.jpg"}},"visibility":"public"}]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"157986","firstName":"J","gender":"none","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/EDC5JCONEZO3UUHH.gif"}}]}],"summary":"J"},"like":false,"comments":{"count":3,"items":[{"id":"539d84f9498e6fcb0712342e","createdAt":1402832121,"user":{"id":"157986","firstName":"J","gender":"none","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/EDC5JCONEZO3UUHH.gif"}},"text":"Brave doing it with Easyjet."},{"id":"539dd6da498e6aa736f990cd","createdAt":1402853082,"user":{"id":"3070382","firstName":"Achim","lastName":"Schauerte","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/3070382-5QRHZNQRAABNJBH4.jpg"}},"text":"Really? Why? All worked perfectly. Fingers crossed for the return flight ;-)"},{"id":"53a04589498ebeda632e9b86","createdAt":1403012489,"user":{"id":"157986","firstName":"J","gender":"none","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/EDC5JCONEZO3UUHH.gif"}},"text":"Just all the extra baggage. Seems a faff with them."}]}},{"id":"539b5cf9498e2bb02fe9702b","createdAt":1402690809,"type":"checkin","shout":"#nedesp","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"279924","firstName":"Sascha","lastName":"Carlin","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/22QQJJCHBKUDA4JQ.png"}},"venue":{"id":"4b45dba2f964a520431126e3","name":"GALANDER \u2013 Kreuzberg \u2013","contact":{"phone":"03028509030","formattedPhone":"030 28509030"},"location":{"address":"Großbeerenstr. 54","lat":52.491947904883766,"lng":13.383178263902664,"postalCode":"10965","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Großbeerenstr. 54","10965 Berlin"]},"categories":[{"id":"4bf58dd8d48988d11e941735","name":"Cocktailbar","pluralName":"Cocktailbars","shortName":"Cocktail","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/cocktails_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":207,"usersCount":114,"tipCount":6},"url":"http:\/\/bar.galander-berlin.de","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"53988f2a498ebca8b6208c86","createdAt":1402507050,"type":"checkin","shout":"Omnomnom","timeZoneOffset":120,"displayGeo":{"id":"72057594041148911","name":"Offenbach am Main"},"exactContextLine":"Offenbach am Main","user":{"id":"12444873","firstName":"Joern","lastName":"Huxhorn","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/EX31PAYVCRFH5IVI.png"}},"venue":{"id":"4cf7fa8966585481eaafd198","name":"Fleischeslust","contact":{},"location":{"address":"Wilhelmsplatz 6","lat":50.1033826920962,"lng":8.76614865631931,"postalCode":"63065","cc":"DE","city":"Offenbach am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Wilhelmsplatz 6","63065 Offenbach am Main"]},"categories":[{"id":"4bf58dd8d48988d1cc941735","name":"Steakhaus","pluralName":"Steakhäuser","shortName":"Steakhaus","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/steakhouse_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":402,"usersCount":224,"tipCount":12},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"5390dd00498e9c95be0305f0","createdAt":1402002688,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"1989157","firstName":"Mark","lastName":"Ralea","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/G01SJXXLNV52LUXL.jpg"}},"venue":{"id":"4adcda79f964a520894621e3","name":"VOX Restaurant","contact":{},"location":{"address":"Marlene-Dietrich-Platz 2","crossStreet":"Grand Hyatt Berlin","lat":52.507999298799625,"lng":13.372845814835236,"postalCode":"10785","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Marlene-Dietrich-Platz 2 (Grand Hyatt Berlin)","10785 Berlin"]},"categories":[{"id":"4bf58dd8d48988d1d2941735","name":"Sushi-Bar","pluralName":"Sushi-Bars","shortName":"Sushi","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/sushi_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":962,"usersCount":535,"tipCount":20},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"5389c514498e50704ff344f1","createdAt":1401537812,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040807075","name":"Leipzig"},"exactContextLine":"Leipzig","user":{"id":"32563436","firstName":"Ben","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/GMTOFATDPVNGLMUR.jpg"}},"venue":{"id":"4ec4e76d775b7dea8783ba52","name":"SuperCut","contact":{},"location":{"address":"Westhalle","lat":51.345081871907915,"lng":12.380670921454401,"postalCode":"04103","cc":"DE","city":"Leipzig","state":"Sachsen","country":"Deutschland","formattedAddress":["Westhalle","04103 Leipzig"]},"categories":[{"id":"4bf58dd8d48988d110951735","name":"Friseursalon","pluralName":"Friseursalons","shortName":"Friseursalon","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/salon_barber_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":33,"usersCount":12,"tipCount":1},"specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"5381e4e111d22cc3fdb0f1ea","createdAt":1401021665,"type":"checkin","shout":"#matthewbarney #hausderkunst","timeZoneOffset":120,"displayGeo":{"id":"72057594040795650","name":"München"},"exactContextLine":"München","user":{"id":"5423311","firstName":"Clemens","lastName":"Pavel","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/PMPNSU2VFVTJ1YBG.jpg"}},"venue":{"id":"4c458b42dcd61b8d5cca7c56","name":"Die Goldene Bar","contact":{"phone":"08954804777","formattedPhone":"089 54804777"},"location":{"address":"Prinzregentenstraße 1","crossStreet":"im Haus der Kunst","lat":48.14444649586819,"lng":11.58629203115665,"postalCode":"80538","cc":"DE","city":"München","state":"Bayern","country":"Deutschland","formattedAddress":["Prinzregentenstraße 1 (im Haus der Kunst)","80538 München"]},"categories":[{"id":"4bf58dd8d48988d11e941735","name":"Cocktailbar","pluralName":"Cocktailbars","shortName":"Cocktail","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/cocktails_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":2249,"usersCount":1137,"tipCount":31},"url":"http:\/\/www.goldenebar.de","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"535deefc498e625f80a2b9c6","createdAt":1398664956,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040848980","name":"Deutschland"},"exactContextLine":"Deutschland","user":{"id":"6503429","firstName":"Ralf","lastName":"Rehm","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/0FELY0FAYMRU3BFA.jpg"}},"venue":{"id":"535deeea498ef304aa9538a7","name":"Dr. Gehrke","contact":{},"location":{"lat":50.123992,"lng":8.692304,"cc":"DE","country":"Deutschland","formattedAddress":[""]},"categories":[{"id":"4bf58dd8d48988d177941735","name":"Arztpraxis","pluralName":"Arztpraxen","shortName":"Arztpraxis","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/medical_doctorsoffice_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":1,"usersCount":1,"tipCount":0},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"534f91d0498e295eef7e2978","createdAt":1397723600,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"2543840","firstName":"Sabine","lastName":"Krueger","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/EZY0N5ADGTLJOMNC.jpg"}},"venue":{"id":"4af7d34ff964a520640a22e3","name":"Razorfish","contact":{"phone":"03029363880","formattedPhone":"030 29363880","twitter":"razorfish_de"},"location":{"address":"Stralauer Allee 2b","lat":52.50175362169215,"lng":13.44859826833146,"postalCode":"10245","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Stralauer Allee 2b","10245 Berlin"]},"categories":[{"id":"52e81612bcbc57f1066b7a3d","name":"Werbeagentur","pluralName":"Werbeagenturen","shortName":"Werbeagentur","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":7651,"usersCount":213,"tipCount":3},"url":"http:\/\/www.razorfish.de","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"534edf53498e1b0f25e290b2","createdAt":1397677907,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040876320","name":"Bad Birnbach"},"exactContextLine":"Bad Birnbach","user":{"id":"2019834","firstName":"Markus","lastName":"Seim","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/E3A1524WJ4I4IFQO.jpg"}},"venue":{"id":"4bd1d7825e0cce72a912a284","name":"Wellness Hotel Sonnengut Bad Birnbach","contact":{},"location":{"address":"Am Aunhamer Berg 2","lat":48.44323606989898,"lng":13.083239820907794,"cc":"DE","city":"Bad Birnbach","state":"Bayern","country":"Deutschland","formattedAddress":["Am Aunhamer Berg 2","Bad Birnbach"]},"categories":[],"verified":false,"stats":{"checkinsCount":12,"usersCount":12,"tipCount":1},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"52dcec7a498e31ec78f45305","createdAt":1390210170,"type":"checkin","timeZoneOffset":60,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","createdBy":{"id":"1607276","firstName":"Philipp","gender":"male","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/WQXITOBILVLSAQLJ.jpg"}},"user":{"id":"898014","firstName":"Ed","lastName":"Pelling","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/QOJBNNNHDFREXNOH.jpg"}},"venue":{"id":"4ade2c76f964a520987321e3","name":"Kohlenquelle","contact":{},"location":{"address":"Kopenhagener Str. 16","lat":52.54910522253817,"lng":13.407895024740208,"postalCode":"10405","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Kopenhagener Str. 16","10405 Berlin"]},"categories":[{"id":"4bf58dd8d48988d1e0931735","name":"Coffee Shop","pluralName":"Coffee Shops","shortName":"Coffee Shop","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/coffeeshop_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":1392,"usersCount":557,"tipCount":14},"specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"529634a1498e0744197bcd9c","createdAt":1385575585,"type":"checkin","timeZoneOffset":60,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"61267752","firstName":"Peyman","lastName":"P","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/2QOXWHVXTSHIZSYS.jpg"}},"venue":{"id":"50b23b0ae4b0ea66e8a04608","name":"Weihnachtsmarkt Frankfurt","contact":{},"location":{"address":"Dom\/Römer\/Zeil","lat":50.1109079412456,"lng":8.681730367956707,"cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Dom\/Römer\/Zeil","Frankfurt am Main"]},"categories":[{"id":"50be8ee891d4fa8dcc7199a7","name":"Markt","pluralName":"Märkte","shortName":"Markt","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/market_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":2846,"usersCount":1646,"tipCount":10},"closed":true,"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"522f1bde11d2b087f3c8c41d","createdAt":1378819038,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"8786086","firstName":"Sandra","lastName":"Krumme","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/0RKRSBT4LU5WDN3J.jpg"}},"venue":{"id":"4de36a5ae4cd056f745a97c2","name":"SinnerSchrader","contact":{"phone":"06990737830","formattedPhone":"069 90737830","twitter":"sinnerschrader","facebook":"358531227139","facebookUsername":"SinnerSchrader","facebookName":"SinnerSchrader"},"location":{"address":"Hanauer Landstr. 181-185","lat":50.11384671074189,"lng":8.716927820198766,"postalCode":"60314","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Hanauer Landstr. 181-185","60314 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d1f4941735","name":"Design Studio","pluralName":"Design-Studio","shortName":"Design","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/shops\/design_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":2320,"usersCount":71,"tipCount":2},"url":"http:\/\/sinnerschrader.com","specials":{"count":0},"storeId":""},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"51c49fc7498e702d1e682ed2","createdAt":1371840455,"type":"checkin","shout":"Peng peng Rock'n'Roll","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"53509788","firstName":"Anthony","lastName":"Wottrich","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/EHE1MMHPYXIQTN4P.jpg"}},"venue":{"id":"4adcda73f964a520614521e3","name":"Golgatha Biergarten am Kreuzberg","contact":{"phone":"0307852453","formattedPhone":"030 7852453","facebook":"152191054842766","facebookUsername":"GOLGATHA.BERLIN","facebookName":"GOLGATHA · Biergarten am Kreuzberg"},"location":{"address":"Dudenstraße 40-64","lat":52.48675262923766,"lng":13.37860107421875,"postalCode":"10965","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Dudenstraße 40-64","10965 Berlin"]},"categories":[{"id":"4bf58dd8d48988d117941735","name":"Biergarten","pluralName":"Biergärten ","shortName":"Biergarten","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/beergarden_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":1491,"usersCount":1071,"tipCount":15},"url":"http:\/\/www.golgatha-berlin.de","specials":{"count":0},"venuePage":{"id":"33121584"},"storeId":""},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"51a0ddc6498ee3b3ecfcf6f1","createdAt":1369497030,"type":"checkin","shout":"Fussball. May best team win...","timeZoneOffset":120,"displayGeo":{"id":"72057594040795650","name":"München"},"exactContextLine":"München","user":{"id":"2449305","firstName":"ryan","lastName":"g.","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/blank_boy.png","default":true}},"venue":{"id":"4b9e914ff964a520e9ef36e3","name":"Clemensburg","contact":{},"location":{"address":"Clemensstraße 61","lat":48.16352401540963,"lng":11.575757623980062,"postalCode":"80803","cc":"DE","city":"München","state":"Bayern","country":"Deutschland","formattedAddress":["Clemensstraße 61","80803 München"]},"categories":[{"id":"4bf58dd8d48988d11b941735","name":"Kneipe","pluralName":"Kneipe","shortName":"Kneipe","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/pub_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":186,"usersCount":79,"tipCount":4},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"5191244e498e12df34ff244f","createdAt":1368466510,"type":"checkin","shout":"#wmfra jetzt.","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"156742","firstName":"Jan","lastName":"Eggers","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/DAFD20M3O0PM1M2X.jpg"}},"venue":{"id":"4b058852f964a52099be22e3","name":"Brotfabrik","contact":{"phone":"06924790800","formattedPhone":"069 24790800"},"location":{"address":"Bachmannstr. 2-4","lat":50.13147961464057,"lng":8.626122426074136,"postalCode":"60488","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Bachmannstr. 2-4","60488 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d11a941735","name":"Sonstiges Nachtleben","pluralName":"Sonstiges Nachtleben","shortName":"Nachtleben","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/nightlife\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":1375,"usersCount":464,"tipCount":6},"url":"http:\/\/www.brotfabrik.info","specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":1,"groups":[{"type":"others","count":1,"items":[{"id":"20246461","firstName":"Anna","lastName":"Groos","gender":"female","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/20246461-3JEH01MLAXX0SJ5U.jpg"}}]}],"summary":"Anna Groos"},"like":false,"comments":{"count":0}},{"id":"516c1a8ae4b0464bd4cc807a","createdAt":1366039178,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040878095","name":"Berlin"},"exactContextLine":"Berlin","user":{"id":"36868921","firstName":"Maya","lastName":"Wieder","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/EFZEYK434ILFGAN2.jpg"}},"venue":{"id":"4af7d34ff964a520640a22e3","name":"Razorfish","contact":{"phone":"03029363880","formattedPhone":"030 29363880","twitter":"razorfish_de"},"location":{"address":"Stralauer Allee 2b","lat":52.50175362169215,"lng":13.44859826833146,"postalCode":"10245","cc":"DE","city":"Berlin","state":"Berlin","country":"Deutschland","formattedAddress":["Stralauer Allee 2b","10245 Berlin"]},"categories":[{"id":"52e81612bcbc57f1066b7a3d","name":"Werbeagentur","pluralName":"Werbeagenturen","shortName":"Werbeagentur","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/default_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":7651,"usersCount":213,"tipCount":3},"url":"http:\/\/www.razorfish.de","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"510beed7e4b036b54f32ccff","createdAt":1359736535,"type":"checkin","timeZoneOffset":-300,"displayGeo":{"id":"72057594042092079","name":"Miami Beach, USA"},"exactContextLine":"Miami Beach, FL, USA","user":{"id":"30746627","firstName":"Beate","lastName":"Seidel","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/WLRWQAEO3IR5EMBI.jpg"}},"venue":{"id":"508068dfe4b06f332ebd8b9d","name":"Aroma Espresso Bar","contact":{"twitter":"aromaus"},"location":{"address":"540 Collins Ave","lat":25.775053785280644,"lng":-80.13288401080737,"postalCode":"33139","cc":"US","city":"Miami Beach","state":"FL","country":"USA","formattedAddress":["540 Collins Ave","Miami Beach, FL 33139","USA"]},"categories":[{"id":"4bf58dd8d48988d1e0931735","name":"Coffee Shop","pluralName":"Coffee Shops","shortName":"Coffee Shop","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/coffeeshop_","suffix":".png"},"primary":true}],"verified":true,"stats":{"checkinsCount":2008,"usersCount":1177,"tipCount":21},"url":"http:\/\/www.facebook.com\/aromaus","delivery":{"url":"http:\/\/www.seamless.com\/food-delivery\/restaurant.27552.r?a=1026&utm_source=Foursquare&utm_medium=affiliate&utm_campaign=SeamlessOrderDeliveryLink","provider":{"name":"seamless"}},"specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"50d2009ee4b0425b168111e3","createdAt":1355939998,"type":"checkin","timeZoneOffset":60,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"310776","firstName":"Kerstin","lastName":"Mueller-Schulzke","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/3VKRN0MDZLBOVKAB.jpg"}},"venue":{"id":"4bc5f28c51b376b037b01a6f","name":"Flamencoschule María García","contact":{},"location":{"address":"Saalburgstr. 17","crossStreet":"Hinterhof","lat":50.125818408079404,"lng":8.706750447772809,"postalCode":"60385","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Saalburgstr. 17 (Hinterhof)","60385 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d134941735","name":"Tanzstudio","pluralName":"Tanzstudios","shortName":"Tanzstudio","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/arts_entertainment\/performingarts_dancestudio_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":40,"usersCount":7,"tipCount":0},"specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"50b5dfdce4b07434df71754b","createdAt":1354096604,"type":"checkin","shout":"the roof the roof is so trübe","timeZoneOffset":60,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"116021","firstName":"Kati","lastName":"All","gender":"female","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/116021_1258967179369.jpg"}},"venue":{"id":"4be3ef4cf07b0f47ea1ef943","name":"KfW-Dachterasse","contact":{},"location":{"address":"Bockenheimer Landstr. 124","lat":50.1201425786526,"lng":8.654438536279116,"cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Bockenheimer Landstr. 124","Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d127941735","name":"Konferenzraum","pluralName":"Konferenzräume","shortName":"Konferenzraum","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/office_conferenceroom_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":112,"usersCount":27,"tipCount":0},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"504cfc26e4b015de629e3c84","createdAt":1347222566,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594045979027","name":"Fehmarn"},"exactContextLine":"Fehmarn","user":{"id":"15919334","firstName":"Alexander","lastName":"Sandic","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/2C3O3QXWCTQ2ACHH.jpg"}},"venue":{"id":"4e13816d62e14518a91d8236","name":"Flügge Strand","contact":{},"location":{"lat":54.45106203489881,"lng":11.009215667674598,"cc":"DE","city":"Fehmarn","state":"Schleswig-Holstein","country":"Deutschland","formattedAddress":["Fehmarn"]},"categories":[{"id":"4bf58dd8d48988d1e2941735","name":"Strand","pluralName":"Strände","shortName":"Strand","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/parks_outdoors\/beach_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":34,"usersCount":22,"tipCount":1},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"503abad0e4b03dc3d2fb625c","createdAt":1346026192,"type":"checkin","timeZoneOffset":540,"displayGeo":{"id":"72057594039780518","name":"日本渋谷区"},"exactContextLine":"日本東京都渋谷区","user":{"id":"6536830","firstName":"Philipp","lastName":"Wollermann","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/U0OGCEWDLVZRTTMS.jpg"}},"venue":{"id":"4b5a4752f964a520acb928e3","name":"ティップ.クロス TOKYO 渋谷","contact":{"phone":"+81337703531","formattedPhone":"+81 3-3770-3531"},"location":{"address":"宇田川町16-4","lat":35.66098167286651,"lng":139.69936651803548,"postalCode":"150-0042","cc":"JP","city":"渋谷区","state":"東京都","country":"日本","formattedAddress":["宇田川町16-4","渋谷区, Tōkyō-to","150-0042","日本"]},"categories":[{"id":"4bf58dd8d48988d175941735","name":"Fitnessstudio","pluralName":"Fitnessstudios","shortName":"Fitnessstudio \/ Fitness","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/gym_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":5096,"usersCount":319,"tipCount":14},"url":"http:\/\/tip.x-tokyo.jp","specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"4e2ea21cb0fbdc2b64f875a0","createdAt":1311679004,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040839234","name":"Hamburg"},"exactContextLine":"Hamburg","user":{"id":"11142159","firstName":"Chris","lastName":"P","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs1.4sqi.net\/img\/user\/","suffix":"\/-I4OLH3NE2EZGDXOR.jpg"}},"venue":{"id":"4c080470bbc676b0d6df45d5","name":"Empire of Döner","contact":{"phone":"04098262378","formattedPhone":"040 98262378"},"location":{"address":"Bürgerweide 5","lat":53.552804,"lng":10.025139,"postalCode":"20535","cc":"DE","city":"Hamburg","state":"Hamburg","country":"Deutschland","formattedAddress":["Bürgerweide 5","20535 Hamburg"]},"categories":[{"id":"4f04af1f2fb6e1c99f3db0bb","name":"Türkisches Restaurant","pluralName":"Türkische Restaurants","shortName":"Türkisch","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/food\/turkish_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":422,"usersCount":151,"tipCount":2},"specials":{"count":0}},"source":{"name":"foursquare for Android","url":"https:\/\/foursquare.com\/download\/#\/android"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"4e29fea7a809f1b1640029dd","createdAt":1311375015,"type":"checkin","timeZoneOffset":120,"displayGeo":{"id":"72057594040839234","name":"Hamburg"},"exactContextLine":"Hamburg","user":{"id":"479874","firstName":"S","lastName":"Koch","gender":"none","relationship":"friend","photo":{"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/","suffix":"\/CDLY1TJTCD5LKUPY.jpg"}},"venue":{"id":"4b058858f964a5205fbf22e3","name":"Hotel Louis C. Jacob","contact":{},"location":{"address":"Elbchaussee 401","lat":53.550492842531916,"lng":9.844282335660665,"postalCode":"22609","cc":"DE","city":"Hamburg","state":"Hamburg","country":"Deutschland","formattedAddress":["Elbchaussee 401","22609 Hamburg"]},"categories":[{"id":"4bf58dd8d48988d1fa931735","name":"Hotel","pluralName":"Hotels","shortName":"Hotel","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/travel\/hotel_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":492,"usersCount":312,"tipCount":9},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"4e1ed66f1838e9f93a451fe9","createdAt":1310643823,"type":"checkin","isMayor":true,"timeZoneOffset":120,"displayGeo":{"id":"72057594044487054","name":"Hattersheim am Main"},"exactContextLine":"Hattersheim am Main","user":{"id":"3206885","firstName":"Andreas","lastName":"Diwisch","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs2.4sqi.net\/img\/user\/","suffix":"\/IQ1ODY2FGVNSZFE1.jpg"}},"venue":{"id":"4dd16e90e4cd130e16ae68a8","name":"Fitness Room @Diwischs","contact":{},"location":{"lat":50.051135,"lng":8.490513,"cc":"DE","city":"Hattersheim am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Hattersheim am Main"]},"categories":[{"id":"4bf58dd8d48988d176941735","name":"Sporthalle","pluralName":"Fitnessstudios","shortName":"Sporthalle","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/gym_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":8,"usersCount":1,"tipCount":0},"specials":{"count":0}},"source":{"name":"foursquare for iPhone","url":"https:\/\/foursquare.com\/download\/#\/iphone"},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}},{"id":"4caf3cb0562d224b25480c88","createdAt":1286552752,"type":"checkin","shout":"das Abendessen fangt Schonmal gut an -.-","timeZoneOffset":120,"displayGeo":{"id":"72057594040853469","name":"Frankfurt am Main"},"exactContextLine":"Frankfurt am Main","user":{"id":"2035317","firstName":"Andy","lastName":"Pescado","gender":"male","relationship":"friend","photo":{"prefix":"https:\/\/irs0.4sqi.net\/img\/user\/","suffix":"\/blank_boy.png","default":true}},"venue":{"id":"4c6cfe7ae6b7b1f79e74a88e","name":"Hospital zum Heiligen Geist","contact":{},"location":{"address":"Lange Straße 4","lat":50.10935730381482,"lng":8.695892988512904,"postalCode":"60311","cc":"DE","city":"Frankfurt am Main","state":"Hessen","country":"Deutschland","formattedAddress":["Lange Straße 4","60311 Frankfurt am Main"]},"categories":[{"id":"4bf58dd8d48988d196941735","name":"Krankenhaus","pluralName":"Krankenhäuser","shortName":"Krankenhaus","icon":{"prefix":"https:\/\/ss1.4sqi.net\/img\/categories_v2\/building\/medical_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":142,"usersCount":56,"tipCount":1},"specials":{"count":0}},"photos":{"count":0,"items":[]},"posts":{"count":0,"textCount":0},"likes":{"count":0,"groups":[]},"like":false,"comments":{"count":0}}]}}
+isMayor: false
+},
+{
+id: "557bb626498e23cd9a8eeec5",
+createdAt: 1434170918,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040592139",
+name: "Västervik, Schweden"
+},
+exactContextLine: "Västervik, Schweden",
+user: {
+id: "200074",
+firstName: "Silke",
+lastName: "Berz",
+gender: "female",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/Y0HWO4NXNC0OVHTL.jpg"
+}
+},
+venue: {
+id: "4bb0eeeef964a5208d6b3ce3",
+name: "Tofvehult Kafé, Konferens och Boende",
+contact: { },
+location: {
+address: "Tofvehult 3",
+lat: 57.643445,
+lng: 16.56563,
+distance: 1008228,
+postalCode: "590 93",
+cc: "SE",
+city: "Västervik",
+state: "Kalmar län",
+country: "Schweden",
+formattedAddress: [
+"Tofvehult 3",
+"590 93 Västervik",
+"Schweden"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d16d941735",
+name: "Café",
+pluralName: "Cafés",
+shortName: "Café",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 46,
+usersCount: 26,
+tipCount: 0
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 1008217,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "557b62ca498e6e8a1f8a772c",
+createdAt: 1434149578,
+type: "checkin",
+shout: "Absacker??? — with Marcus, Janine, Tanja",
+entities: [
+{
+id: "161036",
+type: "user",
+indices: [
+19,
+25
+]
+},
+{
+id: "34449802",
+type: "user",
+indices: [
+27,
+33
+]
+},
+{
+id: "16189774",
+type: "user",
+indices: [
+35,
+40
+]
+}
+],
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040878095",
+name: "Berlin"
+},
+exactContextLine: "Berlin",
+with: [
+{
+id: "161036",
+firstName: "Marcus",
+lastName: "Pauli",
+gender: "male",
+relationship: "pendingThem",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/5ESCEHJZS5MGQ44V.jpg"
+}
+},
+{
+id: "34449802",
+firstName: "Janine",
+lastName: "Go",
+gender: "female",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/42G4TZSFFV4VV13K.jpg"
+}
+},
+{
+id: "16189774",
+firstName: "Tanja",
+lastName: "W",
+gender: "female",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/EMA2WUEZPAKB1K5O.jpg"
+}
+}
+],
+user: {
+id: "5035844",
+firstName: "Max",
+lastName: "Wenzlaff",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/5035844-3KLLQGB5WNH0UMSL.jpg"
+}
+},
+venue: {
+id: "4adcda79f964a520be4621e3",
+name: "Gorki Park",
+contact: {
+phone: "03044046519",
+formattedPhone: "030 44046519"
+},
+location: {
+address: "Weinbergsweg 25",
+lat: 52.530357,
+lng: 13.401898,
+distance: 444038,
+postalCode: "10119",
+cc: "DE",
+city: "Berlin",
+state: "Berlin",
+country: "Deutschland",
+formattedAddress: [
+"Weinbergsweg 25",
+"10119 Berlin"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d16d941735",
+name: "Café",
+pluralName: "Cafés",
+shortName: "Café",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 3129,
+usersCount: 1857,
+tipCount: 79
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 444030,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557b1feb498e2ab9b41df79c",
+createdAt: 1434132459,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594044481127",
+name: "Ronneburg"
+},
+exactContextLine: "Ronneburg",
+user: {
+id: "839827",
+firstName: "Dominik",
+lastName: "Sommer",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/1UI3UUFZ3YG2FIRD.jpg"
+}
+},
+venue: {
+id: "4c26fd99f3859c74447f6588",
+name: "Burg Ronneburg",
+contact: {
+phone: "06048950904",
+formattedPhone: "06048 950904"
+},
+location: {
+address: "Burg Ronneburg",
+lat: 50.23833987351115,
+lng: 9.060544967651367,
+distance: 50114,
+postalCode: "63549",
+cc: "DE",
+city: "Ronneburg",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Burg Ronneburg",
+"63549 Ronneburg"
+]
+},
+categories: [
+{
+id: "50aaa49e4b90af0d42d5de11",
+name: "Burg",
+pluralName: "Burgen",
+shortName: "Burg",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/default_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 456,
+usersCount: 274,
+tipCount: 11
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 50111,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "52a65980000000000000000d",
+name: "Heart Container",
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/heart_c46f7a.png"
+},
+effects: [
+{
+type: "supersize",
+detail: {
+prefix: "https://irs2.4sqi.net/img/sticker/",
+sizes: [
+150
+],
+name: "/heart_c323a2.png"
+}
+}
+],
+stickerType: "default",
+group: {
+name: "special",
+index: 0
+},
+pickerPosition: {
+page: 3,
+index: 0
+},
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+},
+isMayor: false
+},
+{
+id: "557b13c0498ee25270992f84",
+createdAt: 1434129344,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040689305",
+name: "Wien, Österreich"
+},
+exactContextLine: "Wien, Österreich",
+user: {
+id: "350572",
+firstName: "macmenace",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/JRM00EIKYBBXXN2C.jpg"
+}
+},
+venue: {
+id: "4cff7e9321ea6ea887f33c9f",
+name: "Wien Hauptbahnhof",
+contact: {
+phone: "+4351717",
+formattedPhone: "+43 51717",
+twitter: "unsereoebb"
+},
+location: {
+address: "Am Hauptbahnhof 1",
+lat: 48.18484462746843,
+lng: 16.377053260803223,
+distance: 594061,
+postalCode: "1100",
+cc: "AT",
+city: "Wien",
+state: "Wien",
+country: "Österreich",
+formattedAddress: [
+"Am Hauptbahnhof 1",
+"1100 Wien",
+"Österreich"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d129951735",
+name: "Bahnhof",
+pluralName: "Bahnhöfe",
+shortName: "Bahnhof",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/trainstation_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 10256,
+usersCount: 3870,
+tipCount: 30
+},
+url: "http://www.oebb.at",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 594024,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557ac609498edd58d5f09fd1",
+createdAt: 1434109449,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040878095",
+name: "Berlin"
+},
+exactContextLine: "Berlin",
+user: {
+id: "1850366",
+firstName: "Calle",
+lastName: "Nordell",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/MGRAMDQNO3FJTNZO.jpg"
+}
+},
+venue: {
+id: "5253f40f8bbdde49a38d39f2",
+name: "19grams",
+contact: {
+twitter: "19gramsberlin"
+},
+location: {
+address: "Schlesische Str. 38",
+crossStreet: "Falkensteinstr.",
+lat: 52.499895603198766,
+lng: 13.444567322731018,
+distance: 444105,
+postalCode: "10997",
+cc: "DE",
+city: "Berlin",
+state: "Berlin",
+country: "Deutschland",
+formattedAddress: [
+"Schlesische Str. 38 (Falkensteinstr.)",
+"10997 Berlin"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1e0931735",
+name: "Coffee Shop",
+pluralName: "Coffee Shops",
+shortName: "Coffee Shop",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 1379,
+usersCount: 344,
+tipCount: 53
+},
+url: "http://www.trescabezas.de",
+specials: {
+count: 1
+},
+venuePage: {
+id: "77258777"
+},
+storeId: ""
+},
+source: {
+name: "Foursquare for Android",
+url: "https://foursquare.com/download/#/android"
+},
+distance: 444104,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "friends",
+count: 1,
+items: [
+{
+id: "119644062",
+firstName: "Vrorosa",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/119644062-GYH01LFUE25IZJAH.jpg"
+}
+}
+]
+}
+],
+summary: "Vrorosa"
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557aaa81498e0ed8dde63faf",
+createdAt: 1434102401,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040862182",
+name: "Düsseldorf"
+},
+exactContextLine: "Düsseldorf",
+user: {
+id: "888067",
+firstName: "Ingomar",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/MD5UFBYPAYU2EPNL.jpg"
+}
+},
+venue: {
+id: "4bc6e5eb0050b71374b7b73b",
+name: "Valtech",
+contact: {
+phone: "02111792370",
+formattedPhone: "0211 1792370"
+},
+location: {
+address: "Bahnstr. 16",
+lat: 51.21994232509073,
+lng: 6.780688309771792,
+distance: 199974,
+postalCode: "40212",
+cc: "DE",
+city: "Düsseldorf",
+state: "Nordrhein-Westfalen",
+country: "Deutschland",
+formattedAddress: [
+"Bahnstr. 16",
+"40212 Düsseldorf"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d124941735",
+name: "Büro",
+pluralName: "Büros",
+shortName: "Büro",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/building/default_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 821,
+usersCount: 29,
+tipCount: 0
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 199964,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "557a144c498ef196ee5805a3",
+createdAt: 1434063948,
+type: "checkin",
+shout: "Urlaub :)",
+timeZoneOffset: -300,
+displayGeo: {
+id: "72057594041459609",
+name: "Cancún, Mexiko"
+},
+exactContextLine: "Cancún, Quintana Roo, Mexiko",
+user: {
+id: "1989157",
+firstName: "Mark",
+lastName: "Ralea",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/G01SJXXLNV52LUXL.jpg"
+}
+},
+venue: {
+id: "4bc77c8593bdeee1456f37ae",
+name: "InterContinental",
+contact: {
+phone: "+529988488700",
+formattedPhone: "+52 998 848 8700",
+twitter: "interconhotels",
+facebook: "90015535776",
+facebookUsername: "intercontinental",
+facebookName: "InterContinental Hotels & Resorts"
+},
+location: {
+address: "Blvd Kukulkan Km 7.5",
+lat: 21.135795349285424,
+lng: -86.75470154440177,
+distance: 8610008,
+postalCode: "77500",
+cc: "MX",
+city: "Cancún",
+state: "Quintana Roo",
+country: "Mexiko",
+formattedAddress: [
+"Blvd Kukulkan Km 7.5",
+"77500 Cancún, Quintana Roo",
+"Mexiko"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d12f951735",
+name: "Resort",
+pluralName: "Resorts",
+shortName: "Resort",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/resort_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 3252,
+usersCount: 1750,
+tipCount: 43
+},
+url: "http://www.intercontinental.com",
+specials: {
+count: 0
+},
+storeId: "CUNHC"
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 8610007,
+photos: {
+count: 1,
+items: [
+{
+id: "557a144e498e3a806ba1914c",
+createdAt: 1434063950,
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+prefix: "https://irs3.4sqi.net/img/general/",
+suffix: "/1989157_2jrhFQM5_rU6ZS3NFuRDlYh_C4dWCJ9nYBOdjmU5zAg.jpg",
+width: 1440,
+height: 1440,
+user: {
+id: "1989157",
+firstName: "Mark",
+lastName: "Ralea",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/G01SJXXLNV52LUXL.jpg"
+}
+},
+visibility: "public"
+}
+]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "195376",
+firstName: "Manuel",
+lastName: "Gruber",
+gender: "male",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/UD2TQGQMCM2FRJY4.jpg"
+}
+}
+]
+}
+],
+summary: "Manuel Gruber"
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "52a659800000000000000016",
+name: "Sunny",
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/sunshine_d58144.png"
+},
+effects: [
+{
+type: "supersize",
+detail: {
+prefix: "https://irs1.4sqi.net/img/sticker/",
+sizes: [
+150
+],
+name: "/sunshine_b0bc83.png"
+}
+}
+],
+stickerType: "default",
+group: {
+name: "special",
+index: 1
+},
+pickerPosition: {
+page: 3,
+index: 1
+},
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+},
+isMayor: false
+},
+{
+id: "5579cb0c498ee4a06a5029a4",
+createdAt: 1434045196,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040589449",
+name: "Biel, Schweiz"
+},
+exactContextLine: "Biel, Schweiz",
+user: {
+id: "24271860",
+firstName: "Ge",
+lastName: "Strahm",
+gender: "female",
+relationship: "friend",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/24271860-UU40G5WE2XYRFZPN.jpg"
+}
+},
+venue: {
+id: "4b7188d4f964a520b14b2de3",
+name: "Bahnhof Biel / Gare Bienne",
+contact: { },
+location: {
+address: "Bahnhofplatz 4",
+lat: 47.13289956513712,
+lng: 7.2428011894226065,
+distance: 322194,
+postalCode: "2502",
+cc: "CH",
+city: "Biel",
+state: "Bern",
+country: "Schweiz",
+formattedAddress: [
+"Bahnhofplatz 4",
+"2502 Biel",
+"Schweiz"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d129951735",
+name: "Bahnhof",
+pluralName: "Bahnhöfe",
+shortName: "Bahnhof",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/trainstation_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 10189,
+usersCount: 1635,
+tipCount: 12
+},
+url: "http://m.sbb.ch/content/sbb/de/mobile-large/mein-bahnhof/detail.4300.html",
+specials: {
+count: 0
+},
+venuePage: {
+id: "46367965"
+},
+storeId: ""
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 322019,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "557967d2498e5b7b4921f00c",
+createdAt: 1434019794,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040839234",
+name: "Hamburg"
+},
+exactContextLine: "Hamburg",
+user: {
+id: "61111894",
+firstName: "Valla",
+gender: "female",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/JQUJOLWVEUITLDCB.jpg"
+}
+},
+venue: {
+id: "4b5599b7f964a52098e827e3",
+name: "Gruner + Jahr",
+contact: {
+phone: "04037030",
+formattedPhone: "040 37030"
+},
+location: {
+address: "Am Baumwall 11",
+lat: 53.545139886640754,
+lng: 9.97908353805542,
+distance: 418913,
+postalCode: "20459",
+cc: "DE",
+city: "Hamburg",
+state: "Hamburg",
+country: "Deutschland",
+formattedAddress: [
+"Am Baumwall 11",
+"20459 Hamburg"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d124941735",
+name: "Büro",
+pluralName: "Büros",
+shortName: "Büro",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/building/default_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 7782,
+usersCount: 965,
+tipCount: 12
+},
+url: "http://www.guj.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 418870,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 2,
+groups: [
+{
+type: "friends",
+count: 1,
+items: [
+{
+id: "119644062",
+firstName: "Vrorosa",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/119644062-GYH01LFUE25IZJAH.jpg"
+}
+}
+]
+},
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "18266497",
+firstName: "Joerg",
+lastName: "Iversen",
+gender: "male",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/18266497-FMXID30SA5XOX23K.jpg"
+}
+}
+]
+}
+],
+summary: "Vrorosa & Joerg Iversen"
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "52a659800000000000000019",
+name: "Bessie",
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/unicorn_f5b188.png"
+},
+effects: [
+{
+type: "supersize",
+detail: {
+prefix: "https://irs0.4sqi.net/img/sticker/",
+sizes: [
+150
+],
+name: "/unicorn_859bd0.png"
+}
+}
+],
+stickerType: "default",
+group: {
+name: "special",
+index: 4
+},
+pickerPosition: {
+page: 3,
+index: 4
+},
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+},
+isMayor: false
+},
+{
+id: "55795195498e5f4dcfd3089e",
+createdAt: 1434014101,
+type: "checkin",
+shout: "Und jährlich tagt die @apg_d #opensource",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040839234",
+name: "Hamburg"
+},
+exactContextLine: "Hamburg",
+user: {
+id: "108387",
+firstName: "Gerald",
+lastName: "Hensel",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/108387_1258712108959.jpg"
+}
+},
+venue: {
+id: "4b058861f964a52046c222e3",
+name: "Schmidts TIVOLI",
+contact: {
+phone: "04031778899",
+formattedPhone: "040 31778899",
+twitter: "schmidttheater"
+},
+location: {
+address: "Spielbudenplatz 27-28",
+lat: 53.549316437837646,
+lng: 9.963437371362806,
+distance: 419132,
+postalCode: "20359",
+cc: "DE",
+city: "Hamburg",
+state: "Hamburg",
+country: "Deutschland",
+formattedAddress: [
+"Spielbudenplatz 27-28",
+"20359 Hamburg"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d137941735",
+name: "Theater",
+pluralName: "Theater",
+shortName: "Theater",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/performingarts_theater_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 1355,
+usersCount: 1059,
+tipCount: 9
+},
+url: "http://www.tivoli.de",
+specials: {
+count: 0
+},
+storeId: ""
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 419094,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "224122",
+firstName: "dolphi",
+lastName: "untch",
+gender: "male",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/10CDEVIEGEHB232W.png"
+}
+}
+]
+}
+],
+summary: "dolphi untch"
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "5578e97f498e928373558efa",
+createdAt: 1433987455,
+type: "checkin",
+shout: "surprising cute downtown!",
+timeZoneOffset: -300,
+displayGeo: {
+id: "72057594042987099",
+name: "Fargo, USA"
+},
+exactContextLine: "Fargo, ND, USA",
+user: {
+id: "1071198",
+firstName: "Luke",
+lastName: "Hamilton",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/OK3D303NRCO1CQAX.jpg"
+}
+},
+venue: {
+id: "53161d83498e40598ae4f9ca",
+name: "Blackbird Woodfire",
+contact: {
+phone: "+17014781968",
+formattedPhone: "+1 701-478-1968"
+},
+location: {
+address: "206 Broadway N",
+lat: 46.87833023071289,
+lng: -96.78789520263672,
+distance: 7107026,
+postalCode: "58102",
+cc: "US",
+city: "Fargo",
+state: "ND",
+country: "USA",
+formattedAddress: [
+"206 Broadway N",
+"Fargo, ND 58102",
+"USA"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1ca941735",
+name: "Pizzeria",
+pluralName: "Pizzerien",
+shortName: "Pizza",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 206,
+usersCount: 164,
+tipCount: 7
+},
+url: "http://blackbirdwoodfire.com",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Windows Phone",
+url: "https://swarmapp.com"
+},
+distance: 7107026,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 1,
+items: [
+{
+id: "5579d6a4498eea485efccb6b",
+createdAt: 1434048164,
+user: {
+id: "121177",
+firstName: "Eric",
+lastName: "Grant",
+gender: "male",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/121177-UFCQSDHZHSJYG0R5.jpg"
+}
+},
+text: "North Dakota?!"
+}
+]
+},
+sticker: {
+id: "52a659800000000000000011",
+name: "Famous Ray",
+image: {
+prefix: "https://irs0.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/pizza_61927f.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 16
+},
+pickerPosition: {
+page: 0,
+index: 16
+},
+unlockText: "Du hast diesen Sticker bei Pizzerien freigeschaltet"
+},
+isMayor: false
+},
+{
+id: "55781d3e498edf690b193c91",
+createdAt: 1433935166,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040853469",
+name: "Frankfurt am Main"
+},
+exactContextLine: "Frankfurt am Main",
+user: {
+id: "582862",
+firstName: "Marco",
+lastName: "Köppel",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/SS5PI5Q4QQUSHPBY.jpg"
+}
+},
+venue: {
+id: "4fc4aa2fe4b027e26d16d6e1",
+name: "COCOTHAI",
+contact: {
+phone: "06990431388",
+formattedPhone: "069 90431388"
+},
+location: {
+address: "Hanauer Landstraße 151",
+lat: 50.11262118314503,
+lng: 8.71525819592656,
+distance: 27084,
+postalCode: "60314",
+cc: "DE",
+city: "Frankfurt am Main",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Hanauer Landstraße 151",
+"60314 Frankfurt am Main"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d149941735",
+name: "Thailändisches Restaurant",
+pluralName: "Thailändische Restaurants",
+shortName: "Thailändisch",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/thai_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 303,
+usersCount: 85,
+tipCount: 4
+},
+url: "http://www.cocothai.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 27109,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "friends",
+count: 1,
+items: [
+{
+id: "119644062",
+firstName: "Vrorosa",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/119644062-GYH01LFUE25IZJAH.jpg"
+}
+}
+]
+}
+],
+summary: "Vrorosa"
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "557727a8498ed3073dcfb00e",
+createdAt: 1433872296,
+type: "checkin",
+shout: "Tired AF",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040916525",
+name: "Paray-Vieille-Poste, Frankreich"
+},
+exactContextLine: "Paray-Vieille-Poste, Frankreich",
+user: {
+id: "20949177",
+firstName: "Riadh",
+lastName: "Cherif",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/20949177-OF55RVN522L0LUKI.jpg"
+}
+},
+venue: {
+id: "4bba20081261d13ace41ea98",
+name: "Aéroport de Paris-Orly (ORY)",
+contact: {
+phone: "+33149755252",
+formattedPhone: "+33 1 49 75 52 52",
+twitter: "aeroportsparis",
+facebook: "289966983831",
+facebookUsername: "aeroportsdeparis",
+facebookName: "Aéroports de Paris"
+},
+location: {
+address: "Aéroport de Paris-Orly",
+lat: 48.72790238230587,
+lng: 2.3645496368408203,
+distance: 473649,
+postalCode: "94390",
+cc: "FR",
+city: "Paray-Vieille-Poste",
+state: "Île-de-France",
+country: "Frankreich",
+formattedAddress: [
+"Aéroport de Paris-Orly",
+"94390 Paray-Vieille-Poste",
+"Frankreich"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1ed931735",
+name: "Flughafen",
+pluralName: "Flughäfen",
+shortName: "Flughafen",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/airport_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 124047,
+usersCount: 50917,
+tipCount: 315
+},
+url: "http://www.parisworldwide.fr",
+specials: {
+count: 1
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 473518,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "54b59bd0e50851c96b4e8c8a",
+name: "Jetsetter",
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/airplane_cff7ac.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 7
+},
+pickerPosition: {
+page: 0,
+index: 7
+},
+unlockText: "Du hast diesen Sticker bei Flughäfen freigeschaltet"
+},
+isMayor: false
+},
+{
+id: "557680bb498ef057505f178b",
+createdAt: 1433829563,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594041114822",
+name: "Zagreb, Kroatien"
+},
+exactContextLine: "Zagreb, Kroatien",
+user: {
+id: "5344001",
+firstName: "Bojan",
+lastName: "Komljenović",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/5344001-E3H0AHFBQQEYSZAH.jpg"
+}
+},
+venue: {
+id: "4c5181a2991c20a1b7dde587",
+name: "Globaldizajn",
+contact: { },
+location: {
+address: "Bani 75",
+lat: 45.76084297731794,
+lng: 15.986995697021484,
+distance: 713721,
+postalCode: "10000",
+cc: "HR",
+neighborhood: "Buzin",
+city: "Zagreb",
+state: "Grad Zagreb",
+country: "Kroatien",
+formattedAddress: [
+"Bani 75",
+"10000 Zagreb",
+"Kroatien"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d125941735",
+name: "Startup-Unternehmen",
+pluralName: "Startup-Unternehmen",
+shortName: "Startup-Unternehmen",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/shops/technology_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 188,
+usersCount: 19,
+tipCount: 0
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swirl",
+url: "http://apps.songuer.de/swirl"
+},
+distance: 715721,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "5575d8b2498ee29a53239142",
+createdAt: 1433786546,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594041148911",
+name: "Offenbach am Main"
+},
+exactContextLine: "Offenbach am Main",
+user: {
+id: "3558474",
+firstName: "Matthias",
+lastName: "L",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/A2BYBFDYL2FM2CCC.jpg"
+}
+},
+venue: {
+id: "51dafb5e498eb2a2bd1249fa",
+name: "DJK SV Sparta Bürgel 1921 e.V",
+contact: { },
+location: {
+address: "Am Maingarten 410",
+lat: 50.1212817676912,
+lng: 8.77820147214797,
+distance: 29112,
+postalCode: "63075",
+cc: "DE",
+city: "Offenbach am Main",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Am Maingarten 410",
+"63075 Offenbach am Main"
+]
+},
+categories: [
+{
+id: "4e39a956bd410d7aed40cbc3",
+name: "Tennisplatz",
+pluralName: "Tennisplätze",
+shortName: "Tennisplatz",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/stadium_tennis_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 13,
+usersCount: 2,
+tipCount: 0
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 29121,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "69899247",
+firstName: "Mike",
+lastName: "C",
+gender: "male",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/2ODNGVMZTCDULXSJ.jpg"
+}
+}
+]
+}
+],
+summary: "Mike C"
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: true
+},
+{
+id: "5575d6d5498e8854ad84f703",
+createdAt: 1433786069,
+type: "checkin",
+shout: "WWDC live",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040853469",
+name: "Frankfurt am Main"
+},
+exactContextLine: "Frankfurt am Main",
+user: {
+id: "99214",
+firstName: "Carsten",
+lastName: "L",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/99214_1258820530621.jpg"
+}
+},
+venue: {
+id: "54fdb1aa498eedfd98096206",
+name: "COBI GmbH",
+contact: {
+twitter: "getcobi"
+},
+location: {
+address: "Schloßstraße 92",
+lat: 50.118014,
+lng: 8.64418,
+distance: 27298,
+postalCode: "60486",
+cc: "DE",
+city: "Frankfurt am Main",
+state: "Hessen",
+country: "Deutschland",
+formattedAddress: [
+"Schloßstraße 92",
+"60486 Frankfurt am Main"
+]
+},
+categories: [
+{
+id: "4eb1bea83b7b6f98df247e06",
+name: "Fabrik",
+pluralName: "Fabriken",
+shortName: "Fabrik",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/building/factory_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 6,
+usersCount: 3,
+tipCount: 0
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 27287,
+photos: {
+count: 1,
+items: [
+{
+id: "5575d77f498e6d92b9120482",
+createdAt: 1433786239,
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+prefix: "https://irs0.4sqi.net/img/general/",
+suffix: "/99214_2x38Naj-8hfc4kNrqe6Yy_Ts4oBZ5Q2crMURymObbrs.jpg",
+width: 1920,
+height: 1440,
+user: {
+id: "99214",
+firstName: "Carsten",
+lastName: "L",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/99214_1258820530621.jpg"
+}
+},
+visibility: "friends"
+}
+]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "5489f15de508c175773cbebb",
+name: "Apollo",
+image: {
+prefix: "https://irs1.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/spaceshuttle_472912.png"
+},
+stickerType: "default",
+group: {
+name: "special",
+index: 9
+},
+pickerPosition: {
+page: 3,
+index: 9
+},
+unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
+},
+isMayor: true
+},
+{
+id: "55742183498e692210f855ee",
+createdAt: 1433674115,
+type: "checkin",
+shout: "Bye bye",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040546966",
+name: "Kastrup, Dänemark"
+},
+exactContextLine: "Kastrup, Dänemark",
+user: {
+id: "1698071",
+firstName: "Anna",
+lastName: "Jobin",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/UTXPVAS3NSFWBPJG.jpg"
+}
+},
+venue: {
+id: "4aebb774f964a5208ec421e3",
+name: "Københavns Lufthavn (CPH)",
+contact: {
+phone: "+4532313231",
+formattedPhone: "+45 32 31 32 31",
+twitter: "cphairports",
+facebook: "108335482557007",
+facebookUsername: "cphairport",
+facebookName: "Copenhagen Airport (CPH)"
+},
+location: {
+address: "Lufthavnsboulevarden 6",
+lat: 55.62844417800008,
+lng: 12.649469375610352,
+distance: 694757,
+postalCode: "2770",
+cc: "DK",
+city: "Kastrup",
+state: "Region Hovedstaden",
+country: "Dänemark",
+formattedAddress: [
+"Lufthavnsboulevarden 6",
+"2770 Kastrup",
+"Dänemark"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1ed931735",
+name: "Flughafen",
+pluralName: "Flughäfen",
+shortName: "Flughafen",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/travel/airport_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 198032,
+usersCount: 52108,
+tipCount: 679
+},
+url: "http://www.cph.dk",
+specials: {
+count: 0
+},
+venuePage: {
+id: "56216960"
+},
+storeId: ""
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 694423,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+sticker: {
+id: "54b59bd0e50851c96b4e8c8a",
+name: "Jetsetter",
+image: {
+prefix: "https://irs2.4sqi.net/img/sticker/",
+sizes: [
+60,
+94
+],
+name: "/airplane_cff7ac.png"
+},
+stickerType: "unlockable",
+group: {
+name: "collectible",
+index: 7
+},
+pickerPosition: {
+page: 0,
+index: 7
+},
+unlockText: "Du hast diesen Sticker bei Flughäfen freigeschaltet"
+},
+isMayor: false
+},
+{
+id: "556aca69498e4899c11931fe",
+createdAt: 1433061993,
+type: "checkin",
+timeZoneOffset: 330,
+displayGeo: {
+id: "72057594039205269",
+name: "Bangalore, Indien"
+},
+exactContextLine: "Bangalore, Karnātaka, Indien",
+user: {
+id: "10123427",
+firstName: "Ranju",
+lastName: "Vaidya",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/10123427-GOPHF5PDRCERCE2A.jpg"
+}
+},
+venue: {
+id: "4c050fcc0d0e0f47b3bd049a",
+name: "100 Ft Boutique Bar Restaurant",
+contact: {
+phone: "+918025277752",
+formattedPhone: "+91 80 2527 7752"
+},
+location: {
+address: "777/1, Opposite New Horizon School, HAL 2nd Stage, Indiranagar",
+crossStreet: "100 Ft Rd, HAL 2nd Stage, Indira Nagar",
+lat: 12.967099439878497,
+lng: 77.64118552207947,
+distance: 7416605,
+postalCode: "560038",
+cc: "IN",
+city: "Bangalore",
+state: "Karnātaka",
+country: "Indien",
+formattedAddress: [
+"777/1, Opposite New Horizon School, HAL 2nd Stage, Indiranagar (100 Ft Rd, HAL 2nd Stage, Indira Nagar)",
+"Bangalore 560038",
+"Karnātaka",
+"Indien"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1c4941735",
+name: "Restaurant",
+pluralName: "Restaurants",
+shortName: "Restaurant",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/default_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 1090,
+usersCount: 731,
+tipCount: 37
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 7422729,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "5569f4e9498eccf5fd7e4dc3",
+createdAt: 1433007337,
+type: "checkin",
+shout: "Not too shabby for a Saturday afternoon. Come on Arsenal!!! #FACupFinal",
+timeZoneOffset: 60,
+displayGeo: {
+id: "72057594040562485",
+name: "Wembley, Vereinigtes Königreich"
+},
+exactContextLine: "Wembley, Greater London, Vereinigtes Königreich",
+user: {
+id: "3070382",
+firstName: "Achim",
+lastName: "Schauerte",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/3070382-5QRHZNQRAABNJBH4.jpg"
+}
+},
+venue: {
+id: "4b03382df964a520a74d22e3",
+name: "Wembley Stadium",
+contact: {
+phone: "+448449808001",
+formattedPhone: "+44 844 980 8001"
+},
+location: {
+address: "South Way",
+lat: 51.55582173530034,
+lng: -0.2795076370239258,
+distance: 656289,
+postalCode: "HA9 0WS",
+cc: "GB",
+city: "Wembley",
+state: "Greater London",
+country: "Vereinigtes Königreich",
+formattedAddress: [
+"South Way",
+"Wembley",
+"Greater London",
+"HA9 0WS",
+"Vereinigtes Königreich"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d184941735",
+name: "Stadion",
+pluralName: "Stadien",
+shortName: "Stadion",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/stadium_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: true,
+stats: {
+checkinsCount: 28184,
+usersCount: 17925,
+tipCount: 224
+},
+url: "http://www.wembleystadium.com",
+specials: {
+count: 0
+},
+storeId: ""
+},
+source: {
+name: "Instagram",
+url: "http://instagram.com"
+},
+distance: 656318,
+photos: {
+count: 1,
+items: [
+{
+id: "5569f4ed498ecb560d42d4ce",
+createdAt: 1433007341,
+source: {
+name: "Instagram",
+url: "http://instagram.com"
+},
+prefix: "https://irs3.4sqi.net/img/general/",
+suffix: "/3070382_RQq43gda2_VBKJXwmu_S_Yio_48SxqK1LDBf2T66Auk.jpg",
+width: 640,
+height: 640,
+user: {
+id: "3070382",
+firstName: "Achim",
+lastName: "Schauerte",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/3070382-5QRHZNQRAABNJBH4.jpg"
+}
+},
+visibility: "friends"
+}
+]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0,
+items: [ ]
+},
+isMayor: false
+},
+{
+id: "55649194498e5d3503b9051b",
+createdAt: 1432654228,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040585832",
+name: "Zürich, Schweiz"
+},
+exactContextLine: "Zürich, Schweiz",
+user: {
+id: "38799518",
+firstName: "Danny",
+lastName: "Thuering",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/38799518-JU03SOGW3AE2J5AH.jpg"
+}
+},
+venue: {
+id: "4ce41f2705f7a093da20a428",
+name: "Zunfthaus zur Zimmerleuten",
+contact: {
+phone: "+41442505363",
+formattedPhone: "+41 44 250 53 63"
+},
+location: {
+address: "Limmatquai 40",
+lat: 47.37060259262014,
+lng: 8.543047129696987,
+distance: 278658,
+postalCode: "8001",
+cc: "CH",
+city: "Zürich",
+state: "Zürich",
+country: "Schweiz",
+formattedAddress: [
+"Limmatquai 40",
+"8001 Zürich",
+"Schweiz"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1c4941735",
+name: "Restaurant",
+pluralName: "Restaurants",
+shortName: "Restaurant",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/default_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 895,
+usersCount: 785,
+tipCount: 21
+},
+url: "http://www.zunfthaus-zimmerleuten.ch",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 278650,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "5562e252498e17b95e9a6101",
+createdAt: 1432543826,
+type: "checkin",
+shout: "Frühstücksbuffet: all you can eat.",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040807075",
+name: "Leipzig"
+},
+exactContextLine: "Leipzig",
+user: {
+id: "32563436",
+firstName: "Ben",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs0.4sqi.net/img/user/",
+suffix: "/GMTOFATDPVNGLMUR.jpg"
+}
+},
+venue: {
+id: "4c6fc9e2d274b60c9482d70d",
+name: "Zoo Leipzig",
+contact: {
+phone: "03415933500",
+formattedPhone: "0341 5933500",
+twitter: "zoo_leipzig"
+},
+location: {
+address: "Pfaffendorfer Str. 29",
+lat: 51.35120063065598,
+lng: 12.368921041488647,
+distance: 309865,
+postalCode: "04105",
+cc: "DE",
+city: "Leipzig",
+state: "Sachsen",
+country: "Deutschland",
+formattedAddress: [
+"Pfaffendorfer Str. 29",
+"04105 Leipzig"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d17b941735",
+name: "Zoo",
+pluralName: "Zoos",
+shortName: "Zoo",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/zoo_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 4104,
+usersCount: 1742,
+tipCount: 42
+},
+url: "http://www.zoo-leipzig.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for Android",
+url: "https://www.swarmapp.com"
+},
+distance: 306613,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "5561cbdc498ecc0d67b95770",
+createdAt: 1432472540,
+type: "checkin",
+shout: "Tippitoppi. Wir landen gleich an! ARRR!",
+timeZoneOffset: 120,
+displayGeo: {
+id: "9151314443785854640",
+name: "Hohenweststedt"
+},
+exactContextLine: "Hohenweststedt",
+user: {
+id: "31752025",
+firstName: "Silke",
+lastName: "S",
+gender: "none",
+relationship: "friend",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/KEYL3BV1QICGNH2Y.jpg"
+}
+},
+venue: {
+id: "4fbf51cee4b01b86c44868b8",
+name: "MPS Mittelalterlich Phantasie Spectaculum",
+contact: { },
+location: {
+address: "Am Park 1",
+lat: 54.090144155839326,
+lng: 9.66320504527149,
+distance: 474552,
+cc: "DE",
+city: "Hohenweststedt",
+country: "Deutschland",
+formattedAddress: [
+"Am Park 1",
+"Hohenweststedt"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d1f1931735",
+name: "Allgemeine Unterhaltung",
+pluralName: "Allgemeine Unterhaltung",
+shortName: "Unterhaltung",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/default_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 32,
+usersCount: 27,
+tipCount: 2
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 474503,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 1,
+groups: [
+{
+type: "others",
+count: 1,
+items: [
+{
+id: "46015010",
+firstName: "Tolga",
+lastName: "Yılancı",
+gender: "male",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/46015010-5WH2SJUF35TKHQSA.jpg"
+}
+}
+]
+}
+],
+summary: "Tolga Yılancı"
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "55609413498e32b20794feab",
+createdAt: 1432392723,
+type: "checkin",
+shout: "with Supra",
+entities: [
+{
+id: "20532200",
+type: "user",
+indices: [
+5,
+10
+]
+}
+],
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040779401",
+name: "Quedlinburg"
+},
+exactContextLine: "Quedlinburg",
+with: [
+{
+id: "20532200",
+firstName: "Supra",
+lastName: "Julia",
+gender: "female",
+photo: {
+prefix: "https://irs3.4sqi.net/img/user/",
+suffix: "/NGVQSAHVTTM5LP5Y.jpg"
+}
+}
+],
+user: {
+id: "4223116",
+firstName: "Norman",
+lastName: "Rockmann",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs1.4sqi.net/img/user/",
+suffix: "/2SPKQZMNI5HC5JGW.jpg"
+}
+},
+venue: {
+id: "4e539df78877863330a432f6",
+name: "Domschatz Quedlinburg",
+contact: { },
+location: {
+address: "Schlossberg 1g",
+lat: 51.786121459921176,
+lng: 11.136724948883057,
+distance: 275475,
+postalCode: "06484",
+cc: "DE",
+city: "Quedlinburg",
+state: "Sachsen-Anhalt",
+country: "Deutschland",
+formattedAddress: [
+"Schlossberg 1g",
+"06484 Quedlinburg"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d190941735",
+name: "Geschichtsmuseum",
+pluralName: "Geschichtsmuseen",
+shortName: "Geschichtsmuseum",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/museum_history_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 36,
+usersCount: 33,
+tipCount: 1
+},
+url: "http://www.die-domschaetze.de",
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 275491,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "556064d8498e07bbe7e5ab20",
+createdAt: 1432380632,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594040839234",
+name: "Hamburg"
+},
+exactContextLine: "Hamburg",
+user: {
+id: "1035084",
+firstName: "Jacques",
+lastName: "Pense",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/1035084-1US0404OWGZRTLLE.jpg"
+}
+},
+venue: {
+id: "4b150ef5f964a52016a823e3",
+name: "Mercato Venezia",
+contact: {
+phone: "0404015853",
+formattedPhone: "040 4015853"
+},
+location: {
+address: "Eppendorfer Weg 87",
+lat: 53.572988,
+lng: 9.960098,
+distance: 421650,
+postalCode: "20259",
+cc: "DE",
+city: "Hamburg",
+state: "Hamburg",
+country: "Deutschland",
+formattedAddress: [
+"Eppendorfer Weg 87",
+"20259 Hamburg"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d110941735",
+name: "Italienisches Restaurant",
+pluralName: "Italienische Restaurants",
+shortName: "Italienisch",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 773,
+usersCount: 87,
+tipCount: 6
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 421660,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+},
+{
+id: "555f6981498ecb485ca05161",
+createdAt: 1432316289,
+type: "checkin",
+timeZoneOffset: 120,
+displayGeo: {
+id: "72057594041103331",
+name: "Italien"
+},
+exactContextLine: "Italien",
+user: {
+id: "2914284",
+firstName: "Christoph",
+lastName: "Pippert",
+gender: "male",
+relationship: "friend",
+photo: {
+prefix: "https://irs2.4sqi.net/img/user/",
+suffix: "/ZAXU4L123BO2H0XX.jpg"
+}
+},
+venue: {
+id: "4d6abd27dc858cfadef56873",
+name: "Trattoria "Da Roberto" Pizzeria",
+contact: { },
+location: {
+lat: 45.434999891841684,
+lng: 12.342465051390464,
+distance: 566102,
+cc: "IT",
+country: "Italien",
+formattedAddress: [
+"Italien"
+]
+},
+categories: [
+{
+id: "4bf58dd8d48988d110941735",
+name: "Italienisches Restaurant",
+pluralName: "Italienische Restaurants",
+shortName: "Italienisch",
+icon: {
+prefix: "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+suffix: ".png"
+},
+primary: true
+}
+],
+verified: false,
+stats: {
+checkinsCount: 341,
+usersCount: 332,
+tipCount: 22
+},
+specials: {
+count: 0
+}
+},
+source: {
+name: "Swarm for iOS",
+url: "https://www.swarmapp.com"
+},
+distance: 566119,
+photos: {
+count: 0,
+items: [ ]
+},
+posts: {
+count: 0,
+textCount: 0
+},
+likes: {
+count: 0,
+groups: [ ]
+},
+like: false,
+comments: {
+count: 0
+},
+isMayor: false
+}
+]
+}
+}
