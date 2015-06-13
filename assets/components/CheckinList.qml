@@ -133,6 +133,7 @@ Container {
                         username: ListItemData.checkinData.user.fullName
                         userHasLiked: ListItemData.checkinData.userHasLiked
                         stickerImage: ListItemData.checkinData.sticker.imageSmall
+                        stickerEffectImage: ListItemData.checkinData.sticker.imageEffect
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country

@@ -38,9 +38,12 @@ Container {
 
     // property if the current user has liked the checkin
     property string userHasLiked: ""
-    
+
     // property for the checkin sticker image, given as url
     property alias stickerImage: checkinStickerImage.url
+    
+    // property for the checkin sticker image, given as url
+    property alias stickerEffectImage: checkinStickerEffectImage.url
 
     // property for the user name, given as string
     property alias username: checkinUsername.text
@@ -94,7 +97,30 @@ Container {
             minHeight: ui.sdu(15)
             minWidth: ui.sdu(15)
         }
-
+        
+        // checkin sticker effects image
+        // this is a web image view provided by WebViewImage
+        WebImageView {
+            id: checkinStickerEffectImage
+            
+            // position and layout properties
+            verticalAlignment: VerticalAlignment.Bottom
+            horizontalAlignment: HorizontalAlignment.Center
+            
+            // set image size to maximum profile picture size
+            preferredHeight: ui.sdu(15)
+            preferredWidth: ui.sdu(15)
+            minHeight: ui.sdu(15)
+            minWidth: ui.sdu(15)
+            
+            // set initial visibility to false
+            // this will be set true when an image is set
+            visible: false
+            onUrlChanged: {
+                visible = true;
+            }
+        }
+        
         // mask the profile image to make it round
         ImageView {
             id: checkinUserProfileImageMask
@@ -128,22 +154,22 @@ Container {
             // this will be set when the checkin was liked
             visible: false
         }
-        
+
         // checkin sticker image
         // this is a web image view provided by WebViewImage
         WebImageView {
             id: checkinStickerImage
-            
+
             // position and layout properties
             verticalAlignment: VerticalAlignment.Bottom
             horizontalAlignment: HorizontalAlignment.Right
-            
+
             // set image size to maximum profile picture size
             preferredHeight: ui.sdu(7)
             preferredWidth: ui.sdu(7)
             minHeight: ui.sdu(7)
             minWidth: ui.sdu(7)
-                        
+
             // set initial visibility to false
             // this will be set true when an image is set
             visible: false
@@ -151,7 +177,7 @@ Container {
                 visible = true;
             }
         }
-        
+
         // handle tap on profile picture
         gestureHandlers: [
             TapHandler {

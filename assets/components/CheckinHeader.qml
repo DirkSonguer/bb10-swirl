@@ -33,6 +33,12 @@ Container {
     // venue image
     property alias venueImage: checkinHeaderVenueImage.url
 
+    // sticker image
+    property alias stickerImage: checkinHeaderStickerImage.url
+
+    // effects image
+    property alias stickerEffectImage: checkinHeaderStickerEffectImage.url
+
     // user data
     property alias userData: checkinHeaderUserdata.text
 
@@ -161,6 +167,29 @@ Container {
                 }
             }
 
+            // checkin sticker effects image
+            // this is a web image view provided by WebViewImage
+            WebImageView {
+                id: checkinHeaderStickerEffectImage
+
+                // position and layout properties
+                verticalAlignment: VerticalAlignment.Bottom
+                horizontalAlignment: HorizontalAlignment.Center
+
+                // set image size to maximum profile picture size
+                preferredHeight: ui.sdu(20)
+                preferredWidth: ui.sdu(20)
+                minHeight: ui.sdu(20)
+                minWidth: ui.sdu(20)
+
+                // set initial visibility to false
+                // this will be set true when an image is set
+                visible: false
+                onUrlChanged: {
+                    visible = true;
+                }
+            }
+
             // create the squircle mask around the image
             ImageView {
                 id: checkinHeaderVenueImageBackground
@@ -177,6 +206,29 @@ Container {
 
                 // mask image
                 imageSource: "asset:///images/assets/mask_blue_squircle.png"
+            }
+
+            // checkin sticker image
+            // this is a web image view provided by WebViewImage
+            WebImageView {
+                id: checkinHeaderStickerImage
+
+                // position and layout properties
+                verticalAlignment: VerticalAlignment.Bottom
+                horizontalAlignment: HorizontalAlignment.Right
+
+                // set image size to maximum profile picture size
+                preferredHeight: ui.sdu(10)
+                preferredWidth: ui.sdu(10)
+                minHeight: ui.sdu(10)
+                minWidth: ui.sdu(10)
+
+                // set initial visibility to false
+                // this will be set true when an image is set
+                visible: false
+                onUrlChanged: {
+                    visible = true;
+                }
             }
 
             // handle tap on venue image

@@ -242,7 +242,17 @@ Page {
         // fill venue header image with venue category icon
         // this will later be overwritten if a venue photo is found
         if ((checkinData.venue.locationCategories != "") && (checkinDetailHeader.venueImage == "")) {
-            checkinDetailHeader.venueImage = checkinData.venue.locationCategories[0].iconLarge
+            checkinDetailHeader.venueImage = checkinData.venue.locationCategories[0].iconLarge;
+        }
+
+        // fill sticker header image with sticker category icon
+        if (checkinData.sticker.imageFull != "") {
+            checkinDetailHeader.stickerImage = checkinData.sticker.imageFull;
+        }
+
+        // fill sticker header image with sticker category icon
+        if (checkinData.sticker.imageEffect != "") {
+            checkinDetailHeader.stickerEffectImage = checkinData.sticker.imageEffect;
         }
 
         // venue map
