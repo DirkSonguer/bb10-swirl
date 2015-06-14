@@ -209,7 +209,8 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 	url += "&venueId=" + venueId;
 	url += "&shout=" + encodeURIComponent(shout);
 	url += "&mentions=" + encodeURIComponent(mentions);
-	url += "&stickerId=" + stickerId;
+	if (stickerId)
+		url += "&stickerId=" + stickerId;
 	url += "&broadcast=" + broadcast;
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
@@ -250,7 +251,8 @@ function likeCheckin(checkinId, set, callingPage) {
 			// notificationTransformator.getNotificationDataFromObject(jsonObject.response.notifications[0].item);
 
 			// console.log("# Done adding checkin");
-			if (callingPage != 0) callingPage.likeDataLoaded();
+			if (callingPage != 0)
+				callingPage.likeDataLoaded();
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly

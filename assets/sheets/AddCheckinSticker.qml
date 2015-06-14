@@ -1,7 +1,7 @@
 // *************************************************** //
-// Add Friends to Checkin Page
+// Add Sticker to Checkin Page
 //
-// Displays a list of friends and allows interacting
+// Displays a list of stickers and allows interacting
 // with them to add them to a checkin.
 //
 // Author: Dirk Songuer
@@ -17,21 +17,21 @@ import "../components"
 // shared js files
 import "../global/globals.js" as Globals
 import "../global/copytext.js" as Copytext
-import "../foursquareapi/users.js" as UsersRepository
+import "../foursquareapi/stickers.js" as StickerRepository
 
 Page {
-    id: addFriendsListPage
+    id: addStickerListPage
 
-    // signal if friend data loading is complete
-    signal userFriendsDataLoaded(variant friendsData)
+    // signal if user profile data loading is complete
+    signal userStickerDataLoaded(variant stickerData)
 
-    // signal if friend data loading encountered an error
-    signal userFriendsDataError(variant errorData)
+    // signal if user profile data loading encountered an error
+    signal userStickerDataError(variant errorData)
 
     // property to hold the calling page
     // this will receive the list of selected items when the sheet is closed
     property variant callingPage
-    
+
     // property that holds the initially selected items
     property variant initiallySelected
 
@@ -53,45 +53,50 @@ Page {
             horizontalAlignment: HorizontalAlignment.Center
         }
 
-        // friends list
+        // sticker list
         // this will contain all the components and actions
         // for the friends list
-        FriendsListMultiselect {
-            id: friendList
+        StickerList {
+            id: stickerList
 
             // layout definition
             verticalAlignment: VerticalAlignment.Top
+
+            // sticker was clicked
+            onStickerClicked: {
+                callingPage.stickerId = stickerData.stickerId;
+                callingPage.stickerImage = stickerData.imageSmall;
+                addStickerSheet.close();
+            }
         }
     }
 
     // user data has been added
     onCreationCompleted: {
+        console.log("# Creation completed, loadig stickers");
+
         // load friends data for current user
-        UsersRepository.getFriendsForUser("self", addFriendsListPage);
+        StickerRepository.getStickersForUser("self", addStickerListPage);
 
         // show loader
-        loadingIndicator.showLoader(Copytext.swirlLoaderFriendData);
+        loadingIndicator.showLoader(Copytext.swirlLoaderStickerData);
     }
 
     // friends list has been loaded
     // fill friends list with user objects
-    onUserFriendsDataLoaded: {
+    onUserStickerDataLoaded: {
         // initially clear list
-        friendList.clearList(true);
+        stickerList.clearList(true);
 
         // iterate through data objects and fill list
-        for (var index in friendsData) {
-            // iterating through currently known items
-            var bSelected = false;
-            for (var iSelected in addFriendsListPage.initiallySelected) {
-                if (addFriendsListPage.initiallySelected[iSelected].userId == friendsData[index].userId) {
-                    // console.log("# Match found, flagging user " + friendsData[index].userId + " as selected");
-                    bSelected = true;
-                }
-            }
-            
+        for (var index in stickerData) {
+            // console.log("# Found sticker with id: " + stickerData[index].stickerId + " and active state " + stickerData[index].stickerActive);
+
             // add item to list
-            friendList.addToList(friendsData[index], bSelected, true);
+            if ((stickerData[index].type != "messageOnly") && (stickerData[index].stickerActive == 1)) {
+                // console.log("# Adding sticker to list with id: " + stickerData[index].stickerId);
+                stickerList.addToList(stickerData[index]);
+            }
         }
 
         // hide loader
@@ -101,29 +106,16 @@ Page {
     // close action for the sheet
     actions: [
         ActionItem {
-            title: "Add none"
+            title: "Cancel"
             imageSource: "asset:///images/icons/icon_close.png"
 
             ActionBar.placement: ActionBarPlacement.OnBar
 
             // close sheet when pressed
-            // note that the sheet is defined in the main.qml
             onTriggered: {
-                callingPage.addFriendList = new Array();
-                addFriendSheet.close();
-            }
-        },
-        ActionItem {
-            title: "Add selected"
-            imageSource: "asset:///images/icons/icon_ok.png"
-
-            ActionBar.placement: ActionBarPlacement.OnBar
-
-            // close sheet when pressed
-            // note that the sheet is defined in the main.qml
-            onTriggered: {
-                callingPage.addFriendList = friendList.selectedItems;
-                addFriendSheet.close();
+                callingPage.stickerId = false;
+                callingPage.stickerImage = false;
+                addStickerSheet.close();
             }
         }
     ]

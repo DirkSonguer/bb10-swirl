@@ -66,6 +66,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/ScoreList.qml) \
         $$quote($$BASEDIR/assets/components/SearchHeader.qml) \
         $$quote($$BASEDIR/assets/components/SearchInput.qml) \
+        $$quote($$BASEDIR/assets/components/StickerItem.qml) \
+        $$quote($$BASEDIR/assets/components/StickerList.qml) \
         $$quote($$BASEDIR/assets/components/UpdateItem.qml) \
         $$quote($$BASEDIR/assets/components/UpdateList.qml) \
         $$quote($$BASEDIR/assets/components/UserHeader.qml) \
@@ -75,6 +77,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/VenueList.qml) \
         $$quote($$BASEDIR/assets/covers/RecentCheckins.qml) \
         $$quote($$BASEDIR/assets/foursquareapi/checkins.js) \
+        $$quote($$BASEDIR/assets/foursquareapi/stickers.js) \
         $$quote($$BASEDIR/assets/foursquareapi/transformators.js) \
         $$quote($$BASEDIR/assets/foursquareapi/updates.js) \
         $$quote($$BASEDIR/assets/foursquareapi/users.js) \
@@ -117,6 +120,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search_dimmed.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sms_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_sticker_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
@@ -133,6 +137,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
         $$quote($$BASEDIR/assets/sheets/AddCheckinFriends.qml) \
+        $$quote($$BASEDIR/assets/sheets/AddCheckinSticker.qml) \
         $$quote($$BASEDIR/assets/sheets/AdvancedVenueSearch.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogout.qml) \

@@ -15,6 +15,9 @@ function FoursquareStickerData() {
 
 	// name of the sticker
 	this.name = "";
+	
+	// flag that sticker is active
+	this.stickerActive = 0;
 
 	// sticker type
 	this.type = "";
@@ -34,4 +37,10 @@ function FoursquareStickerData() {
 	// sticker group
 	this.stickerGroupIndex = "";
 	this.stickerGroupName = "";
+	
+	// progress level
+	this.progressPercentComplete = "";
+	this.progressCheckinsRequired = "";
+	this.progressCheckinsEarned = "";
+	this.progressText = "";
 }

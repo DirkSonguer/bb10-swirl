@@ -48,38 +48,32 @@ The sticker object looks a little something like this:
 
 Example:
 
-sticker: {
-	id: "52a659800000000000000019",
-	name: "Bessie",
+{
+	id: "52a659800000000000000009",
+	name: "Suds McGee",
 	image: {
 		prefix: "https://irs0.4sqi.net/img/sticker/",
 		sizes: [
-			60,
-			94
+		60,
+		94
 		],
-		name: "/unicorn_f5b188.png"
+		name: "/drunk_9978e9.png"
 	},
-	effects: [
-	{
-		type: "supersize",
-		detail: {
-			prefix: "https://irs0.4sqi.net/img/sticker/",
-			sizes: [
-				150
-			],
-			name: "/unicorn_859bd0.png"
-		}
-	}
-	],
-	stickerType: "default",
+	locked: true,
+	stickerType: "unlockable",
 	group: {
-		name: "special",
-		index: 4
+		name: "collectible",
+		index: 5
 	},
 	pickerPosition: {
-		page: 3,
-		index: 4
+		page: 0,
+		index: 5
 	},
-	unlockText: "Du hast mit diesem Sticker begonnen – ein Geschenk von uns für dich."
-},
-
+	unlockText: "Du hast diesen Sticker bei Bars freigeschaltet",
+	progress: {
+		percentComplete: 75,
+		checkinsRequired: 4,
+		checkinsEarned: 3,
+		progressText: "Check-in at Bars 4 times to unlock this sticker"
+	}
+}

@@ -265,7 +265,7 @@ StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject
 
 	// sticker type
 	stickerData.type = stickerObject.stickerType;
-	
+
 	// unlock text
 	stickerData.unlockText = stickerObject.unlockText;
 
@@ -276,20 +276,57 @@ StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject
 	}
 
 	// sticker effect
-	if ( (typeof stickerObject.effects !== "undefined") && (typeof stickerObject.effects[0] !== "undefined") && (typeof stickerObject.effects[0].detail !== "undefined") ) {
+	if ((typeof stickerObject.effects !== "undefined") && (typeof stickerObject.effects[0] !== "undefined") && (typeof stickerObject.effects[0].detail !== "undefined")) {
 		stickerData.imageEffect = stickerObject.effects[0].detail.prefix + stickerObject.effects[0].detail.sizes[0] + stickerObject.effects[0].detail.name;
 	}
 
 	// picker position
-	stickerData.pickerPositionIndex = stickerObject.pickerPosition.index;
-	stickerData.pickerPositionPage = stickerObject.pickerPosition.page;
+	if ((typeof stickerObject.pickerPosition != 'undefined') && (typeof stickerObject.pickerPosition.index != 'undefined')) {
+		stickerData.pickerPositionIndex = stickerObject.pickerPosition.index;
+		stickerData.pickerPositionPage = stickerObject.pickerPosition.page;
+	}
 
 	// sticker group
-	stickerData.stickerGroupIndex = stickerObject.group.index;
-	stickerData.stickerGroupName = stickerObject.group.name;	
+	if ((typeof stickerObject.group != 'undefined') && (typeof stickerObject.group.index != 'undefined')) {
+		stickerData.stickerGroupIndex = stickerObject.group.index;
+		stickerData.stickerGroupName = stickerObject.group.name;
+	}
 	
+	// sticker progress and active state
+	if ((typeof stickerObject.progress != 'undefined') && (typeof stickerObject.progress.checkinsRequired != 'undefined')) {
+		// console.log("# Sticker not obtained yet, text is " + stickerObject.progress.progressText);
+		this.progressPercentComplete = stickerObject.progress.percentComplete;
+		this.progressCheckinsRequired = stickerObject.progress.checkinsRequired;
+		this.progressCheckinsEarned = stickerObject.progress.checkinsEarned;
+		this.progressText = stickerObject.progress.progressText;
+		stickerData.stickerActive = 0;
+	} else {
+		// console.log("# Setting sticker state to true");
+		stickerData.stickerActive = 1;
+	}
+
 	// console.log("# Done transforming sticker item");
 	return stickerData;
+};
+
+// Extract all sticker data from an array of sticker objects
+// The resulting data is stored as array of FoursquareStickerData()
+StickerTransformator.prototype.getStickerDataFromArray = function(stickerObjectArray) {
+	// console.log("# Transforming sticker array with " + stickerObjectArray.length + " items");
+
+	// create new return array
+	var stickerArray = new Array();
+
+	// iterate through all media items
+	for ( var index in stickerObjectArray) {
+		// get sticker data item and store it into return array
+		var stickerData = new FoursquareStickerData();
+		stickerData = this.getStickerDataFromObject(stickerObjectArray[index]);
+		stickerArray[index] = stickerData;
+	}
+
+	// console.log("# Done transforming sticker array, transformed " + stickerArray.length + " items");
+	return stickerArray;
 };
 
 // *************************************************** //

@@ -1,5 +1,5 @@
 1
-116
+121
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -30,6 +30,8 @@ components/ScoreItem.qml
 components/ScoreList.qml
 components/SearchHeader.qml
 components/SearchInput.qml
+components/StickerItem.qml
+components/StickerList.qml
 components/UpdateItem.qml
 components/UpdateList.qml
 components/UserHeader.qml
@@ -39,6 +41,7 @@ components/VenueItem.qml
 components/VenueList.qml
 covers/RecentCheckins.qml
 foursquareapi/checkins.js
+foursquareapi/stickers.js
 foursquareapi/transformators.js
 foursquareapi/updates.js
 foursquareapi/users.js
@@ -81,6 +84,7 @@ images/icons/icon_reload.png
 images/icons/icon_search.png
 images/icons/icon_search_dimmed.png
 images/icons/icon_sms_w.png
+images/icons/icon_sticker_inactive.png
 images/icons/icon_twitter_active.png
 images/icons/icon_twitter_disabled.png
 images/icons/icon_twitter_inactive.png
@@ -97,6 +101,7 @@ pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
 sheets/About.qml
 sheets/AddCheckinFriends.qml
+sheets/AddCheckinSticker.qml
 sheets/AdvancedVenueSearch.qml
 sheets/UserLogin.qml
 sheets/UserLogout.qml

@@ -12,6 +12,9 @@ import bb.cascades 1.3
 import bb.platform 1.3
 import bb.cascades.pickers 1.0
 
+// import image url loader component
+import WebImageView 1.0
+
 // import timer type
 import QtTimer 1.0
 
@@ -66,6 +69,11 @@ Page {
     // list of friends to add to checkin
     property variant addFriendList
 
+    // checkin sticker data
+    // this will be handed over by the sticker sheet
+    property variant stickerId
+    property variant stickerImage
+
     // flag to check if venue data detail object has been loaded
     property bool venueDataDetailsLoaded: false
 
@@ -84,16 +92,16 @@ Page {
             // header with name of the venue
             VenueHeaderInteractive {
                 id: addCheckinHeader
-                
+
                 onLocationClicked: {
                     locationBBMapsInvoker.go();
                 }
-                
+
                 onPhotosClicked: {
                     // console.log("# Photo tile clicked");
                     var photoGalleryPage = photoGalleryComponent.createObject();
                     photoGalleryPage.photoData = addCheckinPage.venueData.photos;
-                    navigationPane.push(photoGalleryPage);                    
+                    navigationPane.push(photoGalleryPage);
                 }
             }
 
@@ -192,6 +200,86 @@ Page {
                         }
                     }
 
+                    Container {
+                        id: addCheckinStickersContainer
+
+                        // orientation definition
+                        layout: DockLayout {
+                        }
+
+                        // layout definition
+                        leftMargin: ui.sdu(1)
+                        preferredWidth: ui.sdu(9)
+                        preferredHeight: ui.sdu(9)
+
+                        // background colour
+                        background: Color.create(Globals.blackberryLighterBlue)
+
+                        WebImageView {
+                            id: addCheckinStickers
+
+                            preferredWidth: ui.sdu(7)
+                            preferredHeight: ui.sdu(7)
+
+                            // layout definition
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Center
+
+                            // set initial visibility to false
+                            // will be set true if user has selected a sticker
+                            visible: false
+                        }
+
+                        ImageView {
+                            id: addCheckinStickerInactive
+
+                            preferredWidth: ui.sdu(9)
+                            preferredHeight: ui.sdu(9)
+
+                            // layout definition
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Center
+
+                            imageSource: "asset:///images/icons/icon_sticker_inactive.png"
+                        }
+
+                        // open respective sticker sheet
+                        onTouch: {
+                            // user interaction
+                            if (event.touchType == TouchType.Down) {
+                                console.log("# sticker clicked");
+
+                                // create add sticker sheet
+                                var addStickerPage = addStickerComponent.createObject();
+                                addStickerPage.callingPage = addCheckinPage;
+                                addStickerSheet.setContent(addStickerPage);
+                                addStickerSheet.open();
+                            }
+                        }
+                    }
+                    /*
+                     * ImageButton {
+                     * id: addCheckinStickers
+                     * 
+                     * // layout definition
+                     * leftMargin: ui.sdu(1)
+                     * preferredWidth: ui.sdu(9)
+                     * preferredHeight: ui.sdu(9)
+                     * 
+                     * defaultImageSource: "asset:///images/icons/icon_addfriends_active.png"
+                     * 
+                     * // open respective sticker sheet
+                     * onTouch: {
+                     * console.log("# sticker clicked");
+                     * 
+                     * // create add sticker sheet
+                     * var addStickerPage = addStickerComponent.createObject();
+                     * addStickerPage.callingPage = addCheckinPage;
+                     * addStickerSheet.setContent(addStickerPage);
+                     * addStickerSheet.open();
+                     * }
+                     * }
+                     */
                     // add friends to checkin
                     ImageToggleButton {
                         id: addCheckinFriends
@@ -378,7 +466,7 @@ Page {
                             }
 
                             // add checkin
-                            CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, shout, mentions, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
+                            CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, shout, addCheckinPage.stickerId, mentions, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
 
                             // hide input and show loader
                             addCheckinContainer.visible = false;
@@ -500,7 +588,7 @@ Page {
     // fill entire page components with data
     onVenueDetailDataLoaded: {
         console.log("# Venue detail data loaded for venue " + venueData.venueId);
-        
+
         addCheckinPage.venueDataDetailsLoaded = true;
         addCheckinPage.venueData = venueData;
 
@@ -508,7 +596,7 @@ Page {
         addCheckinHeader.venueLocation = venueData.location;
         addCheckinHeader.venueIcon = venueData.locationCategories[0].iconLarge;
 
-        console.log("# Photos: " + venueData.photoCount);
+        // console.log("# Photos: " + venueData.photoCount);
 
         // check if checkin has photos
         if ((venueData.photoCount > 0) && (venueData.photos !== "")) {
@@ -569,7 +657,7 @@ Page {
     // friends list has been changed
     // update friends label to reflect changes
     onAddFriendListChanged: {
-        console.log("# Found " + addFriendList.length + " friends to add to checkin");
+        // console.log("# Found " + addFriendList.length + " friends to add to checkin");
 
         // reset labels
         textCounter.text = 140 - addCheckinInput.currentTextLength;
@@ -594,6 +682,19 @@ Page {
             // update counter to reflect new value
             // note that we add 3 to include " - "
             textCounter.text = 140 - (addCheckinInput.currentTextLength + addedFriendsLabel.text.length + 3);
+        }
+    }
+
+    // sticker has been chosen
+    // update image on button
+    onStickerImageChanged: {
+        if (addCheckinPage.stickerImage) {
+            addCheckinStickers.url = addCheckinPage.stickerImage;
+            addCheckinStickers.visible = true;
+            addCheckinStickerInactive.visible = false;
+        } else {
+            addCheckinStickerInactive.visible = true;
+            addCheckinStickers.visible = false;
         }
     }
 
@@ -636,6 +737,18 @@ Page {
                 ComponentDefinition {
                     id: addFriendComponent
                     source: "../sheets/AddCheckinFriends.qml"
+                }
+            ]
+        },
+        // sheet for adding friends page
+        Sheet {
+            id: addStickerSheet
+
+            // attach a component for the about page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: addStickerComponent
+                    source: "../sheets/AddCheckinSticker.qml"
                 }
             ]
         }
