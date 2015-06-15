@@ -209,14 +209,13 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 	url += "&venueId=" + venueId;
 	url += "&shout=" + encodeURIComponent(shout);
 	url += "&mentions=" + encodeURIComponent(mentions);
-	if (stickerId)
-		url += "&stickerId=" + stickerId;
+	url += "&stickerId=" + stickerId;
 	url += "&broadcast=" + broadcast;
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Adding checkin with url: " + url);
+	console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }

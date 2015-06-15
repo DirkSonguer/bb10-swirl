@@ -257,29 +257,7 @@ Page {
                             }
                         }
                     }
-                    /*
-                     * ImageButton {
-                     * id: addCheckinStickers
-                     * 
-                     * // layout definition
-                     * leftMargin: ui.sdu(1)
-                     * preferredWidth: ui.sdu(9)
-                     * preferredHeight: ui.sdu(9)
-                     * 
-                     * defaultImageSource: "asset:///images/icons/icon_addfriends_active.png"
-                     * 
-                     * // open respective sticker sheet
-                     * onTouch: {
-                     * console.log("# sticker clicked");
-                     * 
-                     * // create add sticker sheet
-                     * var addStickerPage = addStickerComponent.createObject();
-                     * addStickerPage.callingPage = addCheckinPage;
-                     * addStickerSheet.setContent(addStickerPage);
-                     * addStickerSheet.open();
-                     * }
-                     * }
-                     */
+
                     // add friends to checkin
                     ImageToggleButton {
                         id: addCheckinFriends
@@ -302,12 +280,14 @@ Page {
 
                         // open respective friend sheet
                         onTouch: {
-                            // create add friend sheet
-                            var addFriendPage = addFriendComponent.createObject();
-                            addFriendPage.callingPage = addCheckinPage;
-                            addFriendPage.initiallySelected = addCheckinPage.addFriendList;
-                            addFriendSheet.setContent(addFriendPage);
-                            addFriendSheet.open();
+                            if (event.touchType == TouchType.Down) {
+                                // create add friend sheet
+                                var addFriendPage = addFriendComponent.createObject();
+                                addFriendPage.callingPage = addCheckinPage;
+                                addFriendPage.initiallySelected = addCheckinPage.addFriendList;
+                                addFriendSheet.setContent(addFriendPage);
+                                addFriendSheet.open();
+                            }
                         }
                     }
 
@@ -333,7 +313,9 @@ Page {
 
                         // open file picker on tap
                         onTouch: {
-                            imageFilePicker.open();
+                            if (event.touchType == TouchType.Down) {
+                                imageFilePicker.open();
+                            }
                         }
 
                         // add file picker object

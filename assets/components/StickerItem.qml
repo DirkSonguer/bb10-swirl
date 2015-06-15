@@ -63,10 +63,10 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(15)
-            preferredWidth: ui.sdu(15)
-            minHeight: ui.sdu(15)
-            minWidth: ui.sdu(15)
+            preferredHeight: ui.sdu(14)
+            preferredWidth: ui.sdu(14)
+            minHeight: ui.sdu(14)
+            minWidth: ui.sdu(14)
         }
     }
 
@@ -90,6 +90,7 @@ Container {
             textStyle.fontSize: FontSize.Small
             textStyle.textAlign: TextAlign.Center
             textStyle.color: Color.create(Globals.blackberryStandardBlue)
+            multiline: true
         }
     }
 
