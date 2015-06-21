@@ -50,7 +50,7 @@ NavigationPane {
 
         // signal to load the content for the main page
         signal loadContent();
-        
+
         // signal to update the cover
         signal updateCover();
 
@@ -254,6 +254,15 @@ NavigationPane {
             }
         }
 
+        // around you and checkin data was loaded and transformed
+        // this checks for an oauth error
+        onRecentCheckinDataError: {
+            // console.log("# Error occured on loading recent data with type " + errorData);
+            if (errorData === "invalid_auth") {
+                mainMenuLogout.triggered();
+            }
+        }
+
         // check if new updates have been found or not
         onUpdateCountDataLoaded: {
             if (updateCount > 0) {
@@ -261,7 +270,7 @@ NavigationPane {
                 updatesPageAction.imageSource = "asset:///images/icons/icon_notification_available.png"
             }
         }
-        
+
         // send the update signal to the scene cover component
         onUpdateCover: {
             recentCheckinCover.content.updateCover();

@@ -124,7 +124,7 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 		// eval the response text to check the content
 		var jsonObject = eval('(' + httpResponseText + ')');
 		if (jsonObject.error == null) {
-			// console.log("# JSON evaluation successful");
+			console.log("# JSON evaluation successful");
 
 			// the error was handled and described by Foursquare
 			// fill the error data object with the Foursquare error description
@@ -132,9 +132,9 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 			this.errorData.errorCode = jsonObject.meta.code;
 			this.errorData.errorMessage = jsonObject.meta.errorDetail;
 
-			if (this.errorData.errorType === "OAuthAccessTokenException") {
-				// TODO: Add ForcedLogoutPage
-				// pageStack.push(Qt.resolvedUrl("ForcedLogoutPage.qml"));
+			if (this.errorData.errorType === "invalid_auth") {
+				// console.log("# Foursquare returned oauth invalid error. Force logout needed.");
+				mainPage.recentCheckinDataError("invalid_auth");
 				return;
 			}
 		} else {
