@@ -13,7 +13,7 @@ Example 1: https://api.foursquare.com/v2/stickers/54c6a1b5e5086476d5885474/
 Example 2: https://api.foursquare.com/v2/stickers/all/
 
 
-Getting stickers for a specific user
+Getting available stickers for a specific user
 
 You can request all stickers that are available for a specific user. This workds for "self" (the currently logged in user) and for any user id.
 
@@ -24,17 +24,7 @@ Example 2: https://api.foursquare.com/v2/users/6625189/stickers
 
 Stickers in a checkin
 
-Each checkin for which the user added a checkin will contain a sticker object.
-
-
-Add a sticker to a checkin
-
-
-
-
-The sticker object
-
-The sticker object looks a little something like this:
+Each checkin for which the user added a checkin will contain a sticker object. The sticker object looks a little something like this:
 
 "id": The id of the respective sticker (integer)
 "name": The localised name of the sticker (string)
@@ -77,3 +67,11 @@ Example:
 		progressText: "Check-in at Bars 4 times to unlock this sticker"
 	}
 }
+
+
+Add a sticker to a checkin
+
+Checkins work as usual. A sticker is connected to a checkin by adding a stickerId parameter with a valid ID of a sticker.
+
+Example: https://api.foursquare.com/v2/checkins/add? ... &stickerId=54c6a1b5e5086476d5885474
+

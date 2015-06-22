@@ -108,6 +108,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_image_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_mayorship_crown.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification_available.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_ok.png) \

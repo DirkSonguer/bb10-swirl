@@ -34,6 +34,9 @@ function FoursquareCheckinData() {
 	this.commentCount = "";
 	this.likeCount = "";
 	this.photoCount = "";
+	
+	// mayorship status
+	this.isMayor = "";
 
 	// this is filled by a FoursquareUserData object
 	this.user = "";

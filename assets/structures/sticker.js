@@ -15,14 +15,12 @@ function FoursquareStickerData() {
 
 	// name of the sticker
 	this.name = "";
-	
-	// flag that sticker is active
-	this.stickerActive = 0;
 
 	// sticker type
 	this.type = "";
 
-	// sticker unlock text
+	// sticker lock flag and unlock text
+	this.locked = "";
 	this.unlockText = "";
 
 	// sticker images

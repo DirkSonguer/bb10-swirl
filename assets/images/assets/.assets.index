@@ -1,5 +1,5 @@
 1
-121
+122
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -72,6 +72,7 @@ images/icons/icon_image_active.png
 images/icons/icon_image_inactive.png
 images/icons/icon_liked_w.png
 images/icons/icon_mail_w.png
+images/icons/icon_mayorship_crown.png
 images/icons/icon_notification.png
 images/icons/icon_notification_available.png
 images/icons/icon_ok.png

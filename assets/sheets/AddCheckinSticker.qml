@@ -90,10 +90,10 @@ Page {
 
         // iterate through data objects and fill list
         for (var index in stickerData) {
-            // console.log("# Found sticker with id: " + stickerData[index].stickerId + " and active state " + stickerData[index].stickerActive);
+            // console.log("# Found sticker with id: " + stickerData[index].stickerId + " and active state " + stickerData[index].locked);
 
             // add item to list
-            if ((stickerData[index].type != "messageOnly") && (stickerData[index].stickerActive == 1)) {
+            if (! stickerData[index].locked) {
                 // console.log("# Adding sticker to list with id: " + stickerData[index].stickerId);
                 stickerList.addToList(stickerData[index]);
             }

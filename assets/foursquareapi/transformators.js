@@ -81,6 +81,9 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// liked state
 	checkinData.userHasLiked = checkinObject.like;
 
+	// mayor state
+	checkinData.isMayor = checkinObject.isMayor;
+
 	// current interaction counts
 	if (typeof checkinObject.likes !== "undefined")
 		checkinData.likeCount = checkinObject.likes.count;
@@ -292,17 +295,18 @@ StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject
 		stickerData.stickerGroupName = stickerObject.group.name;
 	}
 	
-	// sticker progress and active state
+	// sticker active state
+	if (typeof stickerObject.locked != 'undefined') {
+		stickerData.locked = stickerObject.locked;
+	}
+	
+	// sticker progress
 	if ((typeof stickerObject.progress != 'undefined') && (typeof stickerObject.progress.checkinsRequired != 'undefined')) {
 		// console.log("# Sticker not obtained yet, text is " + stickerObject.progress.progressText);
 		this.progressPercentComplete = stickerObject.progress.percentComplete;
 		this.progressCheckinsRequired = stickerObject.progress.checkinsRequired;
 		this.progressCheckinsEarned = stickerObject.progress.checkinsEarned;
 		this.progressText = stickerObject.progress.progressText;
-		stickerData.stickerActive = 0;
-	} else {
-		// console.log("# Setting sticker state to true");
-		stickerData.stickerActive = 1;
 	}
 
 	// console.log("# Done transforming sticker item");

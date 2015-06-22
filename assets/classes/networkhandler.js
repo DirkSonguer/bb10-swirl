@@ -124,7 +124,7 @@ NetworkHandler.prototype.checkResponseForErrors = function(httpResponseText) {
 		// eval the response text to check the content
 		var jsonObject = eval('(' + httpResponseText + ')');
 		if (jsonObject.error == null) {
-			console.log("# JSON evaluation successful");
+			// console.log("# JSON evaluation successful");
 
 			// the error was handled and described by Foursquare
 			// fill the error data object with the Foursquare error description

@@ -95,7 +95,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 		url += "&afterTimestamp=" + currentTimestamp;
 	}
 
-	// console.log("# Loading recent checkins with url: " + url);
+	console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

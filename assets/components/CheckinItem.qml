@@ -39,9 +39,12 @@ Container {
     // property if the current user has liked the checkin
     property string userHasLiked: ""
 
+    // property if the current user is the mayor for the checkin venue
+    property string isMayor: ""
+
     // property for the checkin sticker image, given as url
     property alias stickerImage: checkinStickerImage.url
-    
+
     // property for the checkin sticker image, given as url
     property alias stickerEffectImage: checkinStickerEffectImage.url
 
@@ -81,6 +84,10 @@ Container {
         // layout orientation
         layout: DockLayout {
         }
+        
+        // deactivate clipping
+        // this is used for the mayor crown to stick over the boudaries
+        clipContentToBounds: false
 
         // profile image
         // this is a web image view provided by WebViewImage
@@ -97,22 +104,22 @@ Container {
             minHeight: ui.sdu(15)
             minWidth: ui.sdu(15)
         }
-        
+
         // checkin sticker effects image
         // this is a web image view provided by WebViewImage
         WebImageView {
             id: checkinStickerEffectImage
-            
+
             // position and layout properties
             verticalAlignment: VerticalAlignment.Bottom
             horizontalAlignment: HorizontalAlignment.Center
-            
+
             // set image size to maximum profile picture size
             preferredHeight: ui.sdu(15)
             preferredWidth: ui.sdu(15)
             minHeight: ui.sdu(15)
             minWidth: ui.sdu(15)
-            
+
             // set initial visibility to false
             // this will be set true when an image is set
             visible: false
@@ -120,7 +127,7 @@ Container {
                 visible = true;
             }
         }
-        
+
         // mask the profile image to make it round
         ImageView {
             id: checkinUserProfileImageMask
@@ -139,6 +146,53 @@ Container {
             imageSource: "asset:///images/assets/mask_squircle.png"
         }
 
+        // checkin sticker image
+        // this is a web image view provided by WebViewImage
+        WebImageView {
+            id: checkinStickerImage
+
+            // position and layout properties
+            verticalAlignment: VerticalAlignment.Bottom
+            horizontalAlignment: HorizontalAlignment.Right
+
+            // set image size to sticker size
+            preferredHeight: ui.sdu(7)
+            preferredWidth: ui.sdu(7)
+            minHeight: ui.sdu(7)
+            minWidth: ui.sdu(7)
+
+            // set initial visibility to false
+            // this will be set true when an image is set
+            visible: false
+            onUrlChanged: {
+                visible = true;
+            }
+        }
+
+        // mayorship icon
+        ImageView {
+            id: checkinMayorshipIconImage
+
+            // position and layout properties
+            verticalAlignment: VerticalAlignment.Top
+            horizontalAlignment: HorizontalAlignment.Right
+
+            // set image size to sticker size
+            translationX: ui.sdu(1)
+            translationY: -ui.sdu(1)
+            preferredHeight: ui.sdu(7)
+            preferredWidth: ui.sdu(7)
+            minHeight: ui.sdu(7)
+            minWidth: ui.sdu(7)
+
+            // mask image
+            imageSource: "asset:///images/icons/icon_mayorship_crown.png"
+
+            // set initial visibility to false
+            // this will be set when the user is mayor
+            visible: false
+        }
+
         // like icon
         ImageView {
             id: checkinLikeIconImage
@@ -153,29 +207,6 @@ Container {
             // set initial visibility to false
             // this will be set when the checkin was liked
             visible: false
-        }
-
-        // checkin sticker image
-        // this is a web image view provided by WebViewImage
-        WebImageView {
-            id: checkinStickerImage
-
-            // position and layout properties
-            verticalAlignment: VerticalAlignment.Bottom
-            horizontalAlignment: HorizontalAlignment.Right
-
-            // set image size to maximum profile picture size
-            preferredHeight: ui.sdu(7)
-            preferredWidth: ui.sdu(7)
-            minHeight: ui.sdu(7)
-            minWidth: ui.sdu(7)
-
-            // set initial visibility to false
-            // this will be set true when an image is set
-            visible: false
-            onUrlChanged: {
-                visible = true;
-            }
         }
 
         // handle tap on profile picture
@@ -354,6 +385,16 @@ Container {
             checkinLikeIconImage.visible = false;
             checkinLikeAction.title = "Like checkin";
             checkinLikeAction.imageSource = "asset:///images/icons/icon_liked_w.png";
+        }
+    }
+
+    // user is mayor
+    onIsMayorChanged: {
+        if (isMayor == "true") {
+            checkinMayorshipIconImage.visible = true;
+            checkinStickerImage.visible = false;
+        } else {            
+            checkinMayorshipIconImage.visible = false;
         }
     }
 

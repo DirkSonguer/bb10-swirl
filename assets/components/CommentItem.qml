@@ -147,7 +147,7 @@ Container {
     gestureHandlers: [
         TapHandler {
             onTapped: {
-                Qt.commentClicked();
+                commentItem.commentClicked();
             }
         }
     ]
