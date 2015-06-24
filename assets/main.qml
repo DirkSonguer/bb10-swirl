@@ -359,7 +359,7 @@ NavigationPane {
 
         // application menu items
         actions: [
-            // action for ratinig the app
+            // action for rating the app
             ActionItem {
                 id: mainMenuAbout
                 title: "About"
@@ -392,6 +392,18 @@ NavigationPane {
                 imageSource: "asset:///images/icons/icon_bbworld.png"
                 onTriggered: {
                     rateAppLink.trigger("bb.action.OPEN");
+                }
+            },
+            // action for app settings
+            ActionItem {
+                id: mainMenuSettings
+                title: "Settings"
+                imageSource: "asset:///images/icons/icon_settings.png"
+                onTriggered: {
+                    // create settings sheet
+                    var aboutSheetPage = aboutComponent.createObject();
+                    aboutSheet.setContent(aboutSheetPage);
+                    aboutSheet.open();
                 }
             }
         ]

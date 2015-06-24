@@ -1,6 +1,9 @@
 v 1.7.0
 ---------
 
+* Added: Mayorships!
+* Added: Mayor crown added to checkin stream
+
 
 v 1.6.1
 ---------
@@ -13,6 +16,8 @@ v 1.6.0
 ---------
 
 * Added: Stickers!
+* Added: Stickers added to checkin stream
+* Added: Stickers can be added to checkins now
 * Added: Additional information during checking when clicking on the venue header
 * Fixed: If oauth key is invalid, log out of foursquare
 

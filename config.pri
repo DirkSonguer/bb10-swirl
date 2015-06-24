@@ -120,6 +120,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_reload.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_search_dimmed.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_settings.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sms_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sticker_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
