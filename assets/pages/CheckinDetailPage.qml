@@ -219,7 +219,7 @@ Page {
     // note that this is a simplified checkin object without comments,
     // so we reload the full one as well
     onCheckinDataChanged: {
-        console.log("# Checkin object handed over to the page");
+        // console.log("# Checkin object handed over to the page");
 
         // check if full venue object has been loaded
         if (! checkinDetailPage.venueDataDetailsLoaded) {
@@ -296,7 +296,7 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
         // set data loaded flag to true
         checkinDetailPage.venueDataDetailsLoaded = true;

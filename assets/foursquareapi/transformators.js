@@ -714,7 +714,7 @@ function NotificationTransformator() {
 // Extract all notification data from a checkin object
 // The resulting data is stored as FoursquareNotificationData()
 NotificationTransformator.prototype.getNotificationDataFromObject = function(notificationObject) {
-	console.log("# Transforming notification item");
+	// console.log("# Transforming notification item");
 
 	// create new data object
 	var notificationData = new FoursquareNotificationData();
@@ -741,14 +741,14 @@ NotificationTransformator.prototype.getNotificationDataFromObject = function(not
 	if (typeof notificationObject.type !== "undefined")
 		notificationData.type = notificationObject.type;
 
-	console.log("# Done transforming notification item");
+	// console.log("# Done transforming notification item");
 	return notificationData;
 };
 
 // Extract all notification data from an array of notification objects
 // The resulting data is stored as array of FoursquareNotificationData()
 NotificationTransformator.prototype.getNotificationDataFromArray = function(notificationObjectArray) {
-	console.log("# Transforming notification array with " + notificationObjectArray.length + " items");
+	// console.log("# Transforming notification array with " + notificationObjectArray.length + " items");
 
 	// create new return array
 	var notificationDataArray = new Array();
@@ -761,7 +761,7 @@ NotificationTransformator.prototype.getNotificationDataFromArray = function(noti
 		notificationDataArray[index] = notificationData;
 	}
 
-	console.log("# Done transforming notification array");
+	// console.log("# Done transforming notification array");
 	return notificationDataArray;
 };
 

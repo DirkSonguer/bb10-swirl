@@ -247,7 +247,7 @@ Page {
                         onTouch: {
                             // user interaction
                             if (event.touchType == TouchType.Down) {
-                                console.log("# sticker clicked");
+                                // console.log("# sticker clicked");
 
                                 // create add sticker sheet
                                 var addStickerPage = addStickerComponent.createObject();
@@ -569,7 +569,7 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onVenueDetailDataLoaded: {
-        console.log("# Venue detail data loaded for venue " + venueData.venueId);
+        // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
         addCheckinPage.venueDataDetailsLoaded = true;
         addCheckinPage.venueData = venueData;

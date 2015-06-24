@@ -134,7 +134,7 @@ Container {
                         userHasLiked: ListItemData.checkinData.userHasLiked
                         stickerImage: ListItemData.checkinData.sticker.imageSmall
                         stickerEffectImage: ListItemData.checkinData.sticker.imageEffect
-                        isMayor: ListItemData.checkinData.isMayor
+                        // isMayor: ListItemData.checkinData.isMayor
                         profileImage: ListItemData.checkinData.user.profileImageMedium
                         locationName: ListItemData.checkinData.venue.name
                         locationCity: ListItemData.checkinData.venue.location.city + ", " + ListItemData.checkinData.venue.location.country

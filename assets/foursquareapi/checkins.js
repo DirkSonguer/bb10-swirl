@@ -95,7 +95,7 @@ function getRecentCheckins(currentGeoLocation, currentTimestamp, callingPage) {
 		url += "&afterTimestamp=" + currentTimestamp;
 	}
 
-	console.log("# Loading recent checkins with url: " + url);
+	// console.log("# Loading recent checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -189,7 +189,7 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
 				callingPage.addCheckinDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -202,6 +202,11 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 		return false;
 	}
 
+	// add sticker id string
+	if (stickerId) {
+		stickerId = "&stickerId=" + stickerId;		
+	}
+
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
 	url = foursquarekeys.foursquareAPIUrl + "/v2/checkins/add";
@@ -209,13 +214,13 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 	url += "&venueId=" + venueId;
 	url += "&shout=" + encodeURIComponent(shout);
 	url += "&mentions=" + encodeURIComponent(mentions);
-	url += "&stickerId=" + stickerId;
+	url += stickerId;
 	url += "&broadcast=" + broadcast;
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Adding checkin with url: " + url);
+	// console.log("# Adding checkin with url: " + url);
 	req.open("POST", url, true);
 	req.send();
 }
@@ -292,7 +297,7 @@ function likeCheckin(checkinId, set, callingPage) {
 // Third parameter the id of the calling page, which will receive the
 // addCommentDataLoaded() signal
 function addComment(checkinId, commentText, callingPage) {
-	console.log("# Adding comment to " + checkinId + " with text: " + commentText);
+	// console.log("# Adding comment to " + checkinId + " with text: " + commentText);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {

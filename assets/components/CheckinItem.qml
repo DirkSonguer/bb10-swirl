@@ -349,7 +349,7 @@ Container {
 
                     // click action
                     onTriggered: {
-                        console.log("Changing like state via action menu called");
+                        // console.log("Changing like state via action menu called");
                         checkinItemComponent.changeLikeState();
                     }
 
@@ -367,7 +367,7 @@ Container {
         gestureHandlers: [
             TapHandler {
                 onTapped: {
-                    console.log("# Checkin location name clicked");
+                    // console.log("# Checkin location name clicked");
                     checkinItemComponent.itemClicked();
                 }
             }

@@ -2,6 +2,13 @@ v 1.7.0
 ---------
 
 
+v 1.6.1
+---------
+
+* Fixed: Checkins without stickers work again
+* Fixed: Only available, unlocked stickers are shown in list now
+
+
 v 1.6.0
 ---------
 

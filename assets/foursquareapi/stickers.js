@@ -64,7 +64,7 @@ function getStickersForUser(userId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading sticker data with url: " + url);
+	// console.log("# Loading sticker data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

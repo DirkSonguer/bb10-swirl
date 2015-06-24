@@ -73,7 +73,7 @@ Page {
 
     // user data has been added
     onCreationCompleted: {
-        console.log("# Creation completed, loadig stickers");
+        // console.log("# Creation completed, loadig stickers");
 
         // load friends data for current user
         StickerRepository.getStickersForUser("self", addStickerListPage);

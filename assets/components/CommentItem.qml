@@ -134,7 +134,7 @@ Container {
                     onLayoutFrameChanged: {
                         var currentCalculatedHeight = layoutFrame.height + ui.sdu(5);
                         if (currentCalculatedHeight < ui.sdu(12)) currentCalculatedHeight = ui.sdu(12);
-                        console.log("# Height to add: " + currentCalculatedHeight + " for comment " + ListItemData.commentData.text);
+                        // console.log("# Height to add: " + currentCalculatedHeight + " for comment " + ListItemData.commentData.text);
                         // Qt.addToCalculatedHeight(currentCalculatedHeight);
                     }
                 }

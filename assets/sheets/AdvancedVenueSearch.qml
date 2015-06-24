@@ -57,7 +57,7 @@ Page {
                 enabled: true
 
                 onSelectedIndexChanged: {
-                    console.log("SelectedIndex was changed to " + selectedValue);
+                    // console.log("SelectedIndex was changed to " + selectedValue);
                 }
 
                 // option list
