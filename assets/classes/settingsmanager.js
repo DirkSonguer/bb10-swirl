@@ -33,7 +33,7 @@ function getSettings() {
 }
 
 function setSettings(defaultfeedview, refreshmode) {
-	console.log("# Storing application settings: " + defaultfeedview + ", " + refreshmode);
+	// console.log("# Storing application settings: " + defaultfeedview + ", " + refreshmode);
 
 	var db = openDatabaseSync("Swirl", "1.0", "Swirl persistent data storage", 1);
 

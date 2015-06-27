@@ -5,6 +5,7 @@ v 1.7.0
 * Added: Mayor crown added to checkin stream
 * Added: Settings for default view on startup
 * Added: Settings for pull to refresh behaviour
+* Fixed: When searching for a check-in venue, the error message does not stay from before
 
 
 v 1.6.1

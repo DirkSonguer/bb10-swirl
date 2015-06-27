@@ -186,7 +186,7 @@ NavigationPane {
 
         // apply settings that affect the app on runtime
         onApplySettings: {
-            console.log("# Applying settings on runtime");
+            // console.log("# Applying settings on runtime");
 
             // load settings
             var currentSettings = SettingsManager.getSettings();

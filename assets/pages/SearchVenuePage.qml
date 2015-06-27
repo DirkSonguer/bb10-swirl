@@ -125,9 +125,12 @@ Page {
     // This is used by other pages and sheets to reset the list
     onResetSearchResults: {
         // console.log("# Resetting search results");
-        
+
         // reset search list
         venueList.clearList();
+
+        // hide info message
+        infoMessage.hideMessage();
 
         // show loader
         loadingIndicator.showLoader(Copytext.swirlSearchLoading);
