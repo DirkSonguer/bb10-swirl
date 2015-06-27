@@ -48,6 +48,9 @@ Container {
     // time data
     property alias timeData: checkinHeaderTimedata.text
 
+    // mayorship badge
+    property alias isMayor: checkinHeaderUserMayorshipIconImage.visible
+
     // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
@@ -68,6 +71,10 @@ Container {
         layout: StackLayout {
             orientation: LayoutOrientation.LeftToRight
         }
+        
+        // deactivate clipping
+        // this is used for the mayor crown to stick over the boudaries
+        clipContentToBounds: false
 
         // user image container
         Container {
@@ -82,6 +89,10 @@ Container {
 
             // layout definition
             horizontalAlignment: HorizontalAlignment.Center
+
+            // deactivate clipping
+            // this is used for the mayor crown to stick over the boudaries
+            clipContentToBounds: false
 
             // user main image
             // this is a web image view provided by WebViewImage
@@ -120,6 +131,31 @@ Container {
 
                 // mask image
                 imageSource: "asset:///images/assets/mask_blue_squircle.png"
+            }
+
+            // mayorship icon
+            ImageView {
+                id: checkinHeaderUserMayorshipIconImage
+                
+                // position and layout properties
+                verticalAlignment: VerticalAlignment.Top
+                horizontalAlignment: HorizontalAlignment.Left
+                
+                // set image size to sticker size
+                translationX: -ui.sdu(0.25)
+                translationY: -ui.sdu(3)
+                rotationZ: -35
+                preferredHeight: ui.sdu(10)
+                preferredWidth: ui.sdu(10)
+                minHeight: ui.sdu(10)
+                minWidth: ui.sdu(10)
+                
+                // mask image
+                imageSource: "asset:///images/icons/icon_mayorship_crown.png"
+                
+                // set initial visibility to false
+                // this will be set when the user is mayor
+                visible: false
             }
 
             // handle tap on user image

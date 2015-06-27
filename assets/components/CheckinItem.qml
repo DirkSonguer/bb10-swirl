@@ -178,8 +178,9 @@ Container {
             horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to sticker size
-            translationX: ui.sdu(1)
-            translationY: -ui.sdu(1)
+            translationX: -ui.sdu(0.5)
+            translationY: -ui.sdu(2.5)
+            rotationZ: -35
             preferredHeight: ui.sdu(7)
             preferredWidth: ui.sdu(7)
             minHeight: ui.sdu(7)

@@ -254,6 +254,11 @@ Page {
         if (checkinData.sticker.imageEffect != "") {
             checkinDetailHeader.stickerEffectImage = checkinData.sticker.imageEffect;
         }
+        
+        // fill mayor crown if user is mayor with checkin
+        if (checkinData.isMayor != "false") {
+            checkinDetailHeader.isMayor = checkinData.isMayor;
+        }        
 
         // venue map
         checkinDetailAddressTile.zoom = "15";
