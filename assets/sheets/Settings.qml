@@ -23,8 +23,8 @@ Page {
     id: settingsPage
 
     // local properties for all available settings
-    property string settingDefaultFeedView: "Proximity view"
-    property int settingPulltToRefresh: 0
+    property string settingDefaultFeedView: "defaultFeedProximity"
+    property string settingRefreshMode: "tapToRefresh"
 
     // signal to save settings
     // note that the local properties will be saved
@@ -67,6 +67,8 @@ Page {
                     multiline: true
                 }
 
+
+// default checkin feed view
                 Label {
                     text: Copytext.swirlSettingsDefaultView
 
@@ -78,7 +80,7 @@ Page {
                     multiline: true
                 }
 
-                // default checkin feed view
+                // default view options
                 Container {
                     // layout definiton
                     leftPadding: 10
@@ -102,12 +104,55 @@ Page {
                         }
                         // user has selected an option
                         onSelectedOptionChanged: {
-                            console.log("# Option selected: " + selectedOption.value);
+                            // console.log("# Option selected: " + selectedOption.value);
                             settingsPage.settingDefaultFeedView = selectedOption.value;
                             settingsPage.saveLocalSettings();
                         }
-                    }
+                    }                    
                 }
+                
+                // default pull to refresh mode
+                Label {
+                    text: Copytext.swirlSettingsRefreshMode
+                    
+                    // text style definition
+                    textStyle.color: Color.create(Globals.blackberryStandardBlue)
+                    textStyle.base: SystemDefaults.TextStyles.TitleText
+                    textStyle.fontWeight: FontWeight.W100
+                    textStyle.textAlign: TextAlign.Left
+                    multiline: true
+                }
+                
+                // default refresh mode options
+                Container {
+                    // layout definiton
+                    leftPadding: 10
+                    rightPadding: 10
+                    
+                    // default checkin feed view selection
+                    // create a RadioGroup with options
+                    RadioGroup {
+                        // tap option
+                        Option {
+                            id: tapToRefresh
+                            description: Copytext.swirlSettingsRefreshModeTap
+                            selected: true
+                            value: "tapToRefresh"
+                        }
+                        // pull option
+                        Option {
+                            id: pullToRefresh
+                            description: Copytext.swirlSettingsRefreshModePull
+                            value: "pullToRefresh"
+                        }
+                        // user has selected an option
+                        onSelectedOptionChanged: {
+                            // console.log("# Option selected: " + selectedOption.value);
+                            settingsPage.settingRefreshMode = selectedOption.value;
+                            settingsPage.saveLocalSettings();
+                        }
+                    }                    
+                }                
             }
         }
     }
@@ -118,17 +163,23 @@ Page {
         var currentSettings = SettingsManager.getSettings();
         
         // Check for default view
-        console.log("# Current default view is: " + currentSettings.defaultfeedview);
+        // console.log("# Current default view is: " + currentSettings.defaultfeedview);
         settingsPage.settingDefaultFeedView = currentSettings.defaultfeedview;
         if (settingsPage.settingDefaultFeedView == "defaultFeedList") {
             defaultFeedList.selected = true;
         }
         
-        settingsPage.settingPulltToRefresh = currentSettings.pulltorefresh;
+        // check for refresh mode
+        // console.log("# Current refresh mode is: " + currentSettings.refreshmode);
+        settingsPage.settingRefreshMode = currentSettings.refreshmode;
+        if (settingsPage.settingRefreshMode == "pullToRefresh") {
+            pullToRefresh.selected = true;
+        }
     }
     
+    // save settings
     onSaveLocalSettings: {
-        SettingsManager.setSettings(settingsPage.settingDefaultFeedView, settingsPage.settingPulltToRefresh);
+        SettingsManager.setSettings(settingsPage.settingDefaultFeedView, settingsPage.settingRefreshMode);
     }
 
     // close action for the sheet
@@ -142,6 +193,7 @@ Page {
             // close sheet when pressed
             // note that the sheet is defined in the main.qml
             onTriggered: {
+                mainPage.applySettings();
                 settingsSheet.close();
             }
         }

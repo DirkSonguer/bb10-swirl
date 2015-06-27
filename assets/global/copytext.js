@@ -40,6 +40,11 @@ var swirlSettingsHeadline = "Settings";
 var swirlSettingsDefaultView = "Default view when starting Swirl";
 var swirlSettingsDefaultViewProximity = "Proximity view";
 var swirlSettingsDefaultViewRecent = "Recent view";
+var swirlSettingsRefreshMode = "List refresh pulldown behaviour";
+var swirlSettingsRefreshModeTap = "Tap to refresh";
+var swirlSettingsRefreshModePull = "Pull to refresh";
+var swirlSettingsRefreshModeRelease = "Release to refresh";
+
 
 // login related
 var swirlLoginSuccessTitle = "Thank you for authenticating";

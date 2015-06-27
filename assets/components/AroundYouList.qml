@@ -17,6 +17,9 @@ import "../global/copytext.js" as Copytext
 
 Container {
     id: aroundYouListComponent
+    
+    // set header refresh mode
+    property alias refreshMode: refreshHandler.refreshMode
 
     // signal if gallery is scrolled to start or end
     signal listBottomReached()
@@ -90,7 +93,7 @@ Container {
         leadingVisualSnapThreshold: 2.0
         leadingVisual: RefreshHeader {
             id: refreshHandler
-
+            
             // refresh triggered
             onTriggered: {
                 aroundYouListComponent.refreshTriggered();
@@ -173,6 +176,21 @@ Container {
                 }
             }
         ]
+        
+        // add touch events
+        onTouch: {
+            // user interaction
+            if (event.touchType == TouchType.Down) {
+                // hand over scrolling state to header
+                refreshHandler.touchActive = true;
+            }
+            
+            // user released or is moving
+            if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+                // hand over scrolling state to header
+                refreshHandler.touchActive = false;
+            }            
+        }
 
         // add action for loading additional data after scrolling to bottom
         attachedObjects: [

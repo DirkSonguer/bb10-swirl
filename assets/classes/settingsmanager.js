@@ -12,7 +12,7 @@ function getSettings() {
 	var db = openDatabaseSync("Swirl", "1.0", "Swirl persistent data storage", 1);
 
 	db.transaction(function(tx) {
-		tx.executeSql('CREATE TABLE IF NOT EXISTS applicationsettings(defaultfeedview TEXT, pulltorefresh TEXT)');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS applicationsettings(defaultfeedview TEXT, refreshmode TEXT)');
 	});
 
 	var applicationSettings = new Array();
@@ -32,8 +32,8 @@ function getSettings() {
 	return applicationSettings;
 }
 
-function setSettings(defaultfeedview, pulltorefresh) {
-	console.log("# Storing application settings: " + defaultfeedview + ", " + pulltorefresh);
+function setSettings(defaultfeedview, refreshmode) {
+	console.log("# Storing application settings: " + defaultfeedview + ", " + refreshmode);
 
 	var db = openDatabaseSync("Swirl", "1.0", "Swirl persistent data storage", 1);
 
@@ -42,11 +42,11 @@ function setSettings(defaultfeedview, pulltorefresh) {
 	});
 
 	db.transaction(function(tx) {
-		tx.executeSql('CREATE TABLE IF NOT EXISTS applicationsettings(defaultfeedview TEXT, pulltorefresh TEXT)');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS applicationsettings(defaultfeedview TEXT, refreshmode TEXT)');
 	});
 
 	var dataStr = "INSERT INTO applicationsettings VALUES(?, ?)";
-	var data = [ defaultfeedview, pulltorefresh ];
+	var data = [ defaultfeedview, refreshmode ];
 	db.transaction(function(tx) {
 		tx.executeSql(dataStr, data);
 	});
@@ -64,11 +64,11 @@ function resetSettings() {
 	});
 
 	db.transaction(function(tx) {
-		tx.executeSql('CREATE TABLE IF NOT EXISTS applicationsettings(defaultfeedview TEXT, pulltorefresh TEXT)');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS applicationsettings(defaultfeedview TEXT, refreshmode TEXT)');
 	});
 
 	var dataStr = "INSERT INTO applicationsettings VALUES(?, ?)";
-	var data = {defaultfeedview:"defaultFeedProximity", pulltorefresh:"0"};
+	var data = {defaultfeedview:"defaultFeedProximity", refreshmode:"0"};
 	// var data = [ "defaultFeedProximity", "0" ];
 	db.transaction(function(tx) {
 		tx.executeSql(dataStr, data);

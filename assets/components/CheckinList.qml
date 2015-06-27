@@ -18,6 +18,9 @@ import "../foursquareapi/checkins.js" as CheckinsRepository
 Container {
     id: checkinListComponent
 
+    // set header refresh mode
+    property alias refreshMode: refreshHandler.refreshMode
+
     // signal if gallery is scrolled to start or end
     signal listBottomReached()
     signal listTopReached()
@@ -188,6 +191,21 @@ Container {
                 }
             }
         ]
+        
+        // add touch events
+        onTouch: {
+            // user interaction
+            if (event.touchType == TouchType.Down) {
+                // hand over scrolling state to header
+                refreshHandler.touchActive = true;
+            }
+            
+            // user released or is moving
+            if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
+                // hand over scrolling state to header
+                refreshHandler.touchActive = false;
+            }            
+        }
 
         // add action for loading additional data after scrolling to bottom
         attachedObjects: [

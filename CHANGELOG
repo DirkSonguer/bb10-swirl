@@ -3,6 +3,8 @@ v 1.7.0
 
 * Added: Mayorships!
 * Added: Mayor crown added to checkin stream
+* Added: Settings for default view on startup
+* Added: Settings for pull to refresh behaviour
 
 
 v 1.6.1

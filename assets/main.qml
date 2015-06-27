@@ -55,6 +55,9 @@ NavigationPane {
         // signal to update the cover
         signal updateCover();
 
+        // signal to update the settings and apply them
+        signal applySettings();
+
         // property for the current geolocation
         // contains lat and lon
         property variant currentGeolocation
@@ -164,10 +167,16 @@ NavigationPane {
 
                 // load settings
                 var currentSettings = SettingsManager.getSettings();
-                
+
                 // set initial view according to setting
                 if (currentSettings.defaultfeedview == "defaultFeedList") {
                     changeCheckinViewAction.triggered();
+                }
+
+                // set refresh mode according to setting
+                if (currentSettings.refreshmode == "pullToRefresh") {
+                    checkinList.refreshMode = currentSettings.refreshmode;
+                    aroundYouList.refreshMode = currentSettings.refreshmode;
                 }
 
                 // load the content
@@ -175,15 +184,22 @@ NavigationPane {
             }
         }
 
+        // apply settings that affect the app on runtime
+        onApplySettings: {
+            console.log("# Applying settings on runtime");
+
+            // load settings
+            var currentSettings = SettingsManager.getSettings();
+
+            // apply refresh mode
+            checkinList.refreshMode = currentSettings.refreshmode;
+            aroundYouList.refreshMode = currentSettings.refreshmode;
+        }
+
         // load the content for the main page
         // this is either called by the page creation or when a
         // user login was successful
         onLoadContent: {
-            // enter debug user
-            // TODO: Remove for live app
-            Authentication.auth.storeFoursquareData("6625189", "GB0IVLKFDDEVFUQSH2PIHJENGCDS0KIT2YZRHM34AFDZXDIK"); // Dirk
-            // Authentication.auth.storeFoursquareData("6625189", "DQN0L1NNII54EAPFWZ0DSL0ORIHITNI3ZTX1VTFPGWHIY303"); // Delax
-
             // hide message in case of a previous message
             infoMessage.hideMessage();
 

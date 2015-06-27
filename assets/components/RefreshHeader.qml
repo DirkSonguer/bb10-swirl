@@ -22,7 +22,13 @@ Container {
 
     // signal that search process has been triggered
     signal triggered()
-    
+
+    // refresh mode
+    property string refreshMode: "tapToRefresh"
+
+    // check if list is currently scrolled
+    property bool touchActive: false
+
     // layout definition
     background: Color.create(Globals.blackberryStandardBlue)
     preferredWidth: DisplayInfo.width
@@ -30,17 +36,17 @@ Container {
     // layout orientation
     layout: DockLayout {
     }
-    
+
     // refresh container
     Container {
         id: refreshHeaderContainer
-        
+
         // position and layout properties
         horizontalAlignment: HorizontalAlignment.Center
         verticalAlignment: VerticalAlignment.Center
         topPadding: ui.sdu(2)
         bottomPadding: ui.sdu(2)
-        
+
         // layout orientation
         layout: StackLayout {
             orientation: LayoutOrientation.TopToBottom
@@ -68,7 +74,7 @@ Container {
             topMargin: 0
 
             // call to action text
-            text: "Tap to refresh"
+            text: Copytext.swirlSettingsRefreshModeTap
 
             // text style definition
             textStyle.base: SystemDefaults.TextStyles.PrimaryText
@@ -88,4 +94,35 @@ Container {
             }
         ]
     }
+
+    // react on change to refresh mode
+    onRefreshModeChanged: {
+        if (refreshHeaderComponent.refreshMode == "pullToRefresh") {
+            refreshHeaderCallToAction.text = Copytext.swirlSettingsRefreshModePull;
+        } else {
+            refreshHeaderCallToAction.text = Copytext.swirlSettingsRefreshModeTap;
+        }
+    }
+
+    attachedObjects: [
+        LayoutUpdateHandler {
+            id: refreshHandler
+            onLayoutFrameChanged: {
+                if (refreshHeaderComponent.refreshMode == "pullToRefresh") {
+                    // console.log("# LayoutFrame y = " + layoutFrame.y);
+                    refreshHeaderIcon.rotationZ = layoutFrame.y;
+
+                    if (layoutFrame.y >= 50.0) {
+                        refreshHeaderCallToAction.text = Copytext.swirlSettingsRefreshModeRelease;
+                        if (! refreshHeaderComponent.touchActive) {
+                            refreshHeaderComponent.triggered();
+                        }
+                    } else {
+                        refreshHeaderCallToAction.text = Copytext.swirlSettingsRefreshModePull;
+                    }
+                }
+            }
+        }
+    ]
+
 }
