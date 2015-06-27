@@ -1,7 +1,7 @@
 // *************************************************** //
 // About Sheet
 //
-// The about sheet shows a description text for Instago
+// The about sheet shows a description text for Swirl
 // defined in the copytext file.
 //
 // Author: Dirk Songuer

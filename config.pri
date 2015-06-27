@@ -40,6 +40,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/classes/configurationhandler.js) \
         $$quote($$BASEDIR/assets/classes/helpermethods.js) \
         $$quote($$BASEDIR/assets/classes/networkhandler.js) \
+        $$quote($$BASEDIR/assets/classes/settingsmanager.js) \
         $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
         $$quote($$BASEDIR/assets/components/CheckinHeader.qml) \
@@ -141,6 +142,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/sheets/AddCheckinFriends.qml) \
         $$quote($$BASEDIR/assets/sheets/AddCheckinSticker.qml) \
         $$quote($$BASEDIR/assets/sheets/AdvancedVenueSearch.qml) \
+        $$quote($$BASEDIR/assets/sheets/Settings.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogout.qml) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \

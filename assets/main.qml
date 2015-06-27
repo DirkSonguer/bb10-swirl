@@ -25,6 +25,7 @@ import "components"
 import "global/globals.js" as Globals
 import "global/copytext.js" as Copytext
 import "classes/authenticationhandler.js" as Authentication
+import "classes/settingsmanager.js" as SettingsManager
 import "foursquareapi/checkins.js" as CheckinsRepository
 import "foursquareapi/updates.js" as UpdatesRepository
 
@@ -160,6 +161,14 @@ NavigationPane {
             // try to fix the location, which will then load the checkins around the user
             onCreationCompleted: {
                 // console.log("# Creation of main page finished");
+
+                // load settings
+                var currentSettings = SettingsManager.getSettings();
+                
+                // set initial view according to setting
+                if (currentSettings.defaultfeedview == "defaultFeedList") {
+                    changeCheckinViewAction.triggered();
+                }
 
                 // load the content
                 mainPage.loadContent();
@@ -401,9 +410,9 @@ NavigationPane {
                 imageSource: "asset:///images/icons/icon_settings.png"
                 onTriggered: {
                     // create settings sheet
-                    var aboutSheetPage = aboutComponent.createObject();
-                    aboutSheet.setContent(aboutSheetPage);
-                    aboutSheet.open();
+                    var settingsSheetPage = settingsComponent.createObject();
+                    settingsSheet.setContent(settingsSheetPage);
+                    settingsSheet.open();
                 }
             }
         ]
@@ -431,7 +440,7 @@ NavigationPane {
         Sheet {
             id: loginSheet
 
-            // attach a component for the about page
+            // attach a component for the login page
             attachedObjects: [
                 ComponentDefinition {
                     id: loginComponent
@@ -444,11 +453,24 @@ NavigationPane {
         Sheet {
             id: logoutSheet
 
-            // attach a component for the about page
+            // attach a component for the logout page
             attachedObjects: [
                 ComponentDefinition {
                     id: logoutComponent
                     source: "sheets/UserLogout.qml"
+                }
+            ]
+        },
+        // sheet for settings page
+        // this is used by the main menu
+        Sheet {
+            id: settingsSheet
+
+            // attach a component for the settings page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: settingsComponent
+                    source: "sheets/Settings.qml"
                 }
             ]
         },

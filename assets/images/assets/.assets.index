@@ -1,9 +1,10 @@
 1
-123
+125
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
 classes/networkhandler.js
+classes/settingsmanager.js
 components/AroundYouItem.qml
 components/AroundYouList.qml
 components/CheckinHeader.qml
@@ -105,6 +106,7 @@ sheets/About.qml
 sheets/AddCheckinFriends.qml
 sheets/AddCheckinSticker.qml
 sheets/AdvancedVenueSearch.qml
+sheets/Settings.qml
 sheets/UserLogin.qml
 sheets/UserLogout.qml
 structures/checkin.js

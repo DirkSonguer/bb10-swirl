@@ -35,6 +35,12 @@ var swirlAboutPrivacyBody = "<html>User privacy and anonymity are extremely impo
 var swirlAboutCreditsHeadline = "Third Parties";
 var swirlAboutCreditsBody = "<html>Swirl uses the following libraries and services:<br /># <a href='http://www.foursquare.com'>Foursquare</a> (obviously)<br /># <a href='http://maps.google.com'>Google Maps</a> (for map tiles)<br /># <a href='http://www.avatars.io'>Avatars.io</a> (for Twitter profiles)<br /># <a href='http://subway.pixle.pl'>Subway Icon Set</a> (for all in-app icons)<br /></html>";
 
+// settings
+var swirlSettingsHeadline = "Settings";
+var swirlSettingsDefaultView = "Default view when starting Swirl";
+var swirlSettingsDefaultViewProximity = "Proximity view";
+var swirlSettingsDefaultViewRecent = "Recent view";
+
 // login related
 var swirlLoginSuccessTitle = "Thank you for authenticating";
 var swirlLoginSuccessMessage = "You are authenticated with Foursquare and you can now use all Instago features. Have fun!";

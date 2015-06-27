@@ -175,7 +175,7 @@ Container {
 
             // position and layout properties
             verticalAlignment: VerticalAlignment.Top
-            horizontalAlignment: HorizontalAlignment.Right
+            horizontalAlignment: HorizontalAlignment.Left
 
             // set image size to sticker size
             translationX: ui.sdu(1)
@@ -199,7 +199,7 @@ Container {
 
             // position and layout properties
             verticalAlignment: VerticalAlignment.Top
-            horizontalAlignment: HorizontalAlignment.Left
+            horizontalAlignment: HorizontalAlignment.Right
 
             // mask image
             imageSource: "asset:///images/icons/icon_foursquare_like.png"
