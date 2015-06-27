@@ -98,20 +98,7 @@ Container {
                 textStyle.fontSize: FontSize.XSmall
                 textStyle.textAlign: TextAlign.Center
                 textStyle.color: Color.White
-            }
-            
-            // handle tap on header
-            gestureHandlers: [
-                TapHandler {
-                    onTapped: {
-                        if (venueHeaderLocationAndPhotoComponent.visible) {
-                            venueHeaderLocationAndPhotoComponent.visible = false;
-                        } else {
-                            venueHeaderLocationAndPhotoComponent.visible = true;
-                        }
-                    }
-                }
-            ]
+            }            
         }
 
         Container {
@@ -176,5 +163,19 @@ Container {
                 }
             }
         }
-    }    
+    }
+    
+    // handle tap on header
+    gestureHandlers: [
+        TapHandler {
+            onTapped: {
+                if (venueHeaderLocationAndPhotoComponent.visible) {
+                    venueHeaderLocationAndPhotoComponent.visible = false;
+                } else {
+                    venueHeaderLocationAndPhotoComponent.visible = true;
+                }
+            }
+        }
+    ]
+ 
 }
