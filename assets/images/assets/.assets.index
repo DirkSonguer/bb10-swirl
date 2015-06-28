@@ -1,5 +1,5 @@
 1
-125
+126
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -41,6 +41,7 @@ components/VenueHeaderInteractive.qml
 components/VenueItem.qml
 components/VenueList.qml
 covers/RecentCheckins.qml
+foursquareapi/activities.js
 foursquareapi/checkins.js
 foursquareapi/stickers.js
 foursquareapi/transformators.js

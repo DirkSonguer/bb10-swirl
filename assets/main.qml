@@ -27,6 +27,7 @@ import "global/copytext.js" as Copytext
 import "classes/authenticationhandler.js" as Authentication
 import "classes/settingsmanager.js" as SettingsManager
 import "foursquareapi/checkins.js" as CheckinsRepository
+import "foursquareapi/activities.js" as ActivitiesRepository
 import "foursquareapi/updates.js" as UpdatesRepository
 
 // this is the main page that provides the navigation pane for all subsequent pages
@@ -40,11 +41,17 @@ NavigationPane {
     Page {
         id: mainPage
 
-        // signal if popular media data loading is complete
+        // signal if recent checkin data loading is complete
         signal recentCheckinDataLoaded(variant recentCheckinData)
 
-        // signal if popular media data loading encountered an error
+        // signal if recent checkin data loading encountered an error
         signal recentCheckinDataError(variant errorData)
+
+        // signal if recent activity data loading is complete
+        signal recentActivityDataLoaded(variant recentActivityData)
+
+        // signal if recent activity data loading encountered an error
+        signal recentActivityDataError(variant errorData)
 
         // signal if update count data loading is complete
         signal updateCountDataLoaded(variant updateCount)
@@ -159,29 +166,29 @@ NavigationPane {
                     positionSource.start();
                 }
             }
+        }
 
-            // page creation is finished
-            // try to fix the location, which will then load the checkins around the user
-            onCreationCompleted: {
-                // console.log("# Creation of main page finished");
+        // page creation is finished
+        // try to fix the location, which will then load the checkins around the user
+        onCreationCompleted: {
+            // console.log("# Creation of main page finished");
 
-                // load settings
-                var currentSettings = SettingsManager.getSettings();
+            // load settings
+            var currentSettings = SettingsManager.getSettings();
 
-                // set initial view according to setting
-                if (currentSettings.defaultfeedview == "defaultFeedList") {
-                    changeCheckinViewAction.triggered();
-                }
-
-                // set refresh mode according to setting
-                if (currentSettings.refreshmode == "pullToRefresh") {
-                    checkinList.refreshMode = currentSettings.refreshmode;
-                    aroundYouList.refreshMode = currentSettings.refreshmode;
-                }
-
-                // load the content
-                mainPage.loadContent();
+            // set initial view according to setting
+            if (currentSettings.defaultfeedview == "defaultFeedList") {
+                changeCheckinViewAction.triggered();
             }
+
+            // set refresh mode according to setting
+            if (currentSettings.refreshmode == "pullToRefresh") {
+                checkinList.refreshMode = currentSettings.refreshmode;
+                aroundYouList.refreshMode = currentSettings.refreshmode;
+            }
+
+            // load the content
+            mainPage.loadContent();
         }
 
         // apply settings that affect the app on runtime
@@ -228,14 +235,56 @@ NavigationPane {
             }
         }
 
-        // around you and checkin data was loaded and transformed
+        // checkin stream data was loaded and transformed
+        // data is stored in "recentActivityData" variant as array of type FoursquareCheckinData
+        onRecentActivityDataLoaded: {
+            // console.log("# Recent activity data loaded. Found " + recentActivityData.length + " items");
+
+            // initially clear list
+            checkinList.clearList();
+
+            // hide loader
+            loadingIndicator.hideLoader();
+
+            // check if results are available
+            if (recentActivityData.length > 0) {
+                // iterate through data objects and fill lists
+                for (var index in recentActivityData) {
+                    // filter checkins by current user
+                    checkinList.addToList(recentActivityData[index]);
+                }
+
+                // show list with results
+                // list shown is according to the state of the action button
+                if (changeCheckinViewAction.title == "Recent") {
+                    // show around you list
+                    aroundYouList.visible = true;
+                    checkinList.visible = false;
+
+                    // enable view changer
+                    changeCheckinViewAction.enabled = true;
+                }
+
+                // enable scene cover and fill with data
+                var recentCheckinCoverPage = recentCheckinCoverComponent.createObject();
+                recentCheckinCoverPage.recentCheckinData = recentActivityData;
+                recentCheckinCover.setContent(recentCheckinCoverPage);
+                Application.setCover(recentCheckinCover);
+                Application.thumbnail.connect(updateCover);
+            } else {
+                // no items in results found
+                // we assume that if no recent activity was found, there also can't be any recent checkins
+                infoMessage.showMessage(Copytext.swirlNoRecentMessage, Copytext.swirlNoRecentTitle);
+            }
+        }
+
+        // around you data was loaded and transformed
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
             // console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
 
-            // initially clear lists
+            // initially clear list
             aroundYouList.clearList();
-            checkinList.clearList();
 
             // hide loader
             loadingIndicator.hideLoader();
@@ -247,41 +296,29 @@ NavigationPane {
                     // filter checkins by current user
                     if (recentCheckinData[index].user.relationship != "self") {
                         aroundYouList.addToList(recentCheckinData[index]);
-                        checkinList.addToList(recentCheckinData[index]);
                     }
                 }
 
                 // show list with results
                 // list shown is according to the state of the action button
-                if (changeCheckinViewAction.title == "Recent") {
+                if (changeCheckinViewAction.title == "Nearby") {
                     // show around you list
-                    checkinList.visible = false;
-                    aroundYouList.visible = true;
-                } else {
-                    // show recent list
-                    aroundYouList.visible = false;
                     checkinList.visible = true;
+                    aroundYouList.visible = false;
+
+                    // enable view changer
+                    changeCheckinViewAction.enabled = true;
                 }
 
-                // enable view changer
-                changeCheckinViewAction.enabled = true;
-
-                // enable scene cover
-                var recentCheckinCoverPage = recentCheckinCoverComponent.createObject();
-                recentCheckinCoverPage.recentCheckinData = recentCheckinData;
-                recentCheckinCover.setContent(recentCheckinCoverPage);
-                Application.setCover(recentCheckinCover);
-                Application.thumbnail.connect(updateCover);
-
-            } else {
-                // no items in results found
-                infoMessage.showMessage(Copytext.swirlNoRecentMessage, Copytext.swirlNoRecentTitle);
+                // hide the info message
+                // this is in case there are recent checkins but no recent activity
+                infoMessage.hideMessage();
             }
         }
 
         // around you and checkin data was loaded and transformed
         // this checks for an oauth error
-        onRecentCheckinDataError: {
+        onRecentActivityDataError: {
             // console.log("# Error occured on loading recent data with type " + errorData);
             if (errorData === "invalid_auth") {
                 mainMenuLogout.triggered();
@@ -320,6 +357,8 @@ NavigationPane {
                 // action
                 onTriggered: {
                     if (title == "Recent") {
+                        console.log("Changing nearby (aroundYou) to recent (checkin) view");
+
                         // change icons and title
                         title = "Nearby"
                         imageSource = "asset:///images/icons/icon_aroundyou.png"
@@ -328,6 +367,8 @@ NavigationPane {
                         aroundYouList.visible = false;
                         checkinList.visible = true;
                     } else {
+                        console.log("Changing recent (checkin) to nearby (aroundYou) view");
+
                         // change icons and title
                         title = "Recent"
                         imageSource = "asset:///images/icons/icon_recent.png"
@@ -562,6 +603,9 @@ NavigationPane {
                     // substract a day to get only the checkins for the last 24 hours
                     currentTimestamp = Math.round(currentTimestamp / 1000);
                     currentTimestamp -= 432000;
+
+                    // load recent activity stream with geolocation and time
+                    ActivitiesRepository.getRecentActivity(mainPage.currentGeolocation, 0, mainPage)
 
                     // load recent checkin stream with geolocation and time
                     CheckinsRepository.getRecentCheckins(mainPage.currentGeolocation, currentTimestamp, mainPage);

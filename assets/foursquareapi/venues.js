@@ -239,9 +239,10 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 	if (searchRadius > 0)
 		url += "&radius=" + searchRadius;
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&noCorrect=0";
 	url += "&m=swarm";
 
-	// console.log("# Loading venue data with url: " + url);
+	console.log("# Loading venue data with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
