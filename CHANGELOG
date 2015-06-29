@@ -1,8 +1,9 @@
 v 1.7.0
 ---------
 
-* Added: Mayorships!
+* Added: Mayorships are back!
 * Added: Mayor crown added to checkin stream
+* Added: Mayor crown and stickers added to check-in confirmation
 * Added: Settings for default view on startup
 * Added: Settings for pull to refresh behaviour
 * Changed: The recent activity stream now has better data

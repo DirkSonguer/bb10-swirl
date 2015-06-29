@@ -115,7 +115,7 @@ function getVenuePhotos(venueId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	// console.log("# Loading venue data with url: " + url);
+	// console.log("# Loading venue photos with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -179,7 +179,7 @@ function explore(currentGeoLocation, searchQuery, searchSection, searchFriendsVi
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=foursquare";
 
-	// console.log("# Loading venue data with url: " + url);
+	// console.log("# Exploring venues with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
@@ -242,7 +242,7 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 	url += "&noCorrect=0";
 	url += "&m=swarm";
 
-	console.log("# Loading venue data with url: " + url);
+	// console.log("# Searching for venues with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

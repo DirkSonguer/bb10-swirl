@@ -1,4 +1,3 @@
-// *************************************************** //
 // Checkins Script
 //
 // This script is used to load, format and show checkin
@@ -189,7 +188,9 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 			// check for both and act accordingly
 			// found error will be handed over to the calling page
 			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
-				// console.log("# Error found with code " + network.errorData.errorCode + " and message " + network.errorData.errorMessage);
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
 				callingPage.addCheckinDataError(network.errorData);
 				network.clearErrors();
 			}
@@ -204,7 +205,7 @@ function addCheckin(venueId, shout, stickerId, mentions, broadcast, currentGeoLo
 
 	// add sticker id string
 	if (stickerId) {
-		stickerId = "&stickerId=" + stickerId;		
+		stickerId = "&stickerId=" + stickerId;
 	}
 
 	var url = "";
@@ -297,7 +298,8 @@ function likeCheckin(checkinId, set, callingPage) {
 // Third parameter the id of the calling page, which will receive the
 // addCommentDataLoaded() signal
 function addComment(checkinId, commentText, callingPage) {
-	// console.log("# Adding comment to " + checkinId + " with text: " + commentText);
+	// console.log("# Adding comment to " + checkinId + " with text: " +
+	// commentText);
 
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {

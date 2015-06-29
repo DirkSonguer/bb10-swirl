@@ -497,17 +497,83 @@ Page {
                     }
                 }
 
-                // result confirmation
-                Label {
-                    id: addCheckinResultConfirmation
+                // confirmation container
+                Container {
+                    // layout orientation
+                    layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
 
-                    // layout definition
-                    textStyle.base: SystemDefaults.TextStyles.TitleText
-                    textStyle.fontWeight: FontWeight.W100
-                    textStyle.fontSize: FontSize.Large
-                    textStyle.textAlign: TextAlign.Left
-                    textStyle.color: Color.create(Globals.blackberryStandardBlue)
-                    multiline: true
+                    // confirmation image container
+                    Container {
+                        // layout orientation
+                        layout: DockLayout {
+                        }
+
+                        // confirmation background
+                        ImageView {
+                            id: addCheckinResultConfirmationImage
+
+                            // position and layout properties
+                            verticalAlignment: VerticalAlignment.Center
+                            horizontalAlignment: HorizontalAlignment.Left
+
+                            // profile mask
+                            imageSource: "asset:///images/assets/blue_squircle.png"
+
+                            // set image size
+                            preferredHeight: ui.sdu(15)
+                            preferredWidth: ui.sdu(15)
+                            minHeight: ui.sdu(15)
+                            minWidth: ui.sdu(15)
+                        }
+
+                        // confirmation image
+                        WebImageView {
+                            id: addCheckinResultConfirmationSticker
+
+                            // position and layout properties
+                            verticalAlignment: VerticalAlignment.Center
+                            horizontalAlignment: HorizontalAlignment.Left
+
+                            // set image size
+                            preferredHeight: ui.sdu(14)
+                            preferredWidth: ui.sdu(14)
+                            minHeight: ui.sdu(14)
+                            minWidth: ui.sdu(14)
+
+                            // set initial visibility to false
+                            // this will be set when the user used a sticker
+                            visible: false
+                            onUrlChanged: {
+                                visible = true;
+                            }
+                        }
+                    }
+
+                    Container {
+                        // layout orientation
+                        layout: DockLayout {
+                        }
+
+                        // layout definition
+                        verticalAlignment: VerticalAlignment.Center
+                        horizontalAlignment: HorizontalAlignment.Left
+                        leftMargin: ui.sdu(1)
+
+                        // result confirmation
+                        Label {
+                            id: addCheckinResultConfirmation
+
+                            // layout definition
+                            textStyle.base: SystemDefaults.TextStyles.TitleText
+                            textStyle.fontWeight: FontWeight.W100
+                            textStyle.fontSize: FontSize.Large
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle.color: Color.create(Globals.blackberryStandardBlue)
+                            multiline: true
+                        }
+                    }
                 }
 
                 // score list
@@ -610,6 +676,13 @@ Page {
         // add checkin confirmation text
         addCheckinResultConfirmation.text = Copytext.swirlCheckinConfirmation + checkinData.venue.name + "!";
 
+        // user is mayor
+        if (checkinData.isMayor) {
+        addCheckinResultConfirmation.text = Copytext.swirlCheckinMayor;
+            addCheckinResultConfirmationSticker.visible = false;
+            addCheckinResultConfirmationImage.imageSource = "asset:///images/icons/icon_mayorship_crown.png";
+        }
+
         // iterate through data objects and fill list
         for (var index in checkinData.scores) {
             scoreList.addToList(checkinData.scores[index]);
@@ -671,11 +744,19 @@ Page {
     // update image on button
     onStickerImageChanged: {
         if (addCheckinPage.stickerImage) {
+            // show sticker on icon
             addCheckinStickers.url = addCheckinPage.stickerImage;
             addCheckinStickers.visible = true;
             addCheckinStickerInactive.visible = false;
+
+            // also set the result component sticker
+            addCheckinResultConfirmationSticker.url = addCheckinPage.stickerImage;
         } else {
+            // hide the icon
+            addCheckinResultConfirmationSticker.visible = false;
             addCheckinStickerInactive.visible = true;
+
+            // also hide the result component sticker
             addCheckinStickers.visible = false;
         }
     }

@@ -357,7 +357,7 @@ NavigationPane {
                 // action
                 onTriggered: {
                     if (title == "Recent") {
-                        console.log("Changing nearby (aroundYou) to recent (checkin) view");
+                        // console.log("Changing nearby (aroundYou) to recent (checkin) view");
 
                         // change icons and title
                         title = "Nearby"
@@ -367,7 +367,7 @@ NavigationPane {
                         aroundYouList.visible = false;
                         checkinList.visible = true;
                     } else {
-                        console.log("Changing recent (checkin) to nearby (aroundYou) view");
+                        // console.log("Changing recent (checkin) to nearby (aroundYou) view");
 
                         // change icons and title
                         title = "Recent"

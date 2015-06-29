@@ -85,6 +85,7 @@ var swirlFriendSearchInputLabel = "Enter friend name";
 // checkin
 var swirlCheckinHintText = "What are your doing here?";
 var swirlCheckinConfirmation = "We got you at ";
+var swirlCheckinMayor = "The mayor is in the house!";
 var swirlAddingCheckin = "Adding Checkin";
 
 // checkin comment

@@ -1,336 +1,279 @@
+// https://api.foursquare.com/v2/checkins/add?oauth_token=1XF3LQI4MYXNR0A05BIPQ23FAKMRNP11NLJV3RW1UE13LS2B&venueId=4b1e1d98f964a5207b1724e3&shout=&mentions=&stickerId=52a659800000000000000006&broadcast=public&ll=49.87283000000001,
+8.651190000000001&v=20150522&m=swarm
+
 {
-  "meta" : {
-    "code" : 200
-  },
-  "response" : {
-    "notificationsOrder" : [
-      "special",
-      "score",
-      "leaderboard",
-      "replies"
-    ],
-    "checkin" : {
-      "id" : "54314b6b498ec1c1db0caf60",
-      "like" : false,
-      "comments" : {
-        "count" : 0,
-        "items" : []
-      },
-      "timeZoneOffset" : 120,
-      "exactContextLine" : "Darmstadt",
-      "posts" : {
-        "count" : 0,
-        "textCount" : 0
-      },
-      "likes" : {
-        "groups" : [],
-        "count" : 0
-      },
-      "objectLeaderboards" : [],
-      "source" : {
-        "name" : "Swirl",
-        "url" : "http://apps.songuer.de/"
-      },
-      "type" : "checkin",
-      "venue" : {
-        "id" : "4c1f41f6fcf8c9b62659ae0b",
-        "categories" : [
-          {
-            "pluralName" : "Soup Places",
-            "primary" : true,
-            "shortName" : "Soup",
-            "id" : "4bf58dd8d48988d1dd931735",
-            "name" : "Soup Place",
-            "icon" : {
-              "prefix" : "https://ss3.4sqi.net/img/categories_v2/food/soup_",
-              "suffix" : ".png"
-            }
-          }
-        ],
-        "stats" : {
-          "checkinsCount" : 180,
-          "usersCount" : 75,
-          "tipCount" : 7
-        },
-        "contact" : {
-          "phone" : "061512787858",
-          "formattedPhone" : "06151 2787858"
-        },
-        "hereNow" : {
-          "summary" : "You are here",
-          "groups" : [
-            {
-              "count" : 1,
-              "type" : "friends",
-              "name" : "Friends here",
-              "items" : [
-                {
-                  "user" : {
-                    "gender" : "none",
-                    "firstName" : "Dirk",
-                    "id" : "6625189",
-                    "relationship" : "self",
-                    "photo" : {
-                      "prefix" : "https://irs3.4sqi.net/img/user/",
-                      "suffix" : "/IFRWMUV31RGN2TVI.jpg"
-                    },
-                    "lastName" : "Songuer"
-                  },
-                  "timeZoneOffset" : 120,
-                  "id" : "54314b6b498ec1c1db0caf60",
-                  "exactContextLine" : "Darmstadt",
-                  "createdAt" : 1412516715,
-                  "type" : "checkin",
-                  "displayGeo" : {
-                    "id" : "72057594040866849",
-                    "name" : "Darmstadt"
-                  }
-                }
-              ]
-            }
-          ],
-          "count" : 0
-        },
-        "verified" : false,
-        "friendVisits" : {
-          "summary" : "A friend has been here",
-          "count" : 1,
-          "items" : [
-            {
-              "visitedCount" : 1,
-              "oked" : false,
-              "liked" : false,
-              "disliked" : false,
-              "user" : {
-                "gender" : "none",
-                "firstName" : "Dirk",
-                "id" : "6625189",
-                "relationship" : "self",
-                "photo" : {
-                  "prefix" : "https://irs3.4sqi.net/img/user/",
-                  "suffix" : "/IFRWMUV31RGN2TVI.jpg"
-                },
-                "lastName" : "Songuer"
-              }
-            }
-          ]
-        },
-        "reasons" : {
-          "count" : 1,
-          "items" : [
-            {
-              "summary" : "You're here! +14 points",
-              "reasonName" : "hereNowReason",
-              "target" : {
-                "object" : {
-                  "target" : {
-                    "type" : "path",
-                    "url" : "/checkins/54314b6b498ec1c1db0caf60"
-                  },
-                  "id" : "54314b6b498ec1c1db0caf64",
-                  "ignorable" : false,
-                  "type" : "checkinDetail"
-                },
-                "type" : "navigation"
-              },
-              "type" : "general"
-            }
-          ]
-        },
-        "url" : "http://www.suppkult.de/Web-Site/Willkommen.html",
-        "location" : {
-          "address" : "Schulstr. 14",
-          "city" : "Darmstadt",
-          "distance" : 358,
-          "postalCode" : "64283",
-          "country" : "Germany",
-          "formattedAddress" : [
-            "Schulstr. 14",
-            "64283 Darmstadt"
-          ],
-          "lat" : 49.87072862994945,
-          "lng" : 8.656196594238281,
-          "cc" : "DE",
-          "state" : "Hesse"
-        },
-        "specials" : {
-          "count" : 0
-        },
-        "name" : "Suppkult Elisabeth"
-      },
-      "displayGeo" : {
-        "id" : "72057594040866849",
-        "name" : "Darmstadt"
-      },
-      "photos" : {
-        "count" : 0,
-        "items" : []
-      },
-      "distance" : 0,
-      "user" : {
-        "gender" : "none",
-        "firstName" : "Dirk",
-        "id" : "6625189",
-        "relationship" : "self",
-        "photo" : {
-          "prefix" : "https://irs3.4sqi.net/img/user/",
-          "suffix" : "/IFRWMUV31RGN2TVI.jpg"
-        },
-        "lastName" : "Songuer"
-      },
-      "createdAt" : 1412516715,
-      "score" : {
-        "scores" : [
-          {
-            "points" : 4,
-            "message" : "Your first Soup Place!",
-            "icon" : "https://ss1.4sqi.net/img/points/swarm-category_food.png"
-          },
-          {
-            "points" : 5,
-            "message" : "First check-in at Suppkult Elisabeth.",
-            "icon" : "https://ss1.4sqi.net/img/points/swarm-discoveryvenue.png"
-          },
-          {
-            "points" : 2,
-            "message" : "First of your friends to check in here.",
-            "icon" : "https://ss1.4sqi.net/img/points/swarm-discoveryvenue.png"
-          },
-          {
-            "points" : 3,
-            "message" : "25 check-ins at Restaurants in the past 2 months.",
-            "icon" : "https://ss1.4sqi.net/img/points/swarm-mayor.png"
-          }
-        ],
-        "total" : 14
-      }
-    },
-    "notifications" : [
-      {
-        "type" : "insights",
-        "alert" : true,
-        "item" : {
-          "insights" : {
-            "count" : 5,
-            "items" : [
-              {
-                "summary" : "Your first Soup Place!",
-                "shareable" : false,
-                "points" : {
-                  "points" : 4,
-                  "image" : {
-                    "prefix" : "https://ss1.4sqi.net/img/points/swarm-category_food_",
-                    "sizes" : [
-                      44,
-                      60,
-                      120
-                    ],
-                    "name" : ".png"
-                  },
-                  "message" : "Your first Soup Place!"
-                },
-                "title" : "Your first Soup Place!",
-                "image" : "https://ss1.4sqi.net/img/points/swarm-category_food_144.png",
-                "type" : "pointsReward"
-              },
-              {
-                "summary" : "First check-in at Suppkult Elisabeth.",
-                "shareable" : false,
-                "points" : {
-                  "points" : 5,
-                  "image" : {
-                    "prefix" : "https://ss1.4sqi.net/img/points/swarm-discoveryvenue_",
-                    "sizes" : [
-                      44,
-                      60,
-                      120
-                    ],
-                    "name" : ".png"
-                  },
-                  "message" : "First check-in at Suppkult Elisabeth."
-                },
-                "title" : "First check-in at Suppkult Elisabeth.",
-                "image" : "https://ss1.4sqi.net/img/points/swarm-discoveryvenue_144.png",
-                "type" : "pointsReward"
-              },
-              {
-                "summary" : "First of your friends to check in here.",
-                "shareable" : false,
-                "points" : {
-                  "points" : 2,
-                  "image" : {
-                    "prefix" : "https://ss1.4sqi.net/img/points/swarm-discoveryvenue_",
-                    "sizes" : [
-                      44,
-                      60,
-                      120
-                    ],
-                    "name" : ".png"
-                  },
-                  "message" : "First of your friends to check in here."
-                },
-                "title" : "First of your friends to check in here.",
-                "image" : "https://ss1.4sqi.net/img/points/swarm-discoveryvenue_144.png",
-                "type" : "pointsReward"
-              },
-              {
-                "summary" : "25 check-ins at Restaurants in the past 2 months.",
-                "shareable" : false,
-                "points" : {
-                  "points" : 3,
-                  "image" : {
-                    "prefix" : "https://ss1.4sqi.net/img/points/swarm-mayor_",
-                    "sizes" : [
-                      44,
-                      60,
-                      120
-                    ],
-                    "name" : ".png"
-                  },
-                  "message" : "25 check-ins at Restaurants in the past 2 months."
-                },
-                "title" : "25 check-ins at Restaurants in the past 2 months.",
-                "image" : "https://ss1.4sqi.net/img/points/swarm-mayor_144.png",
-                "type" : "pointsReward"
-              },
-              {
-                "shareable" : false,
-                "tip" : {
-                  "user" : {
-                    "gender" : "male",
-                    "firstName" : "Anthony",
-                    "id" : "231304",
-                    "photo" : {
-                      "prefix" : "https://irs2.4sqi.net/img/user/",
-                      "suffix" : "/-3TAKZJESL51EJUJS.jpg"
-                    }
-                  },
-                  "todo" : {
-                    "count" : 0
-                  },
-                  "id" : "54086561498ebf0fba9f3268",
-                  "text" : "The potato soup with sausage is good. Also, it can get very crowded around lunch time",
-                  "logView" : true,
-                  "createdAt" : 1409836385,
-                  "type" : "user",
-                  "canonicalUrl" : "https://foursquare.com/item/54086561498ebf0fba9f3268"
-                },
-                "title" : "Your first time here!",
-                "image" : "https://ss3.4sqi.net/img/points/swarm-discoveryvenue_144.png",
-                "type" : "firstTime"
-              }
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "notifications" : [
-    {
-      "type" : "notificationTray",
-      "item" : {
-        "unreadCount" : 0
-      }
-    }
-  ]
+	"meta":{
+		"code":200
+	},
+	"notifications":[{
+		"type":"notificationTray",
+		"item":
+			{
+				"unreadCount":0	
+			}
+		}],
+	"response":{
+		"checkin":{
+			"id":"55902986498e4af33c261468",
+			"createdAt":1435511174,
+			"type":"checkin",
+			"timeZoneOffset":120,
+			"displayGeo":{
+				"id":"72057594040866849",
+				"name":"Darmstadt"
+			},
+			"exactContextLine":"Darmstadt",
+			"user":{
+				"id":"6625189",
+				"firstName":"Dirk",
+				"lastName":"Songuer",
+				"gender":"none",
+				"relationship":"self",
+				"photo":{
+				"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/",
+				"suffix":"\/IFRWMUV31RGN2TVI.jpg"
+			},
+			"canMessage":false
+		},
+		"venue":{
+			"id":"4b1e1d98f964a5207b1724e3",
+			"name":"Salve!",
+			"contact":{
+			"phone":"061511362543",
+			"formattedPhone":"06151 1362543"
+		},
+		"location":{
+			"address":"Wilhelminenstr. 2",
+			"lat":49.870292,
+			"lng":8.6516736,
+			"distance":284,
+			"postalCode":"64283",
+			"cc":"DE",
+			"city":"Darmstadt",
+			"state":"Hessen",
+			"country":"Deutschland",
+			"formattedAddress":["Wilhelminenstr. 2",
+			"64283 Darmstadt"]
+		},
+		"categories":[{
+			"id":"4bf58dd8d48988d16d941735",
+			"name":"Café",
+			"pluralName":"Cafés",
+			"shortName":"Café",
+			"icon":
+				{
+				"prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/cafe_",
+				"suffix":".png"
+				},
+			"primary":true
+			}],
+		"verified":false,
+		"stats":{
+		"checkinsCount":503,
+		"usersCount":212,
+		"tipCount":13
+}
+		,
+		"hereNow":{
+		"count":1,
+		"summary":"Du bist hier",
+		"groups":[{
+		"type":"friends",
+		"name":"Freunde hier",
+		"count":1,
+		"items":[{
+		"id":"55902986498e4af33c261468",
+		"createdAt":1435511174,
+		"type":"checkin",
+		"timeZoneOffset":120,
+		"displayGeo":{
+		"id":"72057594040866849",
+		"name":"Darmstadt"
+}
+		,
+		"exactContextLine":"Darmstadt",
+		"user":{
+		"id":"6625189",
+		"firstName":"Dirk",
+		"lastName":"Songuer",
+		"gender":"none",
+		"relationship":"self",
+		"photo":{
+		"prefix":"https:\/\/irs3.4sqi.net\/img\/user\/",
+		"suffix":"\/IFRWMUV31RGN2TVI.jpg"
+}
+		,
+		"canMessage":false
+}
+		,
+		"sticker":{
+		"id":"52a659800000000000000006",
+		"name":"Joey Beans",
+		"image":{
+		"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/",
+		"sizes":[60,
+		94,
+		150,
+		300],
+		"name":"\/coffee_f4b66b.png"
+}
+		,
+		"stickerType":"unlockable",
+		"group":{
+		"name":"collectible",
+		"index":6
+}
+		,
+		"pickerPosition":{
+		"page":0,
+		"index":6
+}
+		
+}
+		
+}
+		]
+}
+		]
+}
+		,
+		"reasons":{
+		"count":1,
+		"items":[{
+		"summary":"Du bist hier! +5 Punkte",
+		"type":"general",
+		"reasonName":"hereNowReason",
+		"target":{
+		"type":"navigation",
+		"object":{
+		"id":"55902987498e4af33c26162e",
+		"type":"checkinDetail",
+		"target":{
+		"type":"path",
+		"url":"\/checkins\/55902986498e4af33c261468"
+}
+		,
+		"ignorable":false
+}
+		
+}
+		
+}
+		]
+}
+		,
+		"saves":{
+		"count":0,
+		"groups":[]
+}
+		
+}
+		,
+		"source":{
+		"name":"Swirl",
+		"url":"http:\/\/apps.songuer.de\/swirl"
+}
+		,
+		"distance":0,
+		"photos":{
+		"count":0,
+		"items":[]
+}
+		,
+		"posts":{
+		"count":0,
+		"textCount":0
+}
+		,
+		"likes":{
+		"count":0,
+		"groups":[]
+}
+		,
+		"like":false,
+		"comments":{
+		"count":0,
+		"items":[]
+}
+		,
+		"sticker":{
+		"id":"52a659800000000000000006",
+		"name":"Joey Beans",
+		"image":{
+		"prefix":"https:\/\/irs0.4sqi.net\/img\/sticker\/",
+		"sizes":[60,
+		94,
+		150,
+		300],
+		"name":"\/coffee_f4b66b.png"
+}
+		,
+		"stickerType":"unlockable",
+		"group":{
+		"name":"collectible",
+		"index":6
+}
+		,
+		"pickerPosition":{
+		"page":0,
+		"index":6
+}
+		
+}
+		,
+		"isMayor":true,
+		"score":{
+		"total":5,
+		"scores":[{
+		"icon":"https:\/\/ss1.4sqi.net\/img\/points\/swarm-mayor.png",
+		"message":"Du bist der Mayor!",
+		"points":5
+}
+		]
+}
+		,
+		"hasVenueLeaderboard":true,
+		"objectLeaderboards":[]
+}
+		,
+		"notifications":[{
+		"type":"insights",
+		"item":{
+		"insights":{
+		"count":1,
+		"items":[{
+		"type":"pointsReward",
+		"image":"https:\/\/ss1.4sqi.net\/img\/points\/swarm-mayor_144.png",
+		"title":"Du bist der Mayor!",
+		"summary":"Du bist der Mayor!",
+		"shareable":false,
+		"points":{
+		"image":{
+		"prefix":"https:\/\/ss1.4sqi.net\/img\/points\/swarm-mayor_",
+		"sizes":[44,
+		60,
+		120],
+		"name":".png"
+}
+		,
+		"message":"Du bist der Mayor!",
+		"points":5
+}
+		
+}
+		]
+}
+		
+}
+		,
+		"alert":true
+}
+		],
+		"notificationsOrder":["special",
+		"score",
+		"leaderboard",
+		"replies"]
+	
+}
+
 }

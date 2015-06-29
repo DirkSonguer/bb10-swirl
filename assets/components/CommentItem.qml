@@ -78,8 +78,7 @@ Container {
             // profile mask
             imageSource: "asset:///images/assets/mask_squircle.png"
 
-            // set image size to maximum screen size
-            // this will be either 768x768 (Z10) or 720x720 (all others)
+            // set image size
             preferredHeight: ui.sdu(10)
             preferredWidth: ui.sdu(10)
             minHeight: ui.sdu(10)
