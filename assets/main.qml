@@ -265,12 +265,14 @@ NavigationPane {
                     changeCheckinViewAction.enabled = true;
                 }
 
-                // enable scene cover and fill with data
-                var recentCheckinCoverPage = recentCheckinCoverComponent.createObject();
-                recentCheckinCoverPage.recentCheckinData = recentActivityData;
-                recentCheckinCover.setContent(recentCheckinCoverPage);
-                Application.setCover(recentCheckinCover);
-                Application.thumbnail.connect(updateCover);
+                if (! recentCheckinCover.content) {
+                    // enable scene cover and fill with data
+                    var recentCheckinCoverPage = recentCheckinCoverComponent.createObject();
+                    recentCheckinCoverPage.recentCheckinData = recentActivityData;
+                    recentCheckinCover.setContent(recentCheckinCoverPage);
+                    Application.setCover(recentCheckinCover);
+                    Application.thumbnail.connect(updateCover);
+                }
             } else {
                 // no items in results found
                 // we assume that if no recent activity was found, there also can't be any recent checkins
