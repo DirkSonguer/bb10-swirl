@@ -21,28 +21,36 @@ import WebImageView 1.0
 
 Container {
     id: venueHeaderInteractiveComponent
-    
+
     // signal that the location tile has been clicked
     signal locationClicked
-    
+
     // signal that the photos tile has been clicked
     signal photosClicked
 
+    // signal to show / hide location and image
+    signal showDetails
+    signal hideDetails
+
     // venue name, shown big below the venue image
     property alias name: venueHeaderInteractiveName.text
-    
+
     // venue category
     property alias category: venueHeaderInteractiveCategory.text
-    
+
+    // venue location tile data
     property alias venueLocation: venueHeaderInteractiveLocation.venueLocation
     property alias venueIcon: venueHeaderInteractiveLocation.webImage
-    
+    property alias venueHeadline: venueHeaderInteractiveLocation.headline
+
+    // venue photo tile data
     property alias photoImage: venueHeaderInteractivePhotos.webImage
+    property alias photoHeadline: venueHeaderInteractivePhotos.headline
 
     // layout orientation
     layout: DockLayout {
     }
-    
+
     // column count
     property int columnCount: 2
 
@@ -98,7 +106,7 @@ Container {
                 textStyle.fontSize: FontSize.XSmall
                 textStyle.textAlign: TextAlign.Center
                 textStyle.color: Color.White
-            }            
+            }
         }
 
         Container {
@@ -108,10 +116,10 @@ Container {
             layout: StackLayout {
                 orientation: LayoutOrientation.LeftToRight
             }
-            
+
             // layout definition
             bottomPadding: ui.sdu(0.1)
-            
+
             // set initial visibility to false
             // this will be set true when the user taps on the name
             visible: false
@@ -164,7 +172,17 @@ Container {
             }
         }
     }
-    
+
+    // show details
+    onShowDetails: {
+        venueHeaderLocationAndPhotoComponent.visible = true;
+    }
+
+    // hide details
+    onHideDetails: {
+        venueHeaderLocationAndPhotoComponent.visible = false;
+    }
+
     // handle tap on header
     gestureHandlers: [
         TapHandler {
@@ -177,5 +195,4 @@ Container {
             }
         }
     ]
- 
 }

@@ -93,10 +93,14 @@ Page {
             VenueHeaderInteractive {
                 id: addCheckinHeader
 
+                // location tile clicked
+                // hand over to maps
                 onLocationClicked: {
                     locationBBMapsInvoker.go();
                 }
 
+                // photo tile clicked
+                // show gallery
                 onPhotosClicked: {
                     // console.log("# Photo tile clicked");
                     var photoGalleryPage = photoGalleryComponent.createObject();
@@ -644,9 +648,16 @@ Page {
         addCheckinHeader.venueLocation = venueData.location;
         addCheckinHeader.venueIcon = venueData.locationCategories[0].iconLarge;
 
-        // console.log("# Photos: " + venueData.photoCount);
+        // show address if formatted address is available
+        // otherwise show name
+        if (venueData.location.formattedAddress != "") {
+            addCheckinHeader.venueHeadline = venueData.location.formattedAddress;
+        } else {
+            addCheckinHeader.venueHeadline = venueData.name;
+        }
 
-        // check if checkin has photos
+        // check if venue has photos
+        addCheckinHeader.photoHeadline = venueData.photoCount + " Photos";
         if ((venueData.photoCount > 0) && (venueData.photos !== "")) {
             addCheckinHeader.photoImage = venueData.photos[0].imageMedium;
         }
@@ -673,9 +684,16 @@ Page {
         // initially clear list
         scoreList.clearList();
 
+        // show venue details in header if on Z device
+        if ((DisplayInfo.width < 800) && (DisplayInfo.height > 800)) {
+            addCheckinHeader.showDetails();
+        } else {
+            addCheckinHeader.hideDetails();
+        }
+
         // add checkin confirmation text
         addCheckinResultConfirmation.text = Copytext.swirlCheckinConfirmation + checkinData.venue.name + "!";
-        
+
         // add sticker if available
         if (checkinData.sticker.imageFull) {
             addCheckinResultConfirmationSticker.url = checkinData.sticker.imageFull;
