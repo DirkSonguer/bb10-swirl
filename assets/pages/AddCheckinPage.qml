@@ -516,7 +516,7 @@ Page {
 
                             // position and layout properties
                             verticalAlignment: VerticalAlignment.Center
-                            horizontalAlignment: HorizontalAlignment.Left
+                            horizontalAlignment: HorizontalAlignment.Center
 
                             // profile mask
                             imageSource: "asset:///images/assets/blue_squircle.png"
@@ -534,13 +534,13 @@ Page {
 
                             // position and layout properties
                             verticalAlignment: VerticalAlignment.Center
-                            horizontalAlignment: HorizontalAlignment.Left
+                            horizontalAlignment: HorizontalAlignment.Center
 
                             // set image size
-                            preferredHeight: ui.sdu(14)
-                            preferredWidth: ui.sdu(14)
-                            minHeight: ui.sdu(14)
-                            minWidth: ui.sdu(14)
+                            preferredHeight: ui.sdu(12)
+                            preferredWidth: ui.sdu(12)
+                            minHeight: ui.sdu(12)
+                            minWidth: ui.sdu(12)
 
                             // set initial visibility to false
                             // this will be set when the user used a sticker
@@ -675,10 +675,17 @@ Page {
 
         // add checkin confirmation text
         addCheckinResultConfirmation.text = Copytext.swirlCheckinConfirmation + checkinData.venue.name + "!";
+        
+        // add sticker if available
+        if (checkinData.sticker.imageFull) {
+            addCheckinResultConfirmationSticker.url = checkinData.sticker.imageFull;
+        } else {
+            addCheckinResultConfirmationSticker.url = Globals.swarmDefaultSticker;
+        }
 
         // user is mayor
         if (checkinData.isMayor) {
-        addCheckinResultConfirmation.text = Copytext.swirlCheckinMayor;
+            addCheckinResultConfirmation.text = Copytext.swirlCheckinMayor;
             addCheckinResultConfirmationSticker.visible = false;
             addCheckinResultConfirmationImage.imageSource = "asset:///images/icons/icon_mayorship_crown.png";
         }

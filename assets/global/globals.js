@@ -17,6 +17,8 @@ var foursquareProfileImageSmall = "100x100";
 var foursquareProfileImageMedium = "200x200";
 var foursquareProfileImageLarge = "400x400";
 
+var swarmDefaultSticker = "https://irs0.4sqi.net/img/sticker/94/swarm_0b9d6d.png";
+
 // color definitions
 var blackberryStandardBlue = "#0391cc";
 var blackberryLighterBlue = "#20a0d3";
