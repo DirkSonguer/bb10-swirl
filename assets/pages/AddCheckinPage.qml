@@ -471,11 +471,6 @@ Page {
                     orientation: LayoutOrientation.TopToBottom
                 }
 
-                // layout definition
-                topPadding: ui.sdu(1)
-                leftPadding: ui.sdu(1)
-                rightPadding: ui.sdu(1)
-
                 // set initial definition to false
                 // show container when checkin is done
                 visible: false
@@ -491,12 +486,12 @@ Page {
 
                     // layout definition
                     preferredWidth: DisplayInfo.width
-                    preferredHeight: ui.sdu(20)
+                    preferredHeight: DisplayInfo.width / 4
 
                     // set initial visibility to false
-                    // make image visible if text is added
+                    // this is made visible if upload is successful
                     visible: false
-                    onImageSourceChanged: {
+                    onImageChanged: {
                         visible = true;
                     }
                 }
@@ -507,6 +502,9 @@ Page {
                     layout: StackLayout {
                         orientation: LayoutOrientation.LeftToRight
                     }
+
+                    // layout definition
+                    topPadding: ui.sdu(2)
 
                     // confirmation image container
                     Container {
@@ -541,10 +539,10 @@ Page {
                             horizontalAlignment: HorizontalAlignment.Center
 
                             // set image size
-                            preferredHeight: ui.sdu(12)
-                            preferredWidth: ui.sdu(12)
-                            minHeight: ui.sdu(12)
-                            minWidth: ui.sdu(12)
+                            preferredHeight: ui.sdu(11)
+                            preferredWidth: ui.sdu(11)
+                            minHeight: ui.sdu(11)
+                            minWidth: ui.sdu(11)
 
                             // set initial visibility to false
                             // this will be set when the user used a sticker
@@ -641,6 +639,7 @@ Page {
     onVenueDetailDataLoaded: {
         // console.log("# Venue detail data loaded for venue " + venueData.venueId);
 
+        // set global data objects
         addCheckinPage.venueDataDetailsLoaded = true;
         addCheckinPage.venueData = venueData;
 
@@ -684,7 +683,7 @@ Page {
         // initially clear list
         scoreList.clearList();
 
-        // show venue details in header if on Z device
+        // show venue details in header if on a Z device
         if ((DisplayInfo.width < 800) && (DisplayInfo.height > 800)) {
             addCheckinHeader.showDetails();
         } else {
@@ -713,24 +712,28 @@ Page {
             scoreList.addToList(checkinData.scores[index]);
         }
 
-        // hide loader
-        loadingIndicator.hideLoader();
-
-        // show container
-        addCheckinResultContainer.visible = true;
-
         // check if image should be added to checkin
-        // if so, upload the image
+        // if so, upload the image while still showing the loaader
+        // otherwise the loader can be hidden & the result shown
         if (addCheckinPage.venueImage != "") {
             // console.log("# Trying to upload image: " + addCheckinPage.venueImage);
 
-            // showing image
+            // set image
             addCheckinResultImage.imageSource = "file://" + addCheckinPage.venueImage;
+
+            // activate uploading indicator
+            loadingIndicator.showLoader(Copytext.swirlImageUploadProgress);
 
             // uploading image
             fileUpload.source = addCheckinPage.venueImage;
             var foursquareUserdata = AuthenticationHandler.auth.getStoredFoursquareData();
             fileUpload.upload(checkinData.checkinId, foursquareUserdata["access_token"], FoursquareKeys.foursquarekeys.foursquareAPIVersion, "1");
+        } else {
+            // hide loader
+            loadingIndicator.hideLoader();
+
+            // show container
+            addCheckinResultContainer.visible = true;
         }
     }
 
@@ -815,6 +818,29 @@ Page {
         // used to upload images to foursquare
         FileUpload {
             id: fileUpload
+
+            onUploadResponseChanged: {
+                // console.log("# Image upload done. Raw response: " + uploadResponse);
+
+                // hide upload indicator
+                loadingIndicator.hideLoader();
+
+                // convert response to json object
+                var jsonObject = eval('(' + uploadResponse + ')');
+                if ((typeof jsonObject.meta !== "undefined") && (typeof jsonObject.meta.code !== "undefined")) {
+                    if (jsonObject.meta.code == "200") {
+                        // console.log("# Image upload ok!");
+                        // show result container
+                        addCheckinResultContainer.visible = true;
+                    } else {
+                        // console.log("# Image upload encountered an error, got response code " + jsonObject.code);
+                        infoMessage.showMessage(Copytext.swirlImageUploadError, "");
+                    }
+                } else {
+                    // console.log("# Image upload might have encountered an error, could not transform Foursquare response");
+                    infoMessage.showMessage(Copytext.swirlImageUploadError, "");
+                }
+            }
         },
         // sheet for adding friends page
         Sheet {

@@ -87,6 +87,8 @@ var swirlCheckinHintText = "What are your doing here?";
 var swirlCheckinConfirmation = "We got you at ";
 var swirlCheckinMayor = "The mayor is in the house!";
 var swirlAddingCheckin = "Adding Checkin";
+var swirlImageUploadProgress = "Uploading image, please wait";
+var swirlImageUploadError = "The image upload encountered an unknown error. We're sorry, please try again";
 
 // checkin comment
 var swirlCommentCallToAction = "Add comment to checkin";

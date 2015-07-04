@@ -21,7 +21,7 @@ bool FileUpload::upload(const QByteArray& checkinId, const QByteArray& oauth_tok
 {
     // check if source is set
     if (mSource.isEmpty()) {
-        qDebug() << "# Could not upload file, no source set";
+        // qDebug() << "# Could not upload file, no source set";
         return false;
     }
 
@@ -42,12 +42,6 @@ bool FileUpload::upload(const QByteArray& checkinId, const QByteArray& oauth_tok
             QVariant("form-data; name=\"checkinId\""));
     // qDebug() << "# Setting checkinId " << checkinId;
     checkinIdField.setBody(checkinId);
-    /*
-     QHttpPart publicFlagField;
-     publicFlagField.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"public\""));
-     qDebug() << "# Setting publicFlag " << publicFlag;
-     publicFlagField.setBody(publicFlag);
-     */
 
     // add oauth token
     QHttpPart oauth_tokenField;
@@ -65,7 +59,7 @@ bool FileUpload::upload(const QByteArray& checkinId, const QByteArray& oauth_tok
     // open file
     QFile *file = new QFile(mSource);
     if (!file->open(QIODevice::ReadOnly)) {
-        qDebug() << "# Could not upload file, could not open file";
+        // qDebug() << "# Could not upload file, could not open file";
         return false;
     }
 
@@ -99,10 +93,14 @@ bool FileUpload::upload(const QByteArray& checkinId, const QByteArray& oauth_tok
 
 void FileUpload::uploadReady(QNetworkReply *reply)
 {
-    qDebug() << "# Uploading done to " << reply->url().toString();
+    // qDebug() << "# Uploading done to " << reply->url().toString();
 
-    QByteArray replyData = reply->readAll();
-    qDebug() << "# Reply data: " << replyData;
+    // set upload response data
+    mUploadResponse = reply->readAll();
+    // qDebug() << "# Reply data: " << mUploadResponse;
+
+    // call changed signal
+    uploadResponseChanged(mUploadResponse);
 
     // Memory management
     reply->deleteLater();
