@@ -8,6 +8,7 @@ v 1.7.0
 * Added: Settings for pull to refresh behaviour
 * Changed: The recent activity stream now has better data
 * Changed: Searching for check-in venues has been optimised
+* Changed: Not finding your current position now shows an error
 * Fixed: Uploading images with check-ins is now more reliable
 * Fixed: When searching for a check-in venue, the error message does not stay from before
 * Fixed: Scene cover works now after reloading check-ins

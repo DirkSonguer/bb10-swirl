@@ -62,6 +62,7 @@ var swirlAroundYouDistances = new Array("0#Around you", "1#Around the block", "2
 // venue search
 var swirlNoLocationTitle = "Could not lock your location";
 var swirlNoLocationMessage = "We're having trouble finding your location. Where are you?!";
+var swirlNoLocationServicesMessage = "We're having trouble finding your location. Did you activate location services on your device? Tap to try again.";
 var swirlSearchCallToAction = "Search";
 var swirlSearchAction = "Searching..";
 var swirlSearchFixLocation = "Trying to fix your location";

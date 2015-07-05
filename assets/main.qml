@@ -18,6 +18,9 @@ import bb.system 1.2
 // import geolocation services
 import QtMobilitySubset.location 1.1
 
+// import timer type
+import QtTimer 1.0
+
 // set import directory for components
 import "components"
 
@@ -91,6 +94,24 @@ NavigationPane {
                 // layout definition
                 verticalAlignment: VerticalAlignment.Center
                 horizontalAlignment: HorizontalAlignment.Center
+
+                // message has been clicked
+                onMessageClicked: {
+                    // hide lists because of reload
+                    aroundYouList.visible = false;
+                    checkinList.visible = false;
+                    changeCheckinViewAction.enabled = false;
+
+                    // show loader
+                    loadingIndicator.showLoader(Copytext.swirlLocationWorking);
+
+                    // hide info message
+                    infoMessage.hideMessage();
+
+                    // start searching for the current geolocation
+                    positionSource.start();
+                    positionSourceTimer.start();
+                }
             }
 
             // around you list
@@ -121,8 +142,12 @@ NavigationPane {
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
+                    // hide info message
+                    infoMessage.hideMessage();
+
                     // start searching for the current geolocation
                     positionSource.start();
+                    positionSourceTimer.start();
                 }
             }
 
@@ -162,8 +187,12 @@ NavigationPane {
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
+                    // hide info message
+                    infoMessage.hideMessage();
+
                     // start searching for the current geolocation
                     positionSource.start();
+                    positionSourceTimer.start();
                 }
             }
         }
@@ -225,6 +254,7 @@ NavigationPane {
 
                 // start searching for the current geolocation
                 positionSource.start();
+                positionSourceTimer.start();
             } else {
                 // console.log("# Info: User is not authenticated");
 
@@ -578,6 +608,20 @@ NavigationPane {
                 uri: "appworld://content/59947364"
             }
         },
+        // timer component
+        // used to check if position can be found within time limit
+        Timer {
+            id: positionSourceTimer
+            interval: 15000
+            singleShot: true
+
+            // when triggered, show the error message
+            onTimeout: {
+                positionSource.stop();
+                loadingIndicator.hideLoader();
+                infoMessage.showMessage(Copytext.swirlNoLocationServicesMessage, Copytext.swirlNoLocationTitle);
+            }
+        },
         // position source object and logic
         PositionSource {
             id: positionSource
@@ -589,12 +633,15 @@ NavigationPane {
                 // store coordinates
                 mainPage.currentGeolocation = positionSource.position.coordinate;
 
+                // stop timer
+                positionSourceTimer.stop();
+
                 // check if location was really fixed
                 if (! mainPage.currentGeolocation) {
-                    // console.log("# Location could not be fixed");
+                    console.log("# Location could not be fixed");
                     infoMessage.showMessage(Copytext.swirlNoLocationMessage, Copytext.swirlNoLocationTitle);
                 } else {
-                    // console.debug("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
+                    console.debug("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
 
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlFriendSearch);
