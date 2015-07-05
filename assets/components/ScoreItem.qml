@@ -34,6 +34,11 @@ Container {
 
     // property for the user profile image, given as url
     property alias points: scorePoints.text
+    
+    // hand over preferred width to subcontainers
+    onPreferredWidthChanged: {
+        scoreMessage.preferredWidth = (preferredWidth - ui.sdu(34));
+    }
 
     // layout orientation
     layout: StackLayout {
@@ -43,7 +48,7 @@ Container {
     // layout definition
     topPadding: ui.sdu(2)
     bottomPadding: ui.sdu(2)
-    leftPadding: ui.sdu(1)
+    leftPadding: ui.sdu(4)
     rightPadding: ui.sdu(2)
 
     // profile image
@@ -80,6 +85,7 @@ Container {
         // layout definition
         horizontalAlignment: HorizontalAlignment.Left
         verticalAlignment: VerticalAlignment.Center
+        leftPadding: ui.sdu(1)
 
         // size
         // preferredWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
