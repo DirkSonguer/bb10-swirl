@@ -79,6 +79,7 @@ Container {
 
         // layout definition
         horizontalAlignment: HorizontalAlignment.Left
+        verticalAlignment: VerticalAlignment.Center
 
         // size
         // preferredWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
@@ -98,8 +99,9 @@ Container {
 
         // layout definition
         horizontalAlignment: HorizontalAlignment.Right
-        bottomMargin: 0
+        verticalAlignment: VerticalAlignment.Center
         rightMargin: ui.sdu(1)
+        bottomMargin: 0
 
         // size
         preferredWidth: ui.sdu(20)

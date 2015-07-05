@@ -62,7 +62,7 @@ var swirlAroundYouDistances = new Array("0#Around you", "1#Around the block", "2
 // venue search
 var swirlNoLocationTitle = "Could not lock your location";
 var swirlNoLocationMessage = "We're having trouble finding your location. Where are you?!";
-var swirlNoLocationServicesMessage = "We're having trouble finding your location. Did you activate location services on your device? Tap to try again.";
+var swirlNoLocationServicesMessage = "We're having trouble finding your location. Are you underground? Did you activate location services on your device? Tap to try again.";
 var swirlSearchCallToAction = "Search";
 var swirlSearchAction = "Searching..";
 var swirlSearchFixLocation = "Trying to fix your location";
@@ -86,7 +86,7 @@ var swirlFriendSearchInputLabel = "Enter friend name";
 // checkin
 var swirlCheckinHintText = "What are your doing here?";
 var swirlCheckinConfirmation = "We got you at ";
-var swirlCheckinMayor = "The mayor is in the house!";
+var swirlCheckinConfirmationMayor = "Hey, you are mayor at ";
 var swirlAddingCheckin = "Adding Checkin";
 var swirlImageUploadProgress = "Uploading image, please wait";
 var swirlImageUploadError = "The image upload encountered an unknown error. We're sorry, please try again";

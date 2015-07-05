@@ -702,7 +702,7 @@ Page {
 
         // user is mayor
         if (checkinData.isMayor) {
-            addCheckinResultConfirmation.text = Copytext.swirlCheckinMayor;
+            addCheckinResultConfirmation.text = Copytext.swirlCheckinConfirmationMayor + checkinData.venue.name + "!";
             addCheckinResultConfirmationSticker.visible = false;
             addCheckinResultConfirmationImage.imageSource = "asset:///images/icons/icon_mayorship_crown.png";
         }
