@@ -612,7 +612,7 @@ NavigationPane {
         // used to check if position can be found within time limit
         Timer {
             id: positionSourceTimer
-            interval: 15000
+            interval: 12000
             singleShot: true
 
             // when triggered, show the error message
@@ -638,10 +638,10 @@ NavigationPane {
 
                 // check if location was really fixed
                 if (! mainPage.currentGeolocation) {
-                    console.log("# Location could not be fixed");
+                    // console.log("# Location could not be fixed");
                     infoMessage.showMessage(Copytext.swirlNoLocationMessage, Copytext.swirlNoLocationTitle);
                 } else {
-                    console.debug("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
+                    // console.log("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
 
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlFriendSearch);
