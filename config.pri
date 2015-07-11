@@ -136,6 +136,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/CommentDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/PhotoGalleryPage.qml) \
+        $$quote($$BASEDIR/assets/pages/ProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
         $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \

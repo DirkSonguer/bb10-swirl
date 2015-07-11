@@ -447,6 +447,23 @@ NavigationPane {
                     var updatesPage = updatesComponent.createObject();
                     navigationPane.push(updatesPage);
                 }
+            },
+            ActionItem {
+                id: profilePageAction
+                
+                // title and image
+                title: "Profile"
+                imageSource: "asset:///images/icons/icon_profile.png"
+                
+                // action position
+                ActionBar.placement: ActionBarPlacement.OnBar
+                
+                // action
+                onTriggered: {
+                    // console.log("# Profile action clicked");
+                    var profilePage = profileComponent.createObject();
+                    navigationPane.push(profilePage);
+                }
             }
         ]
     }
@@ -592,6 +609,12 @@ NavigationPane {
         ComponentDefinition {
             id: updatesComponent
             source: "pages/UpdatesPage.qml"
+        },
+        // profile page
+        // will be called if user clicks on profile action
+        ComponentDefinition {
+            id: profileComponent
+            source: "pages/ProfilePage.qml"
         },
         // search venue page
         // will be called if user clicks on add checkin action
