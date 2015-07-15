@@ -16,6 +16,7 @@ var swirlLocationWorking = "Trying to fix your location";
 // loaders
 var swirlLoaderVenuePhotos = "Loading venue photos";
 var swirlLoaderComments = "Loading comments";
+var swirlLoaderCheckins = "Loading check-ins";
 var swirlLoaderFriendData = "Loading friend data";
 var swirlLoaderStickerData = "Loading sticker data";
 var swirlLoaderUpdates = "Loading your updates";

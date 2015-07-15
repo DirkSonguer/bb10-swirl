@@ -117,6 +117,7 @@ Page {
                     // will be set if the user has friends
                     visible: false
 
+// call friends list page
                     onClicked: {
                         var friendsListPage = friendsListComponent.createObject();
                         friendsListPage.userData = profilePage.userData;
@@ -146,6 +147,68 @@ Page {
                         var photoGalleryPage = photoGalleryComponent.createObject();
                         photoGalleryPage.photoData = profilePage.photoData;
                         navigationPane.push(photoGalleryPage);
+                    }
+                }
+
+                // checkin history tile
+                InfoTile {
+                    id: profileCheckinHistoryTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / profilePage.columnCount
+                    preferredWidth: DisplayInfo.width / profilePage.columnCount
+
+                    // set icon & label
+                    localImage: "asset:///images/icons/icon_world.png"
+                    imageScaling: ScalingMethod.None
+                    headline: "Check-ins"
+
+                    // call checkin history page
+                    onClicked: {
+                        // console.log("# Photo tile clicked");
+                        var checkinHistoryPage = checkinHistoryComponent.createObject();
+                        navigationPane.push(checkinHistoryPage);
+                    }
+                }
+
+                // mayorships tile
+                InfoTile {
+                    id: profileMayorshipsTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / profilePage.columnCount
+                    preferredWidth: DisplayInfo.width / profilePage.columnCount
+
+                    // set icon & label
+                    localImage: "asset:///images/icons/icon_mayor.png"
+                    imageScaling: ScalingMethod.None
+                    headline: "Mayorships"
+
+                    // define SMS invocation
+                    onClicked: {
+                        // communicationInvokes.sendTextMessage(userDetailPage.userData.contact.phone, "Hi there!", false);
+                    }
+                }
+
+                // stickers tile
+                InfoTile {
+                    id: profileStickersTile
+
+                    // layout definition
+                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
+                    preferredHeight: DisplayInfo.width / profilePage.columnCount
+                    preferredWidth: DisplayInfo.width / profilePage.columnCount
+
+                    // set icon & label
+                    localImage: "asset:///images/icons/icon_stickers.png"
+                    imageScaling: ScalingMethod.None
+                    headline: "Stickers"
+
+                    // define SMS invocation
+                    onClicked: {
+                        // communicationInvokes.sendTextMessage(userDetailPage.userData.contact.phone, "Hi there!", false);
                     }
                 }
             }
@@ -198,7 +261,7 @@ Page {
         // fill header data based on full user object
         profileHeader.bio = userData.bio;
 
-        // venue map
+        // last checkin venue map
         profileLastCheckinTile.zoom = "15";
         profileLastCheckinTile.size = "400";
         profileLastCheckinTile.venueLocation = userData.checkins[0].venue.location;
@@ -207,6 +270,9 @@ Page {
         // show venue name
         profileLastCheckinTile.headline = "Last seen at: " + userData.checkins[0].venue.name;
         profileLastCheckinTile.visible = true;
+
+        // number of checkins
+        profileCheckinHistoryTile.headline = userData.checkinCount + " check-ins";
 
         // check if user has friends
         if (userData.friends.length > 0) {
@@ -222,7 +288,7 @@ Page {
     // user photos have been loaded
     // fill tile with data
     onUserPhotoDataLoaded: {
-        console.log("# User detail data loaded for user " + userData.userId);
+        // console.log("# User detail data loaded for user " + userData.userId);
 
         // store the full object and set flag to true
         profilePage.userPhotosLoaded = true;
@@ -255,6 +321,12 @@ Page {
         ComponentDefinition {
             id: photoGalleryComponent
             source: "PhotoGalleryPage.qml"
+        },
+        // user checkin page
+        // will be called if user clicks on checkin list tile
+        ComponentDefinition {
+            id: checkinHistoryComponent
+            source: "CheckinHistoryPage.qml"
         },
         // checkin detail page
         // will be called if user clicks on checkin item

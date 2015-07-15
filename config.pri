@@ -44,6 +44,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/AroundYouItem.qml) \
         $$quote($$BASEDIR/assets/components/AroundYouList.qml) \
         $$quote($$BASEDIR/assets/components/CheckinHeader.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinHistoryItem.qml) \
+        $$quote($$BASEDIR/assets/components/CheckinHistoryList.qml) \
         $$quote($$BASEDIR/assets/components/CheckinInput.qml) \
         $$quote($$BASEDIR/assets/components/CheckinItem.qml) \
         $$quote($$BASEDIR/assets/components/CheckinList.qml) \
@@ -111,6 +113,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_image_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_liked_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mail_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_mayor.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_mayorship_crown.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_notification_available.png) \
@@ -126,13 +129,16 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_settings.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sms_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sticker_inactive.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_stickers.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_disabled.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_world.png) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
+        $$quote($$BASEDIR/assets/pages/CheckinHistoryPage.qml) \
         $$quote($$BASEDIR/assets/pages/CommentDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
         $$quote($$BASEDIR/assets/pages/PhotoGalleryPage.qml) \

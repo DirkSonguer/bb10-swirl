@@ -1,5 +1,5 @@
 1
-128
+134
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -8,6 +8,8 @@ classes/settingsmanager.js
 components/AroundYouItem.qml
 components/AroundYouList.qml
 components/CheckinHeader.qml
+components/CheckinHistoryItem.qml
+components/CheckinHistoryList.qml
 components/CheckinInput.qml
 components/CheckinItem.qml
 components/CheckinList.qml
@@ -75,6 +77,7 @@ images/icons/icon_image_active.png
 images/icons/icon_image_inactive.png
 images/icons/icon_liked_w.png
 images/icons/icon_mail_w.png
+images/icons/icon_mayor.png
 images/icons/icon_mayorship_crown.png
 images/icons/icon_notification.png
 images/icons/icon_notification_available.png
@@ -90,13 +93,16 @@ images/icons/icon_search_dimmed.png
 images/icons/icon_settings.png
 images/icons/icon_sms_w.png
 images/icons/icon_sticker_inactive.png
+images/icons/icon_stickers.png
 images/icons/icon_twitter_active.png
 images/icons/icon_twitter_disabled.png
 images/icons/icon_twitter_inactive.png
 images/icons/icon_unliked_w.png
+images/icons/icon_world.png
 main.qml
 pages/AddCheckinPage.qml
 pages/CheckinDetailPage.qml
+pages/CheckinHistoryPage.qml
 pages/CommentDetailPage.qml
 pages/FriendsPage.qml
 pages/PhotoGalleryPage.qml

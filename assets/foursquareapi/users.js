@@ -89,10 +89,10 @@ function getCheckinsForUser(userId, callingPage) {
 			// console.log("# User checkin object received. Transforming.");
 
 			// prepare transformator and return object
-			var userTransformator = new UserTransformator();
-			var checkinData = userTransformator.getUserDataFromObject(jsonObject.response.user);
+			var checkinTransformator = new CheckinTransformator();
+			var checkinData = checkinTransformator.getCheckinDataFromArray(jsonObject.response.checkins.items);
 
-			// console.log("# Done loading user data");
+			// console.log("# Done loading checkin data");
 			callingPage.userCheckinDataLoaded(checkinData);
 		} else {
 			// either the request is not done yet or an error occured
@@ -120,6 +120,7 @@ function getCheckinsForUser(userId, callingPage) {
 	url += "/" + userId + "/checkins";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&limit=40";
 	url += "&m=swarm";
 
 	// console.log("# Loading user checkins with url: " + url);
