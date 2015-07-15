@@ -63,19 +63,6 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 	// get checkin distance from user
 	if (typeof checkinObject.distance !== "undefined") {
 		checkinData.distance = checkinObject.distance;
-
-		// define distance category according to absolute distance
-		if (checkinData.distance <= 5000)
-			checkinData.categorisedDistance = swirlAroundYouDistances[0];
-		if ((checkinData.distance > 5000) && (checkinData.distance <= 10000))
-			checkinData.categorisedDistance = swirlAroundYouDistances[1];
-		if ((checkinData.distance > 10000) && (checkinData.distance <= 30000))
-			checkinData.categorisedDistance = swirlAroundYouDistances[2];
-		if (checkinData.distance > 30000)
-			checkinData.categorisedDistance = swirlAroundYouDistances[3];
-
-		// console.log("# Found distance " + checkinData.distance + " so it's in
-		// category " + checkinData.categorisedDistance);
 	}
 
 	// liked state

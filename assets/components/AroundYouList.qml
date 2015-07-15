@@ -17,7 +17,7 @@ import "../global/copytext.js" as Copytext
 
 Container {
     id: aroundYouListComponent
-    
+
     // set header refresh mode
     property alias refreshMode: refreshHandler.refreshMode
 
@@ -49,10 +49,25 @@ Container {
     signal addToList(variant item)
     onAddToList: {
         // console.log("# Adding item with ID " + item.checkinId + " to around you list data model");
+
+        // define distance category according to absolute distance
+        var categorisedDistance = Copytext.swirlAroundYouDistances[0];
+        if (item.distance <= 5000)
+            categorisedDistance = Copytext.swirlAroundYouDistances[0];
+        if ((item.distance > 5000) && (item.distance <= 10000))
+            categorisedDistance = Copytext.swirlAroundYouDistances[1];
+        if ((item.distance > 10000) && (item.distance <= 30000))
+            categorisedDistance = Copytext.swirlAroundYouDistances[2];
+        if (item.distance > 30000)
+            categorisedDistance = Copytext.swirlAroundYouDistances[3];
+
+        // console.log("# Found distance " + item.distance + " so it's in category " + categorisedDistance);
+
+        // fill data item
         aroundYouListComponent.currentItemIndex += 1;
         aroundYouListDataModel.insert({
                 "checkinData": item,
-                "distanceCategory": item.categorisedDistance,
+                "distanceCategory": categorisedDistance,
                 "distance": item.distance,
                 "timestamp": item.createdAt,
                 "currentIndex": aroundYouListComponent.currentItemIndex
@@ -93,7 +108,7 @@ Container {
         leadingVisualSnapThreshold: 2.0
         leadingVisual: RefreshHeader {
             id: refreshHandler
-            
+
             // refresh triggered
             onTriggered: {
                 aroundYouListComponent.refreshTriggered();
@@ -176,7 +191,7 @@ Container {
                 }
             }
         ]
-        
+
         // add touch events
         onTouch: {
             // user interaction
@@ -184,12 +199,12 @@ Container {
                 // hand over scrolling state to header
                 refreshHandler.touchActive = true;
             }
-            
+
             // user released or is moving
             if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
                 // hand over scrolling state to header
                 refreshHandler.touchActive = false;
-            }            
+            }
         }
 
         // add action for loading additional data after scrolling to bottom

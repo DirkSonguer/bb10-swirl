@@ -25,7 +25,6 @@ function FoursquareCheckinData() {
 
 	// distances
 	this.distance = "";
-	this.categorisedDistance = "";
 
 	// liked state
 	this.userHasLiked = "";
