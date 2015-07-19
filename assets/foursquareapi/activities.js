@@ -87,7 +87,7 @@ function getRecentActivity(currentGeoLocation, beforeMarker, callingPage) {
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
-	url += "&limit=40&attachmentsLimit=4&idealLimit=3&earliestAttachments=false";
+	url += "&limit=20&attachmentsLimit=4&idealLimit=3&earliestAttachments=false";
 
 	// check if currentGeoLocation is set
 	// we assume that if the system was able to define the latitude, it also
@@ -97,11 +97,11 @@ function getRecentActivity(currentGeoLocation, beforeMarker, callingPage) {
 	}
 
 	// check if beforeMarker is set
-	if (beforeMarker > 0) {
+	if (beforeMarker != "") {
 		url += "&beforeMarker=" + beforeMarker;
 	}
 
-	// console.log("# Loading recent activities with url: " + url);
+	console.log("# Loading recent activities with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

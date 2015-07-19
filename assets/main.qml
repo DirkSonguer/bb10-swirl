@@ -72,6 +72,9 @@ NavigationPane {
         // contains lat and lon
         property variant currentGeolocation
 
+        // property to hold the current pagination index
+        property string currentCheckinsPaginationIndex: ""
+
         // main content container
         Container {
             // layout orientation
@@ -187,12 +190,27 @@ NavigationPane {
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
+                    // initially clear list
+                    checkinList.clearList();
+
                     // hide info message
                     infoMessage.hideMessage();
 
                     // start searching for the current geolocation
                     positionSource.start();
                     positionSourceTimer.start();
+                }
+
+                // list scrolled to bottom
+                // load more images if available
+                onListBottomReached: {
+                    if (mainPage.currentCheckinsPaginationIndex != "") {
+                        ActivitiesRepository.getRecentActivity(mainPage.currentGeolocation, mainPage.currentCheckinsPaginationIndex, mainPage)
+
+                        // show toast that new images are loading
+                        swirlCenterToast.body = Copytext.swirlLoaderCheckins;
+                        swirlCenterToast.show();
+                    }
                 }
             }
         }
@@ -268,21 +286,24 @@ NavigationPane {
         // checkin stream data was loaded and transformed
         // data is stored in "recentActivityData" variant as array of type FoursquareCheckinData
         onRecentActivityDataLoaded: {
-            // console.log("# Recent activity data loaded. Found " + recentActivityData.length + " items");
-
-            // initially clear list
-            checkinList.clearList();
+            console.log("# Recent activity data loaded. Found " + recentActivityData.length + " items, starting with id " + recentActivityData[0].checkinId);
 
             // hide loader
+            swirlCenterToast.cancel();
             loadingIndicator.hideLoader();
 
             // check if results are available
-            if (recentActivityData.length > 0) {
+            if ((recentActivityData.length > 0) && (mainPage.currentCheckinsPaginationIndex != recentActivityData[(recentActivityData.length - 1)].checkinId)) {
                 // iterate through data objects and fill lists
                 for (var index in recentActivityData) {
                     // filter checkins by current user
                     checkinList.addToList(recentActivityData[index]);
                 }
+
+                // set pagination index
+                // note that returned object is ordered by creation date descending
+                // hence the last entry is the oldest one
+                mainPage.currentCheckinsPaginationIndex = recentActivityData[(recentActivityData.length - 1)].checkinId;
 
                 // show list with results
                 // list shown is according to the state of the action button
@@ -450,14 +471,14 @@ NavigationPane {
             },
             ActionItem {
                 id: profilePageAction
-                
+
                 // title and image
                 title: "Profile"
                 imageSource: "asset:///images/icons/icon_profile.png"
-                
+
                 // action position
                 ActionBar.placement: ActionBarPlacement.OnBar
-                
+
                 // action
                 onTriggered: {
                     // console.log("# Profile action clicked");

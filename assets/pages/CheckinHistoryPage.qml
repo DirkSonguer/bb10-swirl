@@ -28,6 +28,7 @@ Page {
     // signal if checkin data loading encountered an error
     signal userCheckinDataError(variant errorData)
 
+    // property to hold the current pagination index
     property int currentPaginationIndex: 0
 
     // main content container
