@@ -13,6 +13,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "global/globals.js");
 	Qt.include(dirPaths.assetPath + "global/copytext.js");
 	Qt.include(dirPaths.assetPath + "classes/helpermethods.js");
+	Qt.include(dirPaths.assetPath + "structures/achievement.js");
 	Qt.include(dirPaths.assetPath + "structures/checkin.js");
 	Qt.include(dirPaths.assetPath + "structures/comment.js");
 	Qt.include(dirPaths.assetPath + "structures/contact.js");
@@ -28,6 +29,58 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "structures/user.js");
 	Qt.include(dirPaths.assetPath + "structures/venue.js");
 }
+
+// *************************************************** //
+// Achievement Transformator
+// *************************************************** //
+var achievementTransformator = new AchievementTransformator();
+
+// Class function that gets the prototype methods
+function AchievementTransformator() {
+}
+
+// Extract all achievement data from a achievement object
+// The resulting data is stored as FoursquareAchievementData()
+AchievementTransformator.prototype.getAchievementDataFromObject = function(achievementObject) {
+	console.log("# Transforming achievement item with summary: " + achievementObject.summary);
+
+	// create new data object
+	var achievementData = new FoursquareAchievementData();
+
+	// get checkin distance from user
+	if (typeof achievementObject.summary !== "undefined") {
+		achievementData.summary = achievementObject.summary;
+	}
+
+	// general venue information
+	// this is stored as FoursquareVenueData()
+	if (typeof achievementObject.venue !== "undefined") {
+		achievementData.venue = venueTransformator.getVenueDataFromObject(achievementObject.venue);
+	}
+
+	console.log("# Done transforming achievement item");
+	return achievementData;
+};
+
+// Extract all achievement data from an array of achievement objects
+// The resulting data is stored as array of FoursquareAchievementData()
+AchievementTransformator.prototype.getAchievementDataFromArray = function(achievementObjectArray) {
+	console.log("# Transforming achievement array with " + achievementObjectArray.length + " items");
+
+	// create new return array
+	var achievementDataArray = new Array();
+
+	// iterate through all checkin items
+	for ( var index in achievementObjectArray) {
+		// get checkin data item and store it into return array
+		var achievementData = new FoursquareAchievementData();
+		achievementData = this.getAchievementDataFromObject(achievementObjectArray[index]);
+		achievementDataArray[index] = achievementData;
+	}
+
+	// console.log("# Done transforming achievement array");
+	return achievementDataArray;
+};
 
 // *************************************************** //
 // Checkin Transformator
@@ -151,7 +204,7 @@ CheckinTransformator.prototype.getCheckinDataFromObject = function(checkinObject
 // Extract all checkin data from an array of checkin objects
 // The resulting data is stored as array of FoursquareCheckinData()
 CheckinTransformator.prototype.getCheckinDataFromArray = function(checkinObjectArray) {
-	// console.log("# Transforming venue array with " +
+	// console.log("# Transforming checkin array with " +
 	// checkinObjectArray.length + " items");
 
 	// create new return array
@@ -165,7 +218,7 @@ CheckinTransformator.prototype.getCheckinDataFromArray = function(checkinObjectA
 		checkinDataArray[index] = checkinData;
 	}
 
-	// console.log("# Done transforming venue array");
+	// console.log("# Done transforming checkin array");
 	return checkinDataArray;
 };
 
@@ -281,15 +334,16 @@ StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject
 		stickerData.stickerGroupIndex = stickerObject.group.index;
 		stickerData.stickerGroupName = stickerObject.group.name;
 	}
-	
+
 	// sticker active state
 	if (typeof stickerObject.locked != 'undefined') {
 		stickerData.locked = stickerObject.locked;
 	}
-	
+
 	// sticker progress
 	if ((typeof stickerObject.progress != 'undefined') && (typeof stickerObject.progress.checkinsRequired != 'undefined')) {
-		// console.log("# Sticker not obtained yet, text is " + stickerObject.progress.progressText);
+		// console.log("# Sticker not obtained yet, text is " +
+		// stickerObject.progress.progressText);
 		this.progressPercentComplete = stickerObject.progress.percentComplete;
 		this.progressCheckinsRequired = stickerObject.progress.checkinsRequired;
 		this.progressCheckinsEarned = stickerObject.progress.checkinsEarned;
@@ -303,7 +357,8 @@ StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject
 // Extract all sticker data from an array of sticker objects
 // The resulting data is stored as array of FoursquareStickerData()
 StickerTransformator.prototype.getStickerDataFromArray = function(stickerObjectArray) {
-	// console.log("# Transforming sticker array with " + stickerObjectArray.length + " items");
+	// console.log("# Transforming sticker array with " +
+	// stickerObjectArray.length + " items");
 
 	// create new return array
 	var stickerArray = new Array();
@@ -316,7 +371,8 @@ StickerTransformator.prototype.getStickerDataFromArray = function(stickerObjectA
 		stickerArray[index] = stickerData;
 	}
 
-	// console.log("# Done transforming sticker array, transformed " + stickerArray.length + " items");
+	// console.log("# Done transforming sticker array, transformed " +
+	// stickerArray.length + " items");
 	return stickerArray;
 };
 
@@ -735,7 +791,8 @@ NotificationTransformator.prototype.getNotificationDataFromObject = function(not
 // Extract all notification data from an array of notification objects
 // The resulting data is stored as array of FoursquareNotificationData()
 NotificationTransformator.prototype.getNotificationDataFromArray = function(notificationObjectArray) {
-	// console.log("# Transforming notification array with " + notificationObjectArray.length + " items");
+	// console.log("# Transforming notification array with " +
+	// notificationObjectArray.length + " items");
 
 	// create new return array
 	var notificationDataArray = new Array();

@@ -166,7 +166,7 @@ Page {
 
                     // call checkin history page
                     onClicked: {
-                        // console.log("# Photo tile clicked");
+                        // console.log("# History tile clicked");
                         var checkinHistoryPage = checkinHistoryComponent.createObject();
                         navigationPane.push(checkinHistoryPage);
                     }
@@ -186,9 +186,11 @@ Page {
                     imageScaling: ScalingMethod.None
                     headline: "Mayorships"
 
-                    // define SMS invocation
+                    // call mayorship page
                     onClicked: {
-                        // communicationInvokes.sendTextMessage(userDetailPage.userData.contact.phone, "Hi there!", false);
+                        // console.log("# Mayorship tile clicked");
+                        var mayorshipPage = mayorshipsComponent.createObject();
+                        navigationPane.push(mayorshipPage);
                     }
                 }
 
@@ -322,11 +324,17 @@ Page {
             id: photoGalleryComponent
             source: "PhotoGalleryPage.qml"
         },
-        // user checkin page
+        // user checkin history page
         // will be called if user clicks on checkin list tile
         ComponentDefinition {
             id: checkinHistoryComponent
             source: "CheckinHistoryPage.qml"
+        },
+        // user mayorships page
+        // will be called if user clicks on mayorship list tile
+        ComponentDefinition {
+            id: mayorshipsComponent
+            source: "MayorshipsPage.qml"
         },
         // checkin detail page
         // will be called if user clicks on checkin item

@@ -155,6 +155,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/sheets/Settings.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogin.qml) \
         $$quote($$BASEDIR/assets/sheets/UserLogout.qml) \
+        $$quote($$BASEDIR/assets/structures/achievement.js) \
         $$quote($$BASEDIR/assets/structures/checkin.js) \
         $$quote($$BASEDIR/assets/structures/comment.js) \
         $$quote($$BASEDIR/assets/structures/contact.js) \

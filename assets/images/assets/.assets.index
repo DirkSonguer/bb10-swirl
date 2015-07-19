@@ -1,5 +1,5 @@
 1
-135
+136
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -119,6 +119,7 @@ sheets/AdvancedVenueSearch.qml
 sheets/Settings.qml
 sheets/UserLogin.qml
 sheets/UserLogout.qml
+structures/achievement.js
 structures/checkin.js
 structures/comment.js
 structures/contact.js

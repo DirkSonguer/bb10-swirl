@@ -21,6 +21,7 @@ var swirlLoaderFriendData = "Loading friend data";
 var swirlLoaderStickerData = "Loading sticker data";
 var swirlLoaderUpdates = "Loading your updates";
 var swirlLoaderLogin = "Loading login process";
+var swirlLoaderMayorships = "Loading mayorship data";
 	
 // recent checkins
 var swirlNoRecentTitle = "No checkins found";

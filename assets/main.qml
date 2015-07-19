@@ -190,9 +190,6 @@ NavigationPane {
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlLocationWorking);
 
-                    // initially clear list
-                    checkinList.clearList();
-
                     // hide info message
                     infoMessage.hideMessage();
 
@@ -286,9 +283,10 @@ NavigationPane {
         // checkin stream data was loaded and transformed
         // data is stored in "recentActivityData" variant as array of type FoursquareCheckinData
         onRecentActivityDataLoaded: {
-            console.log("# Recent activity data loaded. Found " + recentActivityData.length + " items, starting with id " + recentActivityData[0].checkinId);
+            // console.log("# Recent activity data loaded. Found " + recentActivityData.length + " items, starting with id " + recentActivityData[0].checkinId);
 
-            // hide loader
+            // hide loaders and messages
+            infoMessage.hideMessage();
             swirlCenterToast.cancel();
             loadingIndicator.hideLoader();
 
@@ -328,6 +326,10 @@ NavigationPane {
                 // no items in results found
                 // we assume that if no recent activity was found, there also can't be any recent checkins
                 infoMessage.showMessage(Copytext.swirlNoRecentMessage, Copytext.swirlNoRecentTitle);
+                
+                // hide both list components
+                aroundYouList.visible = false;
+                checkinList.visible = false;
             }
         }
 
@@ -336,10 +338,9 @@ NavigationPane {
         onRecentCheckinDataLoaded: {
             // console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
 
-            // initially clear list
-            aroundYouList.clearList();
-
-            // hide loader
+            // hide loaders and messages
+            infoMessage.hideMessage();
+            swirlCenterToast.cancel();
             loadingIndicator.hideLoader();
 
             // check if results are available
@@ -684,6 +685,10 @@ NavigationPane {
 
                 // stop timer
                 positionSourceTimer.stop();
+
+                // initially clear lists
+                aroundYouList.clearList();                
+                checkinList.clearList();
 
                 // check if location was really fixed
                 if (! mainPage.currentGeolocation) {

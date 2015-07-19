@@ -62,10 +62,6 @@ Container {
         if (tempDate.getDate() < 10) dateGroupIndex += "0";
         dateGroupIndex += "" + tempDate.getDate();
 
-        // get date label
-        var dateGroupLabel = "";
-        var dateGroupLabel = (tempDate.getMonth() + 1) + "/" + tempDate.getDate() + "/" + tempDate.getFullYear();
-
         // console.log("# Adding item from timestamp " + item.createdAt + " with group index " + dateGroupIndex + " and label " + dateGroupLabel);
 
         // console.log("# Adding item with ID " + item.checkinId + " to checkin list data model");
@@ -73,7 +69,6 @@ Container {
         checkinHistoryListDataModel.insert({
                 "checkinData": item,
                 "dateGroupIndex": dateGroupIndex,
-                "dateGroupLabel": dateGroupLabel,
                 "timestamp": item.createdAt,
                 "currentIndex": checkinHistoryListComponent.currentItemIndex
             });
@@ -113,8 +108,21 @@ Container {
                     topMargin: ui.sdu(3)
                     leftPadding: ui.sdu(1.5)
 
+                    // actual date label
+                    Label {
+                        id: headerLabel
+
+                        // layout definition
+                        bottomMargin: 0
+                        textStyle.fontSize: FontSize.Medium
+                        textStyle.fontWeight: FontWeight.W100
+                        textStyle.color: Color.create(Globals.blackberryStandardBlue)
+                    }
+
                     // date label
                     Label {
+                        id: headerIndex
+
                         // content is handed over in ListItemData
                         text: ListItemData
 
@@ -124,13 +132,15 @@ Container {
                         textStyle.fontWeight: FontWeight.W100
                         textStyle.color: Color.create(Globals.blackberryStandardBlue)
 
+                        // set visibility to false
+                        // basically the hederlabel shows the header index, not this one
+                        visible: false;
+
                         // this is used to show the distance category text instead of the ids
                         // to prevent sorting by alphabet, the ids are used for sorting
-                        onCreationCompleted: {
-                            // var tempLabel = text.substr(6, 2) + "." + text.substr(4, 2) + "." + text.substr(0, 4);
-                            // console.log("# Found date label: " + text + " reformatting to " + tempLabel); // 20150705
-                            // text = tempLabel;
-                            // text = text + tempLabel;
+                        onTextChanged: {
+                            var tempLabel = text.substr(6, 2) + "." + text.substr(4, 2) + "." + text.substr(0, 4);
+                            headerLabel.text = tempLabel;
                         }
                     }
 
@@ -221,7 +231,7 @@ Container {
         GroupDataModel {
             id: checkinHistoryListDataModel
             sortedAscending: false
-            sortingKeys: [ "dateGroupLabel", "timestamp" ]
+            sortingKeys: [ "dateGroupIndex", "timestamp" ]
 
             // items are grouped by the view and transformators
             // no need to set a behaviour by the data model

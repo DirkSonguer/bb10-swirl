@@ -20,13 +20,13 @@ import "../global/copytext.js" as Copytext
 import "../foursquareapi/users.js" as UsersRepository
 
 Page {
-    id: checkinHistoryPage
+    id: mayorshipPage
 
-    // signal if checkin data loading is complete
-    signal userCheckinDataLoaded(variant checkinData)
+    // signal if achievement data loading is complete
+    signal userAchievementDataLoaded(variant mayorshipData, variant contendingMayorshipData)
 
     // signal if checkin data loading encountered an error
-    signal userCheckinDataError(variant errorData)
+    signal userAchievementDataError(variant errorData)
 
     // main content container
     Container {
@@ -58,19 +58,22 @@ Page {
             // checkin list
             // this will contain all the components and actions
             // for the checkin list
-            CheckinHistoryList {
-                id: checkinHistory
+            VenueList {
+                id: venueList
 
                 // set initial visibility to false
                 // will be set true if data has been loaded
                 visible: false
 
-                // checkin was clicked
+                // venue was clicked
                 onItemClicked: {
-                    // console.log("# Item clicked: " + checkinData.checkinId);
-                    var checkinDetailPage = checkinDetailComponent.createObject();
-                    checkinDetailPage.checkinData = checkinData;
-                    navigationPane.push(checkinDetailPage);
+                    /*
+                    // console.log("# Item clicked: " + venueData.userId);
+                    var addCheckinPage = addCheckinComponent.createObject();
+                    addCheckinPage.venueData = venueData;
+                    addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
+                    navigationPane.push(addCheckinPage);
+                    */
                 }
             }
         }
@@ -79,50 +82,47 @@ Page {
     // page creation is finished
     // load data
     onCreationCompleted: {
-        // console.log("# Creation of checkin history page finished");
+        // console.log("# Creation of mayorship page finished");
 
         // load the user checkin data
-        UsersRepository.getCheckinsForUser("self", 0, checkinHistoryPage);
-        
-        // initially clear list
-        checkinHistory.clearList();
+        UsersRepository.getAchievementsForUser("self", mayorshipPage);
 
         // show loader
-        loadingIndicator.showLoader(Copytext.swirlLoaderCheckins);
+        loadingIndicator.showLoader(Copytext.swirlLoaderMayorships);
     }
 
     // user checkin data loaded and transformed
-    // data is stored in "checkinData" variant as array of type FoursquareCheckinData
-    onUserCheckinDataLoaded: {
-        console.log("# Checkin data loaded. Found " + checkinData.length + " items");
+    // data is stored in "checkinData" variant as array of type FoursquareAchievementData
+    onUserAchievementDataLoaded: {
+        console.log("# Checkin data loaded. Found " + mayorshipData.length + " mayorships and " + contendingMayorshipData.length + " contending");
 
         // hide loader
         loadingIndicator.hideLoader();
-
-        // check if results are available
-        if (checkinData.length > 0) {
-            // iterate through data objects and fill lists
-            for (var index in checkinData) {
-                checkinHistory.addToList(checkinData[index]);
+        
+        // initially clear list
+        venueList.clearList();
+        
+        if (mayorshipData.length > 0) {
+            // iterate through data objects
+            for (var index in mayorshipData) {
+                venueList.addToList(mayorshipData[index].venue, mayorshipData[index]);
             }
             
-            // set pagination index            
-            // note that returned object is ordered by creation date descending
-            // hence the last entry is the oldest one
-            checkinHistoryPage.currentPaginationIndex = checkinData[(checkinData.length - 1)].createdAt;
-
-            // set list to visible
-            checkinHistory.visible = true;
+            // hide loader
+            loadingIndicator.hideLoader();
+            
+            // show list
+            venueList.visible = true;
         }
     }
 
     // user checkin data could not be load
-    onUserCheckinDataError: {
+    onUserAchievementDataError: {
         // hide loader
         loadingIndicator.hideLoader();
 
         // show error message
-        infoMessage.showMessage(errorData.errorMessage, "Could not load user check-ins around you");
+        infoMessage.showMessage(errorData.errorMessage, "Could not load user achievements");
     }
 
     // attach components

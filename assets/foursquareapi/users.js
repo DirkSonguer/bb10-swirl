@@ -147,16 +147,15 @@ function getAchievementsForUser(userId, callingPage) {
 
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
-			// console.log("# User checkin object received. Transforming.");
+			// console.log("# User achievement object received. Transforming.");
 
 			// prepare transformator and return object
-			var checkinTransformator = new CheckinTransformator();
-			var checkinData = checkinTransformator.getCheckinDataFromArray(jsonObject.response.checkins.items);
+			var achievementTransformator = new AchievementTransformator();
+			var mayorshipData = achievementTransformator.getAchievementDataFromArray(jsonObject.response.mayorships);
+			var contendingMayorshipData = achievementTransformator.getAchievementDataFromArray(jsonObject.response.contendingMayorships);
 
-			var earliestTimestamp = checkinData[(checkinData.length - 1)].createdAt;
-
-			// console.log("# Done loading checkin data");
-			callingPage.userCheckinDataLoaded(checkinData, earliestTimestamp);
+			// console.log("# Done loading achievement data");
+			callingPage.userAchievementDataLoaded(mayorshipData, contendingMayorshipData);
 		} else {
 			// either the request is not done yet or an error occured
 			// check for both and act accordingly
@@ -165,7 +164,7 @@ function getAchievementsForUser(userId, callingPage) {
 				// console.log("# Error found with code " +
 				// network.errorData.errorCode + " and message " +
 				// network.errorData.errorMessage);
-				callingPage.userCheckinDataError(network.errorData);
+				callingPage.userAchievementDataError(network.errorData);
 				network.clearErrors();
 			}
 		}
