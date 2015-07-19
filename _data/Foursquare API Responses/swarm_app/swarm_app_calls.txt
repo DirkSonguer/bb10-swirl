@@ -114,6 +114,7 @@ https://api.foursquare.com:443/v2/activities/recent
 &metrics=n%2CMainActivity%3Brid%2C558ee24c498ea118a364c5f5
 &csid=57
 &m=swarm
+
 https://api.foursquare.com:443/v2/activities/recent
 ?afterMarker=558ee499498eb35171686aae
 &updatesAfterMarker=558e7d2e498ea9bc8d263181

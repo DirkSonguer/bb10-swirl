@@ -1,8 +1,8 @@
 // *************************************************** //
-// Checkin List Page
+// Mayorships List Page
 //
-// The checkin list page shows a list of checkins for a
-// given user.
+// The mayorhips list page shows a list of mayorships
+// for a given user.
 //
 // Author: Dirk Songuer
 // License: All rights reserved
@@ -27,8 +27,6 @@ Page {
 
     // signal if checkin data loading encountered an error
     signal userCheckinDataError(variant errorData)
-
-    property int currentPaginationIndex: 0
 
     // main content container
     Container {
@@ -74,18 +72,6 @@ Page {
                     checkinDetailPage.checkinData = checkinData;
                     navigationPane.push(checkinDetailPage);
                 }
-
-                // list scrolled to bottom
-                // load more images if available
-                onListBottomReached: {
-                    if (checkinHistoryPage.currentPaginationIndex > 0) {
-                        UsersRepository.getCheckinsForUser("self", checkinHistoryPage.currentPaginationIndex, checkinHistoryPage);
-
-                        // show toast that new images are loading
-                        swirlCenterToast.body = Copytext.swirlLoaderCheckins;
-                        swirlCenterToast.show();
-                    }
-                }
             }
         }
     }
@@ -97,7 +83,7 @@ Page {
 
         // load the user checkin data
         UsersRepository.getCheckinsForUser("self", 0, checkinHistoryPage);
-
+        
         // initially clear list
         checkinHistory.clearList();
 
@@ -108,22 +94,19 @@ Page {
     // user checkin data loaded and transformed
     // data is stored in "checkinData" variant as array of type FoursquareCheckinData
     onUserCheckinDataLoaded: {
-        // console.log("# Checkin data loaded. Found " + checkinData.length + " items, starting with id " + checkinData[0].checkinId);
+        console.log("# Checkin data loaded. Found " + checkinData.length + " items");
 
         // hide loader
-        swirlCenterToast.cancel();
         loadingIndicator.hideLoader();
 
         // check if results are available
-        if ((checkinData.length > 0) && (checkinHistoryPage.currentPaginationIndex != checkinData[(checkinData.length - 1)].createdAt)) {
-            // console.log("# Filling items until id " + checkinData[0].checkinId);
-
+        if (checkinData.length > 0) {
             // iterate through data objects and fill lists
             for (var index in checkinData) {
                 checkinHistory.addToList(checkinData[index]);
             }
-
-            // set pagination index
+            
+            // set pagination index            
             // note that returned object is ordered by creation date descending
             // hence the last entry is the oldest one
             checkinHistoryPage.currentPaginationIndex = checkinData[(checkinData.length - 1)].createdAt;

@@ -141,6 +141,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/CheckinHistoryPage.qml) \
         $$quote($$BASEDIR/assets/pages/CommentDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
+        $$quote($$BASEDIR/assets/pages/MayorshipsPage.qml) \
         $$quote($$BASEDIR/assets/pages/PhotoGalleryPage.qml) \
         $$quote($$BASEDIR/assets/pages/ProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \

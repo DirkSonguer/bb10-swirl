@@ -64,9 +64,9 @@ Container {
 
         // get date label
         var dateGroupLabel = "";
-        var dateGroupLabel = (tempDate.getMonth() + 1) + "/" + tempDate.getDate() + "/" + tempDate.getFullYear() + ", ";
+        var dateGroupLabel = (tempDate.getMonth() + 1) + "/" + tempDate.getDate() + "/" + tempDate.getFullYear();
 
-        // console.log("# Adding item with group index: " + dateGroupIndex + " and label " + dateGroupLabel);
+        // console.log("# Adding item from timestamp " + item.createdAt + " with group index " + dateGroupIndex + " and label " + dateGroupLabel);
 
         // console.log("# Adding item with ID " + item.checkinId + " to checkin list data model");
         checkinHistoryListComponent.currentItemIndex += 1;
@@ -127,8 +127,10 @@ Container {
                         // this is used to show the distance category text instead of the ids
                         // to prevent sorting by alphabet, the ids are used for sorting
                         onCreationCompleted: {
-                            var tempLabel = text.substr(6, 2) + "." + text.substr(4, 2) + "." + text.substr(0, 4);
-                            text = tempLabel;
+                            // var tempLabel = text.substr(6, 2) + "." + text.substr(4, 2) + "." + text.substr(0, 4);
+                            // console.log("# Found date label: " + text + " reformatting to " + tempLabel); // 20150705
+                            // text = tempLabel;
+                            // text = text + tempLabel;
                         }
                     }
 
@@ -219,7 +221,7 @@ Container {
         GroupDataModel {
             id: checkinHistoryListDataModel
             sortedAscending: false
-            sortingKeys: [ "dateGroupIndex", "timestamp" ]
+            sortingKeys: [ "dateGroupLabel", "timestamp" ]
 
             // items are grouped by the view and transformators
             // no need to set a behaviour by the data model

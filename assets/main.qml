@@ -631,6 +631,11 @@ NavigationPane {
                 uri: "appworld://content/59947364"
             }
         },
+        // system toast used globally by all pages and components
+        SystemToast {
+            id: swirlCenterToast
+            position: SystemUiPosition.MiddleCenter
+        },
         // timer component
         // used to check if position can be found within time limit
         Timer {
