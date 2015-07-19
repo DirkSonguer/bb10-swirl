@@ -32,6 +32,9 @@ Container {
     // property for the sticker name, given as string
     property alias stickerName: stickerItemName.text
 
+    // property to indicate that sticker is locked
+    property bool stickerLocked: false
+
     // layout orientation
     layout: StackLayout {
         orientation: LayoutOrientation.TopToBottom
@@ -106,6 +109,17 @@ Container {
         if ((event.touchType == TouchType.Up) || (event.touchType == TouchType.Cancel)) {
             stickerItemComponent.background = Color.Transparent;
             stickerItemName.textStyle.color = Color.create(Globals.blackberryStandardBlue);
+        }
+    }
+
+    // sticker locked has changed
+    onStickerLockedChanged: {
+        if (stickerLocked) {
+            stickerItemImage.opacity = 0.4;
+            stickerItemName.opacity = 0.4;
+        } else {
+            stickerItemImage.opacity = 1;
+            stickerItemName.opacity = 1;
         }
     }
 

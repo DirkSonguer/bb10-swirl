@@ -111,6 +111,7 @@ Container {
                         // set data
                         stickerImage: ListItemData.stickerData.imageFull
                         stickerName: ListItemData.stickerData.name
+                        stickerLocked: ListItemData.stickerData.locked
 
                         // user profile was clicked
                         onStickerClicked: {

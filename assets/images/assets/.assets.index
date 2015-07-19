@@ -1,5 +1,5 @@
 1
-138
+140
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -69,6 +69,7 @@ images/icons/icon_bbworld.png
 images/icons/icon_call_w.png
 images/icons/icon_checkin.png
 images/icons/icon_close.png
+images/icons/icon_close_color.png
 images/icons/icon_comments.png
 images/icons/icon_comments_dimmed.png
 images/icons/icon_facebook_active.png
@@ -111,6 +112,7 @@ pages/MayorshipsPage.qml
 pages/PhotoGalleryPage.qml
 pages/ProfilePage.qml
 pages/SearchVenuePage.qml
+pages/StickerPage.qml
 pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml

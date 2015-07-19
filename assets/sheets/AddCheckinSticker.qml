@@ -75,7 +75,7 @@ Page {
     onCreationCompleted: {
         // console.log("# Creation completed, loadig stickers");
 
-        // load friends data for current user
+        // load sticker data for current user
         StickerRepository.getStickersForUser("self", addStickerListPage);
 
         // show loader

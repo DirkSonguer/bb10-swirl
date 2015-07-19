@@ -208,9 +208,11 @@ Page {
                     imageScaling: ScalingMethod.None
                     headline: "Stickers"
 
-                    // define SMS invocation
+                    // call sticker page
                     onClicked: {
-                        // communicationInvokes.sendTextMessage(userDetailPage.userData.contact.phone, "Hi there!", false);
+                        // console.log("# Stickers tile clicked");
+                        var stickersPage = stickersComponent.createObject();
+                        navigationPane.push(stickersPage);
                     }
                 }
             }
@@ -335,6 +337,12 @@ Page {
         ComponentDefinition {
             id: mayorshipsComponent
             source: "MayorshipsPage.qml"
+        },
+        // user stickers page
+        // will be called if user clicks on stickers list tile
+        ComponentDefinition {
+            id: stickersComponent
+            source: "StickerPage.qml"
         },
         // checkin detail page
         // will be called if user clicks on checkin item

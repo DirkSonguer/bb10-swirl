@@ -118,9 +118,6 @@ Page {
             }
         }
 
-        // hide loader
-        loadingIndicator.hideLoader();
-
         // show list
         mayorshipList.visible = true;
     }

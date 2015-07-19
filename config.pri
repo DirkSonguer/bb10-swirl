@@ -105,6 +105,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_call_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_checkin.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_close.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_close_color.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_comments.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_comments_dimmed.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_facebook_active.png) \
@@ -147,6 +148,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/PhotoGalleryPage.qml) \
         $$quote($$BASEDIR/assets/pages/ProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
+        $$quote($$BASEDIR/assets/pages/StickerPage.qml) \
         $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \

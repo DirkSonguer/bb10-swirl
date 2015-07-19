@@ -184,7 +184,7 @@ function getAchievementsForUser(userId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading user achievements with url: " + url);
+	// console.log("# Loading user achievements with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
