@@ -42,7 +42,7 @@ function AchievementTransformator() {
 // Extract all achievement data from a achievement object
 // The resulting data is stored as FoursquareAchievementData()
 AchievementTransformator.prototype.getAchievementDataFromObject = function(achievementObject) {
-	console.log("# Transforming achievement item with summary: " + achievementObject.summary);
+	// console.log("# Transforming achievement item with summary: " + achievementObject.summary);
 
 	// create new data object
 	var achievementData = new FoursquareAchievementData();
@@ -58,14 +58,14 @@ AchievementTransformator.prototype.getAchievementDataFromObject = function(achie
 		achievementData.venue = venueTransformator.getVenueDataFromObject(achievementObject.venue);
 	}
 
-	console.log("# Done transforming achievement item");
+	// console.log("# Done transforming achievement item");
 	return achievementData;
 };
 
 // Extract all achievement data from an array of achievement objects
 // The resulting data is stored as array of FoursquareAchievementData()
 AchievementTransformator.prototype.getAchievementDataFromArray = function(achievementObjectArray) {
-	console.log("# Transforming achievement array with " + achievementObjectArray.length + " items");
+	// console.log("# Transforming achievement array with " + achievementObjectArray.length + " items");
 
 	// create new return array
 	var achievementDataArray = new Array();

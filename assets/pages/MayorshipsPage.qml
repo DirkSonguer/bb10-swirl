@@ -58,22 +58,22 @@ Page {
             // checkin list
             // this will contain all the components and actions
             // for the checkin list
-            VenueList {
-                id: venueList
+            MayorshipList {
+                id: mayorshipList
 
                 // set initial visibility to false
                 // will be set true if data has been loaded
                 visible: false
 
-                // venue was clicked
+                // mayorship was clicked
                 onItemClicked: {
                     /*
-                    // console.log("# Item clicked: " + venueData.userId);
-                    var addCheckinPage = addCheckinComponent.createObject();
-                    addCheckinPage.venueData = venueData;
-                    addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
-                    navigationPane.push(addCheckinPage);
-                    */
+                     * // console.log("# Item clicked: " + venueData.userId);
+                     * var addCheckinPage = addCheckinComponent.createObject();
+                     * addCheckinPage.venueData = venueData;
+                     * addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
+                     * navigationPane.push(addCheckinPage);
+                     */
                 }
             }
         }
@@ -94,26 +94,35 @@ Page {
     // user checkin data loaded and transformed
     // data is stored in "checkinData" variant as array of type FoursquareAchievementData
     onUserAchievementDataLoaded: {
-        console.log("# Checkin data loaded. Found " + mayorshipData.length + " mayorships and " + contendingMayorshipData.length + " contending");
+        // console.log("# Checkin data loaded. Found " + mayorshipData.length + " mayorships and " + contendingMayorshipData.length + " contending");
 
         // hide loader
         loadingIndicator.hideLoader();
-        
+
         // initially clear list
-        venueList.clearList();
-        
+        mayorshipList.clearList();
+
+        // fill mayorhip list
         if (mayorshipData.length > 0) {
             // iterate through data objects
             for (var index in mayorshipData) {
-                venueList.addToList(mayorshipData[index].venue, mayorshipData[index]);
+                mayorshipList.addToList(mayorshipData[index], Copytext.swirlMayorshipsListText);
             }
-            
-            // hide loader
-            loadingIndicator.hideLoader();
-            
-            // show list
-            venueList.visible = true;
         }
+
+        // fill mayorship contestants list
+        if (contendingMayorshipData.length > 0) {
+            // iterate through data objects
+            for (var index in contendingMayorshipData) {
+                mayorshipList.addToList(contendingMayorshipData[index], Copytext.swirlMayorshipsContendingText);
+            }
+        }
+
+        // hide loader
+        loadingIndicator.hideLoader();
+
+        // show list
+        mayorshipList.visible = true;
     }
 
     // user checkin data could not be load

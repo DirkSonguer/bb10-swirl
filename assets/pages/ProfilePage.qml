@@ -278,7 +278,7 @@ Page {
 
         // check if user has friends
         if (userData.friends.length > 0) {
-            console.log("# Found " + userData.friends.length + " friends");
+            // console.log("# Found " + userData.friends.length + " friends");
 
             // fill friends tile data
             profileFriendsTile.headline = userData.friendCount + " Friends";

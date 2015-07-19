@@ -93,6 +93,10 @@ var swirlAddingCheckin = "Adding Checkin";
 var swirlImageUploadProgress = "Uploading image, please wait";
 var swirlImageUploadError = "The image upload encountered an unknown error. We're sorry, please try again";
 
+// mayorships
+var swirlMayorshipsListText = "Your Mayorships";
+var swirlMayorshipsContendingText = "You are very close";
+
 // checkin comment
 var swirlCommentCallToAction = "Add comment to checkin";
 var swirlCommentInputLabel = "Enter comment";

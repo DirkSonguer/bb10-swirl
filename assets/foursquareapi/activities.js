@@ -101,7 +101,7 @@ function getRecentActivity(currentGeoLocation, beforeMarker, callingPage) {
 		url += "&beforeMarker=" + beforeMarker;
 	}
 
-	console.log("# Loading recent activities with url: " + url);
+	// console.log("# Loading recent activities with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

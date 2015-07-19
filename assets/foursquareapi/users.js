@@ -128,7 +128,7 @@ function getCheckinsForUser(userId, beforeTimestamp, callingPage) {
 		url += "&beforeTimestamp=" + beforeTimestamp;
 	}
 
-	console.log("# Loading user checkins with url: " + url);
+	// console.log("# Loading user checkins with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
