@@ -62,7 +62,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/InfoTile.qml) \
         $$quote($$BASEDIR/assets/components/LikeTile.qml) \
         $$quote($$BASEDIR/assets/components/LoadingIndicator.qml) \
-        $$quote($$BASEDIR/assets/components/LoadingIndicatorSmall.qml) \
         $$quote($$BASEDIR/assets/components/LocationTile.qml) \
         $$quote($$BASEDIR/assets/components/MayorshipItem.qml) \
         $$quote($$BASEDIR/assets/components/MayorshipList.qml) \

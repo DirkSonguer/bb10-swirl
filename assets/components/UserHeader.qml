@@ -114,6 +114,8 @@ Container {
 
             // layout definition
             horizontalAlignment: HorizontalAlignment.Center
+            leftPadding: ui.sdu(1)
+            rightPadding: ui.sdu(1)
             topMargin: 0
 
             // text style definition

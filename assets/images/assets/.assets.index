@@ -1,5 +1,5 @@
 1
-140
+139
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -26,7 +26,6 @@ components/InfoMessage.qml
 components/InfoTile.qml
 components/LikeTile.qml
 components/LoadingIndicator.qml
-components/LoadingIndicatorSmall.qml
 components/LocationTile.qml
 components/MayorshipItem.qml
 components/MayorshipList.qml

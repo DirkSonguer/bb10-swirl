@@ -137,6 +137,8 @@ NavigationPane {
 
                 // refresh list on signal
                 onRefreshTriggered: {
+                    console.log("# Around you refresh triggered");
+
                     // hide lists because of reload
                     aroundYouList.visible = false;
                     checkinList.visible = false;
@@ -147,6 +149,9 @@ NavigationPane {
 
                     // hide info message
                     infoMessage.hideMessage();
+
+                    // reset pagination index
+                    mainPage.currentCheckinsPaginationIndex = "";
 
                     // start searching for the current geolocation
                     positionSource.start();
@@ -182,6 +187,8 @@ NavigationPane {
 
                 // refresh list on signal
                 onRefreshTriggered: {
+                    // console.log("# Recent activity list refresh triggered");
+
                     // hide lists because of reload
                     aroundYouList.visible = false;
                     checkinList.visible = false;
@@ -193,6 +200,9 @@ NavigationPane {
                     // hide info message
                     infoMessage.hideMessage();
 
+                    // reset pagination index
+                    mainPage.currentCheckinsPaginationIndex = "";
+
                     // start searching for the current geolocation
                     positionSource.start();
                     positionSourceTimer.start();
@@ -202,6 +212,9 @@ NavigationPane {
                 // load more images if available
                 onListBottomReached: {
                     if (mainPage.currentCheckinsPaginationIndex != "") {
+                        // console.log("# Loading next activities");
+
+                        // load next activities
                         ActivitiesRepository.getRecentActivity(mainPage.currentGeolocation, mainPage.currentCheckinsPaginationIndex, mainPage)
 
                         // show toast that new images are loading
@@ -285,13 +298,10 @@ NavigationPane {
         onRecentActivityDataLoaded: {
             // console.log("# Recent activity data loaded. Found " + recentActivityData.length + " items, starting with id " + recentActivityData[0].checkinId);
 
-            // hide loaders and messages
-            infoMessage.hideMessage();
-            swirlCenterToast.cancel();
-            loadingIndicator.hideLoader();
-
             // check if results are available
             if ((recentActivityData.length > 0) && (mainPage.currentCheckinsPaginationIndex != recentActivityData[(recentActivityData.length - 1)].checkinId)) {
+                // console.log("# Found recent activities, pagination index " + recentActivityData[(recentActivityData.length - 1)].checkinId);
+
                 // iterate through data objects and fill lists
                 for (var index in recentActivityData) {
                     // filter checkins by current user
@@ -310,6 +320,11 @@ NavigationPane {
                     aroundYouList.visible = true;
                     checkinList.visible = false;
 
+                    // hide loaders and messages
+                    infoMessage.hideMessage();
+                    swirlCenterToast.cancel();
+                    loadingIndicator.hideLoader();
+
                     // enable view changer
                     changeCheckinViewAction.enabled = true;
                 }
@@ -323,10 +338,17 @@ NavigationPane {
                     Application.thumbnail.connect(updateCover);
                 }
             } else {
+                // console.log("# No recent activities found");
+
+                // hide loaders and messages
+                infoMessage.hideMessage();
+                swirlCenterToast.cancel();
+                loadingIndicator.hideLoader();
+
                 // no items in results found
                 // we assume that if no recent activity was found, there also can't be any recent checkins
                 infoMessage.showMessage(Copytext.swirlNoRecentMessage, Copytext.swirlNoRecentTitle);
-                
+
                 // hide both list components
                 aroundYouList.visible = false;
                 checkinList.visible = false;
@@ -337,11 +359,6 @@ NavigationPane {
         // data is stored in "recentCheckinData" variant as array of type FoursquareCheckinData
         onRecentCheckinDataLoaded: {
             // console.log("# Recent checkins data loaded. Found " + recentCheckinData.length + " items");
-
-            // hide loaders and messages
-            infoMessage.hideMessage();
-            swirlCenterToast.cancel();
-            loadingIndicator.hideLoader();
 
             // check if results are available
             if (recentCheckinData.length > 0) {
@@ -360,13 +377,14 @@ NavigationPane {
                     checkinList.visible = true;
                     aroundYouList.visible = false;
 
+                    // hide loaders and messages
+                    infoMessage.hideMessage();
+                    swirlCenterToast.cancel();
+                    loadingIndicator.hideLoader();
+
                     // enable view changer
                     changeCheckinViewAction.enabled = true;
                 }
-
-                // hide the info message
-                // this is in case there are recent checkins but no recent activity
-                infoMessage.hideMessage();
             }
         }
 
@@ -687,7 +705,7 @@ NavigationPane {
                 positionSourceTimer.stop();
 
                 // initially clear lists
-                aroundYouList.clearList();                
+                aroundYouList.clearList();
                 checkinList.clearList();
 
                 // check if location was really fixed
@@ -695,7 +713,7 @@ NavigationPane {
                     // console.log("# Location could not be fixed");
                     infoMessage.showMessage(Copytext.swirlNoLocationMessage, Copytext.swirlNoLocationTitle);
                 } else {
-                    // console.log("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
+                    console.log("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
 
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlFriendSearch);

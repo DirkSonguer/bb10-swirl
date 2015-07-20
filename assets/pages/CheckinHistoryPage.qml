@@ -27,6 +27,9 @@ Page {
 
     // signal if checkin data loading encountered an error
     signal userCheckinDataError(variant errorData)
+    
+    // property to hold the user id to load the data for
+    property string userId
 
     // property to hold the current pagination index
     property int currentPaginationIndex: 0
@@ -93,11 +96,11 @@ Page {
 
     // page creation is finished
     // load data
-    onCreationCompleted: {
+    onUserIdChanged: {
         // console.log("# Creation of checkin history page finished");
 
         // load the user checkin data
-        UsersRepository.getCheckinsForUser("self", 0, checkinHistoryPage);
+        UsersRepository.getCheckinsForUser(userId, 0, checkinHistoryPage);
 
         // initially clear list
         checkinHistory.clearList();

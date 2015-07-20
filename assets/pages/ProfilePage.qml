@@ -117,7 +117,7 @@ Page {
                     // will be set if the user has friends
                     visible: false
 
-// call friends list page
+                    // call friends list page
                     onClicked: {
                         var friendsListPage = friendsListComponent.createObject();
                         friendsListPage.userData = profilePage.userData;
@@ -168,6 +168,7 @@ Page {
                     onClicked: {
                         // console.log("# History tile clicked");
                         var checkinHistoryPage = checkinHistoryComponent.createObject();
+                        checkinHistoryPage.userId = "self";
                         navigationPane.push(checkinHistoryPage);
                     }
                 }
