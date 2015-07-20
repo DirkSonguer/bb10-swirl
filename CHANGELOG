@@ -4,6 +4,7 @@ v 1.8.0
 * Added: User profile page
 * Added: Check-in history for users
 * Added: Loading additional items if availabe on list bottom
+* Changed: Improved search when checking into venues
 
 
 v 1.7.0

@@ -49,10 +49,24 @@ Container {
     signal addToList(variant item, variant reasons)
     onAddToList: {
         // console.log("# Adding item with ID " + item.venueId + " to venue list data model");
+        
+        // if reasons are empty, add reason from object
+        // note that this is the case if standard search was used
+        var reasonItem = "";
+        if (typeof reasons === "undefined") {
+            reasonItem = {summary:""};
+            if (typeof item.locationCategories[0] !== "undefined") {
+                reasonItem.summary = item.locationCategories[0].name;
+            }
+        } else {
+            reasonItem = reasons;
+        }
+        
+        // fill data objects
         venueListComponent.currentItemIndex += 1;
         venueListDataModel.insert({
                 "venueData": item,
-                "venueReasons": reasons,
+                "venueReasons": reasonItem,
                 "currentIndex": venueListComponent.currentItemIndex
             });
     }

@@ -139,6 +139,13 @@ Container {
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.XSmall
             textStyle.textAlign: TextAlign.Left
+            
+            // set initial visibility to false
+            // will be set true if data is entered
+            visible: false
+            onTextChanged: {
+                visible = true;
+            }
         }
         
         // venue address label
@@ -155,6 +162,13 @@ Container {
             textStyle.fontWeight: FontWeight.W100
             textStyle.fontSize: FontSize.XSmall
             textStyle.textAlign: TextAlign.Left
+            
+            // set initial visibility to false
+            // will be set true if data is entered
+            visible: false
+            onTextChanged: {
+                visible = true;
+            }
         }
 
         // user distance to venue label

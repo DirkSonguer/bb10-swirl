@@ -121,7 +121,7 @@ function getVenuePhotos(venueId, callingPage) {
 }
 
 // Load a list of venues according to the explore feature of Foursquare
-// First parameter is the Foursquare venue id
+// First parameter is the current geolocation
 // Second parameter is the search term to explore venues for
 // Third parameter is the radius in meters to search in
 // Forth parameter is the id of the calling page, which will receive the
@@ -185,8 +185,8 @@ function explore(currentGeoLocation, searchQuery, searchSection, searchFriendsVi
 }
 
 // Load a list of venues according to the search feature of Foursquare
-// First parameter is the Foursquare venue id
-// Second parameter is the search term to explore venues for
+// First parameter is the current geolocation
+// Second parameter is the search term to search venues for
 // Third parameter is the radius in meters to search in
 // Forth parameter is the id of the calling page, which will receive the
 // venueDataLoaded() signal
@@ -202,8 +202,10 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 		// jsonObject contains either false or the http result as object
 		if (jsonObject) {
 			// prepare transformator and return object
-			var venueDataArray = venueTransformator.getVenueDataFromGroupArray(jsonObject.response.groups[0].items);
-			var venueReasonArray = reasonTransformator.getReasonDataFromGroupArray(jsonObject.response.groups[0].items);
+			// note: the search does not have reasons
+			// resons array is returned empty because of compatibility reasons with this.explore()
+			var venueDataArray = venueTransformator.getVenueDataFromArray(jsonObject.response.venues);
+			var venueReasonArray = new Array();
 
 			// console.log("# Done loading venue data");
 			callingPage.venueDataLoaded(venueDataArray, venueReasonArray);
@@ -229,7 +231,7 @@ function search(currentGeoLocation, searchIntent, searchQuery, searchRadius, cal
 
 	var url = "";
 	var foursquareUserdata = auth.getStoredFoursquareData();
-	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/explore";
+	url = foursquarekeys.foursquareAPIUrl + "/v2/venues/search";
 	url += "?oauth_token=" + foursquareUserdata["access_token"];
 	url += "&ll=" + currentGeoLocation.latitude + "," + currentGeoLocation.longitude;
 	if (searchIntent != "")

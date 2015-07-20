@@ -37,6 +37,10 @@ function FoursquareVenueData() {
 	this.likeCount = "";
 	this.photoCount = "";
 	this.tipCount = "";
+	
+	// current venue mayor
+	// this is filled by a FoursquareUserData object
+	this.mayor = "";
 
 	// the photos associated with this venue
 	// this is an array of FoursquarePhotoData objects
