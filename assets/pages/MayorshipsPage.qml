@@ -67,13 +67,10 @@ Page {
 
                 // mayorship was clicked
                 onItemClicked: {
-                    /*
-                     * // console.log("# Item clicked: " + venueData.userId);
-                     * var addCheckinPage = addCheckinComponent.createObject();
-                     * addCheckinPage.venueData = venueData;
-                     * addCheckinPage.currentGeolocation = searchVenuePage.currentGeolocation
-                     * navigationPane.push(addCheckinPage);
-                     */
+                    // console.log("# Venue clicked: " + mayorshipData.venue);
+                    var venueDetailPage = venueDetailComponent.createObject();
+                    venueDetailPage.venueData = mayorshipData.venue;
+                    navigationPane.push(venueDetailPage);
                 }
             }
         }
@@ -133,11 +130,11 @@ Page {
 
     // attach components
     attachedObjects: [
-        // checkin detail page
-        // will be called if user clicks on checkin item
+        // venue detail page
+        // will be called if user clicks on venue item
         ComponentDefinition {
-            id: checkinDetailComponent
-            source: "CheckinDetailPage.qml"
+            id: venueDetailComponent
+            source: "VenueDetailPage.qml"
         }
     ]
 }
