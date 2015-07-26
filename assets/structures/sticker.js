@@ -21,6 +21,7 @@ function FoursquareStickerData() {
 
 	// sticker lock flag and unlock text
 	this.locked = "";
+	this.teaseText = "";
 	this.unlockText = "";
 
 	// sticker images

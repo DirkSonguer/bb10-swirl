@@ -235,7 +235,7 @@ Page {
     }
 
     onCreationCompleted: {
-        console.log("# Profile page created");
+        // console.log("# Profile page created");
 
         // load the user data
         UsersRepository.getUserData("self", profilePage);
@@ -253,7 +253,7 @@ Page {
     // full user object has been loaded
     // fill entire page components with data
     onUserDetailDataLoaded: {
-        console.log("# User detail data loaded for user " + userData.userId);
+        // console.log("# User detail data loaded for user " + userData.userId);
 
         // store the full object and set flag to true
         profilePage.userDataDetailsLoaded = true;

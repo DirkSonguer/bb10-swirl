@@ -137,7 +137,7 @@ NavigationPane {
 
                 // refresh list on signal
                 onRefreshTriggered: {
-                    console.log("# Around you refresh triggered");
+                    // console.log("# Around you refresh triggered");
 
                     // hide lists because of reload
                     aroundYouList.visible = false;
@@ -713,7 +713,7 @@ NavigationPane {
                     // console.log("# Location could not be fixed");
                     infoMessage.showMessage(Copytext.swirlNoLocationMessage, Copytext.swirlNoLocationTitle);
                 } else {
-                    console.log("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
+                    // console.log("# Location found: " + mainPage.currentGeolocation.latitude, mainPage.currentGeolocation.longitude);
 
                     // show loader
                     loadingIndicator.showLoader(Copytext.swirlFriendSearch);

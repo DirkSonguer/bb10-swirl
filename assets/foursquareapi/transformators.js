@@ -42,7 +42,8 @@ function AchievementTransformator() {
 // Extract all achievement data from a achievement object
 // The resulting data is stored as FoursquareAchievementData()
 AchievementTransformator.prototype.getAchievementDataFromObject = function(achievementObject) {
-	// console.log("# Transforming achievement item with summary: " + achievementObject.summary);
+	// console.log("# Transforming achievement item with summary: " +
+	// achievementObject.summary);
 
 	// create new data object
 	var achievementData = new FoursquareAchievementData();
@@ -65,7 +66,8 @@ AchievementTransformator.prototype.getAchievementDataFromObject = function(achie
 // Extract all achievement data from an array of achievement objects
 // The resulting data is stored as array of FoursquareAchievementData()
 AchievementTransformator.prototype.getAchievementDataFromArray = function(achievementObjectArray) {
-	// console.log("# Transforming achievement array with " + achievementObjectArray.length + " items");
+	// console.log("# Transforming achievement array with " +
+	// achievementObjectArray.length + " items");
 
 	// create new return array
 	var achievementDataArray = new Array();
@@ -309,8 +311,15 @@ StickerTransformator.prototype.getStickerDataFromObject = function(stickerObject
 	// sticker type
 	stickerData.type = stickerObject.stickerType;
 
+	// tease text
+	if (typeof stickerObject.teaseText != 'undefined') {
+		stickerData.teaseText = stickerObject.teaseText;
+	}
+
 	// unlock text
-	stickerData.unlockText = stickerObject.unlockText;
+	if (typeof stickerObject.unlockText != 'undefined') {
+		stickerData.unlockText = stickerObject.unlockText;
+	}
 
 	// sticker images
 	if (typeof stickerObject.image != 'undefined') {
