@@ -90,6 +90,8 @@ Container {
     Container {
         // layout definition
         horizontalAlignment: HorizontalAlignment.Center
+        leftPadding: ui.sdu(1)
+        rightPadding: ui.sdu(1)
         topMargin: ui.sdu(1)
 
         // user name label
@@ -114,8 +116,6 @@ Container {
 
             // layout definition
             horizontalAlignment: HorizontalAlignment.Center
-            leftPadding: ui.sdu(1)
-            rightPadding: ui.sdu(1)
             topMargin: 0
 
             // text style definition

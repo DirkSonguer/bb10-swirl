@@ -70,7 +70,9 @@ Page {
                     stickerDataInfo.username = stickerData.name;
 
                     // evaluate text
-                    if (stickerData.teaseText != "") {
+                    if (stickerData.progressText != "") {
+                        stickerDataInfo.comment = stickerData.progressText;
+                    } else if (stickerData.teaseText != "") {
                         stickerDataInfo.comment = stickerData.teaseText;
                     } else {
                         stickerDataInfo.comment = stickerData.unlockText;
@@ -111,9 +113,9 @@ Page {
                 CommentItem {
                     id: stickerDataInfo
 
+                    // layout definition
                     verticalAlignment: VerticalAlignment.Center
                     horizontalAlignment: HorizontalAlignment.Center
-
                 }
             }
         }
