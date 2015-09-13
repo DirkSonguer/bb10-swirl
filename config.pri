@@ -138,16 +138,15 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_world.png) \
         $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/pages/AchievementsPage.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinHistoryPage.qml) \
         $$quote($$BASEDIR/assets/pages/CommentDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/FriendsPage.qml) \
-        $$quote($$BASEDIR/assets/pages/MayorshipsPage.qml) \
         $$quote($$BASEDIR/assets/pages/PhotoGalleryPage.qml) \
         $$quote($$BASEDIR/assets/pages/ProfilePage.qml) \
         $$quote($$BASEDIR/assets/pages/SearchVenuePage.qml) \
-        $$quote($$BASEDIR/assets/pages/StickerPage.qml) \
         $$quote($$BASEDIR/assets/pages/UpdatesPage.qml) \
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \

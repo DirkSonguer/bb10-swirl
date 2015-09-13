@@ -395,71 +395,6 @@ Page {
                         imageSourcePressedChecked: "asset:///images/icons/icon_twitter_active.png"
                     }
                 }
-
-                // add checkin button
-                Container {
-                    leftPadding: ui.sdu(1)
-                    rightPadding: ui.sdu(1)
-
-                    // button
-                    Button {
-                        id: addCheckinConfirmation
-
-                        // layout definition
-                        preferredWidth: DisplayInfo.width
-
-                        // text
-                        text: "Check In"
-
-                        // checkin action
-                        onClicked: {
-                            // console.log("# Calling checkin for venue: " + venueData.venueId);
-
-                            // set broadcast to public per default
-                            var broadcast = "public";
-
-                            // add facebook and twitter broadcast options
-                            if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
-                            if ((addCheckinTwitter.checked) && (addCheckinTwitter.enabled)) broadcast += ",twitter";
-
-                            // stitch together shout text
-                            var shout = addCheckinInput.text;
-                            var mentions = "";
-
-                            // add friends to shout if available
-                            if (addedFriendsLabel.text.length > 0) {
-                                // add prefix
-                                shout += " - with ";
-
-                                // iterate through friend list
-                                for (var index in addFriendList) {
-                                    // add name to shout, remember length before and after
-                                    var iFrom = shout.length;
-                                    shout += addFriendList[index].firstName;
-                                    var iTo = shout.length;
-
-                                    // build up mentions
-                                    // iFrom is the index of the first character in the shout representing the mention
-                                    // iTo is the index of the first character in the shout after the mention
-                                    mentions += iFrom + "," + iTo + "," + addFriendList[index].userId + ";";
-
-                                    // add delimiter
-                                    shout += ", "
-                                }
-
-                                // remove last delimiter
-                                shout = shout.substring(0, (shout.length - 2));
-                            }
-
-                            // add checkin
-                            CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, shout, addCheckinPage.stickerId, mentions, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
-
-                            // hide input and show loader
-                            addCheckinContainer.visible = false;
-                            loadingIndicator.showLoader(Copytext.swirlAddingCheckin);
-                        }
-                    }
-                }
             }
 
             // checkin result
@@ -539,10 +474,10 @@ Page {
                             horizontalAlignment: HorizontalAlignment.Center
 
                             // set image size
-                            preferredHeight: ui.sdu(11)
-                            preferredWidth: ui.sdu(11)
-                            minHeight: ui.sdu(11)
-                            minWidth: ui.sdu(11)
+                            preferredHeight: ui.sdu(10)
+                            preferredWidth: ui.sdu(10)
+                            minHeight: ui.sdu(10)
+                            minWidth: ui.sdu(10)
 
                             // set initial visibility to false
                             // this will be set when the user used a sticker
@@ -584,6 +519,13 @@ Page {
 
                     // layout definition
                     verticalAlignment: VerticalAlignment.Top
+                }
+
+                ScoreItem {
+                    id: addCheckinResultCoins
+                    
+                    // deactivate height recalculation
+                    listUsage: false
                 }
             }
 
@@ -707,10 +649,20 @@ Page {
             addCheckinResultConfirmationImage.imageSource = "asset:///images/icons/icon_mayorship_crown.png";
         }
 
+        // count total coins
+        var coins = 0;
+
         // iterate through data objects and fill list
         for (var index in checkinData.scores) {
             scoreList.addToList(checkinData.scores[index]);
+            coins += checkinData.scores[index].points;
         }
+
+        // show coin total
+        addCheckinResultCoins.message = 'You earned ' + coins + ' coins!';
+        addCheckinResultCoins.messageStyle.color = Color.create(Globals.blackberryLighterBlue);
+        addCheckinResultCoins.messageStyle.fontSize = FontSize.Medium;
+        addCheckinResultCoins.icon = "https://playfoursquare.s3.amazonaws.com/badge/200/GEUB3RTIDOC2GLSC.png";
 
         // check if image should be added to checkin
         // if so, upload the image while still showing the loaader
@@ -788,6 +740,68 @@ Page {
             addCheckinStickers.visible = false;
         }
     }
+
+    // page action menu bar (bottom menu)
+    actions: [
+        ActionItem {
+            id: addCheckinAction
+
+            // title and image
+            title: "Add Checkin"
+            imageSource: "asset:///images/icons/icon_checkin.png"
+
+            // action position
+            ActionBar.placement: ActionBarPlacement.Signature
+
+            // action
+            onTriggered: {
+                // console.log("# Calling checkin for venue: " + venueData.venueId);
+
+                // set broadcast to public per default
+                var broadcast = "public";
+
+                // add facebook and twitter broadcast options
+                if ((addCheckinFacebook.checked) && (addCheckinFacebook.enabled)) broadcast += ",facebook";
+                if ((addCheckinTwitter.checked) && (addCheckinTwitter.enabled)) broadcast += ",twitter";
+
+                // stitch together shout text
+                var shout = addCheckinInput.text;
+                var mentions = "";
+
+                // add friends to shout if available
+                if (addedFriendsLabel.text.length > 0) {
+                    // add prefix
+                    shout += " - with ";
+
+                    // iterate through friend list
+                    for (var index in addFriendList) {
+                        // add name to shout, remember length before and after
+                        var iFrom = shout.length;
+                        shout += addFriendList[index].firstName;
+                        var iTo = shout.length;
+
+                        // build up mentions
+                        // iFrom is the index of the first character in the shout representing the mention
+                        // iTo is the index of the first character in the shout after the mention
+                        mentions += iFrom + "," + iTo + "," + addFriendList[index].userId + ";";
+
+                        // add delimiter
+                        shout += ", "
+                    }
+
+                    // remove last delimiter
+                    shout = shout.substring(0, (shout.length - 2));
+                }
+
+                // add checkin
+                CheckinsRepository.addCheckin(addCheckinPage.venueData.venueId, shout, addCheckinPage.stickerId, mentions, broadcast, addCheckinPage.currentGeolocation, addCheckinPage);
+
+                // hide input and show loader
+                addCheckinContainer.visible = false;
+                loadingIndicator.showLoader(Copytext.swirlAddingCheckin);
+            }
+        }
+    ]
 
     // attached objects
     attachedObjects: [

@@ -173,9 +173,9 @@ Page {
                     }
                 }
 
-                // mayorships tile
+                // achievements tile
                 InfoTile {
-                    id: profileMayorshipsTile
+                    id: profileAchievementsTile
 
                     // layout definition
                     backgroundColor: Color.create(Globals.blackberryStandardBlue)
@@ -185,35 +185,13 @@ Page {
                     // set icon & label
                     localImage: "asset:///images/icons/icon_mayor.png"
                     imageScaling: ScalingMethod.None
-                    headline: "Mayorships"
+                    headline: "Achievements"
 
-                    // call mayorship page
+                    // call achievements page
                     onClicked: {
-                        // console.log("# Mayorship tile clicked");
-                        var mayorshipPage = mayorshipsComponent.createObject();
-                        navigationPane.push(mayorshipPage);
-                    }
-                }
-
-                // stickers tile
-                InfoTile {
-                    id: profileStickersTile
-
-                    // layout definition
-                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / profilePage.columnCount
-                    preferredWidth: DisplayInfo.width / profilePage.columnCount
-
-                    // set icon & label
-                    localImage: "asset:///images/icons/icon_stickers.png"
-                    imageScaling: ScalingMethod.None
-                    headline: "Stickers"
-
-                    // call sticker page
-                    onClicked: {
-                        // console.log("# Stickers tile clicked");
-                        var stickersPage = stickersComponent.createObject();
-                        navigationPane.push(stickersPage);
+                        // console.log("# Achievement tile clicked");
+                        var achievementsPage = achievementsComponent.createObject();
+                        navigationPane.push(achievementsPage);
                     }
                 }
             }
@@ -333,17 +311,11 @@ Page {
             id: checkinHistoryComponent
             source: "CheckinHistoryPage.qml"
         },
-        // user mayorships page
-        // will be called if user clicks on mayorship list tile
+        // user achievements page
+        // will be called if user clicks on achievements tile
         ComponentDefinition {
-            id: mayorshipsComponent
-            source: "MayorshipsPage.qml"
-        },
-        // user stickers page
-        // will be called if user clicks on stickers list tile
-        ComponentDefinition {
-            id: stickersComponent
-            source: "StickerPage.qml"
+            id: achievementsComponent
+            source: "AchievementsPage.qml"
         },
         // checkin detail page
         // will be called if user clicks on checkin item

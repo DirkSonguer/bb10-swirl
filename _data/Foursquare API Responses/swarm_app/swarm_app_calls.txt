@@ -239,7 +239,84 @@ ll=49.861729430000004,8.64300932
 
 
 
+# Scoreboard
 
+https://api.foursquare.com:443/v2/users/6625189/scoreboard
+?oauth_token=VANAZZM3CNO0M1IGPEGIISOWRL4D5YWE45JAHDZPLE2INB1G&v=20150724
+&wsid=1afaccea-d5c7-4626-b8ec-61478d76699e&metrics=n%2CSwarmActivity&csid=93&m=swarm
+
+{
+-"meta": {
+"code": 200,
+"requestId": "55f58145498e528eca034b70"
+},
+-"notifications": [
+-{
+"type": "notificationTray",
+-"item": {
+"unreadCount": 0
+}
+},
+-{
+"type": "plans",
+-"item": {
+"unreadCount": 0
+}
+}
+],
+-"response": {
+-"currentWeek": {
+-"scores": [
+-{
+-"user": {
+"id": "582862",
+"firstName": "Marco",
+"lastName": "Köppel",
+"gender": "male",
+"relationship": "friend",
++"photo": { … }
+},
+"score": 260,
+"ranking": 1
+},
+-{
+-"user": {
+"id": "133215",
+"firstName": "Axel",
+"lastName": "Neuhaus",
+"gender": "male",
+"relationship": "friend",
++"photo": { … }
+},
+"score": 175,
+"ranking": 2
+},
++{ … },
+],
+"showLastWeekLink": true,
+"userIndex": 17,
+"userRank": "18.",
+"bodyCopy": "Deine Rangliste wird am Sonntag um Mitternacht aktualisiert und die besten 10 erhalten Bonus-Coins. Letzte Woche hast du es bis auf den 10. Platz geschafft.",
+"state": "open",
+"endDate": 1442231999,
+"payoutDate": 1441696810,
+"payoutSpots": 10
+},
+-"previousWeek": {
++"scores": [ … ],
+"userIndex": 9,
+"userRank": "10.",
+"bodyCopy": "Super! Letzte Woche hast du es bis auf den 10. Platz geschafft und damit 5 Bonus-Coins verdient!",
+"state": "closed",
+"endDate": 1441627199,
+"payoutDate": 1441696810,
+"payoutSpots": 10,
+"payoutAmount": 5,
+"payoutCopy": "Hey, die Ergebnisse der letzten Woche sind da! Du hast den 10. Platz belegt! Schlag die Piñata, um deinen Bonus zu erhalten!",
++"shareText": { … }
+}
+}
+}
 
 
 https://api.foursquare.com:443/v2/activities/recent?beforeMarker=558eaf3c498ebd4dba347578&limit=20&attachmentsLimit=4&idealLimit=3&earliestAttachments=false&ll=49.86171121%2C8.642986170000002&llAcc=60.0&uniqueDevice=54c09994498ebaf11d65b6f7&oauth_token=VANAZZM3CNO0M1IGPEGIISOWRL4D5YWE45JAHDZPLE2INB1G&v=20150623&wsid=1afaccea-d5c7-4626-b8ec-61478d76699e&metrics=n%2CMainActivity&csid=59&m=swarm

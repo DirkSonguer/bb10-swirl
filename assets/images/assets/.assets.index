@@ -1,5 +1,5 @@
 1
-139
+140
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -102,6 +102,7 @@ images/icons/icon_twitter_inactive.png
 images/icons/icon_unliked_w.png
 images/icons/icon_world.png
 main.qml
+pages/AchievementsPage.qml
 pages/AddCheckinPage.qml
 pages/CheckinDetailPage.qml
 pages/CheckinHistoryPage.qml

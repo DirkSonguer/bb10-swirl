@@ -25,16 +25,21 @@ Container {
 
     // signal that score data has been clicked
     signal scoreClicked()
+    
+    property bool listUsage: true;
 
-    // property for the icon image, given as url
+    // property for the score icon image, given as url
     property alias icon: scoreIconImage.url
 
-    // property for the user profile image, given as url
+    // property for the score message
     property alias message: scoreMessage.text
 
-    // property for the user profile image, given as url
+    // property for the score message style
+    property alias messageStyle: scoreMessage.textStyle
+
+    // property for the score points
     property alias points: scorePoints.text
-    
+
     // hand over preferred width to subcontainers
     onPreferredWidthChanged: {
         scoreMessage.preferredWidth = (preferredWidth - ui.sdu(34));
@@ -85,11 +90,6 @@ Container {
         // layout definition
         horizontalAlignment: HorizontalAlignment.Left
         verticalAlignment: VerticalAlignment.Center
-        leftPadding: ui.sdu(1)
-
-        // size
-        // preferredWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
-        // minWidth: (scoreItemComponent.preferredWidth - ui.sdu(30))
 
         // text style definition
         textStyle.base: SystemDefaults.TextStyles.SubtitleText
@@ -97,6 +97,22 @@ Container {
         textStyle.fontSize: FontSize.Small
         textStyle.textAlign: TextAlign.Left
         multiline: true
+
+        // layout update handler to calculate height
+        attachedObjects: [
+            LayoutUpdateHandler {
+                id: layoutUpdate
+
+                onLayoutFrameChanged: {
+                    if (scoreItemComponent.listUsage) {
+                        var currentCalculatedHeight = layoutFrame.height + ui.sdu(4);
+                        if (currentCalculatedHeight < ui.sdu(12)) currentCalculatedHeight = ui.sdu(13);
+                        console.log("# Height to add: " + currentCalculatedHeight + " for comment " + scoreMessage.text);
+                        Qt.scoreListHeightChanged(currentCalculatedHeight);
+                    }
+                }
+            }
+        ]
     }
 
     // user name label

@@ -1,3 +1,9 @@
+v 1.9.0
+---------
+
+* Changed: Add checkin button is now a signature action
+
+
 v 1.8.0
 ---------
 
@@ -5,7 +11,7 @@ v 1.8.0
 * Added: Check-in history for users
 * Added: Sticker overview page
 * Added: Mayorships overview page
-* Added: Loading additional items if availabe on list bottom
+* Added: Loading additional items if available on list bottom
 * Changed: Improved search when checking into venues
 
 

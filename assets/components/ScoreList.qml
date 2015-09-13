@@ -26,6 +26,15 @@ Container {
     // signal if item was clicked
     signal itemClicked(variant scoreData)
 
+    // property to calculate height for
+    property int calculatedHeight: 0
+    signal addToCalculatedHeight(int newHeight)
+    onAddToCalculatedHeight: {
+        scoreListComponent.calculatedHeight += newHeight;
+        scoreListComponent.preferredHeight = scoreListComponent.calculatedHeight;
+        console.log("# Adding height: " + newHeight + ", total height is now: " + scoreListComponent.calculatedHeight);
+    }
+
     // property that holds the current index
     // this is incremented as new items are added
     // to the list a provides the order the items were
@@ -59,6 +68,7 @@ Container {
     onCreationCompleted: {
         Qt.scoreListFullDisplaySize = DisplayInfo.width;
         Qt.scoreListItemClicked = scoreListComponent.itemClicked;
+        Qt.scoreListHeightChanged = scoreListComponent.addToCalculatedHeight;
     }
 
     // layout orientation
@@ -105,7 +115,7 @@ Container {
                         
                         icon: ListItemData.scoreData.image
                         message: ListItemData.scoreData.message
-                        points: "+" + ListItemData.scoreData.points + " points"
+                        points: "+" + ListItemData.scoreData.points + " coins"
 
                         onScoreClicked: {
                             // send item clicked event
