@@ -504,6 +504,23 @@ NavigationPane {
                     var profilePage = profileComponent.createObject();
                     navigationPane.push(profilePage);
                 }
+            },
+            ActionItem {
+                id: achievementPageAction
+
+                // title and image
+                title: "Achievements"
+                imageSource: "asset:///images/icons/icon_mayor.png"
+
+                // action position
+                ActionBar.placement: ActionBarPlacement.OnBar
+
+                // action
+                onTriggered: {
+                    // console.log("# Achievement action clicked");
+                    var achievementsPage = achievementsComponent.createObject();
+                    navigationPane.push(achievementsPage);
+                }
             }
         ]
     }
@@ -655,6 +672,12 @@ NavigationPane {
         ComponentDefinition {
             id: profileComponent
             source: "pages/ProfilePage.qml"
+        },
+        // user achievements page
+        // will be called if user clicks on achievements tile
+        ComponentDefinition {
+            id: achievementsComponent
+            source: "pages/AchievementsPage.qml"
         },
         // search venue page
         // will be called if user clicks on add checkin action

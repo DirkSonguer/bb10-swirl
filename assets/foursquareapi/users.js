@@ -15,7 +15,7 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "classes/configurationhandler.js");
 	Qt.include(dirPaths.assetPath + "classes/networkhandler.js");
 	Qt.include(dirPaths.assetPath + "foursquareapi/transformators.js");
-//	Qt.include(dirPaths.assetPath + "structures/user.js");
+	// Qt.include(dirPaths.assetPath + "structures/user.js");
 }
 
 // Load the user data for the a given user
@@ -112,7 +112,7 @@ function getCheckinsForUser(userId, beforeTimestamp, callingPage) {
 
 	// check if user is logged in
 	if (!auth.isAuthenticated()) {
-		// console.log("# User not logged in. Aborted loading user checkins");
+		// console.log("# User not logged in. Aborted loading user achievements");
 		return false;
 	}
 
@@ -136,7 +136,7 @@ function getCheckinsForUser(userId, beforeTimestamp, callingPage) {
 // Load the achievements for the a given user
 // First parameter is the id of the user to load the data for
 // Second parameter is the calling page, which will receive the
-// userCheckinDataLoaded() signal
+// userAchievementDataLoaded() signal
 function getAchievementsForUser(userId, callingPage) {
 	// console.log("# Loading user achievements");
 
@@ -185,6 +185,65 @@ function getAchievementsForUser(userId, callingPage) {
 	url += "&m=swarm";
 
 	// console.log("# Loading user achievements with url: " + url);
+	req.open("GET", url, true);
+	req.send();
+}
+
+// Load the scoreboard for the a given user
+// First parameter is the id of the user to load the data for
+// Second parameter is the calling page, which will receive the
+// userScoreboardDataLoaded() signal
+function getScoreboardForUser(userId, callingPage) {
+	// console.log("# Loading user scoreboard");
+
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		// this handles the result for each ready state
+		var jsonObject = network.handleHttpResult(req);
+
+		// jsonObject contains either false or the http result as object
+		if (jsonObject) {
+			// console.log("# User scoreboard object received. Transforming.");
+
+			// prepare transformator and return object
+			var scoreboardTransformator = new ScoreboardTransformator();
+			var scoreboardData = scoreboardTransformator.getScoreboardDataFromArray(jsonObject.response.currentWeek.scores);
+			
+			var scoreboardMetadata = {};
+			scoreboardMetadata['userRank'] = jsonObject.response.currentWeek.userRank;
+			scoreboardMetadata['bodyCopy'] = jsonObject.response.currentWeek.bodyCopy;
+
+			// console.log("# Done loading scoreboard data");
+			callingPage.userScoreboardDataLoaded(scoreboardData, scoreboardMetadata);
+		} else {
+			// either the request is not done yet or an error occured
+			// check for both and act accordingly
+			// found error will be handed over to the calling page
+			if ((network.requestIsFinished) && (network.errorData.errorCode != "")) {
+				// console.log("# Error found with code " +
+				// network.errorData.errorCode + " and message " +
+				// network.errorData.errorMessage);
+				callingPage.userScoreboardDataError(network.errorData);
+				network.clearErrors();
+			}
+		}
+	};
+
+	// check if user is logged in
+	if (!auth.isAuthenticated()) {
+		// console.log("# User not logged in. Aborted loading user scoreboard");
+		return false;
+	}
+
+	var url = "";
+	var foursquareUserdata = auth.getStoredFoursquareData();
+	url = foursquarekeys.foursquareAPIUrl + "/v2/users";
+	url += "/" + userId + "/scoreboard";
+	url += "?oauth_token=" + foursquareUserdata["access_token"];
+	url += "&v=" + foursquarekeys.foursquareAPIVersion;
+	url += "&m=swarm";
+
+	// console.log("# Loading user scoreboard with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }

@@ -38,6 +38,12 @@ Page {
     // signal if sticker data loading encountered an error
     signal userStickerDataError(variant errorData)
 
+    // signal if scoreboard data loading is complete
+    signal userScoreboardDataLoaded(variant scoreboardData, variant scoreboardMetadata);
+
+    // signal if scoreboard data loading encountered an error
+    signal userScoreboardDataError(variant errorData)
+
     // main content container
     Container {
         // layout orientation
@@ -65,52 +71,9 @@ Page {
                 orientation: LayoutOrientation.TopToBottom
             }
 
-            // Create a SegmentedControl with three options
-            SegmentedControl {
-                Option {
-                    id: optionMayorships
-                    text: "Mayorships"
-                    selected: true
-                }
-                
-                Option {
-                    id: optionStickers
-                    text: "Stickers"
-                }
-                
-                Option {
-                    id: optionScoreboard
-                    text: "Scoreboard"
-                }
-                
-                onSelectedOptionChanged: {
-                    mayorshipList.visible = false;
-                    stickerList.visible = false;
-                    if (selectedOption == optionMayorships) {
-                        // load the user checkin data
-                        UsersRepository.getAchievementsForUser("self", achievementPage);
-                        
-                        // show loader
-                        loadingIndicator.showLoader(Copytext.swirlLoaderMayorships);                        
-                    }
-                    
-                    if (selectedOption == optionStickers) {
-                        // load sticker data for current user
-                        StickerRepository.getStickersForUser("self", achievementPage);
-                        
-                        // show loader
-                        loadingIndicator.showLoader(Copytext.swirlLoaderStickerData);                        
-                    }
-                    
-                    // When the selected option changes, output the
-                    // selection to the console
-                    console.debug("The selected option is " + selectedOption)
-                }
-            }
-            
             // checkin list
             // this will contain all the components and actions
-            // for the checkin list
+            // for the sticker list
             StickerList {
                 id: stickerList
 
@@ -140,7 +103,7 @@ Page {
 
             // checkin list
             // this will contain all the components and actions
-            // for the checkin list
+            // for the mayorship list
             MayorshipList {
                 id: mayorshipList
 
@@ -156,6 +119,26 @@ Page {
                     navigationPane.push(venueDetailPage);
                 }
             }
+
+            // score list
+            // this will contain all the components and actions
+            // for the score list
+            ScoreboardList {
+                id: scoreboardList
+
+                // set initial visibility to false
+                // will be set true if data has been loaded
+                visible: false
+
+                // scoreboard was clicked
+                onItemClicked: {
+                    // console.log("# Scoreboard clicked: " + scoreboardData.user.fullName);
+                    var userDetailPage = userDetailComponent.createObject();
+                    userDetailPage.userData = scoreboardData.user;
+                    navigationPane.push(userDetailPage);
+                }
+            }
+
         }
 
         Container {
@@ -166,7 +149,8 @@ Page {
             horizontalAlignment: HorizontalAlignment.Center
             preferredWidth: DisplayInfo.width
             background: Color.create(Globals.blackberryStandardBlue)
-            bottomPadding: 1
+            topPadding: 2
+            bottomPadding: 2
 
             // set initial visibility to false
             // will be set true if content needs to be shown
@@ -196,11 +180,11 @@ Page {
     onCreationCompleted: {
         // console.log("# Creation of achievement page finished");
 
-        // load the user checkin data
-        UsersRepository.getAchievementsForUser("self", achievementPage);
-        
+        // load scoreboard data for current user
+        UsersRepository.getScoreboardForUser("self", achievementPage);
+
         // show loader
-        loadingIndicator.showLoader(Copytext.swirlLoaderMayorships);                        
+        loadingIndicator.showLoader(Copytext.swirlLoaderMayorships);
     }
 
     // user sticker data loaded and transformed
@@ -234,18 +218,18 @@ Page {
         // show error message
         infoMessage.showMessage(errorData.errorMessage, "Could not load user achievements");
     }
-    
+
     // user checkin data loaded and transformed
     // data is stored in "checkinData" variant as array of type FoursquareAchievementData
     onUserAchievementDataLoaded: {
         // console.log("# Checkin data loaded. Found " + mayorshipData.length + " mayorships and " + contendingMayorshipData.length + " contending");
-        
+
         // hide loader
         loadingIndicator.hideLoader();
-        
+
         // initially clear list
         mayorshipList.clearList();
-        
+
         // fill mayorhip list
         if (mayorshipData.length > 0) {
             // iterate through data objects
@@ -253,7 +237,7 @@ Page {
                 mayorshipList.addToList(mayorshipData[index], Copytext.swirlMayorshipsListText);
             }
         }
-        
+
         // fill mayorship contestants list
         if (contendingMayorshipData.length > 0) {
             // iterate through data objects
@@ -261,20 +245,130 @@ Page {
                 mayorshipList.addToList(contendingMayorshipData[index], Copytext.swirlMayorshipsContendingText);
             }
         }
-        
+
         // show list
         mayorshipList.visible = true;
     }
-    
+
     // user checkin data could not be load
     onUserAchievementDataError: {
         // hide loader
         loadingIndicator.hideLoader();
-        
+
         // show error message
         infoMessage.showMessage(errorData.errorMessage, "Could not load user achievements");
     }
-    
+
+    // user scoreboard data loaded and transformed
+    // data is stored in "scoreboardData" variant as array of type FoursquareAchievementData
+    onUserScoreboardDataLoaded: {
+        // console.log("# Scoreboard data loaded. Found " + scoreboardData.length + " scoreboard entries");
+
+        // hide loader
+        loadingIndicator.hideLoader();
+
+        // initially clear list
+        scoreboardList.clearList();
+
+        // add meta data
+        scoreboardList.userRank = "You're currently " + scoreboardMetadata.userRank + ".";
+        scoreboardList.bodyCopy = scoreboardMetadata.bodyCopy;
+
+        // fill mayorhip list
+        if (scoreboardData.length > 0) {
+            // iterate through data objects
+            for (var index in scoreboardData) {
+                scoreboardList.addToList(scoreboardData[index]);
+                // console.log("# " + scoreboardData[index].user.fullName);
+            }
+        }
+
+        // show list
+        scoreboardList.visible = true;
+    }
+
+    // user checkin data could not be load
+    onUserScoreboardDataError: {
+        // hide loader
+        loadingIndicator.hideLoader();
+
+        // show error message
+        infoMessage.showMessage(errorData.errorMessage, "Could not load user scoreboard");
+    }
+
+    // main page action menu bar (bottom menu)
+    actions: [
+        ActionItem {
+            id: showScoreboardAction
+
+            // title and image
+            title: "Scoreboard"
+            imageSource: "asset:///images/icons/icon_star.png"
+
+            // action position
+            ActionBar.placement: ActionBarPlacement.Signature
+
+            // action
+            onTriggered: {
+                mayorshipList.visible = false;
+                stickerList.visible = false;
+                scoreboardList.visible = false;
+
+                // load scoreboard data for current user
+                UsersRepository.getScoreboardForUser("self", achievementPage);
+
+                // show loader
+                loadingIndicator.showLoader(Copytext.swirlLoaderScoreboardData);
+            }
+        },
+        ActionItem {
+            id: showMayorshipsAction
+
+            // title and image
+            title: "Mayorships"
+            imageSource: "asset:///images/icons/icon_mayor.png"
+
+            // action position
+            ActionBar.placement: ActionBarPlacement.OnBar
+
+            // action
+            onTriggered: {
+                mayorshipList.visible = false;
+                stickerList.visible = false;
+                scoreboardList.visible = false;
+
+                // load the user checkin data
+                UsersRepository.getAchievementsForUser("self", achievementPage);
+
+                // show loader
+                loadingIndicator.showLoader(Copytext.swirlLoaderMayorships);
+            }
+        },
+        ActionItem {
+            id: showStickersAction
+
+            // title and image
+            title: "Stickers"
+            imageSource: "asset:///images/icons/icon_stickers.png"
+
+            // action position
+            ActionBar.placement: ActionBarPlacement.OnBar
+
+            // action
+            onTriggered: {
+                mayorshipList.visible = false;
+                stickerList.visible = false;
+                scoreboardList.visible = false;
+
+                // load sticker data for current user
+                StickerRepository.getStickersForUser("self", achievementPage);
+
+                // show loader
+                loadingIndicator.showLoader(Copytext.swirlLoaderStickerData);
+            }
+        }
+    ]
+
     // attach components
     attachedObjects: [
         // checkin detail page
@@ -282,6 +376,12 @@ Page {
         ComponentDefinition {
             id: checkinDetailComponent
             source: "CheckinDetailPage.qml"
+        },
+        // user detail page
+        // will be called if user clicks on user item
+        ComponentDefinition {
+            id: userDetailComponent
+            source: "UserDetailPage.qml"
         },
         // timer component
         // used to show / hide sticker info

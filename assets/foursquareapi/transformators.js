@@ -24,12 +24,63 @@ if (typeof dirPaths !== "undefined") {
 	Qt.include(dirPaths.assetPath + "structures/photo.js");
 	Qt.include(dirPaths.assetPath + "structures/reason.js");
 	Qt.include(dirPaths.assetPath + "structures/score.js");
+	Qt.include(dirPaths.assetPath + "structures/scoreboard.js");
 	Qt.include(dirPaths.assetPath + "structures/sticker.js");
 	Qt.include(dirPaths.assetPath + "structures/update.js");
 	Qt.include(dirPaths.assetPath + "structures/user.js");
 	Qt.include(dirPaths.assetPath + "structures/venue.js");
 }
 
+// *************************************************** //
+// Scoreboard Transformator
+// *************************************************** //
+var scoreboardTransformator = new ScoreboardTransformator();
+
+// Class function that gets the prototype methods
+function ScoreboardTransformator() {
+}
+
+// Extract all scoreboard data from a scoreboard object
+// The resulting data is stored as FoursquareScoreboardData()
+ScoreboardTransformator.prototype.getScoreboardDataFromObject = function(scoreboardObject) {
+	// console.log("# Transforming scoreboard item for user summary: " + scoreboardObject.user.firstName);
+
+	// create new data object
+	var scoreboardData = new FoursquareScoreboardData();
+
+	// score and rankingÏ
+	scoreboardData.score = scoreboardObject.score;
+	scoreboardData.ranking = scoreboardObject.ranking;
+
+	// general user information
+	// this is stored as FoursquareUserData()
+	if (typeof scoreboardObject.user !== "undefined") {
+		scoreboardData.user = userTransformator.getUserDataFromObject(scoreboardObject.user);
+	}
+
+	// console.log("# Done transforming scoreboard item: " + scoreboardData.user.fullName);
+	return scoreboardData;
+};
+
+// Extract all scoreboard data from an array of scoreboard objects
+// The resulting data is stored as array of FoursquareScoreboardData()
+ScoreboardTransformator.prototype.getScoreboardDataFromArray = function(scoreboardObjectArray) {
+	// console.log("# Transforming scoreboard array with " + scoreboardObjectArray.length + " items");
+
+	// create new return array
+	var scoreboardDataArray = new Array();
+
+	// iterate through all checkin items
+	for ( var index in scoreboardObjectArray) {
+		// get checkin data item and store it into return array
+		var scoreboardData = new FoursquareScoreboardData();
+		scoreboardData = this.getScoreboardDataFromObject(scoreboardObjectArray[index]);
+		scoreboardDataArray[index] = scoreboardData;
+	}
+
+	// console.log("# Done transforming scoreboard array");
+	return scoreboardDataArray;
+};
 // *************************************************** //
 // Achievement Transformator
 // *************************************************** //

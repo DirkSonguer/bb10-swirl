@@ -172,28 +172,6 @@ Page {
                         navigationPane.push(checkinHistoryPage);
                     }
                 }
-
-                // achievements tile
-                InfoTile {
-                    id: profileAchievementsTile
-
-                    // layout definition
-                    backgroundColor: Color.create(Globals.blackberryStandardBlue)
-                    preferredHeight: DisplayInfo.width / profilePage.columnCount
-                    preferredWidth: DisplayInfo.width / profilePage.columnCount
-
-                    // set icon & label
-                    localImage: "asset:///images/icons/icon_mayor.png"
-                    imageScaling: ScalingMethod.None
-                    headline: "Achievements"
-
-                    // call achievements page
-                    onClicked: {
-                        // console.log("# Achievement tile clicked");
-                        var achievementsPage = achievementsComponent.createObject();
-                        navigationPane.push(achievementsPage);
-                    }
-                }
             }
 
             // standard loading indicator
@@ -310,12 +288,6 @@ Page {
         ComponentDefinition {
             id: checkinHistoryComponent
             source: "CheckinHistoryPage.qml"
-        },
-        // user achievements page
-        // will be called if user clicks on achievements tile
-        ComponentDefinition {
-            id: achievementsComponent
-            source: "AchievementsPage.qml"
         },
         // checkin detail page
         // will be called if user clicks on checkin item

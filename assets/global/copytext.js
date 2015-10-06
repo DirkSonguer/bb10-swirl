@@ -19,6 +19,7 @@ var swirlLoaderComments = "Loading comments";
 var swirlLoaderCheckins = "Loading check-ins";
 var swirlLoaderFriendData = "Loading friend data";
 var swirlLoaderStickerData = "Loading sticker data";
+var swirlLoaderScoreboardData = "Loading scoreboard data";
 var swirlLoaderUpdates = "Loading your updates";
 var swirlLoaderLogin = "Loading login process";
 var swirlLoaderMayorships = "Loading mayorship data";

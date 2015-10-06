@@ -69,6 +69,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/RelationshipTile.qml) \
         $$quote($$BASEDIR/assets/components/ScoreItem.qml) \
         $$quote($$BASEDIR/assets/components/ScoreList.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreListHeader.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreboardList.qml) \
         $$quote($$BASEDIR/assets/components/SearchHeader.qml) \
         $$quote($$BASEDIR/assets/components/SearchInput.qml) \
         $$quote($$BASEDIR/assets/components/StickerItem.qml) \
@@ -130,6 +132,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_search_dimmed.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_settings.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sms_w.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_star.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_sticker_inactive.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_stickers.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_twitter_active.png) \
@@ -170,6 +173,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/structures/photo.js) \
         $$quote($$BASEDIR/assets/structures/reason.js) \
         $$quote($$BASEDIR/assets/structures/score.js) \
+        $$quote($$BASEDIR/assets/structures/scoreboard.js) \
         $$quote($$BASEDIR/assets/structures/sticker.js) \
         $$quote($$BASEDIR/assets/structures/update.js) \
         $$quote($$BASEDIR/assets/structures/user.js) \

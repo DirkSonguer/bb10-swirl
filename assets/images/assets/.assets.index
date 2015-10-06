@@ -1,5 +1,5 @@
 1
-140
+142
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -31,8 +31,10 @@ components/MayorshipItem.qml
 components/MayorshipList.qml
 components/RefreshHeader.qml
 components/RelationshipTile.qml
+components/ScoreboardList.qml
 components/ScoreItem.qml
 components/ScoreList.qml
+components/ScoreListHeader.qml
 components/SearchHeader.qml
 components/SearchInput.qml
 components/StickerItem.qml
@@ -94,6 +96,7 @@ images/icons/icon_search.png
 images/icons/icon_search_dimmed.png
 images/icons/icon_settings.png
 images/icons/icon_sms_w.png
+images/icons/icon_star.png
 images/icons/icon_sticker_inactive.png
 images/icons/icon_stickers.png
 images/icons/icon_twitter_active.png
@@ -108,11 +111,9 @@ pages/CheckinDetailPage.qml
 pages/CheckinHistoryPage.qml
 pages/CommentDetailPage.qml
 pages/FriendsPage.qml
-pages/MayorshipsPage.qml
 pages/PhotoGalleryPage.qml
 pages/ProfilePage.qml
 pages/SearchVenuePage.qml
-pages/StickerPage.qml
 pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
@@ -136,6 +137,7 @@ structures/notification.js
 structures/photo.js
 structures/reason.js
 structures/score.js
+structures/scoreboard.js
 structures/sticker.js
 structures/update.js
 structures/user.js
