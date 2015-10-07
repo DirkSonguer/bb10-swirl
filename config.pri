@@ -123,6 +123,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_notification_available.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_ok.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_ok_color.png) \
+        $$quote($$BASEDIR/assets/images/icons/icon_previous.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_profile.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_public_active.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_public_inactive.png) \
@@ -141,7 +142,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icons/icon_unliked_w.png) \
         $$quote($$BASEDIR/assets/images/icons/icon_world.png) \
         $$quote($$BASEDIR/assets/main.qml) \
-        $$quote($$BASEDIR/assets/pages/AchievementsPage.qml) \
         $$quote($$BASEDIR/assets/pages/AddCheckinPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/CheckinHistoryPage.qml) \
@@ -154,6 +154,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/UserDetailPage.qml) \
         $$quote($$BASEDIR/assets/pages/VenueDetailPage.qml) \
         $$quote($$BASEDIR/assets/sheets/About.qml) \
+        $$quote($$BASEDIR/assets/sheets/Achievements.qml) \
         $$quote($$BASEDIR/assets/sheets/AddCheckinFriends.qml) \
         $$quote($$BASEDIR/assets/sheets/AddCheckinSticker.qml) \
         $$quote($$BASEDIR/assets/sheets/AdvancedVenueSearch.qml) \

@@ -517,9 +517,14 @@ NavigationPane {
 
                 // action
                 onTriggered: {
+                    // create achievement sheet
+                    var achievementSheetPage = achievementsComponent.createObject();
+                    achievementSheet.setContent(achievementSheetPage);
+                    achievementSheet.open();
+
                     // console.log("# Achievement action clicked");
-                    var achievementsPage = achievementsComponent.createObject();
-                    navigationPane.push(achievementsPage);
+                    // var achievementsPage = achievementsComponent.createObject();
+                    // navigationPane.push(achievementsPage);
                 }
             }
         ]
@@ -637,6 +642,19 @@ NavigationPane {
                 }
             ]
         },
+        // sheet for settings page
+        // this is used by the main menu
+        Sheet {
+            id: achievementSheet
+            
+            // attach a component for the settings page
+            attachedObjects: [
+                ComponentDefinition {
+                    id: achievementsComponent
+                    source: "sheets/Achievements.qml"
+                }
+            ]
+        },
         // default scene cover
         SceneCover {
             id: recentCheckinCover
@@ -672,12 +690,6 @@ NavigationPane {
         ComponentDefinition {
             id: profileComponent
             source: "pages/ProfilePage.qml"
-        },
-        // user achievements page
-        // will be called if user clicks on achievements tile
-        ComponentDefinition {
-            id: achievementsComponent
-            source: "pages/AchievementsPage.qml"
         },
         // search venue page
         // will be called if user clicks on add checkin action

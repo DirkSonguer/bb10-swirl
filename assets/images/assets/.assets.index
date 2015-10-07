@@ -1,5 +1,5 @@
 1
-142
+143
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -87,6 +87,7 @@ images/icons/icon_notification.png
 images/icons/icon_notification_available.png
 images/icons/icon_ok.png
 images/icons/icon_ok_color.png
+images/icons/icon_previous.png
 images/icons/icon_profile.png
 images/icons/icon_public_active.png
 images/icons/icon_public_inactive.png
@@ -105,7 +106,6 @@ images/icons/icon_twitter_inactive.png
 images/icons/icon_unliked_w.png
 images/icons/icon_world.png
 main.qml
-pages/AchievementsPage.qml
 pages/AddCheckinPage.qml
 pages/CheckinDetailPage.qml
 pages/CheckinHistoryPage.qml
@@ -118,6 +118,7 @@ pages/UpdatesPage.qml
 pages/UserDetailPage.qml
 pages/VenueDetailPage.qml
 sheets/About.qml
+sheets/Achievements.qml
 sheets/AddCheckinFriends.qml
 sheets/AddCheckinSticker.qml
 sheets/AdvancedVenueSearch.qml
