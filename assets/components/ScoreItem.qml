@@ -105,9 +105,9 @@ Container {
 
                 onLayoutFrameChanged: {
                     if (scoreItemComponent.listUsage) {
-                        var currentCalculatedHeight = layoutFrame.height + ui.sdu(4);
+                        var currentCalculatedHeight = layoutFrame.height + ui.sdu(4.5);
                         if (currentCalculatedHeight < ui.sdu(12)) currentCalculatedHeight = ui.sdu(13);
-                        console.log("# Height to add: " + currentCalculatedHeight + " for comment " + scoreMessage.text);
+                        // console.log("# Height to add: " + currentCalculatedHeight + " for comment " + scoreMessage.text);
                         Qt.scoreListHeightChanged(currentCalculatedHeight);
                     }
                 }

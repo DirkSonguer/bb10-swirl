@@ -536,18 +536,6 @@ NavigationPane {
 
         // application menu items
         actions: [
-            // action for rating the app
-            ActionItem {
-                id: mainMenuAbout
-                title: "About"
-                imageSource: "asset:///images/icons/icon_about.png"
-                onTriggered: {
-                    // create about sheet
-                    var aboutSheetPage = aboutComponent.createObject();
-                    aboutSheet.setContent(aboutSheetPage);
-                    aboutSheet.open();
-                }
-            },
             ActionItem {
                 id: mainMenuLogout
                 title: "Logout"
@@ -555,20 +543,11 @@ NavigationPane {
                 onTriggered: {
                     // delete the foursquare tokens from the database
                     Authentication.auth.deleteStoredFoursquareData();
-
+                    
                     // create logout sheet
                     var logoutSheetPage = logoutComponent.createObject();
                     logoutSheet.setContent(logoutSheetPage);
                     logoutSheet.open();
-                }
-            },
-            // action for rate sheet
-            ActionItem {
-                id: mainMenuRate
-                title: "Update & Rate"
-                imageSource: "asset:///images/icons/icon_bbworld.png"
-                onTriggered: {
-                    rateAppLink.trigger("bb.action.OPEN");
                 }
             },
             // action for app settings
@@ -581,6 +560,27 @@ NavigationPane {
                     var settingsSheetPage = settingsComponent.createObject();
                     settingsSheet.setContent(settingsSheetPage);
                     settingsSheet.open();
+                }
+            },
+            // action for rating the app
+            ActionItem {
+                id: mainMenuAbout
+                title: "About"
+                imageSource: "asset:///images/icons/icon_about.png"
+                onTriggered: {
+                    // create about sheet
+                    var aboutSheetPage = aboutComponent.createObject();
+                    aboutSheet.setContent(aboutSheetPage);
+                    aboutSheet.open();
+                }
+            },
+            // action for rate sheet
+            ActionItem {
+                id: mainMenuRate
+                title: "Update & Rate"
+                imageSource: "asset:///images/icons/icon_bbworld.png"
+                onTriggered: {
+                    rateAppLink.trigger("bb.action.OPEN");
                 }
             }
         ]
@@ -646,7 +646,7 @@ NavigationPane {
         // this is used by the main menu
         Sheet {
             id: achievementSheet
-            
+
             // attach a component for the settings page
             attachedObjects: [
                 ComponentDefinition {

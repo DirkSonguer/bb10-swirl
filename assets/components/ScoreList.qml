@@ -32,7 +32,7 @@ Container {
     onAddToCalculatedHeight: {
         scoreListComponent.calculatedHeight += newHeight;
         scoreListComponent.preferredHeight = scoreListComponent.calculatedHeight;
-        console.log("# Adding height: " + newHeight + ", total height is now: " + scoreListComponent.calculatedHeight);
+        // console.log("# Adding height: " + newHeight + ", total height is now: " + scoreListComponent.calculatedHeight);
     }
 
     // property that holds the current index

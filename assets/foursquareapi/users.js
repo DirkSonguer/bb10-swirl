@@ -243,7 +243,7 @@ function getScoreboardForUser(userId, callingPage) {
 	url += "&v=" + foursquarekeys.foursquareAPIVersion;
 	url += "&m=swarm";
 
-	console.log("# Loading user scoreboard with url: " + url);
+	// console.log("# Loading user scoreboard with url: " + url);
 	req.open("GET", url, true);
 	req.send();
 }
