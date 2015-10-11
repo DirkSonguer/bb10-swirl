@@ -4,7 +4,8 @@
 // This component acts as header for the score list.
 //
 // Author: Dirk Songuer
-// License: All rights reserved
+// License: CC BY-NC 3.0
+// License: https://creativecommons.org/licenses/by-nc/3.0
 // *************************************************** //
 
 // import blackberry components

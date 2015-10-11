@@ -4,7 +4,8 @@
 // This structure holds metadata related to a checkin
 //
 // Author: Dirk Songuer
-// License: All rights reserved
+// License: CC BY-NC 3.0
+// License: https://creativecommons.org/licenses/by-nc/3.0
 // *************************************************** //
 
 if (typeof dirPaths !== "undefined") {
