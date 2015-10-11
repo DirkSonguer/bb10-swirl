@@ -289,6 +289,7 @@ NavigationPane {
                 // create and open login sheet
                 var loginSheetPage = loginComponent.createObject();
                 loginSheet.setContent(loginSheetPage);
+                loginSheet.peekEnabled = false;
                 loginSheet.open();
             }
         }
@@ -520,6 +521,7 @@ NavigationPane {
                     // create achievement sheet
                     var achievementSheetPage = achievementsComponent.createObject();
                     achievementSheet.setContent(achievementSheetPage);
+                    achievementSheet.peekEnabled = false;
                     achievementSheet.open();
 
                     // console.log("# Achievement action clicked");
@@ -547,6 +549,7 @@ NavigationPane {
                     // create logout sheet
                     var logoutSheetPage = logoutComponent.createObject();
                     logoutSheet.setContent(logoutSheetPage);
+                    logoutSheet.peekEnabled = false;
                     logoutSheet.open();
                 }
             },
@@ -559,6 +562,7 @@ NavigationPane {
                     // create settings sheet
                     var settingsSheetPage = settingsComponent.createObject();
                     settingsSheet.setContent(settingsSheetPage);
+                    settingsSheet.peekEnabled = false;
                     settingsSheet.open();
                 }
             },
@@ -571,6 +575,7 @@ NavigationPane {
                     // create about sheet
                     var aboutSheetPage = aboutComponent.createObject();
                     aboutSheet.setContent(aboutSheetPage);
+                    aboutSheet.peekEnabled = false;
                     aboutSheet.open();
                 }
             },

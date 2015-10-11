@@ -135,6 +135,25 @@ Container {
 
                         // the actual caption text
                         Label {
+                            id: imageGalleryCheckin
+
+                            // text style definition
+                            textStyle.base: SystemDefaults.TextStyles.BodyText
+                            textStyle.fontWeight: FontWeight.W100
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle.fontSize: FontSize.Medium
+                            textStyle.color: Color.White
+                            textStyle.fontStyle: FontStyle.Italic
+                            multiline: true
+
+                            // caption text
+                            // note that we use the update flag to initially build the caption string
+                            // based on available data
+                            text: ListItemData.imageData.checkin.shout
+                        }
+
+                        // the actual caption text
+                        Label {
                             id: imageGalleryCaption
 
                             property string updateFlag
@@ -143,7 +162,7 @@ Container {
                             textStyle.base: SystemDefaults.TextStyles.BodyText
                             textStyle.fontWeight: FontWeight.W100
                             textStyle.textAlign: TextAlign.Left
-                            textStyle.fontSize: FontSize.Medium
+                            textStyle.fontSize: FontSize.Small
                             textStyle.color: Color.White
                             multiline: true
 

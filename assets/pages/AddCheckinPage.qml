@@ -257,6 +257,7 @@ Page {
                                 var addStickerPage = addStickerComponent.createObject();
                                 addStickerPage.callingPage = addCheckinPage;
                                 addStickerSheet.setContent(addStickerPage);
+                                addStickerSheet.peekEnabled = false;
                                 addStickerSheet.open();
                             }
                         }
@@ -290,6 +291,7 @@ Page {
                                 addFriendPage.callingPage = addCheckinPage;
                                 addFriendPage.initiallySelected = addCheckinPage.addFriendList;
                                 addFriendSheet.setContent(addFriendPage);
+                                addFriendSheet.peekEnabled = false;
                                 addFriendSheet.open();
                             }
                         }

@@ -200,6 +200,7 @@ Page {
                 // create advanced search sheet
                 var advancedSearchSheetPage = advancedSearchComponent.createObject();
                 advancedSearchSheet.setContent(advancedSearchSheetPage);
+                advancedSearchSheet.peekEnabled = false;
                 advancedSearchSheet.open();
             }
         }

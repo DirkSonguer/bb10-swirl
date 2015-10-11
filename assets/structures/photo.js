@@ -39,4 +39,7 @@ function FoursquarePhotoData() {
 	
 	// this is filled by a FoursquareUserData object
 	this.user = "";
+	
+	// this is filled by a FoursquareCheckinData object
+	this.checkin = "";
 }

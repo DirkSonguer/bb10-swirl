@@ -637,6 +637,12 @@ PhotoTransformator.prototype.getPhotoDataFromObject = function(photoObject) {
 		photoData.user = userTransformator.getUserDataFromObject(photoObject.user);
 	}
 
+	// checkin information
+	// this is stored as FoursquareCheckinData()
+	if (typeof photoObject.checkin !== "undefined") {
+		photoData.checkin = checkinTransformator.getCheckinDataFromObject(photoObject.checkin);
+	}
+
 	// console.log("# Done transforming photo item");
 	return photoData;
 };
