@@ -70,6 +70,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/ScoreItem.qml) \
         $$quote($$BASEDIR/assets/components/ScoreList.qml) \
         $$quote($$BASEDIR/assets/components/ScoreListHeader.qml) \
+        $$quote($$BASEDIR/assets/components/ScoreboardItem.qml) \
         $$quote($$BASEDIR/assets/components/ScoreboardList.qml) \
         $$quote($$BASEDIR/assets/components/SearchHeader.qml) \
         $$quote($$BASEDIR/assets/components/SearchInput.qml) \

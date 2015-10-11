@@ -55,7 +55,7 @@ TabbedPane {
     // this is used to mimic the "back" behaviour of BB10
     Tab {
         id: closeTab
-        title: "Close"
+        title: "Back"
         imageSource: "asset:///images/icons/icon_previous.png"
 
         // on trigger just close the sheet
@@ -117,7 +117,7 @@ TabbedPane {
 
                     // scoreboard was clicked
                     onItemClicked: {
-                        // console.log("# Scoreboard clicked: " + scoreboardData.user.fullName);
+                        console.log("# Scoreboard clicked: " + scoreboardData.user.fullName);
                         var userDetailPage = userDetailComponent.createObject();
                         userDetailPage.userData = scoreboardData.user;
                         navigationPane.push(userDetailPage);
@@ -400,8 +400,12 @@ TabbedPane {
         scoreboardList.clearList();
 
         // add meta data
-        scoreboardList.userRank = "You're currently " + scoreboardMetadata.userRank + ".";
         scoreboardList.bodyCopy = scoreboardMetadata.bodyCopy;
+        if (typeof scoreboardMetadata.userRank !== "undefined") {
+            scoreboardList.userRank = "You're currently rank " + scoreboardMetadata.userRank + ".";
+        } else {
+            scoreboardList.userRank = "You have no ranking yet. Time to check in!";
+        }
 
         // fill mayorhip list
         if (scoreboardData.length > 0) {

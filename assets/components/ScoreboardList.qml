@@ -122,22 +122,20 @@ Container {
                     topMargin: 1
                     
                     // the actual score item
-                    UpdateItem {
+                    ScoreboardItem {
                         // layout definition
                         preferredWidth: Qt.scoreboardListFullDisplaySize
                         minWidth: Qt.scoreboardListFullDisplaySize
                         
                         profileImage: ListItemData.scoreboardData.user.profileImageSmall
-                        updateText: ListItemData.scoreboardData.user.fullName
-                        elapsedTime: ListItemData.scoreboardData.score + " coins"
+                        username: ListItemData.scoreboardData.user.fullName
+                        coins: ListItemData.scoreboardData.score + " coins"
+                        ranking: "Rank " + ListItemData.scoreboardData.ranking
 
-                        onUserClicked: {
+                        onItemClicked: {
                             // send item clicked event
-                            Qt.scoreboardListItemClicked(ListItemData.scoreboardData);
-                        }
+                            console.log("# scoreboardItem onItemClicked");
 
-                        onUpdateClicked: {
-                            // send item clicked event
                             Qt.scoreboardListItemClicked(ListItemData.scoreboardData);
                         }
                     }

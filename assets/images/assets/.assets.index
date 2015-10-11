@@ -1,5 +1,5 @@
 1
-143
+144
 classes/authenticationhandler.js
 classes/configurationhandler.js
 classes/helpermethods.js
@@ -31,6 +31,7 @@ components/MayorshipItem.qml
 components/MayorshipList.qml
 components/RefreshHeader.qml
 components/RelationshipTile.qml
+components/ScoreboardItem.qml
 components/ScoreboardList.qml
 components/ScoreItem.qml
 components/ScoreList.qml
