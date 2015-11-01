@@ -19,7 +19,7 @@ var foursquarekeys = new FoursquareKeys();
 function FoursquareKeys()
 {
 	// Foursquare client id
-	this.foursquareClientId = "HBOJXQ2YVFERFGUHBHMS1PIXY2VDX3YYRSFPBYV11H3LLZO5";
+	this.foursquareClientId = "Get one here https://developer.foursquare.com/overview/auth";
 
 	// Foursquare API URL
 	this.foursquareAPIUrl = "https://api.foursquare.com";
